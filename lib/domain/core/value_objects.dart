@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
+import 'package:reminder_app/domain/core/error.dart';
 import 'package:reminder_app/domain/core/failures.dart';
 
 @immutable
@@ -11,6 +12,9 @@ const ValueObject();
 
 bool isValid()=> value.isRight();
 
+T getOrCrash(){
+  return value.fold((f) => throw UnexpectedValueError(f), id);
+}
 
   @override
   bool operator ==(Object other) {
