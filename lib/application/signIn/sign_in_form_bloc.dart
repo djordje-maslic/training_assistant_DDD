@@ -19,10 +19,9 @@ part 'sign_in_form_bloc.freezed.dart';
 class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   final IAuthFacade _iAuthFacade;
 
-  SignInFormBloc(this._iAuthFacade);
+  SignInFormBloc(this._iAuthFacade): super(SignInFormState.initial());
 
-  @override
-  SignInFormState get initialState => SignInFormState.initial();
+
 
   @override
   Stream<SignInFormState> mapEventToState(
