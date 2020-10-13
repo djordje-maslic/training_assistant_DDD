@@ -3,6 +3,8 @@ import 'package:reminder_app/domain/core/failures.dart';
 import 'package:reminder_app/domain/core/value_objects.dart';
 import 'package:reminder_app/domain/core/value_validators.dart';
 
+
+
 class EmailAddress extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;

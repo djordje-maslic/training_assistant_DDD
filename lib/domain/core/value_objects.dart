@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:reminder_app/domain/core/error.dart';
 import 'package:reminder_app/domain/core/failures.dart';
@@ -11,6 +12,10 @@ abstract class ValueObject<T> {
   const ValueObject();
 
   bool isValid() => value.isRight();
+
+  Either<ValueFailure<dynamic>,Unit> get failureOrUnit{
+    return value.fold((f) => left(f), (_) => right(unit));
+  }
 
   T getOrCrash() {
     return value.fold((f) => throw UnexpectedValueError(f), id);
