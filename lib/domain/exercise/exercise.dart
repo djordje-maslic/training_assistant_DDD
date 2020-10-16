@@ -30,14 +30,15 @@ abstract class Exercise implements _$Exercise {
 
   Option<ValueFailure<dynamic>> get failureOption {
     return name.failureOrUnit
-        .andThen(date.failureOrUnit.andThen(seriesNumb.failureOrUnit
-            .andThen(repetitionsList.failureOrUnit)
-            .andThen(repetitionsList
-                .getOrCrash()
-                .map((series) => series.failureOption)
-                .filter((o) => o.isSome())
-                .getOrElse(0, (_) => none())
-                .fold(() => right(unit), (f) => left(f)))))
+        .andThen(date.failureOrUnit)
+        .andThen(seriesNumb.failureOrUnit)
+        .andThen(repetitionsList.failureOrUnit)
+        .andThen(repetitionsList
+            .getOrCrash()
+            .map((series) => series.failureOption)
+            .filter((o) => o.isSome())
+            .getOrElse(0, (_) => none())
+            .fold(() => right(unit), (f) => left(f)))
         .fold((f) => some(f), (_) => none());
   }
 }

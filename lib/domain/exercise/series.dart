@@ -22,5 +22,6 @@ abstract class Series implements _$Series {
 
   Option<ValueFailure<dynamic>> get failureOption{
     return number.value.fold((f) => some(f), (r) => none());
+
   }
 }
