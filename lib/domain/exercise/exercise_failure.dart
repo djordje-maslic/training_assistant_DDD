@@ -5,4 +5,7 @@ part 'exercise_failure.freezed.dart';
 @freezed
 abstract class ExerciseFailure with _$ExerciseFailure {
   const factory ExerciseFailure.unexpected() = _Unexpected;
+
+  const factory ExerciseFailure.insufficientPermission() =
+      _InsufficientPermission;
 }
