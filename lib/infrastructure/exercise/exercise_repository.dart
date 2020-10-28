@@ -22,10 +22,11 @@ class ExerciseRepository implements IExerciseRepository {
     yield* userDocument.exerciseCollection
         .orderBy('serverTimeStamp', descending: true)
         .snapshots()
-        .map((snapshot) =>
-        right<ExerciseFailure, KtList<Exercise>>(snapshot.docs
+        .map((snapshot) => right<ExerciseFailure, KtList<Exercise>>(snapshot
+            .docs
             .map((doc) => ExerciseDto.fromFirestore(doc).toDomain())
-            .toImmutableList())).onErrorReturnWith((e) {
+            .toImmutableList()))
+        .onErrorReturnWith((e) {
       if (e is PlatformException && e.message.contains('PERMISSION_DENIED')) {
         return left(const ExerciseFailure.insufficientPermission());
       } else {
@@ -36,17 +37,19 @@ class ExerciseRepository implements IExerciseRepository {
 
 // TODO: implement search
   @override
-  Stream<Either<ExerciseFailure,
-      KtList<Exercise>>> watchSearchedExercise() async* {
+  Stream<Either<ExerciseFailure, KtList<Exercise>>>
+      watchSearchedExercise() async* {
     final userDocument = await _firebaseFirestore.userDocument();
     yield* userDocument.exerciseCollection
         .orderBy('serverTimeStamp', descending: true)
         .snapshots()
-        .map((snapshot) =>
-        right<ExerciseFailure, KtList<Exercise>>(snapshot.docs
+        .map((snapshot) => right<ExerciseFailure, KtList<Exercise>>(snapshot
+            .docs
             .map((doc) => ExerciseDto.fromFirestore(doc).toDomain())
-            .toImmutableList())).onErrorReturnWith((e) {
-      if (e is PlatformException && e.message.contains('PERMISSION_DENIED')) {
+            .toImmutableList()))
+        .onErrorReturnWith((e) {
+      if (e is PlatformException &&
+          e.message.contains('PERMISSION_DENIED')) {
         return left(const ExerciseFailure.insufficientPermission());
       } else {
         return left(const ExerciseFailure.unexpected());
@@ -55,20 +58,64 @@ class ExerciseRepository implements IExerciseRepository {
   }
 
   @override
-  Future<Either<ExerciseFailure, Unit>> create(Exercise exercise) {
-    // TODO: implement create
-    throw UnimplementedError();
+  Future<Either<ExerciseFailure, Unit>> create(Exercise exercise) async {
+    try {
+      final userDoc = await _firebaseFirestore.userDocument();
+      final exerciseDto = ExerciseDto.fromDomain(exercise);
+
+      await userDoc.exerciseCollection
+          .doc(exerciseDto.id)
+          .set(exerciseDto.toJson());
+
+      return right(unit);
+    } on PlatformException catch (e) {
+      if (e.message.contains('PERMISSION_DENIED')) {
+        return left(const ExerciseFailure.insufficientPermission());
+      } else {
+        return left(const ExerciseFailure.unexpected());
+      }
+    }
   }
 
   @override
-  Future<Either<ExerciseFailure, Unit>> delete(Exercise exercise) {
-    // TODO: implement delete
-    throw UnimplementedError();
+  Future<Either<ExerciseFailure, Unit>> update(Exercise exercise) async {
+    try {
+      final userDoc = await _firebaseFirestore.userDocument();
+      final exerciseDto = ExerciseDto.fromDomain(exercise);
+
+      await userDoc.exerciseCollection
+          .doc(exerciseDto.id)
+          .update(exerciseDto.toJson());
+
+      return right(unit);
+    } on PlatformException catch (e) {
+      if (e.message.contains('PERMISSION_DENIED')) {
+        return left(const ExerciseFailure.insufficientPermission());
+      } else if (e.message.contains('NOT_FOUND')) {
+        return left(const ExerciseFailure.unableToUpdate());
+      } else {
+        return left(const ExerciseFailure.unexpected());
+      }
+    }
   }
 
   @override
-  Future<Either<ExerciseFailure, Unit>> update(Exercise exercise) {
-    // TODO: implement update
-    throw UnimplementedError();
+  Future<Either<ExerciseFailure, Unit>> delete(Exercise exercise) async {
+    try {
+      final userDoc = await _firebaseFirestore.userDocument();
+      final exerciseDto = ExerciseDto.fromDomain(exercise);
+
+      await userDoc.exerciseCollection.doc(exerciseDto.id).delete();
+
+      return right(unit);
+    } on PlatformException catch (e) {
+      if (e.message.contains('PERMISSION_DENIED')) {
+        return left(const ExerciseFailure.insufficientPermission());
+      } else if (e.message.contains('NOT_FOUND')) {
+        return left(const ExerciseFailure.unableToUpdate());
+      } else {
+        return left(const ExerciseFailure.unexpected());
+      }
+    }
   }
 }

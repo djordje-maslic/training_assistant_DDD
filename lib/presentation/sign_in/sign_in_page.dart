@@ -12,7 +12,7 @@ class SignIn extends StatelessWidget {
       appBar: AppBar(leading:Shimmer.fromColors( baseColor: Colors.amber,
           highlightColor: Colors.yellowAccent,
           period: const Duration(seconds: 8),child: const Icon( Icons.assignment_ind_sharp)),
-        backgroundColor: const Color(0xffaaa9ad),
+        backgroundColor: Colors.black,
         shadowColor: Colors.yellowAccent,
         title: Shimmer.fromColors(
             baseColor: Colors.amber,

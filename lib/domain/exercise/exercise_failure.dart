@@ -8,4 +8,6 @@ abstract class ExerciseFailure with _$ExerciseFailure {
 
   const factory ExerciseFailure.insufficientPermission() =
       _InsufficientPermission;
+
+  const factory ExerciseFailure.unableToUpdate() = _UnableToUpdate;
 }
