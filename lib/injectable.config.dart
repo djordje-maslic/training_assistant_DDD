@@ -12,6 +12,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 import 'application/auth/auth_bloc.dart';
 import 'application/exercise/exercise_actor/exercise_actor_bloc.dart';
+import 'application/exercise/form_bloc/exercise_form_bloc.dart';
 import 'infrastructure/exercise/exercise_repository.dart';
 import 'application/exercise/exercise_watcher/exercise_watcher_bloc.dart';
 import 'infrastructure/auth/firebase_auth_facade.dart';
@@ -40,6 +41,8 @@ GetIt $initGetIt(
   gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));
   gh.factory<ExerciseActorBloc>(
       () => ExerciseActorBloc(get<IExerciseRepository>()));
+  gh.factory<ExerciseFormBloc>(
+      () => ExerciseFormBloc(get<IExerciseRepository>()));
   gh.factory<ExerciseWatcherBloc>(
       () => ExerciseWatcherBloc(get<IExerciseRepository>()));
   return get;

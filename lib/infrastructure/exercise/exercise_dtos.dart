@@ -32,8 +32,8 @@ abstract class ExerciseDto implements _$ExerciseDto {
       repetitionsList: exercise.repetitionsList
           .getOrCrash()
           .asList()
-          .map((series) => SeriesDto.fromDomain(series))
-          .toList(),
+          .map((series) => SeriesDto.fromDomain(series)).toList()
+          ,
       serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
