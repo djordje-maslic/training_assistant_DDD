@@ -18,7 +18,6 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
     @required T failedValue,
   }) = InvalidDate<T>;
 
-
   const factory ValueFailure.empty({
     @required T failedValue,
   }) = Empty<T>;

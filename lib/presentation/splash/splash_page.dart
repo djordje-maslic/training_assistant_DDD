@@ -8,16 +8,16 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<AuthBloc, AuthState>(
-      listener: (context, state) => state.map(
-        initial: (_) => {},
-        authenticated: (_) {
-          print('I am authenticated');
-          return;
-        },
-        unauthenticated: (_) {
-          return ExtendedNavigator.of(context).push(Routes.signIn);
-        },
-      ),
+      listener: (context, state) {
+        state.map(
+          initial: (_) => {},
+          authenticated: (_) =>
+              ExtendedNavigator.of(context).replace(
+                  Routes.exerciseOverviewPage),
+          unauthenticated: (_) =>
+              ExtendedNavigator.of(context).replace(Routes.signIn),
+        );
+      },
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Splash'),

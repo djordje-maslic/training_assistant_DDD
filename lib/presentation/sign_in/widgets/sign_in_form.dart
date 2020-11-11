@@ -1,7 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:reminder_app/application/auth/auth_bloc.dart';
 import 'package:reminder_app/application/auth/signIn/sign_in_form_bloc.dart';
+import 'package:reminder_app/presentation/routes/router.gr.dart';
 import 'package:shimmer/shimmer.dart';
 
 class SignInForm extends StatelessWidget {
@@ -20,8 +23,13 @@ class SignInForm extends StatelessWidget {
                   invalidEmailAndPasswordCombination: (_) =>
                       'Invalid Email and Password combination'),
             ).show(context),
-            (_) => () {
-              // TODO: navigate
+            (_) {
+              ExtendedNavigator.of(context).replace(Routes.exerciseOverviewPage);
+              context
+                  .read<AuthBloc>()
+                  .add(const AuthEvent.userCheckRequested());
+
+
             },
           ),
         );
@@ -56,11 +64,11 @@ class SignInForm extends StatelessWidget {
                   ),
                   onChanged: (value) {
                     context
-                        .bloc<SignInFormBloc>()
+                        .read<SignInFormBloc>()
                         .add(SignInFormEvent.emailChanged(value));
                   },
                   validator: (_) => context
-                      .bloc<SignInFormBloc>()
+                      .read<SignInFormBloc>()
                       .state
                       .emailAddress
                       .value
@@ -81,10 +89,10 @@ class SignInForm extends StatelessWidget {
                     prefixIcon: Icon(Icons.lock),
                   ),
                   onChanged: (value) => context
-                      .bloc<SignInFormBloc>()
+                      .read<SignInFormBloc>()
                       .add(SignInFormEvent.passwordChanged(value)),
                   validator: (_) => context
-                      .bloc<SignInFormBloc>()
+                      .read<SignInFormBloc>()
                       .state
                       .password
                       .value
@@ -102,7 +110,7 @@ class SignInForm extends StatelessWidget {
                     Expanded(
                       child: FlatButton(
                         onPressed: () {
-                          context.bloc<SignInFormBloc>().add(
+                          context.read<SignInFormBloc>().add(
                               const SignInFormEvent
                                   .signInWithEmailAndPasswordPressed());
                         },
@@ -112,7 +120,7 @@ class SignInForm extends StatelessWidget {
                     Expanded(
                       child: FlatButton(
                         onPressed: () {
-                          context.bloc<SignInFormBloc>().add(
+                          context.read<SignInFormBloc>().add(
                               const SignInFormEvent
                                   .registerWithEmailAndPasswordPressed());
                         },
@@ -136,7 +144,7 @@ class SignInForm extends StatelessWidget {
                         )),
                     GestureDetector(
                       onTap: () {
-                        context.bloc<SignInFormBloc>().add(
+                        context.read<SignInFormBloc>().add(
                               const SignInFormEvent.signInWithGooglePressed(),
                             );
                       },
