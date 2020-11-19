@@ -6,8 +6,9 @@ import 'package:reminder_app/application/auth/auth_bloc.dart';
 import 'package:reminder_app/application/exercise/exercise_actor/exercise_actor_bloc.dart';
 import 'package:reminder_app/application/exercise/exercise_watcher/exercise_watcher_bloc.dart';
 import 'package:reminder_app/injectable.dart';
+import 'package:reminder_app/presentation/exercise/exercise_overview/widgets/exercise_overview_body_widget.dart';
+import 'package:reminder_app/presentation/exercise/exercise_overview/widgets/searched_exercises.dart';
 import 'package:reminder_app/presentation/routes/router.gr.dart';
-
 
 class ExerciseOverviewPage extends StatelessWidget {
   @override
@@ -60,10 +61,7 @@ class ExerciseOverviewPage extends StatelessWidget {
                   context.read<AuthBloc>().add(const AuthEvent.signOut());
                 }),
             actions: [
-              IconButton(
-                icon: const Icon(Icons.search),
-                onPressed: () {},
-              )
+             SearchedExercises()
             ],
           ),
           floatingActionButton: FloatingActionButton(
@@ -72,6 +70,7 @@ class ExerciseOverviewPage extends StatelessWidget {
             },
             child: const Icon(Icons.add),
           ),
+          body: ExerciseOverviewBody(),
         ),
       ),
     );

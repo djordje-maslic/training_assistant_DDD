@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter/services.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:reminder_app/domain/exercise/exercise.dart';
@@ -27,7 +27,7 @@ class ExerciseRepository implements IExerciseRepository {
             .map((doc) => ExerciseDto.fromFirestore(doc).toDomain())
             .toImmutableList()))
         .onErrorReturnWith((e) {
-      if (e is PlatformException && e.message.contains('PERMISSION_DENIED')) {
+      if (e is FirebaseException && e.message.contains('PERMISSION_DENIED')) {
         return left(const ExerciseFailure.insufficientPermission());
       } else {
         return left(const ExerciseFailure.unexpected());
@@ -48,7 +48,7 @@ class ExerciseRepository implements IExerciseRepository {
             .map((doc) => ExerciseDto.fromFirestore(doc).toDomain())
             .toImmutableList()))
         .onErrorReturnWith((e) {
-      if (e is PlatformException &&
+      if (e is FirebaseException &&
           e.message.contains('PERMISSION_DENIED')) {
         return left(const ExerciseFailure.insufficientPermission());
       } else {
@@ -68,7 +68,7 @@ class ExerciseRepository implements IExerciseRepository {
           .set(exerciseDto.toJson());
 
       return right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseException catch (e) {
       if (e.message.contains('PERMISSION_DENIED')) {
         return left(const ExerciseFailure.insufficientPermission());
       } else {
@@ -88,7 +88,7 @@ class ExerciseRepository implements IExerciseRepository {
           .update(exerciseDto.toJson());
 
       return right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseException catch (e) {
       if (e.message.contains('PERMISSION_DENIED')) {
         return left(const ExerciseFailure.insufficientPermission());
       } else if (e.message.contains('NOT_FOUND')) {
@@ -103,12 +103,12 @@ class ExerciseRepository implements IExerciseRepository {
   Future<Either<ExerciseFailure, Unit>> delete(Exercise exercise) async {
     try {
       final userDoc = await _firebaseFirestore.userDocument();
-      final exerciseDto = ExerciseDto.fromDomain(exercise);
+      final exerciseId = exercise.id.getOrCrash();
 
-      await userDoc.exerciseCollection.doc(exerciseDto.id).delete();
+      await userDoc.exerciseCollection.doc(exerciseId).delete();
 
       return right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseException catch (e) {
       if (e.message.contains('PERMISSION_DENIED')) {
         return left(const ExerciseFailure.insufficientPermission());
       } else if (e.message.contains('NOT_FOUND')) {

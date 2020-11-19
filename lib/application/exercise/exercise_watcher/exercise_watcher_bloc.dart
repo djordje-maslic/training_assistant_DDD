@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:kt_dart/collection.dart';
+import 'package:kt_dart/kt.dart';
 import 'package:meta/meta.dart';
 import 'package:reminder_app/domain/exercise/exercise.dart';
 import 'package:reminder_app/domain/exercise/exercise_failure.dart';

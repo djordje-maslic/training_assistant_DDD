@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 import 'package:reminder_app/domain/core/value_objects.dart';
 import 'package:reminder_app/domain/exercise/exercise.dart';
 import 'package:reminder_app/domain/exercise/series.dart';
 import 'package:reminder_app/domain/exercise/value_objects.dart';
+import 'package:kt_dart/kt.dart';
 
 part 'exercise_dtos.freezed.dart';
 
@@ -27,7 +27,7 @@ abstract class ExerciseDto implements _$ExerciseDto {
     return ExerciseDto(
       id: exercise.id.getOrCrash(),
       name: exercise.name.getOrCrash(),
-      date: exercise.date.getOrCrash().millisecondsSinceEpoch,
+      date: exercise.date.getOrCrash(),
       seriesNumb: exercise.seriesNumb.getOrCrash(),
       repetitionsList: exercise.repetitionsList
           .getOrCrash()
@@ -42,7 +42,7 @@ abstract class ExerciseDto implements _$ExerciseDto {
     return Exercise(
       id: UniqueId.withUniqueString(id),
       name: ExerciseName(name),
-      date: ExerciseDate(DateTime.fromMillisecondsSinceEpoch(date)),
+      date: ExerciseDate(date),
       seriesNumb: SeriesNumb(seriesNumb),
       repetitionsList: RepetitionsList(
           repetitionsList.map((dto) => dto.toDomain()).toImmutableList()),
@@ -52,8 +52,8 @@ abstract class ExerciseDto implements _$ExerciseDto {
   factory ExerciseDto.fromJson(Map<String, dynamic> json) =>
       _$ExerciseDtoFromJson(json);
 
-  factory ExerciseDto.fromFirestore(DocumentSnapshot doc) =>
-      ExerciseDto.fromJson(doc.data()).copyWith(id: doc.id);
+  factory ExerciseDto.fromFirestore(DocumentSnapshot doc){
+   return   ExerciseDto.fromJson(doc.data()).copyWith(id: doc.id);}
 }
 
 class ServerTimestampConverter implements JsonConverter<FieldValue, Object> {

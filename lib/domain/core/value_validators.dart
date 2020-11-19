@@ -20,11 +20,9 @@ Either<ValueFailure<int>, int> validateMaxIntValue(int input, int maxNumb) {
   }
 }
 
-Either<ValueFailure<DateTime>, DateTime> validateDateTime(
-    DateTime input) {
-  final bool dateTimeCheck = (input.isAtSameMomentAs(DateTime.now()) ||
-          input.isBefore(DateTime.now())) &&
-      input.isAfter(DateTime(2000));
+Either<ValueFailure<int>, int> validateDateTime(
+    int input) {
+  final bool dateTimeCheck = input >0;
   if (dateTimeCheck) {
     return right(input);
   } else {

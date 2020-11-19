@@ -8,7 +8,7 @@ abstract class ExerciseFormEvent with _$ExerciseFormEvent {
   const factory ExerciseFormEvent.exerciseNameChanged(String nameStr) =
       _ExerciseNameChanged;
 
-  const factory ExerciseFormEvent.exerciseDateChanged(DateTime dateInt) =
+  const factory ExerciseFormEvent.exerciseDateChanged(int dateInt) =
       _ExerciseDateChanged;
 
   const factory ExerciseFormEvent.exerciseSetNumbChanged(int seriesNumbInt) =

@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:kt_dart/collection.dart';
+import 'package:kt_dart/kt.dart';
 import 'package:reminder_app/domain/exercise/exercise.dart';
 import 'package:reminder_app/domain/exercise/exercise_failure.dart';
 

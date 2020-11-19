@@ -23,7 +23,7 @@ abstract class Exercise implements _$Exercise {
   factory Exercise.empty() => Exercise(
         id: UniqueId(),
         name: ExerciseName(''),
-        date: ExerciseDate(DateTime.now()),
+        date: ExerciseDate(0),
         seriesNumb: SeriesNumb(0),
         repetitionsList: RepetitionsList(emptyList()),
       );

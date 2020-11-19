@@ -14,10 +14,10 @@ class _$SetItemPrimitiveTearOff {
   const _$SetItemPrimitiveTearOff();
 
 // ignore: unused_element
-  _SetItemprimitive call({@required UniqueId id, @required int numb}) {
+  _SetItemprimitive call({@required UniqueId id, @required int number}) {
     return _SetItemprimitive(
       id: id,
-      numb: numb,
+      number: number,
     );
   }
 }
@@ -29,7 +29,7 @@ const $SetItemPrimitive = _$SetItemPrimitiveTearOff();
 /// @nodoc
 mixin _$SetItemPrimitive {
   UniqueId get id;
-  int get numb;
+  int get number;
 
   $SetItemPrimitiveCopyWith<SetItemPrimitive> get copyWith;
 }
@@ -39,7 +39,7 @@ abstract class $SetItemPrimitiveCopyWith<$Res> {
   factory $SetItemPrimitiveCopyWith(
           SetItemPrimitive value, $Res Function(SetItemPrimitive) then) =
       _$SetItemPrimitiveCopyWithImpl<$Res>;
-  $Res call({UniqueId id, int numb});
+  $Res call({UniqueId id, int number});
 }
 
 /// @nodoc
@@ -54,11 +54,11 @@ class _$SetItemPrimitiveCopyWithImpl<$Res>
   @override
   $Res call({
     Object id = freezed,
-    Object numb = freezed,
+    Object number = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as UniqueId,
-      numb: numb == freezed ? _value.numb : numb as int,
+      number: number == freezed ? _value.number : number as int,
     ));
   }
 }
@@ -70,7 +70,7 @@ abstract class _$SetItemprimitiveCopyWith<$Res>
           _SetItemprimitive value, $Res Function(_SetItemprimitive) then) =
       __$SetItemprimitiveCopyWithImpl<$Res>;
   @override
-  $Res call({UniqueId id, int numb});
+  $Res call({UniqueId id, int number});
 }
 
 /// @nodoc
@@ -87,11 +87,11 @@ class __$SetItemprimitiveCopyWithImpl<$Res>
   @override
   $Res call({
     Object id = freezed,
-    Object numb = freezed,
+    Object number = freezed,
   }) {
     return _then(_SetItemprimitive(
       id: id == freezed ? _value.id : id as UniqueId,
-      numb: numb == freezed ? _value.numb : numb as int,
+      number: number == freezed ? _value.number : number as int,
     ));
   }
 }
@@ -99,19 +99,19 @@ class __$SetItemprimitiveCopyWithImpl<$Res>
 /// @nodoc
 class _$_SetItemprimitive extends _SetItemprimitive
     with DiagnosticableTreeMixin {
-  const _$_SetItemprimitive({@required this.id, @required this.numb})
+  const _$_SetItemprimitive({@required this.id, @required this.number})
       : assert(id != null),
-        assert(numb != null),
+        assert(number != null),
         super._();
 
   @override
   final UniqueId id;
   @override
-  final int numb;
+  final int number;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SetItemPrimitive(id: $id, numb: $numb)';
+    return 'SetItemPrimitive(id: $id, number: $number)';
   }
 
   @override
@@ -120,7 +120,7 @@ class _$_SetItemprimitive extends _SetItemprimitive
     properties
       ..add(DiagnosticsProperty('type', 'SetItemPrimitive'))
       ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('numb', numb));
+      ..add(DiagnosticsProperty('number', number));
   }
 
   @override
@@ -129,15 +129,15 @@ class _$_SetItemprimitive extends _SetItemprimitive
         (other is _SetItemprimitive &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.numb, numb) ||
-                const DeepCollectionEquality().equals(other.numb, numb)));
+            (identical(other.number, number) ||
+                const DeepCollectionEquality().equals(other.number, number)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(numb);
+      const DeepCollectionEquality().hash(number);
 
   @override
   _$SetItemprimitiveCopyWith<_SetItemprimitive> get copyWith =>
@@ -146,13 +146,13 @@ class _$_SetItemprimitive extends _SetItemprimitive
 
 abstract class _SetItemprimitive extends SetItemPrimitive {
   const _SetItemprimitive._() : super._();
-  const factory _SetItemprimitive({@required UniqueId id, @required int numb}) =
-      _$_SetItemprimitive;
+  const factory _SetItemprimitive(
+      {@required UniqueId id, @required int number}) = _$_SetItemprimitive;
 
   @override
   UniqueId get id;
   @override
-  int get numb;
+  int get number;
   @override
   _$SetItemprimitiveCopyWith<_SetItemprimitive> get copyWith;
 }

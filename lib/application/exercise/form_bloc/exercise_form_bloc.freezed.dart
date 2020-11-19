@@ -28,7 +28,7 @@ class _$ExerciseFormEventTearOff {
   }
 
 // ignore: unused_element
-  _ExerciseDateChanged exerciseDateChanged(DateTime dateInt) {
+  _ExerciseDateChanged exerciseDateChanged(int dateInt) {
     return _ExerciseDateChanged(
       dateInt,
     );
@@ -65,7 +65,7 @@ mixin _$ExerciseFormEvent {
   Result when<Result extends Object>({
     @required Result initialized(Option<Exercise> initialExerciseOption),
     @required Result exerciseNameChanged(String nameStr),
-    @required Result exerciseDateChanged(DateTime dateInt),
+    @required Result exerciseDateChanged(int dateInt),
     @required Result exerciseSetNumbChanged(int seriesNumbInt),
     @required
         Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
@@ -75,7 +75,7 @@ mixin _$ExerciseFormEvent {
   Result maybeWhen<Result extends Object>({
     Result initialized(Option<Exercise> initialExerciseOption),
     Result exerciseNameChanged(String nameStr),
-    Result exerciseDateChanged(DateTime dateInt),
+    Result exerciseDateChanged(int dateInt),
     Result exerciseSetNumbChanged(int seriesNumbInt),
     Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
     Result exerciseSaved(),
@@ -189,7 +189,7 @@ class _$_Initialized implements _Initialized {
   Result when<Result extends Object>({
     @required Result initialized(Option<Exercise> initialExerciseOption),
     @required Result exerciseNameChanged(String nameStr),
-    @required Result exerciseDateChanged(DateTime dateInt),
+    @required Result exerciseDateChanged(int dateInt),
     @required Result exerciseSetNumbChanged(int seriesNumbInt),
     @required
         Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
@@ -209,7 +209,7 @@ class _$_Initialized implements _Initialized {
   Result maybeWhen<Result extends Object>({
     Result initialized(Option<Exercise> initialExerciseOption),
     Result exerciseNameChanged(String nameStr),
-    Result exerciseDateChanged(DateTime dateInt),
+    Result exerciseDateChanged(int dateInt),
     Result exerciseSetNumbChanged(int seriesNumbInt),
     Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
     Result exerciseSaved(),
@@ -334,7 +334,7 @@ class _$_ExerciseNameChanged implements _ExerciseNameChanged {
   Result when<Result extends Object>({
     @required Result initialized(Option<Exercise> initialExerciseOption),
     @required Result exerciseNameChanged(String nameStr),
-    @required Result exerciseDateChanged(DateTime dateInt),
+    @required Result exerciseDateChanged(int dateInt),
     @required Result exerciseSetNumbChanged(int seriesNumbInt),
     @required
         Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
@@ -354,7 +354,7 @@ class _$_ExerciseNameChanged implements _ExerciseNameChanged {
   Result maybeWhen<Result extends Object>({
     Result initialized(Option<Exercise> initialExerciseOption),
     Result exerciseNameChanged(String nameStr),
-    Result exerciseDateChanged(DateTime dateInt),
+    Result exerciseDateChanged(int dateInt),
     Result exerciseSetNumbChanged(int seriesNumbInt),
     Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
     Result exerciseSaved(),
@@ -420,7 +420,7 @@ abstract class _$ExerciseDateChangedCopyWith<$Res> {
   factory _$ExerciseDateChangedCopyWith(_ExerciseDateChanged value,
           $Res Function(_ExerciseDateChanged) then) =
       __$ExerciseDateChangedCopyWithImpl<$Res>;
-  $Res call({DateTime dateInt});
+  $Res call({int dateInt});
 }
 
 /// @nodoc
@@ -439,7 +439,7 @@ class __$ExerciseDateChangedCopyWithImpl<$Res>
     Object dateInt = freezed,
   }) {
     return _then(_ExerciseDateChanged(
-      dateInt == freezed ? _value.dateInt : dateInt as DateTime,
+      dateInt == freezed ? _value.dateInt : dateInt as int,
     ));
   }
 }
@@ -449,7 +449,7 @@ class _$_ExerciseDateChanged implements _ExerciseDateChanged {
   const _$_ExerciseDateChanged(this.dateInt) : assert(dateInt != null);
 
   @override
-  final DateTime dateInt;
+  final int dateInt;
 
   @override
   String toString() {
@@ -478,7 +478,7 @@ class _$_ExerciseDateChanged implements _ExerciseDateChanged {
   Result when<Result extends Object>({
     @required Result initialized(Option<Exercise> initialExerciseOption),
     @required Result exerciseNameChanged(String nameStr),
-    @required Result exerciseDateChanged(DateTime dateInt),
+    @required Result exerciseDateChanged(int dateInt),
     @required Result exerciseSetNumbChanged(int seriesNumbInt),
     @required
         Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
@@ -498,7 +498,7 @@ class _$_ExerciseDateChanged implements _ExerciseDateChanged {
   Result maybeWhen<Result extends Object>({
     Result initialized(Option<Exercise> initialExerciseOption),
     Result exerciseNameChanged(String nameStr),
-    Result exerciseDateChanged(DateTime dateInt),
+    Result exerciseDateChanged(int dateInt),
     Result exerciseSetNumbChanged(int seriesNumbInt),
     Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
     Result exerciseSaved(),
@@ -553,9 +553,9 @@ class _$_ExerciseDateChanged implements _ExerciseDateChanged {
 }
 
 abstract class _ExerciseDateChanged implements ExerciseFormEvent {
-  const factory _ExerciseDateChanged(DateTime dateInt) = _$_ExerciseDateChanged;
+  const factory _ExerciseDateChanged(int dateInt) = _$_ExerciseDateChanged;
 
-  DateTime get dateInt;
+  int get dateInt;
   _$ExerciseDateChangedCopyWith<_ExerciseDateChanged> get copyWith;
 }
 
@@ -626,7 +626,7 @@ class _$_ExerciseSereiesNumbChanged implements _ExerciseSereiesNumbChanged {
   Result when<Result extends Object>({
     @required Result initialized(Option<Exercise> initialExerciseOption),
     @required Result exerciseNameChanged(String nameStr),
-    @required Result exerciseDateChanged(DateTime dateInt),
+    @required Result exerciseDateChanged(int dateInt),
     @required Result exerciseSetNumbChanged(int seriesNumbInt),
     @required
         Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
@@ -646,7 +646,7 @@ class _$_ExerciseSereiesNumbChanged implements _ExerciseSereiesNumbChanged {
   Result maybeWhen<Result extends Object>({
     Result initialized(Option<Exercise> initialExerciseOption),
     Result exerciseNameChanged(String nameStr),
-    Result exerciseDateChanged(DateTime dateInt),
+    Result exerciseDateChanged(int dateInt),
     Result exerciseSetNumbChanged(int seriesNumbInt),
     Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
     Result exerciseSaved(),
@@ -776,7 +776,7 @@ class _$_ExerciseRepetitionsListChanged
   Result when<Result extends Object>({
     @required Result initialized(Option<Exercise> initialExerciseOption),
     @required Result exerciseNameChanged(String nameStr),
-    @required Result exerciseDateChanged(DateTime dateInt),
+    @required Result exerciseDateChanged(int dateInt),
     @required Result exerciseSetNumbChanged(int seriesNumbInt),
     @required
         Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
@@ -796,7 +796,7 @@ class _$_ExerciseRepetitionsListChanged
   Result maybeWhen<Result extends Object>({
     Result initialized(Option<Exercise> initialExerciseOption),
     Result exerciseNameChanged(String nameStr),
-    Result exerciseDateChanged(DateTime dateInt),
+    Result exerciseDateChanged(int dateInt),
     Result exerciseSetNumbChanged(int seriesNumbInt),
     Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
     Result exerciseSaved(),
@@ -900,7 +900,7 @@ class _$_ExerciseSavd implements _ExerciseSavd {
   Result when<Result extends Object>({
     @required Result initialized(Option<Exercise> initialExerciseOption),
     @required Result exerciseNameChanged(String nameStr),
-    @required Result exerciseDateChanged(DateTime dateInt),
+    @required Result exerciseDateChanged(int dateInt),
     @required Result exerciseSetNumbChanged(int seriesNumbInt),
     @required
         Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
@@ -920,7 +920,7 @@ class _$_ExerciseSavd implements _ExerciseSavd {
   Result maybeWhen<Result extends Object>({
     Result initialized(Option<Exercise> initialExerciseOption),
     Result exerciseNameChanged(String nameStr),
-    Result exerciseDateChanged(DateTime dateInt),
+    Result exerciseDateChanged(int dateInt),
     Result exerciseSetNumbChanged(int seriesNumbInt),
     Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
     Result exerciseSaved(),

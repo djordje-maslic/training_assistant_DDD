@@ -18,13 +18,13 @@ class ExerciseName extends ValueObject<String> {
   }
 }
 
-class ExerciseDate extends ValueObject<DateTime> {
+class ExerciseDate extends ValueObject<int> {
   @override
-  final Either<ValueFailure<DateTime>, DateTime> value;
+  final Either<ValueFailure<int>, int> value;
 
   const ExerciseDate._(this.value);
 
-  factory ExerciseDate(DateTime input) {
+  factory ExerciseDate(int input) {
     assert(input != null);
     return ExerciseDate._(validateDateTime(input));
   }
@@ -69,4 +69,12 @@ class RepetitionsList<T> extends ValueObject<KtList<T>> {
   }
 
   const RepetitionsList._(this.value);
+
+  int get length {
+    return value.getOrElse(() => emptyList()).size;
+  }
+
+  bool get isFull {
+    return length == maxLength;
+  }
 }

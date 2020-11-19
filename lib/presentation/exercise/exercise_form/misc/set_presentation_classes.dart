@@ -12,25 +12,25 @@ abstract class SetItemPrimitive implements _$SetItemPrimitive {
 
   const factory SetItemPrimitive({
     @required UniqueId id,
-    @required int numb,
+    @required int number,
   }) = _SetItemprimitive;
 
   factory SetItemPrimitive.empty() => SetItemPrimitive(
         id: UniqueId(),
-        numb: 0,
+        number: 0,
       );
 
   factory SetItemPrimitive.fromDomain(Series series) {
     return SetItemPrimitive(
       id: series.id,
-      numb: series.number.getOrCrash(),
+      number: series.number.getOrCrash(),
     );
   }
 
   Series toDomain() {
     return Series(
       id: id,
-      number: RepetitionsNumb(numb),
+      number: RepetitionsNumb(number),
     );
   }
 }
