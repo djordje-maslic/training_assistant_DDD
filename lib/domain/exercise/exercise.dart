@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:reminder_app/domain/core/failures.dart';
 import 'package:reminder_app/domain/core/value_objects.dart';
-import 'package:reminder_app/domain/exercise/series.dart';
+import 'package:reminder_app/domain/exercise/sets.dart';
 import 'package:reminder_app/domain/exercise/value_objects.dart';
 
 part 'exercise.freezed.dart';
@@ -16,24 +16,24 @@ abstract class Exercise implements _$Exercise {
     @required UniqueId id,
     @required ExerciseName name,
     @required ExerciseDate date,
-    @required SeriesNumb seriesNumb,
-    @required RepetitionsList<Series> repetitionsList,
+    @required NumberOfSets numberOfSets,
+    @required SetsList<Sets> setsList,
   }) = _Exercise;
 
   factory Exercise.empty() => Exercise(
         id: UniqueId(),
         name: ExerciseName(''),
         date: ExerciseDate(0),
-        seriesNumb: SeriesNumb(0),
-        repetitionsList: RepetitionsList(emptyList()),
+        numberOfSets: NumberOfSets(0),
+        setsList: SetsList(emptyList()),
       );
 
   Option<ValueFailure<dynamic>> get failureOption {
     return name.failureOrUnit
         .andThen(date.failureOrUnit)
-        .andThen(seriesNumb.failureOrUnit)
-        .andThen(repetitionsList.failureOrUnit)
-        .andThen(repetitionsList
+        .andThen(numberOfSets.failureOrUnit)
+        .andThen(setsList.failureOrUnit)
+        .andThen(setsList
             .getOrCrash()
             .map((series) => series.failureOption)
             .filter((o) => o.isSome())

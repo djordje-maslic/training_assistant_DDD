@@ -30,16 +30,16 @@ class ExerciseDate extends ValueObject<int> {
   }
 }
 
-class SeriesNumb extends ValueObject<int> {
+class NumberOfSets extends ValueObject<int> {
   @override
   final Either<ValueFailure<int>, int> value;
   static const maxValue = 30;
 
-  const SeriesNumb._(this.value);
+  const NumberOfSets._(this.value);
 
-  factory SeriesNumb(int input) {
+  factory NumberOfSets(int input) {
     assert(input != null);
-    return SeriesNumb._(
+    return NumberOfSets._(
         validateMaxIntValue(input, maxValue).flatMap(validateIntNotEmpty));
   }
 }
@@ -58,17 +58,17 @@ class RepetitionsNumb extends ValueObject<int> {
   }
 }
 
-class RepetitionsList<T> extends ValueObject<KtList<T>> {
+class SetsList<T> extends ValueObject<KtList<T>> {
   @override
   final Either<ValueFailure<KtList<T>>, KtList<T>> value;
   static const maxLength = 30;
 
-  factory RepetitionsList(KtList<T> input) {
+  factory SetsList(KtList<T> input) {
     assert(input != null);
-    return RepetitionsList._(validateMaxListLength(input, maxLength));
+    return SetsList._(validateMaxListLength(input, maxLength));
   }
 
-  const RepetitionsList._(this.value);
+  const SetsList._(this.value);
 
   int get length {
     return value.getOrElse(() => emptyList()).size;

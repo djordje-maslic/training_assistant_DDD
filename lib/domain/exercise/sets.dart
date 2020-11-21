@@ -4,18 +4,18 @@ import 'package:reminder_app/domain/core/failures.dart';
 import 'package:reminder_app/domain/core/value_objects.dart';
 import 'package:reminder_app/domain/exercise/value_objects.dart';
 
-part 'series.freezed.dart';
+part 'sets.freezed.dart';
 
 @freezed
-abstract class Series implements _$Series {
-  const Series._();
+abstract class Sets implements _$Sets {
+  const Sets._();
 
-  const factory Series({
+  const factory Sets({
     @required UniqueId id,
     @required RepetitionsNumb number,
-  }) = _Series;
+  }) = _Sets;
 
-  factory Series.empty() => Series(
+  factory Sets.empty() => Sets(
         id: UniqueId(),
         number: RepetitionsNumb(0),
       );

@@ -21,15 +21,15 @@ class _$ExerciseDtoTearOff {
       {@JsonKey(ignore: true) String id,
       @required String name,
       @required int date,
-      @required int seriesNumb,
-      @required List<SeriesDto> repetitionsList,
+      @required int setsNumb,
+      @required List<SetsDto> setsList,
       @required @ServerTimestampConverter() FieldValue serverTimeStamp}) {
     return _ExerciseDto(
       id: id,
       name: name,
       date: date,
-      seriesNumb: seriesNumb,
-      repetitionsList: repetitionsList,
+      setsNumb: setsNumb,
+      setsList: setsList,
       serverTimeStamp: serverTimeStamp,
     );
   }
@@ -50,8 +50,8 @@ mixin _$ExerciseDto {
   String get id;
   String get name;
   int get date;
-  int get seriesNumb;
-  List<SeriesDto> get repetitionsList;
+  int get setsNumb;
+  List<SetsDto> get setsList;
   @ServerTimestampConverter()
   FieldValue get serverTimeStamp;
 
@@ -68,8 +68,8 @@ abstract class $ExerciseDtoCopyWith<$Res> {
       {@JsonKey(ignore: true) String id,
       String name,
       int date,
-      int seriesNumb,
-      List<SeriesDto> repetitionsList,
+      int setsNumb,
+      List<SetsDto> setsList,
       @ServerTimestampConverter() FieldValue serverTimeStamp});
 }
 
@@ -86,18 +86,17 @@ class _$ExerciseDtoCopyWithImpl<$Res> implements $ExerciseDtoCopyWith<$Res> {
     Object id = freezed,
     Object name = freezed,
     Object date = freezed,
-    Object seriesNumb = freezed,
-    Object repetitionsList = freezed,
+    Object setsNumb = freezed,
+    Object setsList = freezed,
     Object serverTimeStamp = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
       name: name == freezed ? _value.name : name as String,
       date: date == freezed ? _value.date : date as int,
-      seriesNumb: seriesNumb == freezed ? _value.seriesNumb : seriesNumb as int,
-      repetitionsList: repetitionsList == freezed
-          ? _value.repetitionsList
-          : repetitionsList as List<SeriesDto>,
+      setsNumb: setsNumb == freezed ? _value.setsNumb : setsNumb as int,
+      setsList:
+          setsList == freezed ? _value.setsList : setsList as List<SetsDto>,
       serverTimeStamp: serverTimeStamp == freezed
           ? _value.serverTimeStamp
           : serverTimeStamp as FieldValue,
@@ -116,8 +115,8 @@ abstract class _$ExerciseDtoCopyWith<$Res>
       {@JsonKey(ignore: true) String id,
       String name,
       int date,
-      int seriesNumb,
-      List<SeriesDto> repetitionsList,
+      int setsNumb,
+      List<SetsDto> setsList,
       @ServerTimestampConverter() FieldValue serverTimeStamp});
 }
 
@@ -136,18 +135,17 @@ class __$ExerciseDtoCopyWithImpl<$Res> extends _$ExerciseDtoCopyWithImpl<$Res>
     Object id = freezed,
     Object name = freezed,
     Object date = freezed,
-    Object seriesNumb = freezed,
-    Object repetitionsList = freezed,
+    Object setsNumb = freezed,
+    Object setsList = freezed,
     Object serverTimeStamp = freezed,
   }) {
     return _then(_ExerciseDto(
       id: id == freezed ? _value.id : id as String,
       name: name == freezed ? _value.name : name as String,
       date: date == freezed ? _value.date : date as int,
-      seriesNumb: seriesNumb == freezed ? _value.seriesNumb : seriesNumb as int,
-      repetitionsList: repetitionsList == freezed
-          ? _value.repetitionsList
-          : repetitionsList as List<SeriesDto>,
+      setsNumb: setsNumb == freezed ? _value.setsNumb : setsNumb as int,
+      setsList:
+          setsList == freezed ? _value.setsList : setsList as List<SetsDto>,
       serverTimeStamp: serverTimeStamp == freezed
           ? _value.serverTimeStamp
           : serverTimeStamp as FieldValue,
@@ -163,13 +161,13 @@ class _$_ExerciseDto extends _ExerciseDto {
       {@JsonKey(ignore: true) this.id,
       @required this.name,
       @required this.date,
-      @required this.seriesNumb,
-      @required this.repetitionsList,
+      @required this.setsNumb,
+      @required this.setsList,
       @required @ServerTimestampConverter() this.serverTimeStamp})
       : assert(name != null),
         assert(date != null),
-        assert(seriesNumb != null),
-        assert(repetitionsList != null),
+        assert(setsNumb != null),
+        assert(setsList != null),
         assert(serverTimeStamp != null),
         super._();
 
@@ -184,16 +182,16 @@ class _$_ExerciseDto extends _ExerciseDto {
   @override
   final int date;
   @override
-  final int seriesNumb;
+  final int setsNumb;
   @override
-  final List<SeriesDto> repetitionsList;
+  final List<SetsDto> setsList;
   @override
   @ServerTimestampConverter()
   final FieldValue serverTimeStamp;
 
   @override
   String toString() {
-    return 'ExerciseDto(id: $id, name: $name, date: $date, seriesNumb: $seriesNumb, repetitionsList: $repetitionsList, serverTimeStamp: $serverTimeStamp)';
+    return 'ExerciseDto(id: $id, name: $name, date: $date, setsNumb: $setsNumb, setsList: $setsList, serverTimeStamp: $serverTimeStamp)';
   }
 
   @override
@@ -206,12 +204,12 @@ class _$_ExerciseDto extends _ExerciseDto {
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.date, date) ||
                 const DeepCollectionEquality().equals(other.date, date)) &&
-            (identical(other.seriesNumb, seriesNumb) ||
+            (identical(other.setsNumb, setsNumb) ||
                 const DeepCollectionEquality()
-                    .equals(other.seriesNumb, seriesNumb)) &&
-            (identical(other.repetitionsList, repetitionsList) ||
+                    .equals(other.setsNumb, setsNumb)) &&
+            (identical(other.setsList, setsList) ||
                 const DeepCollectionEquality()
-                    .equals(other.repetitionsList, repetitionsList)) &&
+                    .equals(other.setsList, setsList)) &&
             (identical(other.serverTimeStamp, serverTimeStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.serverTimeStamp, serverTimeStamp)));
@@ -223,8 +221,8 @@ class _$_ExerciseDto extends _ExerciseDto {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(date) ^
-      const DeepCollectionEquality().hash(seriesNumb) ^
-      const DeepCollectionEquality().hash(repetitionsList) ^
+      const DeepCollectionEquality().hash(setsNumb) ^
+      const DeepCollectionEquality().hash(setsList) ^
       const DeepCollectionEquality().hash(serverTimeStamp);
 
   @override
@@ -243,8 +241,8 @@ abstract class _ExerciseDto extends ExerciseDto {
           {@JsonKey(ignore: true) String id,
           @required String name,
           @required int date,
-          @required int seriesNumb,
-          @required List<SeriesDto> repetitionsList,
+          @required int setsNumb,
+          @required List<SetsDto> setsList,
           @required @ServerTimestampConverter() FieldValue serverTimeStamp}) =
       _$_ExerciseDto;
 
@@ -259,9 +257,9 @@ abstract class _ExerciseDto extends ExerciseDto {
   @override
   int get date;
   @override
-  int get seriesNumb;
+  int get setsNumb;
   @override
-  List<SeriesDto> get repetitionsList;
+  List<SetsDto> get setsList;
   @override
   @ServerTimestampConverter()
   FieldValue get serverTimeStamp;
@@ -269,55 +267,55 @@ abstract class _ExerciseDto extends ExerciseDto {
   _$ExerciseDtoCopyWith<_ExerciseDto> get copyWith;
 }
 
-SeriesDto _$SeriesDtoFromJson(Map<String, dynamic> json) {
-  return _SeriesDto.fromJson(json);
+SetsDto _$SetsDtoFromJson(Map<String, dynamic> json) {
+  return _SetsDto.fromJson(json);
 }
 
 /// @nodoc
-class _$SeriesDtoTearOff {
-  const _$SeriesDtoTearOff();
+class _$SetsDtoTearOff {
+  const _$SetsDtoTearOff();
 
 // ignore: unused_element
-  _SeriesDto call({@required String id, @required int number}) {
-    return _SeriesDto(
+  _SetsDto call({@required String id, @required int number}) {
+    return _SetsDto(
       id: id,
       number: number,
     );
   }
 
 // ignore: unused_element
-  SeriesDto fromJson(Map<String, Object> json) {
-    return SeriesDto.fromJson(json);
+  SetsDto fromJson(Map<String, Object> json) {
+    return SetsDto.fromJson(json);
   }
 }
 
 /// @nodoc
 // ignore: unused_element
-const $SeriesDto = _$SeriesDtoTearOff();
+const $SetsDto = _$SetsDtoTearOff();
 
 /// @nodoc
-mixin _$SeriesDto {
+mixin _$SetsDto {
   String get id;
   int get number;
 
   Map<String, dynamic> toJson();
-  $SeriesDtoCopyWith<SeriesDto> get copyWith;
+  $SetsDtoCopyWith<SetsDto> get copyWith;
 }
 
 /// @nodoc
-abstract class $SeriesDtoCopyWith<$Res> {
-  factory $SeriesDtoCopyWith(SeriesDto value, $Res Function(SeriesDto) then) =
-      _$SeriesDtoCopyWithImpl<$Res>;
+abstract class $SetsDtoCopyWith<$Res> {
+  factory $SetsDtoCopyWith(SetsDto value, $Res Function(SetsDto) then) =
+      _$SetsDtoCopyWithImpl<$Res>;
   $Res call({String id, int number});
 }
 
 /// @nodoc
-class _$SeriesDtoCopyWithImpl<$Res> implements $SeriesDtoCopyWith<$Res> {
-  _$SeriesDtoCopyWithImpl(this._value, this._then);
+class _$SetsDtoCopyWithImpl<$Res> implements $SetsDtoCopyWith<$Res> {
+  _$SetsDtoCopyWithImpl(this._value, this._then);
 
-  final SeriesDto _value;
+  final SetsDto _value;
   // ignore: unused_field
-  final $Res Function(SeriesDto) _then;
+  final $Res Function(SetsDto) _then;
 
   @override
   $Res call({
@@ -332,29 +330,28 @@ class _$SeriesDtoCopyWithImpl<$Res> implements $SeriesDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$SeriesDtoCopyWith<$Res> implements $SeriesDtoCopyWith<$Res> {
-  factory _$SeriesDtoCopyWith(
-          _SeriesDto value, $Res Function(_SeriesDto) then) =
-      __$SeriesDtoCopyWithImpl<$Res>;
+abstract class _$SetsDtoCopyWith<$Res> implements $SetsDtoCopyWith<$Res> {
+  factory _$SetsDtoCopyWith(_SetsDto value, $Res Function(_SetsDto) then) =
+      __$SetsDtoCopyWithImpl<$Res>;
   @override
   $Res call({String id, int number});
 }
 
 /// @nodoc
-class __$SeriesDtoCopyWithImpl<$Res> extends _$SeriesDtoCopyWithImpl<$Res>
-    implements _$SeriesDtoCopyWith<$Res> {
-  __$SeriesDtoCopyWithImpl(_SeriesDto _value, $Res Function(_SeriesDto) _then)
-      : super(_value, (v) => _then(v as _SeriesDto));
+class __$SetsDtoCopyWithImpl<$Res> extends _$SetsDtoCopyWithImpl<$Res>
+    implements _$SetsDtoCopyWith<$Res> {
+  __$SetsDtoCopyWithImpl(_SetsDto _value, $Res Function(_SetsDto) _then)
+      : super(_value, (v) => _then(v as _SetsDto));
 
   @override
-  _SeriesDto get _value => super._value as _SeriesDto;
+  _SetsDto get _value => super._value as _SetsDto;
 
   @override
   $Res call({
     Object id = freezed,
     Object number = freezed,
   }) {
-    return _then(_SeriesDto(
+    return _then(_SetsDto(
       id: id == freezed ? _value.id : id as String,
       number: number == freezed ? _value.number : number as int,
     ));
@@ -364,14 +361,14 @@ class __$SeriesDtoCopyWithImpl<$Res> extends _$SeriesDtoCopyWithImpl<$Res>
 @JsonSerializable()
 
 /// @nodoc
-class _$_SeriesDto extends _SeriesDto {
-  const _$_SeriesDto({@required this.id, @required this.number})
+class _$_SetsDto extends _SetsDto {
+  const _$_SetsDto({@required this.id, @required this.number})
       : assert(id != null),
         assert(number != null),
         super._();
 
-  factory _$_SeriesDto.fromJson(Map<String, dynamic> json) =>
-      _$_$_SeriesDtoFromJson(json);
+  factory _$_SetsDto.fromJson(Map<String, dynamic> json) =>
+      _$_$_SetsDtoFromJson(json);
 
   @override
   final String id;
@@ -380,13 +377,13 @@ class _$_SeriesDto extends _SeriesDto {
 
   @override
   String toString() {
-    return 'SeriesDto(id: $id, number: $number)';
+    return 'SetsDto(id: $id, number: $number)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SeriesDto &&
+        (other is _SetsDto &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.number, number) ||
@@ -400,27 +397,26 @@ class _$_SeriesDto extends _SeriesDto {
       const DeepCollectionEquality().hash(number);
 
   @override
-  _$SeriesDtoCopyWith<_SeriesDto> get copyWith =>
-      __$SeriesDtoCopyWithImpl<_SeriesDto>(this, _$identity);
+  _$SetsDtoCopyWith<_SetsDto> get copyWith =>
+      __$SetsDtoCopyWithImpl<_SetsDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_SeriesDtoToJson(this);
+    return _$_$_SetsDtoToJson(this);
   }
 }
 
-abstract class _SeriesDto extends SeriesDto {
-  const _SeriesDto._() : super._();
-  const factory _SeriesDto({@required String id, @required int number}) =
-      _$_SeriesDto;
+abstract class _SetsDto extends SetsDto {
+  const _SetsDto._() : super._();
+  const factory _SetsDto({@required String id, @required int number}) =
+      _$_SetsDto;
 
-  factory _SeriesDto.fromJson(Map<String, dynamic> json) =
-      _$_SeriesDto.fromJson;
+  factory _SetsDto.fromJson(Map<String, dynamic> json) = _$_SetsDto.fromJson;
 
   @override
   String get id;
   @override
   int get number;
   @override
-  _$SeriesDtoCopyWith<_SeriesDto> get copyWith;
+  _$SetsDtoCopyWith<_SetsDto> get copyWith;
 }

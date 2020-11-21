@@ -18,14 +18,14 @@ class _$ExerciseTearOff {
       {@required UniqueId id,
       @required ExerciseName name,
       @required ExerciseDate date,
-      @required SeriesNumb seriesNumb,
-      @required RepetitionsList<Series> repetitionsList}) {
+      @required NumberOfSets numberOfSets,
+      @required SetsList<Sets> setsList}) {
     return _Exercise(
       id: id,
       name: name,
       date: date,
-      seriesNumb: seriesNumb,
-      repetitionsList: repetitionsList,
+      numberOfSets: numberOfSets,
+      setsList: setsList,
     );
   }
 }
@@ -39,8 +39,8 @@ mixin _$Exercise {
   UniqueId get id;
   ExerciseName get name;
   ExerciseDate get date;
-  SeriesNumb get seriesNumb;
-  RepetitionsList<Series> get repetitionsList;
+  NumberOfSets get numberOfSets;
+  SetsList<Sets> get setsList;
 
   $ExerciseCopyWith<Exercise> get copyWith;
 }
@@ -53,8 +53,8 @@ abstract class $ExerciseCopyWith<$Res> {
       {UniqueId id,
       ExerciseName name,
       ExerciseDate date,
-      SeriesNumb seriesNumb,
-      RepetitionsList<Series> repetitionsList});
+      NumberOfSets numberOfSets,
+      SetsList<Sets> setsList});
 }
 
 /// @nodoc
@@ -70,18 +70,18 @@ class _$ExerciseCopyWithImpl<$Res> implements $ExerciseCopyWith<$Res> {
     Object id = freezed,
     Object name = freezed,
     Object date = freezed,
-    Object seriesNumb = freezed,
-    Object repetitionsList = freezed,
+    Object numberOfSets = freezed,
+    Object setsList = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as UniqueId,
       name: name == freezed ? _value.name : name as ExerciseName,
       date: date == freezed ? _value.date : date as ExerciseDate,
-      seriesNumb:
-          seriesNumb == freezed ? _value.seriesNumb : seriesNumb as SeriesNumb,
-      repetitionsList: repetitionsList == freezed
-          ? _value.repetitionsList
-          : repetitionsList as RepetitionsList<Series>,
+      numberOfSets: numberOfSets == freezed
+          ? _value.numberOfSets
+          : numberOfSets as NumberOfSets,
+      setsList:
+          setsList == freezed ? _value.setsList : setsList as SetsList<Sets>,
     ));
   }
 }
@@ -95,8 +95,8 @@ abstract class _$ExerciseCopyWith<$Res> implements $ExerciseCopyWith<$Res> {
       {UniqueId id,
       ExerciseName name,
       ExerciseDate date,
-      SeriesNumb seriesNumb,
-      RepetitionsList<Series> repetitionsList});
+      NumberOfSets numberOfSets,
+      SetsList<Sets> setsList});
 }
 
 /// @nodoc
@@ -113,18 +113,18 @@ class __$ExerciseCopyWithImpl<$Res> extends _$ExerciseCopyWithImpl<$Res>
     Object id = freezed,
     Object name = freezed,
     Object date = freezed,
-    Object seriesNumb = freezed,
-    Object repetitionsList = freezed,
+    Object numberOfSets = freezed,
+    Object setsList = freezed,
   }) {
     return _then(_Exercise(
       id: id == freezed ? _value.id : id as UniqueId,
       name: name == freezed ? _value.name : name as ExerciseName,
       date: date == freezed ? _value.date : date as ExerciseDate,
-      seriesNumb:
-          seriesNumb == freezed ? _value.seriesNumb : seriesNumb as SeriesNumb,
-      repetitionsList: repetitionsList == freezed
-          ? _value.repetitionsList
-          : repetitionsList as RepetitionsList<Series>,
+      numberOfSets: numberOfSets == freezed
+          ? _value.numberOfSets
+          : numberOfSets as NumberOfSets,
+      setsList:
+          setsList == freezed ? _value.setsList : setsList as SetsList<Sets>,
     ));
   }
 }
@@ -135,13 +135,13 @@ class _$_Exercise extends _Exercise {
       {@required this.id,
       @required this.name,
       @required this.date,
-      @required this.seriesNumb,
-      @required this.repetitionsList})
+      @required this.numberOfSets,
+      @required this.setsList})
       : assert(id != null),
         assert(name != null),
         assert(date != null),
-        assert(seriesNumb != null),
-        assert(repetitionsList != null),
+        assert(numberOfSets != null),
+        assert(setsList != null),
         super._();
 
   @override
@@ -151,13 +151,13 @@ class _$_Exercise extends _Exercise {
   @override
   final ExerciseDate date;
   @override
-  final SeriesNumb seriesNumb;
+  final NumberOfSets numberOfSets;
   @override
-  final RepetitionsList<Series> repetitionsList;
+  final SetsList<Sets> setsList;
 
   @override
   String toString() {
-    return 'Exercise(id: $id, name: $name, date: $date, seriesNumb: $seriesNumb, repetitionsList: $repetitionsList)';
+    return 'Exercise(id: $id, name: $name, date: $date, numberOfSets: $numberOfSets, setsList: $setsList)';
   }
 
   @override
@@ -170,12 +170,12 @@ class _$_Exercise extends _Exercise {
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.date, date) ||
                 const DeepCollectionEquality().equals(other.date, date)) &&
-            (identical(other.seriesNumb, seriesNumb) ||
+            (identical(other.numberOfSets, numberOfSets) ||
                 const DeepCollectionEquality()
-                    .equals(other.seriesNumb, seriesNumb)) &&
-            (identical(other.repetitionsList, repetitionsList) ||
+                    .equals(other.numberOfSets, numberOfSets)) &&
+            (identical(other.setsList, setsList) ||
                 const DeepCollectionEquality()
-                    .equals(other.repetitionsList, repetitionsList)));
+                    .equals(other.setsList, setsList)));
   }
 
   @override
@@ -184,8 +184,8 @@ class _$_Exercise extends _Exercise {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(date) ^
-      const DeepCollectionEquality().hash(seriesNumb) ^
-      const DeepCollectionEquality().hash(repetitionsList);
+      const DeepCollectionEquality().hash(numberOfSets) ^
+      const DeepCollectionEquality().hash(setsList);
 
   @override
   _$ExerciseCopyWith<_Exercise> get copyWith =>
@@ -198,8 +198,8 @@ abstract class _Exercise extends Exercise {
       {@required UniqueId id,
       @required ExerciseName name,
       @required ExerciseDate date,
-      @required SeriesNumb seriesNumb,
-      @required RepetitionsList<Series> repetitionsList}) = _$_Exercise;
+      @required NumberOfSets numberOfSets,
+      @required SetsList<Sets> setsList}) = _$_Exercise;
 
   @override
   UniqueId get id;
@@ -208,9 +208,9 @@ abstract class _Exercise extends Exercise {
   @override
   ExerciseDate get date;
   @override
-  SeriesNumb get seriesNumb;
+  NumberOfSets get numberOfSets;
   @override
-  RepetitionsList<Series> get repetitionsList;
+  SetsList<Sets> get setsList;
   @override
   _$ExerciseCopyWith<_Exercise> get copyWith;
 }

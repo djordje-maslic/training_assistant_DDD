@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:reminder_app/domain/core/value_objects.dart';
 import 'package:reminder_app/domain/exercise/exercise.dart';
-import 'package:reminder_app/domain/exercise/series.dart';
+import 'package:reminder_app/domain/exercise/sets.dart';
 import 'package:reminder_app/domain/exercise/value_objects.dart';
 import 'package:kt_dart/kt.dart';
 
@@ -18,8 +18,8 @@ abstract class ExerciseDto implements _$ExerciseDto {
     @JsonKey(ignore: true) String id,
     @required String name,
     @required int date,
-    @required int seriesNumb,
-    @required List<SeriesDto> repetitionsList,
+    @required int setsNumb,
+    @required List<SetsDto> setsList,
     @required @ServerTimestampConverter() FieldValue serverTimeStamp
   }) = _ExerciseDto;
 
@@ -28,11 +28,11 @@ abstract class ExerciseDto implements _$ExerciseDto {
       id: exercise.id.getOrCrash(),
       name: exercise.name.getOrCrash(),
       date: exercise.date.getOrCrash(),
-      seriesNumb: exercise.seriesNumb.getOrCrash(),
-      repetitionsList: exercise.repetitionsList
+      setsNumb: exercise.numberOfSets.getOrCrash(),
+      setsList: exercise.setsList
           .getOrCrash()
           .asList()
-          .map((series) => SeriesDto.fromDomain(series)).toList()
+          .map((sets) => SetsDto.fromDomain(sets)).toList()
           ,
       serverTimeStamp: FieldValue.serverTimestamp(),
     );
@@ -43,9 +43,9 @@ abstract class ExerciseDto implements _$ExerciseDto {
       id: UniqueId.withUniqueString(id),
       name: ExerciseName(name),
       date: ExerciseDate(date),
-      seriesNumb: SeriesNumb(seriesNumb),
-      repetitionsList: RepetitionsList(
-          repetitionsList.map((dto) => dto.toDomain()).toImmutableList()),
+      numberOfSets: NumberOfSets(setsNumb),
+      setsList: SetsList(
+          setsList.map((dto) => dto.toDomain()).toImmutableList()),
     );
   }
 
@@ -68,26 +68,26 @@ class ServerTimestampConverter implements JsonConverter<FieldValue, Object> {
 }
 
 @freezed
-abstract class SeriesDto implements _$SeriesDto {
-  const SeriesDto._();
+abstract class SetsDto implements _$SetsDto {
+  const SetsDto._();
 
-  const factory SeriesDto({
+  const factory SetsDto({
     @required String id,
     @required int number,
-  }) = _SeriesDto;
+  }) = _SetsDto;
 
-  factory SeriesDto.fromDomain(Series series) {
-    return SeriesDto(
-      id: series.id.getOrCrash(),
-      number: series.number.getOrCrash(),
+  factory SetsDto.fromDomain(Sets sets) {
+    return SetsDto(
+      id: sets.id.getOrCrash(),
+      number: sets.number.getOrCrash(),
     );
   }
 
-  Series toDomain() {
-    return Series(
+  Sets toDomain() {
+    return Sets(
         id: UniqueId.withUniqueString(id), number: RepetitionsNumb(number));
   }
 
-  factory SeriesDto.fromJson(Map<String, dynamic> json) =>
-      _$SeriesDtoFromJson(json);
+  factory SetsDto.fromJson(Map<String, dynamic> json) =>
+      _$SetsDtoFromJson(json);
 }

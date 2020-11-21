@@ -56,7 +56,7 @@ class ExerciseFormBloc extends Bloc<ExerciseFormEvent, ExerciseFormState> {
       exerciseSetNumbChanged: (e) async* {
         yield state.copyWith(
           exercise: state.exercise.copyWith(
-            seriesNumb: SeriesNumb(e.seriesNumbInt),
+            numberOfSets: NumberOfSets(e.seriesNumbInt),
           ),
           saveFailureOrSuccessOption: none(),
         );
@@ -64,7 +64,7 @@ class ExerciseFormBloc extends Bloc<ExerciseFormEvent, ExerciseFormState> {
       exerciseRepetitionsListChanged: (e) async* {
         yield state.copyWith(
           exercise: state.exercise.copyWith(
-            repetitionsList: RepetitionsList(
+            setsList: SetsList(
               e.sets.map(
                 (primitive) => primitive.toDomain(),
               ),

@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:reminder_app/application/exercise/exercise_actor/exercise_actor_bloc.dart';
 import 'package:reminder_app/domain/exercise/exercise.dart';
-import 'package:reminder_app/domain/exercise/series.dart';
+import 'package:reminder_app/domain/exercise/sets.dart';
+import 'package:reminder_app/presentation/routes/router.gr.dart';
 
 class ExerciseCard extends StatelessWidget {
   final Exercise exercise;
@@ -18,7 +20,8 @@ class ExerciseCard extends StatelessWidget {
     return Card(
       child: InkWell(
         onTap: () {
-          // TODO: implement navigation
+         ExtendedNavigator.of(context).pushExerciseFormPage(editedExercise: exercise);
+         
         },
         onLongPress: () {
           final exerciseActorBloc = context.read<ExerciseActorBloc>();
@@ -32,16 +35,16 @@ class ExerciseCard extends StatelessWidget {
                 exercise.name.getOrCrash(),
                 style: const TextStyle(fontSize: 18),
               ),
-              if (exercise.repetitionsList.length > 0) ...[
+              if (exercise.setsList.length > 0) ...[
                 const SizedBox(
                   height: 4,
                 ),
                 Wrap(
                   children: [
-                    ...exercise.repetitionsList
+                    ...exercise.setsList
                         .getOrCrash()
                         .map((set) => SetDisplay(
-                              series: set,
+                              sets: set,
                             ))
                         .iter,
                   ],
@@ -84,20 +87,20 @@ class ExerciseCard extends StatelessWidget {
 }
 
 class SetDisplay extends StatelessWidget {
-  final Series series;
+  final Sets sets;
 
-  const SetDisplay({Key key, @required this.series}) : super(key: key);
+  const SetDisplay({Key key, @required this.sets}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(series.id.getOrCrash()),
+        Text(sets.id.getOrCrash()),
         const SizedBox(
           width: 8,
         ),
-        Text('number: ${series.number.getOrCrash().toString()}')
+        Text('number: ${sets.number.getOrCrash().toString()}')
       ],
     );
   }

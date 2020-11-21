@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:reminder_app/domain/core/value_objects.dart';
-import 'package:reminder_app/domain/exercise/series.dart';
+import 'package:reminder_app/domain/exercise/sets.dart';
 import 'package:reminder_app/domain/exercise/value_objects.dart';
 
 part 'set_presentation_classes.freezed.dart';
@@ -20,15 +20,15 @@ abstract class SetItemPrimitive implements _$SetItemPrimitive {
         number: 0,
       );
 
-  factory SetItemPrimitive.fromDomain(Series series) {
+  factory SetItemPrimitive.fromDomain(Sets sets) {
     return SetItemPrimitive(
-      id: series.id,
-      number: series.number.getOrCrash(),
+      id: sets.id,
+      number: sets.number.getOrCrash(),
     );
   }
 
-  Series toDomain() {
-    return Series(
+  Sets toDomain() {
+    return Sets(
       id: id,
       number: RepetitionsNumb(number),
     );
