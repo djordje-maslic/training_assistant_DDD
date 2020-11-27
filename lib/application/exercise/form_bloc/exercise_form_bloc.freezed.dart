@@ -42,7 +42,7 @@ class _$ExerciseFormEventTearOff {
   }
 
 // ignore: unused_element
-  _ExerciseRepetitionsListChanged exerciseRepetitionsListChanged(
+  _ExerciseRepetitionsListChanged exerciseSetsChanged(
       KtList<SetItemPrimitive> sets) {
     return _ExerciseRepetitionsListChanged(
       sets,
@@ -62,46 +62,43 @@ const $ExerciseFormEvent = _$ExerciseFormEventTearOff();
 /// @nodoc
 mixin _$ExerciseFormEvent {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initialized(Option<Exercise> initialExerciseOption),
-    @required Result exerciseNameChanged(String nameStr),
-    @required Result exerciseDateChanged(int dateInt),
-    @required Result exerciseSetNumbChanged(int seriesNumbInt),
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Exercise> initialExerciseOption),
+    @required TResult exerciseNameChanged(String nameStr),
+    @required TResult exerciseDateChanged(int dateInt),
+    @required TResult exerciseSetNumbChanged(int seriesNumbInt),
+    @required TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
+    @required TResult exerciseSaved(),
+  });
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Exercise> initialExerciseOption),
+    TResult exerciseNameChanged(String nameStr),
+    TResult exerciseDateChanged(int dateInt),
+    TResult exerciseSetNumbChanged(int seriesNumbInt),
+    TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
+    TResult exerciseSaved(),
+    @required TResult orElse(),
+  });
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult exerciseNameChanged(_ExerciseNameChanged value),
+    @required TResult exerciseDateChanged(_ExerciseDateChanged value),
+    @required TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
     @required
-        Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
-    @required Result exerciseSaved(),
+        TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
+    @required TResult exerciseSaved(_ExerciseSavd value),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initialized(Option<Exercise> initialExerciseOption),
-    Result exerciseNameChanged(String nameStr),
-    Result exerciseDateChanged(int dateInt),
-    Result exerciseSetNumbChanged(int seriesNumbInt),
-    Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
-    Result exerciseSaved(),
-    @required Result orElse(),
-  });
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initialized(_Initialized value),
-    @required Result exerciseNameChanged(_ExerciseNameChanged value),
-    @required Result exerciseDateChanged(_ExerciseDateChanged value),
-    @required Result exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
-    @required
-        Result exerciseRepetitionsListChanged(
-            _ExerciseRepetitionsListChanged value),
-    @required Result exerciseSaved(_ExerciseSavd value),
-  });
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initialized(_Initialized value),
-    Result exerciseNameChanged(_ExerciseNameChanged value),
-    Result exerciseDateChanged(_ExerciseDateChanged value),
-    Result exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
-    Result exerciseRepetitionsListChanged(
-        _ExerciseRepetitionsListChanged value),
-    Result exerciseSaved(_ExerciseSavd value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult exerciseNameChanged(_ExerciseNameChanged value),
+    TResult exerciseDateChanged(_ExerciseDateChanged value),
+    TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+    TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
+    TResult exerciseSaved(_ExerciseSavd value),
+    @required TResult orElse(),
   });
 }
 
@@ -186,34 +183,33 @@ class _$_Initialized implements _Initialized {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initialized(Option<Exercise> initialExerciseOption),
-    @required Result exerciseNameChanged(String nameStr),
-    @required Result exerciseDateChanged(int dateInt),
-    @required Result exerciseSetNumbChanged(int seriesNumbInt),
-    @required
-        Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
-    @required Result exerciseSaved(),
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Exercise> initialExerciseOption),
+    @required TResult exerciseNameChanged(String nameStr),
+    @required TResult exerciseDateChanged(int dateInt),
+    @required TResult exerciseSetNumbChanged(int seriesNumbInt),
+    @required TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
+    @required TResult exerciseSaved(),
   }) {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
     assert(exerciseDateChanged != null);
     assert(exerciseSetNumbChanged != null);
-    assert(exerciseRepetitionsListChanged != null);
+    assert(exerciseSetsChanged != null);
     assert(exerciseSaved != null);
     return initialized(initialExerciseOption);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initialized(Option<Exercise> initialExerciseOption),
-    Result exerciseNameChanged(String nameStr),
-    Result exerciseDateChanged(int dateInt),
-    Result exerciseSetNumbChanged(int seriesNumbInt),
-    Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
-    Result exerciseSaved(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Exercise> initialExerciseOption),
+    TResult exerciseNameChanged(String nameStr),
+    TResult exerciseDateChanged(int dateInt),
+    TResult exerciseSetNumbChanged(int seriesNumbInt),
+    TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
+    TResult exerciseSaved(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (initialized != null) {
@@ -224,36 +220,34 @@ class _$_Initialized implements _Initialized {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initialized(_Initialized value),
-    @required Result exerciseNameChanged(_ExerciseNameChanged value),
-    @required Result exerciseDateChanged(_ExerciseDateChanged value),
-    @required Result exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult exerciseNameChanged(_ExerciseNameChanged value),
+    @required TResult exerciseDateChanged(_ExerciseDateChanged value),
+    @required TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
     @required
-        Result exerciseRepetitionsListChanged(
-            _ExerciseRepetitionsListChanged value),
-    @required Result exerciseSaved(_ExerciseSavd value),
+        TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
+    @required TResult exerciseSaved(_ExerciseSavd value),
   }) {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
     assert(exerciseDateChanged != null);
     assert(exerciseSetNumbChanged != null);
-    assert(exerciseRepetitionsListChanged != null);
+    assert(exerciseSetsChanged != null);
     assert(exerciseSaved != null);
     return initialized(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initialized(_Initialized value),
-    Result exerciseNameChanged(_ExerciseNameChanged value),
-    Result exerciseDateChanged(_ExerciseDateChanged value),
-    Result exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
-    Result exerciseRepetitionsListChanged(
-        _ExerciseRepetitionsListChanged value),
-    Result exerciseSaved(_ExerciseSavd value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult exerciseNameChanged(_ExerciseNameChanged value),
+    TResult exerciseDateChanged(_ExerciseDateChanged value),
+    TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+    TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
+    TResult exerciseSaved(_ExerciseSavd value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (initialized != null) {
@@ -331,34 +325,33 @@ class _$_ExerciseNameChanged implements _ExerciseNameChanged {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initialized(Option<Exercise> initialExerciseOption),
-    @required Result exerciseNameChanged(String nameStr),
-    @required Result exerciseDateChanged(int dateInt),
-    @required Result exerciseSetNumbChanged(int seriesNumbInt),
-    @required
-        Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
-    @required Result exerciseSaved(),
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Exercise> initialExerciseOption),
+    @required TResult exerciseNameChanged(String nameStr),
+    @required TResult exerciseDateChanged(int dateInt),
+    @required TResult exerciseSetNumbChanged(int seriesNumbInt),
+    @required TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
+    @required TResult exerciseSaved(),
   }) {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
     assert(exerciseDateChanged != null);
     assert(exerciseSetNumbChanged != null);
-    assert(exerciseRepetitionsListChanged != null);
+    assert(exerciseSetsChanged != null);
     assert(exerciseSaved != null);
     return exerciseNameChanged(nameStr);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initialized(Option<Exercise> initialExerciseOption),
-    Result exerciseNameChanged(String nameStr),
-    Result exerciseDateChanged(int dateInt),
-    Result exerciseSetNumbChanged(int seriesNumbInt),
-    Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
-    Result exerciseSaved(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Exercise> initialExerciseOption),
+    TResult exerciseNameChanged(String nameStr),
+    TResult exerciseDateChanged(int dateInt),
+    TResult exerciseSetNumbChanged(int seriesNumbInt),
+    TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
+    TResult exerciseSaved(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (exerciseNameChanged != null) {
@@ -369,36 +362,34 @@ class _$_ExerciseNameChanged implements _ExerciseNameChanged {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initialized(_Initialized value),
-    @required Result exerciseNameChanged(_ExerciseNameChanged value),
-    @required Result exerciseDateChanged(_ExerciseDateChanged value),
-    @required Result exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult exerciseNameChanged(_ExerciseNameChanged value),
+    @required TResult exerciseDateChanged(_ExerciseDateChanged value),
+    @required TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
     @required
-        Result exerciseRepetitionsListChanged(
-            _ExerciseRepetitionsListChanged value),
-    @required Result exerciseSaved(_ExerciseSavd value),
+        TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
+    @required TResult exerciseSaved(_ExerciseSavd value),
   }) {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
     assert(exerciseDateChanged != null);
     assert(exerciseSetNumbChanged != null);
-    assert(exerciseRepetitionsListChanged != null);
+    assert(exerciseSetsChanged != null);
     assert(exerciseSaved != null);
     return exerciseNameChanged(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initialized(_Initialized value),
-    Result exerciseNameChanged(_ExerciseNameChanged value),
-    Result exerciseDateChanged(_ExerciseDateChanged value),
-    Result exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
-    Result exerciseRepetitionsListChanged(
-        _ExerciseRepetitionsListChanged value),
-    Result exerciseSaved(_ExerciseSavd value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult exerciseNameChanged(_ExerciseNameChanged value),
+    TResult exerciseDateChanged(_ExerciseDateChanged value),
+    TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+    TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
+    TResult exerciseSaved(_ExerciseSavd value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (exerciseNameChanged != null) {
@@ -475,34 +466,33 @@ class _$_ExerciseDateChanged implements _ExerciseDateChanged {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initialized(Option<Exercise> initialExerciseOption),
-    @required Result exerciseNameChanged(String nameStr),
-    @required Result exerciseDateChanged(int dateInt),
-    @required Result exerciseSetNumbChanged(int seriesNumbInt),
-    @required
-        Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
-    @required Result exerciseSaved(),
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Exercise> initialExerciseOption),
+    @required TResult exerciseNameChanged(String nameStr),
+    @required TResult exerciseDateChanged(int dateInt),
+    @required TResult exerciseSetNumbChanged(int seriesNumbInt),
+    @required TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
+    @required TResult exerciseSaved(),
   }) {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
     assert(exerciseDateChanged != null);
     assert(exerciseSetNumbChanged != null);
-    assert(exerciseRepetitionsListChanged != null);
+    assert(exerciseSetsChanged != null);
     assert(exerciseSaved != null);
     return exerciseDateChanged(dateInt);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initialized(Option<Exercise> initialExerciseOption),
-    Result exerciseNameChanged(String nameStr),
-    Result exerciseDateChanged(int dateInt),
-    Result exerciseSetNumbChanged(int seriesNumbInt),
-    Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
-    Result exerciseSaved(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Exercise> initialExerciseOption),
+    TResult exerciseNameChanged(String nameStr),
+    TResult exerciseDateChanged(int dateInt),
+    TResult exerciseSetNumbChanged(int seriesNumbInt),
+    TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
+    TResult exerciseSaved(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (exerciseDateChanged != null) {
@@ -513,36 +503,34 @@ class _$_ExerciseDateChanged implements _ExerciseDateChanged {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initialized(_Initialized value),
-    @required Result exerciseNameChanged(_ExerciseNameChanged value),
-    @required Result exerciseDateChanged(_ExerciseDateChanged value),
-    @required Result exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult exerciseNameChanged(_ExerciseNameChanged value),
+    @required TResult exerciseDateChanged(_ExerciseDateChanged value),
+    @required TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
     @required
-        Result exerciseRepetitionsListChanged(
-            _ExerciseRepetitionsListChanged value),
-    @required Result exerciseSaved(_ExerciseSavd value),
+        TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
+    @required TResult exerciseSaved(_ExerciseSavd value),
   }) {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
     assert(exerciseDateChanged != null);
     assert(exerciseSetNumbChanged != null);
-    assert(exerciseRepetitionsListChanged != null);
+    assert(exerciseSetsChanged != null);
     assert(exerciseSaved != null);
     return exerciseDateChanged(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initialized(_Initialized value),
-    Result exerciseNameChanged(_ExerciseNameChanged value),
-    Result exerciseDateChanged(_ExerciseDateChanged value),
-    Result exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
-    Result exerciseRepetitionsListChanged(
-        _ExerciseRepetitionsListChanged value),
-    Result exerciseSaved(_ExerciseSavd value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult exerciseNameChanged(_ExerciseNameChanged value),
+    TResult exerciseDateChanged(_ExerciseDateChanged value),
+    TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+    TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
+    TResult exerciseSaved(_ExerciseSavd value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (exerciseDateChanged != null) {
@@ -623,34 +611,33 @@ class _$_ExerciseSereiesNumbChanged implements _ExerciseSereiesNumbChanged {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initialized(Option<Exercise> initialExerciseOption),
-    @required Result exerciseNameChanged(String nameStr),
-    @required Result exerciseDateChanged(int dateInt),
-    @required Result exerciseSetNumbChanged(int seriesNumbInt),
-    @required
-        Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
-    @required Result exerciseSaved(),
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Exercise> initialExerciseOption),
+    @required TResult exerciseNameChanged(String nameStr),
+    @required TResult exerciseDateChanged(int dateInt),
+    @required TResult exerciseSetNumbChanged(int seriesNumbInt),
+    @required TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
+    @required TResult exerciseSaved(),
   }) {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
     assert(exerciseDateChanged != null);
     assert(exerciseSetNumbChanged != null);
-    assert(exerciseRepetitionsListChanged != null);
+    assert(exerciseSetsChanged != null);
     assert(exerciseSaved != null);
     return exerciseSetNumbChanged(seriesNumbInt);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initialized(Option<Exercise> initialExerciseOption),
-    Result exerciseNameChanged(String nameStr),
-    Result exerciseDateChanged(int dateInt),
-    Result exerciseSetNumbChanged(int seriesNumbInt),
-    Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
-    Result exerciseSaved(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Exercise> initialExerciseOption),
+    TResult exerciseNameChanged(String nameStr),
+    TResult exerciseDateChanged(int dateInt),
+    TResult exerciseSetNumbChanged(int seriesNumbInt),
+    TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
+    TResult exerciseSaved(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (exerciseSetNumbChanged != null) {
@@ -661,36 +648,34 @@ class _$_ExerciseSereiesNumbChanged implements _ExerciseSereiesNumbChanged {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initialized(_Initialized value),
-    @required Result exerciseNameChanged(_ExerciseNameChanged value),
-    @required Result exerciseDateChanged(_ExerciseDateChanged value),
-    @required Result exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult exerciseNameChanged(_ExerciseNameChanged value),
+    @required TResult exerciseDateChanged(_ExerciseDateChanged value),
+    @required TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
     @required
-        Result exerciseRepetitionsListChanged(
-            _ExerciseRepetitionsListChanged value),
-    @required Result exerciseSaved(_ExerciseSavd value),
+        TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
+    @required TResult exerciseSaved(_ExerciseSavd value),
   }) {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
     assert(exerciseDateChanged != null);
     assert(exerciseSetNumbChanged != null);
-    assert(exerciseRepetitionsListChanged != null);
+    assert(exerciseSetsChanged != null);
     assert(exerciseSaved != null);
     return exerciseSetNumbChanged(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initialized(_Initialized value),
-    Result exerciseNameChanged(_ExerciseNameChanged value),
-    Result exerciseDateChanged(_ExerciseDateChanged value),
-    Result exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
-    Result exerciseRepetitionsListChanged(
-        _ExerciseRepetitionsListChanged value),
-    Result exerciseSaved(_ExerciseSavd value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult exerciseNameChanged(_ExerciseNameChanged value),
+    TResult exerciseDateChanged(_ExerciseDateChanged value),
+    TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+    TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
+    TResult exerciseSaved(_ExerciseSavd value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (exerciseSetNumbChanged != null) {
@@ -751,7 +736,7 @@ class _$_ExerciseRepetitionsListChanged
 
   @override
   String toString() {
-    return 'ExerciseFormEvent.exerciseRepetitionsListChanged(sets: $sets)';
+    return 'ExerciseFormEvent.exerciseSetsChanged(sets: $sets)';
   }
 
   @override
@@ -773,78 +758,75 @@ class _$_ExerciseRepetitionsListChanged
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initialized(Option<Exercise> initialExerciseOption),
-    @required Result exerciseNameChanged(String nameStr),
-    @required Result exerciseDateChanged(int dateInt),
-    @required Result exerciseSetNumbChanged(int seriesNumbInt),
-    @required
-        Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
-    @required Result exerciseSaved(),
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Exercise> initialExerciseOption),
+    @required TResult exerciseNameChanged(String nameStr),
+    @required TResult exerciseDateChanged(int dateInt),
+    @required TResult exerciseSetNumbChanged(int seriesNumbInt),
+    @required TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
+    @required TResult exerciseSaved(),
   }) {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
     assert(exerciseDateChanged != null);
     assert(exerciseSetNumbChanged != null);
-    assert(exerciseRepetitionsListChanged != null);
+    assert(exerciseSetsChanged != null);
     assert(exerciseSaved != null);
-    return exerciseRepetitionsListChanged(sets);
+    return exerciseSetsChanged(sets);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initialized(Option<Exercise> initialExerciseOption),
-    Result exerciseNameChanged(String nameStr),
-    Result exerciseDateChanged(int dateInt),
-    Result exerciseSetNumbChanged(int seriesNumbInt),
-    Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
-    Result exerciseSaved(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Exercise> initialExerciseOption),
+    TResult exerciseNameChanged(String nameStr),
+    TResult exerciseDateChanged(int dateInt),
+    TResult exerciseSetNumbChanged(int seriesNumbInt),
+    TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
+    TResult exerciseSaved(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (exerciseRepetitionsListChanged != null) {
-      return exerciseRepetitionsListChanged(sets);
+    if (exerciseSetsChanged != null) {
+      return exerciseSetsChanged(sets);
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initialized(_Initialized value),
-    @required Result exerciseNameChanged(_ExerciseNameChanged value),
-    @required Result exerciseDateChanged(_ExerciseDateChanged value),
-    @required Result exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult exerciseNameChanged(_ExerciseNameChanged value),
+    @required TResult exerciseDateChanged(_ExerciseDateChanged value),
+    @required TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
     @required
-        Result exerciseRepetitionsListChanged(
-            _ExerciseRepetitionsListChanged value),
-    @required Result exerciseSaved(_ExerciseSavd value),
+        TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
+    @required TResult exerciseSaved(_ExerciseSavd value),
   }) {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
     assert(exerciseDateChanged != null);
     assert(exerciseSetNumbChanged != null);
-    assert(exerciseRepetitionsListChanged != null);
+    assert(exerciseSetsChanged != null);
     assert(exerciseSaved != null);
-    return exerciseRepetitionsListChanged(this);
+    return exerciseSetsChanged(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initialized(_Initialized value),
-    Result exerciseNameChanged(_ExerciseNameChanged value),
-    Result exerciseDateChanged(_ExerciseDateChanged value),
-    Result exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
-    Result exerciseRepetitionsListChanged(
-        _ExerciseRepetitionsListChanged value),
-    Result exerciseSaved(_ExerciseSavd value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult exerciseNameChanged(_ExerciseNameChanged value),
+    TResult exerciseDateChanged(_ExerciseDateChanged value),
+    TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+    TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
+    TResult exerciseSaved(_ExerciseSavd value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (exerciseRepetitionsListChanged != null) {
-      return exerciseRepetitionsListChanged(this);
+    if (exerciseSetsChanged != null) {
+      return exerciseSetsChanged(this);
     }
     return orElse();
   }
@@ -897,34 +879,33 @@ class _$_ExerciseSavd implements _ExerciseSavd {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initialized(Option<Exercise> initialExerciseOption),
-    @required Result exerciseNameChanged(String nameStr),
-    @required Result exerciseDateChanged(int dateInt),
-    @required Result exerciseSetNumbChanged(int seriesNumbInt),
-    @required
-        Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
-    @required Result exerciseSaved(),
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Exercise> initialExerciseOption),
+    @required TResult exerciseNameChanged(String nameStr),
+    @required TResult exerciseDateChanged(int dateInt),
+    @required TResult exerciseSetNumbChanged(int seriesNumbInt),
+    @required TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
+    @required TResult exerciseSaved(),
   }) {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
     assert(exerciseDateChanged != null);
     assert(exerciseSetNumbChanged != null);
-    assert(exerciseRepetitionsListChanged != null);
+    assert(exerciseSetsChanged != null);
     assert(exerciseSaved != null);
     return exerciseSaved();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initialized(Option<Exercise> initialExerciseOption),
-    Result exerciseNameChanged(String nameStr),
-    Result exerciseDateChanged(int dateInt),
-    Result exerciseSetNumbChanged(int seriesNumbInt),
-    Result exerciseRepetitionsListChanged(KtList<SetItemPrimitive> sets),
-    Result exerciseSaved(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Exercise> initialExerciseOption),
+    TResult exerciseNameChanged(String nameStr),
+    TResult exerciseDateChanged(int dateInt),
+    TResult exerciseSetNumbChanged(int seriesNumbInt),
+    TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
+    TResult exerciseSaved(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (exerciseSaved != null) {
@@ -935,36 +916,34 @@ class _$_ExerciseSavd implements _ExerciseSavd {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initialized(_Initialized value),
-    @required Result exerciseNameChanged(_ExerciseNameChanged value),
-    @required Result exerciseDateChanged(_ExerciseDateChanged value),
-    @required Result exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult exerciseNameChanged(_ExerciseNameChanged value),
+    @required TResult exerciseDateChanged(_ExerciseDateChanged value),
+    @required TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
     @required
-        Result exerciseRepetitionsListChanged(
-            _ExerciseRepetitionsListChanged value),
-    @required Result exerciseSaved(_ExerciseSavd value),
+        TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
+    @required TResult exerciseSaved(_ExerciseSavd value),
   }) {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
     assert(exerciseDateChanged != null);
     assert(exerciseSetNumbChanged != null);
-    assert(exerciseRepetitionsListChanged != null);
+    assert(exerciseSetsChanged != null);
     assert(exerciseSaved != null);
     return exerciseSaved(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initialized(_Initialized value),
-    Result exerciseNameChanged(_ExerciseNameChanged value),
-    Result exerciseDateChanged(_ExerciseDateChanged value),
-    Result exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
-    Result exerciseRepetitionsListChanged(
-        _ExerciseRepetitionsListChanged value),
-    Result exerciseSaved(_ExerciseSavd value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult exerciseNameChanged(_ExerciseNameChanged value),
+    TResult exerciseDateChanged(_ExerciseDateChanged value),
+    TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+    TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
+    TResult exerciseSaved(_ExerciseSavd value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (exerciseSaved != null) {

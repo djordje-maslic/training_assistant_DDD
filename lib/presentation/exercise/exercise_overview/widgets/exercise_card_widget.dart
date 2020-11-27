@@ -5,6 +5,7 @@ import 'package:kt_dart/kt.dart';
 import 'package:reminder_app/application/exercise/exercise_actor/exercise_actor_bloc.dart';
 import 'package:reminder_app/domain/exercise/exercise.dart';
 import 'package:reminder_app/domain/exercise/sets.dart';
+import 'package:reminder_app/domain/exercise/value_objects.dart';
 import 'package:reminder_app/presentation/routes/router.gr.dart';
 
 class ExerciseCard extends StatelessWidget {
@@ -45,6 +46,7 @@ class ExerciseCard extends StatelessWidget {
                         .getOrCrash()
                         .map((set) => SetDisplay(
                               sets: set,
+                      setList: exercise.setsList,
                             ))
                         .iter,
                   ],
@@ -88,20 +90,11 @@ class ExerciseCard extends StatelessWidget {
 
 class SetDisplay extends StatelessWidget {
   final Sets sets;
-
-  const SetDisplay({Key key, @required this.sets}) : super(key: key);
+  final SetsList setList;
+  const SetDisplay({Key key, @required this.sets, @required this.setList}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(sets.id.getOrCrash()),
-        const SizedBox(
-          width: 8,
-        ),
-        Text('number: ${sets.number.getOrCrash().toString()}')
-      ],
-    );
+    return Text('${setList.getOrCrash().indexOf(sets) +1}.SET: ${sets.number.getOrCrash().toString()} reps  ');
   }
 }

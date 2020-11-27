@@ -25,7 +25,7 @@ Map<String, dynamic> _$_$_ExerciseDtoToJson(_$_ExerciseDto instance) =>
       'name': instance.name,
       'date': instance.date,
       'setsNumb': instance.setsNumb,
-      'setsList': instance.setsList,
+      'setsList': instance.setsList?.map((e) => e?.toJson())?.toList(),
       'serverTimeStamp':
           const ServerTimestampConverter().toJson(instance.serverTimeStamp),
     };

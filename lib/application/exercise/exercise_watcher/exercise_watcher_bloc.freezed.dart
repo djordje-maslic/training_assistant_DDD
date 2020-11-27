@@ -39,33 +39,33 @@ const $ExerciseWatcherEvent = _$ExerciseWatcherEventTearOff();
 /// @nodoc
 mixin _$ExerciseWatcherEvent {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result watchAllStarted(),
-    @required Result watchSearchedExercises(),
+  TResult when<TResult extends Object>({
+    @required TResult watchAllStarted(),
+    @required TResult watchSearchedExercises(),
     @required
-        Result exerciseReceived(
+        TResult exerciseReceived(
             Either<ExerciseFailure, KtList<Exercise>> failureOrExercise),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchAllStarted(),
-    Result watchSearchedExercises(),
-    Result exerciseReceived(
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchAllStarted(),
+    TResult watchSearchedExercises(),
+    TResult exerciseReceived(
         Either<ExerciseFailure, KtList<Exercise>> failureOrExercise),
-    @required Result orElse(),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result watchAllStarted(_WatchAllStarted value),
-    @required Result watchSearchedExercises(_WatchSearchedExercises value),
-    @required Result exerciseReceived(_ExerciseReceived value),
+  TResult map<TResult extends Object>({
+    @required TResult watchAllStarted(_WatchAllStarted value),
+    @required TResult watchSearchedExercises(_WatchSearchedExercises value),
+    @required TResult exerciseReceived(_ExerciseReceived value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchAllStarted(_WatchAllStarted value),
-    Result watchSearchedExercises(_WatchSearchedExercises value),
-    Result exerciseReceived(_ExerciseReceived value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult watchAllStarted(_WatchAllStarted value),
+    TResult watchSearchedExercises(_WatchSearchedExercises value),
+    TResult exerciseReceived(_ExerciseReceived value),
+    @required TResult orElse(),
   });
 }
 
@@ -124,11 +124,11 @@ class _$_WatchAllStarted implements _WatchAllStarted {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result watchAllStarted(),
-    @required Result watchSearchedExercises(),
+  TResult when<TResult extends Object>({
+    @required TResult watchAllStarted(),
+    @required TResult watchSearchedExercises(),
     @required
-        Result exerciseReceived(
+        TResult exerciseReceived(
             Either<ExerciseFailure, KtList<Exercise>> failureOrExercise),
   }) {
     assert(watchAllStarted != null);
@@ -139,12 +139,12 @@ class _$_WatchAllStarted implements _WatchAllStarted {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchAllStarted(),
-    Result watchSearchedExercises(),
-    Result exerciseReceived(
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchAllStarted(),
+    TResult watchSearchedExercises(),
+    TResult exerciseReceived(
         Either<ExerciseFailure, KtList<Exercise>> failureOrExercise),
-    @required Result orElse(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (watchAllStarted != null) {
@@ -155,10 +155,10 @@ class _$_WatchAllStarted implements _WatchAllStarted {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result watchAllStarted(_WatchAllStarted value),
-    @required Result watchSearchedExercises(_WatchSearchedExercises value),
-    @required Result exerciseReceived(_ExerciseReceived value),
+  TResult map<TResult extends Object>({
+    @required TResult watchAllStarted(_WatchAllStarted value),
+    @required TResult watchSearchedExercises(_WatchSearchedExercises value),
+    @required TResult exerciseReceived(_ExerciseReceived value),
   }) {
     assert(watchAllStarted != null);
     assert(watchSearchedExercises != null);
@@ -168,11 +168,11 @@ class _$_WatchAllStarted implements _WatchAllStarted {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchAllStarted(_WatchAllStarted value),
-    Result watchSearchedExercises(_WatchSearchedExercises value),
-    Result exerciseReceived(_ExerciseReceived value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult watchAllStarted(_WatchAllStarted value),
+    TResult watchSearchedExercises(_WatchSearchedExercises value),
+    TResult exerciseReceived(_ExerciseReceived value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (watchAllStarted != null) {
@@ -224,11 +224,11 @@ class _$_WatchSearchedExercises implements _WatchSearchedExercises {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result watchAllStarted(),
-    @required Result watchSearchedExercises(),
+  TResult when<TResult extends Object>({
+    @required TResult watchAllStarted(),
+    @required TResult watchSearchedExercises(),
     @required
-        Result exerciseReceived(
+        TResult exerciseReceived(
             Either<ExerciseFailure, KtList<Exercise>> failureOrExercise),
   }) {
     assert(watchAllStarted != null);
@@ -239,12 +239,12 @@ class _$_WatchSearchedExercises implements _WatchSearchedExercises {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchAllStarted(),
-    Result watchSearchedExercises(),
-    Result exerciseReceived(
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchAllStarted(),
+    TResult watchSearchedExercises(),
+    TResult exerciseReceived(
         Either<ExerciseFailure, KtList<Exercise>> failureOrExercise),
-    @required Result orElse(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (watchSearchedExercises != null) {
@@ -255,10 +255,10 @@ class _$_WatchSearchedExercises implements _WatchSearchedExercises {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result watchAllStarted(_WatchAllStarted value),
-    @required Result watchSearchedExercises(_WatchSearchedExercises value),
-    @required Result exerciseReceived(_ExerciseReceived value),
+  TResult map<TResult extends Object>({
+    @required TResult watchAllStarted(_WatchAllStarted value),
+    @required TResult watchSearchedExercises(_WatchSearchedExercises value),
+    @required TResult exerciseReceived(_ExerciseReceived value),
   }) {
     assert(watchAllStarted != null);
     assert(watchSearchedExercises != null);
@@ -268,11 +268,11 @@ class _$_WatchSearchedExercises implements _WatchSearchedExercises {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchAllStarted(_WatchAllStarted value),
-    Result watchSearchedExercises(_WatchSearchedExercises value),
-    Result exerciseReceived(_ExerciseReceived value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult watchAllStarted(_WatchAllStarted value),
+    TResult watchSearchedExercises(_WatchSearchedExercises value),
+    TResult exerciseReceived(_ExerciseReceived value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (watchSearchedExercises != null) {
@@ -350,11 +350,11 @@ class _$_ExerciseReceived implements _ExerciseReceived {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result watchAllStarted(),
-    @required Result watchSearchedExercises(),
+  TResult when<TResult extends Object>({
+    @required TResult watchAllStarted(),
+    @required TResult watchSearchedExercises(),
     @required
-        Result exerciseReceived(
+        TResult exerciseReceived(
             Either<ExerciseFailure, KtList<Exercise>> failureOrExercise),
   }) {
     assert(watchAllStarted != null);
@@ -365,12 +365,12 @@ class _$_ExerciseReceived implements _ExerciseReceived {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchAllStarted(),
-    Result watchSearchedExercises(),
-    Result exerciseReceived(
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchAllStarted(),
+    TResult watchSearchedExercises(),
+    TResult exerciseReceived(
         Either<ExerciseFailure, KtList<Exercise>> failureOrExercise),
-    @required Result orElse(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (exerciseReceived != null) {
@@ -381,10 +381,10 @@ class _$_ExerciseReceived implements _ExerciseReceived {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result watchAllStarted(_WatchAllStarted value),
-    @required Result watchSearchedExercises(_WatchSearchedExercises value),
-    @required Result exerciseReceived(_ExerciseReceived value),
+  TResult map<TResult extends Object>({
+    @required TResult watchAllStarted(_WatchAllStarted value),
+    @required TResult watchSearchedExercises(_WatchSearchedExercises value),
+    @required TResult exerciseReceived(_ExerciseReceived value),
   }) {
     assert(watchAllStarted != null);
     assert(watchSearchedExercises != null);
@@ -394,11 +394,11 @@ class _$_ExerciseReceived implements _ExerciseReceived {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchAllStarted(_WatchAllStarted value),
-    Result watchSearchedExercises(_WatchSearchedExercises value),
-    Result exerciseReceived(_ExerciseReceived value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult watchAllStarted(_WatchAllStarted value),
+    TResult watchSearchedExercises(_WatchSearchedExercises value),
+    TResult exerciseReceived(_ExerciseReceived value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (exerciseReceived != null) {
@@ -453,34 +453,34 @@ const $ExerciseWatcherState = _$ExerciseWatcherStateTearOff();
 /// @nodoc
 mixin _$ExerciseWatcherState {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadSuccess(KtList<Exercise> exercise),
-    @required Result loadFailure(ExerciseFailure failure),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadSuccess(KtList<Exercise> exercise),
+    @required TResult loadFailure(ExerciseFailure failure),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadSuccess(KtList<Exercise> exercise),
-    Result loadFailure(ExerciseFailure failure),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadSuccess(KtList<Exercise> exercise),
+    TResult loadFailure(ExerciseFailure failure),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadSuccess(_LoadSuccess value),
-    @required Result loadFailure(_LoadFailure value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadSuccess(_LoadSuccess value),
+    @required TResult loadFailure(_LoadFailure value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadSuccess(_LoadSuccess value),
-    Result loadFailure(_LoadFailure value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadSuccess(_LoadSuccess value),
+    TResult loadFailure(_LoadFailure value),
+    @required TResult orElse(),
   });
 }
 
@@ -537,11 +537,11 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadSuccess(KtList<Exercise> exercise),
-    @required Result loadFailure(ExerciseFailure failure),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadSuccess(KtList<Exercise> exercise),
+    @required TResult loadFailure(ExerciseFailure failure),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -552,12 +552,12 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadSuccess(KtList<Exercise> exercise),
-    Result loadFailure(ExerciseFailure failure),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadSuccess(KtList<Exercise> exercise),
+    TResult loadFailure(ExerciseFailure failure),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (initial != null) {
@@ -568,11 +568,11 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadSuccess(_LoadSuccess value),
-    @required Result loadFailure(_LoadFailure value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadSuccess(_LoadSuccess value),
+    @required TResult loadFailure(_LoadFailure value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -583,12 +583,12 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadSuccess(_LoadSuccess value),
-    Result loadFailure(_LoadFailure value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadSuccess(_LoadSuccess value),
+    TResult loadFailure(_LoadFailure value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (initial != null) {
@@ -640,11 +640,11 @@ class _$_LoadInProgress implements _LoadInProgress {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadSuccess(KtList<Exercise> exercise),
-    @required Result loadFailure(ExerciseFailure failure),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadSuccess(KtList<Exercise> exercise),
+    @required TResult loadFailure(ExerciseFailure failure),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -655,12 +655,12 @@ class _$_LoadInProgress implements _LoadInProgress {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadSuccess(KtList<Exercise> exercise),
-    Result loadFailure(ExerciseFailure failure),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadSuccess(KtList<Exercise> exercise),
+    TResult loadFailure(ExerciseFailure failure),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadInProgress != null) {
@@ -671,11 +671,11 @@ class _$_LoadInProgress implements _LoadInProgress {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadSuccess(_LoadSuccess value),
-    @required Result loadFailure(_LoadFailure value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadSuccess(_LoadSuccess value),
+    @required TResult loadFailure(_LoadFailure value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -686,12 +686,12 @@ class _$_LoadInProgress implements _LoadInProgress {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadSuccess(_LoadSuccess value),
-    Result loadFailure(_LoadFailure value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadSuccess(_LoadSuccess value),
+    TResult loadFailure(_LoadFailure value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadInProgress != null) {
@@ -765,11 +765,11 @@ class _$_LoadSuccess implements _LoadSuccess {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadSuccess(KtList<Exercise> exercise),
-    @required Result loadFailure(ExerciseFailure failure),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadSuccess(KtList<Exercise> exercise),
+    @required TResult loadFailure(ExerciseFailure failure),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -780,12 +780,12 @@ class _$_LoadSuccess implements _LoadSuccess {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadSuccess(KtList<Exercise> exercise),
-    Result loadFailure(ExerciseFailure failure),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadSuccess(KtList<Exercise> exercise),
+    TResult loadFailure(ExerciseFailure failure),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadSuccess != null) {
@@ -796,11 +796,11 @@ class _$_LoadSuccess implements _LoadSuccess {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadSuccess(_LoadSuccess value),
-    @required Result loadFailure(_LoadFailure value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadSuccess(_LoadSuccess value),
+    @required TResult loadFailure(_LoadFailure value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -811,12 +811,12 @@ class _$_LoadSuccess implements _LoadSuccess {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadSuccess(_LoadSuccess value),
-    Result loadFailure(_LoadFailure value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadSuccess(_LoadSuccess value),
+    TResult loadFailure(_LoadFailure value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadSuccess != null) {
@@ -904,11 +904,11 @@ class _$_LoadFailure implements _LoadFailure {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadSuccess(KtList<Exercise> exercise),
-    @required Result loadFailure(ExerciseFailure failure),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadSuccess(KtList<Exercise> exercise),
+    @required TResult loadFailure(ExerciseFailure failure),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -919,12 +919,12 @@ class _$_LoadFailure implements _LoadFailure {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadSuccess(KtList<Exercise> exercise),
-    Result loadFailure(ExerciseFailure failure),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadSuccess(KtList<Exercise> exercise),
+    TResult loadFailure(ExerciseFailure failure),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadFailure != null) {
@@ -935,11 +935,11 @@ class _$_LoadFailure implements _LoadFailure {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadSuccess(_LoadSuccess value),
-    @required Result loadFailure(_LoadFailure value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadSuccess(_LoadSuccess value),
+    @required TResult loadFailure(_LoadFailure value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -950,12 +950,12 @@ class _$_LoadFailure implements _LoadFailure {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadSuccess(_LoadSuccess value),
-    Result loadFailure(_LoadFailure value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadSuccess(_LoadSuccess value),
+    TResult loadFailure(_LoadFailure value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadFailure != null) {

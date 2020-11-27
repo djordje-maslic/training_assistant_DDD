@@ -61,7 +61,7 @@ class ExerciseFormBloc extends Bloc<ExerciseFormEvent, ExerciseFormState> {
           saveFailureOrSuccessOption: none(),
         );
       },
-      exerciseRepetitionsListChanged: (e) async* {
+      exerciseSetsChanged: (e) async* {
         yield state.copyWith(
           exercise: state.exercise.copyWith(
             setsList: SetsList(
@@ -95,5 +95,4 @@ class ExerciseFormBloc extends Bloc<ExerciseFormEvent, ExerciseFormState> {
       },
     );
   }
-
 }

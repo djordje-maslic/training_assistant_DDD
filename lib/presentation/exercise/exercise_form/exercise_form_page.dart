@@ -3,12 +3,16 @@ import 'package:dartz/dartz.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 import 'package:reminder_app/application/exercise/form_bloc/exercise_form_bloc.dart';
 import 'package:reminder_app/domain/exercise/exercise.dart';
 import 'package:reminder_app/injectable.dart';
+import 'package:reminder_app/presentation/exercise/exercise_form/misc/set_presentation_classes.dart';
+import 'package:reminder_app/presentation/exercise/exercise_form/widgets/add_set_tile_widget.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/widgets/body_field_widget.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/widgets/date_field_widget.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/widgets/number_of_sets_field_widget.dart';
+import 'package:reminder_app/presentation/exercise/exercise_form/widgets/set_list_widget.dart';
 import 'package:reminder_app/presentation/routes/router.gr.dart';
 
 class ExerciseFormPage extends StatelessWidget {
@@ -129,20 +133,28 @@ class ExerciseFormPageScaffold extends StatelessWidget {
       ),
       body: BlocBuilder<ExerciseFormBloc, ExerciseFormState>(
         buildWhen: (p, c) => p.showErrorMessages != c.showErrorMessages,
-        builder: (context, state) => Form(
-          autovalidateMode: state.showErrorMessages
-              ? AutovalidateMode.always
-              : AutovalidateMode.disabled,
-          child: SingleChildScrollView(
-            child: Column(
-              children: const [
-                BodyField(),
-                DateFieldWidget(),
-                NumberOfSets(),
-              ],
+        builder: (context, state) {
+          return ChangeNotifierProvider(
+            create: (_) => FormSets(),
+            child: Form(
+              autovalidateMode: state.showErrorMessages
+                  ? AutovalidateMode.always
+                  : AutovalidateMode.disabled,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: const [
+                    BodyField(),
+                    DateFieldWidget(),
+                    NumberOfSets(),
+                    SetListWidget(),
+                    AddSetTile(),
+
+                  ],
+                ),
+              ),
             ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }

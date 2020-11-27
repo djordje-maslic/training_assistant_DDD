@@ -20,8 +20,7 @@ abstract class Sets implements _$Sets {
         number: RepetitionsNumb(0),
       );
 
-  Option<ValueFailure<dynamic>> get failureOption{
+  Option<ValueFailure<dynamic>> get failureOption {
     return number.value.fold((f) => some(f), (r) => none());
-
   }
 }

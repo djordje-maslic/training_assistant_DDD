@@ -14,7 +14,7 @@ abstract class ExerciseFormEvent with _$ExerciseFormEvent {
   const factory ExerciseFormEvent.exerciseSetNumbChanged(int seriesNumbInt) =
       _ExerciseSereiesNumbChanged;
 
-  const factory ExerciseFormEvent.exerciseRepetitionsListChanged(
+  const factory ExerciseFormEvent.exerciseSetsChanged(
       KtList<SetItemPrimitive> sets) = _ExerciseRepetitionsListChanged;
 
   const factory ExerciseFormEvent.exerciseSaved() = _ExerciseSavd;
