@@ -16,12 +16,14 @@ class _$ExerciseTearOff {
 // ignore: unused_element
   _Exercise call(
       {@required UniqueId id,
+      @required UniqueId userId,
       @required ExerciseName name,
       @required ExerciseDate date,
       @required NumberOfSets numberOfSets,
       @required SetsList<Sets> setsList}) {
     return _Exercise(
       id: id,
+      userId: userId,
       name: name,
       date: date,
       numberOfSets: numberOfSets,
@@ -37,6 +39,7 @@ const $Exercise = _$ExerciseTearOff();
 /// @nodoc
 mixin _$Exercise {
   UniqueId get id;
+  UniqueId get userId;
   ExerciseName get name;
   ExerciseDate get date;
   NumberOfSets get numberOfSets;
@@ -51,6 +54,7 @@ abstract class $ExerciseCopyWith<$Res> {
       _$ExerciseCopyWithImpl<$Res>;
   $Res call(
       {UniqueId id,
+      UniqueId userId,
       ExerciseName name,
       ExerciseDate date,
       NumberOfSets numberOfSets,
@@ -68,6 +72,7 @@ class _$ExerciseCopyWithImpl<$Res> implements $ExerciseCopyWith<$Res> {
   @override
   $Res call({
     Object id = freezed,
+    Object userId = freezed,
     Object name = freezed,
     Object date = freezed,
     Object numberOfSets = freezed,
@@ -75,6 +80,7 @@ class _$ExerciseCopyWithImpl<$Res> implements $ExerciseCopyWith<$Res> {
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as UniqueId,
+      userId: userId == freezed ? _value.userId : userId as UniqueId,
       name: name == freezed ? _value.name : name as ExerciseName,
       date: date == freezed ? _value.date : date as ExerciseDate,
       numberOfSets: numberOfSets == freezed
@@ -93,6 +99,7 @@ abstract class _$ExerciseCopyWith<$Res> implements $ExerciseCopyWith<$Res> {
   @override
   $Res call(
       {UniqueId id,
+      UniqueId userId,
       ExerciseName name,
       ExerciseDate date,
       NumberOfSets numberOfSets,
@@ -111,6 +118,7 @@ class __$ExerciseCopyWithImpl<$Res> extends _$ExerciseCopyWithImpl<$Res>
   @override
   $Res call({
     Object id = freezed,
+    Object userId = freezed,
     Object name = freezed,
     Object date = freezed,
     Object numberOfSets = freezed,
@@ -118,6 +126,7 @@ class __$ExerciseCopyWithImpl<$Res> extends _$ExerciseCopyWithImpl<$Res>
   }) {
     return _then(_Exercise(
       id: id == freezed ? _value.id : id as UniqueId,
+      userId: userId == freezed ? _value.userId : userId as UniqueId,
       name: name == freezed ? _value.name : name as ExerciseName,
       date: date == freezed ? _value.date : date as ExerciseDate,
       numberOfSets: numberOfSets == freezed
@@ -133,11 +142,13 @@ class __$ExerciseCopyWithImpl<$Res> extends _$ExerciseCopyWithImpl<$Res>
 class _$_Exercise extends _Exercise {
   const _$_Exercise(
       {@required this.id,
+      @required this.userId,
       @required this.name,
       @required this.date,
       @required this.numberOfSets,
       @required this.setsList})
       : assert(id != null),
+        assert(userId != null),
         assert(name != null),
         assert(date != null),
         assert(numberOfSets != null),
@@ -146,6 +157,8 @@ class _$_Exercise extends _Exercise {
 
   @override
   final UniqueId id;
+  @override
+  final UniqueId userId;
   @override
   final ExerciseName name;
   @override
@@ -157,7 +170,7 @@ class _$_Exercise extends _Exercise {
 
   @override
   String toString() {
-    return 'Exercise(id: $id, name: $name, date: $date, numberOfSets: $numberOfSets, setsList: $setsList)';
+    return 'Exercise(id: $id, userId: $userId, name: $name, date: $date, numberOfSets: $numberOfSets, setsList: $setsList)';
   }
 
   @override
@@ -166,6 +179,8 @@ class _$_Exercise extends _Exercise {
         (other is _Exercise &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.userId, userId) ||
+                const DeepCollectionEquality().equals(other.userId, userId)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.date, date) ||
@@ -182,6 +197,7 @@ class _$_Exercise extends _Exercise {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(userId) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(date) ^
       const DeepCollectionEquality().hash(numberOfSets) ^
@@ -196,6 +212,7 @@ abstract class _Exercise extends Exercise {
   const _Exercise._() : super._();
   const factory _Exercise(
       {@required UniqueId id,
+      @required UniqueId userId,
       @required ExerciseName name,
       @required ExerciseDate date,
       @required NumberOfSets numberOfSets,
@@ -203,6 +220,8 @@ abstract class _Exercise extends Exercise {
 
   @override
   UniqueId get id;
+  @override
+  UniqueId get userId;
   @override
   ExerciseName get name;
   @override

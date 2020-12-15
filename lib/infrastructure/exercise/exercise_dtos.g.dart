@@ -8,6 +8,7 @@ part of 'exercise_dtos.dart';
 
 _$_ExerciseDto _$_$_ExerciseDtoFromJson(Map<String, dynamic> json) {
   return _$_ExerciseDto(
+    userId: json['userId'] as String,
     name: json['name'] as String,
     date: json['date'] as int,
     setsNumb: json['setsNumb'] as int,
@@ -22,6 +23,7 @@ _$_ExerciseDto _$_$_ExerciseDtoFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_ExerciseDtoToJson(_$_ExerciseDto instance) =>
     <String, dynamic>{
+      'userId': instance.userId,
       'name': instance.name,
       'date': instance.date,
       'setsNumb': instance.setsNumb,

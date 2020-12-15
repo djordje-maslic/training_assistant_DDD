@@ -7,7 +7,7 @@ import 'package:reminder_app/presentation/splash/splash_page.dart';
 @MaterialAutoRouter(generateNavigationHelperExtension: true
   ,routes: <AutoRoute>[
     // initial route is named "/"
-    MaterialRoute(page: SplashPage, initial: true),
+    MaterialRoute(page: SplashPage,initial: true),
     MaterialRoute(page: SignIn,),
     MaterialRoute(page: ExerciseOverviewPage,),
     MaterialRoute(page: ExerciseFormPage,fullscreenDialog: true,)

@@ -40,11 +40,11 @@ class ExerciseWatcherBloc
             .listen((failureOrExercise) =>
                 add(ExerciseWatcherEvent.exerciseReceived(failureOrExercise)));
       },
-      watchSearchedExercises: (e) async* {
+      watchUsersExercises: (e) async* {
         yield const ExerciseWatcherState.loadInProgress();
         await _exerciseStreamSubscription?.cancel();
         _exerciseStreamSubscription = _exerciseRepository
-            .watchSearchedExercise()
+            .watchUsersExercises()
             .listen((failureOrExercise) =>
                 add(ExerciseWatcherEvent.exerciseReceived(failureOrExercise)));
       },

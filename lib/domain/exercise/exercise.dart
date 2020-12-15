@@ -12,8 +12,10 @@ part 'exercise.freezed.dart';
 abstract class Exercise implements _$Exercise {
   const Exercise._();
 
+
   const factory Exercise({
     @required UniqueId id,
+    @required UniqueId userId,
     @required ExerciseName name,
     @required ExerciseDate date,
     @required NumberOfSets numberOfSets,
@@ -22,8 +24,9 @@ abstract class Exercise implements _$Exercise {
 
   factory Exercise.empty() => Exercise(
         id: UniqueId(),
+        userId: UniqueId.withUniqueString(''),
         name: ExerciseName(''),
-        date: ExerciseDate(0),
+        date: ExerciseDate(DateTime.now().millisecondsSinceEpoch),
         numberOfSets: NumberOfSets(0),
         setsList: SetsList(emptyList()),
       );

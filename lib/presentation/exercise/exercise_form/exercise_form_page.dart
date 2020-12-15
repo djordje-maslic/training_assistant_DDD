@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:reminder_app/application/exercise/form_bloc/exercise_form_bloc.dart';
 import 'package:reminder_app/domain/exercise/exercise.dart';
 import 'package:reminder_app/injectable.dart';
+import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_presentation_classes.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/set_presentation_classes.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/widgets/add_set_tile_widget.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/widgets/body_field_widget.dart';
@@ -134,8 +135,13 @@ class ExerciseFormPageScaffold extends StatelessWidget {
       body: BlocBuilder<ExerciseFormBloc, ExerciseFormState>(
         buildWhen: (p, c) => p.showErrorMessages != c.showErrorMessages,
         builder: (context, state) {
-          return ChangeNotifierProvider(
-            create: (_) => FormSets(),
+          return MultiProvider(
+            providers: [
+              ChangeNotifierProvider<FormDate>(
+                create: (_) => FormDate(),
+              ),
+              ChangeNotifierProvider<FormSets>(create: (_) => FormSets())
+            ],
             child: Form(
               autovalidateMode: state.showErrorMessages
                   ? AutovalidateMode.always
@@ -148,7 +154,6 @@ class ExerciseFormPageScaffold extends StatelessWidget {
                     NumberOfSets(),
                     SetListWidget(),
                     AddSetTile(),
-
                   ],
                 ),
               ),

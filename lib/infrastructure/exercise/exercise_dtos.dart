@@ -14,26 +14,28 @@ part 'exercise_dtos.g.dart';
 abstract class ExerciseDto implements _$ExerciseDto {
   const ExerciseDto._();
 
-  const factory ExerciseDto({
-    @JsonKey(ignore: true) String id,
-    @required String name,
-    @required int date,
-    @required int setsNumb,
-    @required List<SetsDto> setsList,
-    @required @ServerTimestampConverter() FieldValue serverTimeStamp
-  }) = _ExerciseDto;
+  const factory ExerciseDto(
+          {@JsonKey(ignore: true) String id,
+          @required String userId,
+          @required String name,
+          @required int date,
+          @required int setsNumb,
+          @required List<SetsDto> setsList,
+          @required @ServerTimestampConverter() FieldValue serverTimeStamp}) =
+      _ExerciseDto;
 
   factory ExerciseDto.fromDomain(Exercise exercise) {
     return ExerciseDto(
       id: exercise.id.getOrCrash(),
+      userId: exercise.userId.getOrCrash(),
       name: exercise.name.getOrCrash(),
       date: exercise.date.getOrCrash(),
       setsNumb: exercise.numberOfSets.getOrCrash(),
       setsList: exercise.setsList
           .getOrCrash()
           .asList()
-          .map((sets) => SetsDto.fromDomain(sets)).toList()
-          ,
+          .map((sets) => SetsDto.fromDomain(sets))
+          .toList(),
       serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
@@ -41,19 +43,21 @@ abstract class ExerciseDto implements _$ExerciseDto {
   Exercise toDomain() {
     return Exercise(
       id: UniqueId.withUniqueString(id),
+      userId: UniqueId.withUniqueString(userId),
       name: ExerciseName(name),
       date: ExerciseDate(date),
       numberOfSets: NumberOfSets(setsNumb),
-      setsList: SetsList(
-          setsList.map((dto) => dto.toDomain()).toImmutableList()),
+      setsList:
+          SetsList(setsList.map((dto) => dto.toDomain()).toImmutableList()),
     );
   }
 
   factory ExerciseDto.fromJson(Map<String, dynamic> json) =>
       _$ExerciseDtoFromJson(json);
 
-  factory ExerciseDto.fromFirestore(DocumentSnapshot doc){
-   return   ExerciseDto.fromJson(doc.data()).copyWith(id: doc.id);}
+  factory ExerciseDto.fromFirestore(DocumentSnapshot doc) {
+    return ExerciseDto.fromJson(doc.data()).copyWith(id: doc.id);
+  }
 }
 
 class ServerTimestampConverter implements JsonConverter<FieldValue, Object> {
@@ -63,6 +67,7 @@ class ServerTimestampConverter implements JsonConverter<FieldValue, Object> {
   FieldValue fromJson(Object json) {
     return FieldValue.serverTimestamp();
   }
+
   @override
   Object toJson(FieldValue fieldValue) => fieldValue;
 }

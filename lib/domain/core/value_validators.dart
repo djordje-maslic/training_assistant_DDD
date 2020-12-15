@@ -22,7 +22,7 @@ Either<ValueFailure<int>, int> validateMaxIntValue(int input, int maxNumb) {
 
 Either<ValueFailure<int>, int> validateDateTime(
     int input) {
-  final bool dateTimeCheck = input >0;
+  final bool dateTimeCheck = input >= 0;
   if (dateTimeCheck) {
     return right(input);
   } else {

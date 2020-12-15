@@ -19,8 +19,8 @@ class ExerciseRepository implements IExerciseRepository {
   @override
   Stream<Either<ExerciseFailure, KtList<Exercise>>> watchAllExercise() async* {
     final userDocument = await _firebaseFirestore.userDocument();
-    yield* userDocument.exerciseCollection
-        .orderBy('serverTimeStamp', descending: true)
+    yield* userDocument
+       .orderBy('date',descending: true)
         .snapshots()
         .map((snapshot) => right<ExerciseFailure, KtList<Exercise>>(snapshot
             .docs
@@ -35,21 +35,20 @@ class ExerciseRepository implements IExerciseRepository {
     });
   }
 
-// TODO: implement search
+
   @override
   Stream<Either<ExerciseFailure, KtList<Exercise>>>
-      watchSearchedExercise() async* {
-    final userDocument = await _firebaseFirestore.userDocument();
-    yield* userDocument.exerciseCollection
-        .orderBy('serverTimeStamp', descending: true)
+      watchUsersExercises() async* {
+    final exerciseUserQuery = await _firebaseFirestore.exercisesOfUserQuery();
+
+    yield* exerciseUserQuery
         .snapshots()
         .map((snapshot) => right<ExerciseFailure, KtList<Exercise>>(snapshot
             .docs
             .map((doc) => ExerciseDto.fromFirestore(doc).toDomain())
             .toImmutableList()))
         .onErrorReturnWith((e) {
-      if (e is FirebaseException &&
-          e.message.contains('PERMISSION_DENIED')) {
+      if (e is FirebaseException && e.message.contains('PERMISSION_DENIED')) {
         return left(const ExerciseFailure.insufficientPermission());
       } else {
         return left(const ExerciseFailure.unexpected());
@@ -60,12 +59,10 @@ class ExerciseRepository implements IExerciseRepository {
   @override
   Future<Either<ExerciseFailure, Unit>> create(Exercise exercise) async {
     try {
-      final userDoc = await _firebaseFirestore.userDocument();
+      final exercisesDoc = _firebaseFirestore.collection('exercises');
       final exerciseDto = ExerciseDto.fromDomain(exercise);
 
-      await userDoc.exerciseCollection
-          .doc(exerciseDto.id)
-          .set(exerciseDto.toJson());
+      await exercisesDoc.doc(exerciseDto.id).set(exerciseDto.toJson());
 
       return right(unit);
     } on FirebaseException catch (e) {
@@ -80,12 +77,10 @@ class ExerciseRepository implements IExerciseRepository {
   @override
   Future<Either<ExerciseFailure, Unit>> update(Exercise exercise) async {
     try {
-      final userDoc = await _firebaseFirestore.userDocument();
+      final exercisesDoc = _firebaseFirestore.collection('exercises');
       final exerciseDto = ExerciseDto.fromDomain(exercise);
 
-      await userDoc.exerciseCollection
-          .doc(exerciseDto.id)
-          .update(exerciseDto.toJson());
+      await exercisesDoc.doc(exerciseDto.id).update(exerciseDto.toJson());
 
       return right(unit);
     } on FirebaseException catch (e) {
@@ -102,10 +97,10 @@ class ExerciseRepository implements IExerciseRepository {
   @override
   Future<Either<ExerciseFailure, Unit>> delete(Exercise exercise) async {
     try {
-      final userDoc = await _firebaseFirestore.userDocument();
+      final exercisesDoc = _firebaseFirestore.collection('exercises');
       final exerciseId = exercise.id.getOrCrash();
 
-      await userDoc.exerciseCollection.doc(exerciseId).delete();
+      await exercisesDoc.doc(exerciseId).delete();
 
       return right(unit);
     } on FirebaseException catch (e) {

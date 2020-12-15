@@ -5,7 +5,7 @@ abstract class ExerciseWatcherEvent with _$ExerciseWatcherEvent {
   const factory ExerciseWatcherEvent.watchAllStarted() =
       _WatchAllStarted;
 
-  const factory ExerciseWatcherEvent.watchSearchedExercises() =
+  const factory ExerciseWatcherEvent.watchUsersExercises() =
       _WatchSearchedExercises;
 
   const factory ExerciseWatcherEvent.exerciseReceived(

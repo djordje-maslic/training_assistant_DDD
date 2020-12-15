@@ -25,7 +25,7 @@ class AppWidget extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData.light().copyWith(
           primaryColor: const Color(0xffd4af37),
-          accentColor: Colors.lightBlue,
+          accentColor: Colors.amber,
           inputDecorationTheme: InputDecorationTheme(
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),

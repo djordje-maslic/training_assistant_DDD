@@ -7,7 +7,6 @@ import 'package:reminder_app/application/exercise/exercise_actor/exercise_actor_
 import 'package:reminder_app/application/exercise/exercise_watcher/exercise_watcher_bloc.dart';
 import 'package:reminder_app/injectable.dart';
 import 'package:reminder_app/presentation/exercise/exercise_overview/widgets/exercise_overview_body_widget.dart';
-import 'package:reminder_app/presentation/exercise/exercise_overview/widgets/searched_exercises.dart';
 import 'package:reminder_app/presentation/routes/router.gr.dart';
 
 class ExerciseOverviewPage extends StatelessWidget {
@@ -17,7 +16,7 @@ class ExerciseOverviewPage extends StatelessWidget {
       providers: [
         BlocProvider<ExerciseWatcherBloc>(
           create: (context) => getIt<ExerciseWatcherBloc>()
-            ..add(const ExerciseWatcherEvent.watchAllStarted()),
+            ..add(const ExerciseWatcherEvent.watchUsersExercises()),
         ),
         BlocProvider<ExerciseActorBloc>(
             create: (context) => getIt<ExerciseActorBloc>()),
@@ -41,7 +40,7 @@ class ExerciseOverviewPage extends StatelessWidget {
                   FlushbarHelper.createError(
                     message: state.exerciseFailure.map(
                       unexpected: (_) =>
-                          'Unexpected error occured while deleting, please contact support.',
+                          'Unexpected error occurred while deleting, please contact support.',
                       insufficientPermission: (_) =>
                           'Insufficient permissions ❌',
                       unableToUpdate: (_) => 'Impossible error',
@@ -53,20 +52,32 @@ class ExerciseOverviewPage extends StatelessWidget {
           })
         ],
         child: Scaffold(
+          drawer: Drawer(
+            child: Column(
+              children: [
+                const DrawerHeader(
+                  child: Text('Account'),
+                ),
+                IconButton(
+                    icon: const Icon(Icons.exit_to_app),
+                    onPressed: () {
+                      context.read<AuthBloc>().add(const AuthEvent.signOut());
+                    }),
+                IconButton(
+                    icon: const Icon(Icons.home),
+                    onPressed: () {
+                      ExtendedNavigator.of(context).pushSplashPage();
+                    }),
+              ],
+            ),
+          ),
           appBar: AppBar(
             title: const Text('Exercises'),
-            leading: IconButton(
-                icon: const Icon(Icons.exit_to_app),
-                onPressed: () {
-                  context.read<AuthBloc>().add(const AuthEvent.signOut());
-                }),
-            actions: [
-             SearchedExercises()
-            ],
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-             ExtendedNavigator.of(context).pushExerciseFormPage(editedExercise: null);
+              ExtendedNavigator.of(context)
+                  .pushExerciseFormPage(editedExercise: null);
             },
             child: const Icon(Icons.add),
           ),

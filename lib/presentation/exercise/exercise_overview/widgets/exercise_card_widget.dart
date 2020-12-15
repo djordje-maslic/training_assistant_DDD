@@ -6,6 +6,7 @@ import 'package:reminder_app/application/exercise/exercise_actor/exercise_actor_
 import 'package:reminder_app/domain/exercise/exercise.dart';
 import 'package:reminder_app/domain/exercise/sets.dart';
 import 'package:reminder_app/domain/exercise/value_objects.dart';
+import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_time_converter.dart';
 import 'package:reminder_app/presentation/routes/router.gr.dart';
 
 class ExerciseCard extends StatelessWidget {
@@ -36,6 +37,7 @@ class ExerciseCard extends StatelessWidget {
                 exercise.name.getOrCrash(),
                 style: const TextStyle(fontSize: 18),
               ),
+              Text(dateTimeConverter(exercise.date.getOrCrash())),
               if (exercise.setsList.length > 0) ...[
                 const SizedBox(
                   height: 4,
@@ -51,7 +53,8 @@ class ExerciseCard extends StatelessWidget {
                         .iter,
                   ],
                 )
-              ]
+              ],
+
             ],
           ),
         ),

@@ -26,7 +26,7 @@ class ExerciseDate extends ValueObject<int> {
 
   factory ExerciseDate(int input) {
     assert(input != null);
-    return ExerciseDate._(validateDateTime(input));
+    return ExerciseDate._(validateDateTime(input).flatMap(validateIntNotEmpty));
   }
 }
 

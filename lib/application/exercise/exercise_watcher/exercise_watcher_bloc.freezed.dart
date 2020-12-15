@@ -19,7 +19,7 @@ class _$ExerciseWatcherEventTearOff {
   }
 
 // ignore: unused_element
-  _WatchSearchedExercises watchSearchedExercises() {
+  _WatchSearchedExercises watchUsersExercises() {
     return const _WatchSearchedExercises();
   }
 
@@ -41,7 +41,7 @@ mixin _$ExerciseWatcherEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult watchAllStarted(),
-    @required TResult watchSearchedExercises(),
+    @required TResult watchUsersExercises(),
     @required
         TResult exerciseReceived(
             Either<ExerciseFailure, KtList<Exercise>> failureOrExercise),
@@ -49,7 +49,7 @@ mixin _$ExerciseWatcherEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult watchAllStarted(),
-    TResult watchSearchedExercises(),
+    TResult watchUsersExercises(),
     TResult exerciseReceived(
         Either<ExerciseFailure, KtList<Exercise>> failureOrExercise),
     @required TResult orElse(),
@@ -57,13 +57,13 @@ mixin _$ExerciseWatcherEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult watchAllStarted(_WatchAllStarted value),
-    @required TResult watchSearchedExercises(_WatchSearchedExercises value),
+    @required TResult watchUsersExercises(_WatchSearchedExercises value),
     @required TResult exerciseReceived(_ExerciseReceived value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult watchAllStarted(_WatchAllStarted value),
-    TResult watchSearchedExercises(_WatchSearchedExercises value),
+    TResult watchUsersExercises(_WatchSearchedExercises value),
     TResult exerciseReceived(_ExerciseReceived value),
     @required TResult orElse(),
   });
@@ -126,13 +126,13 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult watchAllStarted(),
-    @required TResult watchSearchedExercises(),
+    @required TResult watchUsersExercises(),
     @required
         TResult exerciseReceived(
             Either<ExerciseFailure, KtList<Exercise>> failureOrExercise),
   }) {
     assert(watchAllStarted != null);
-    assert(watchSearchedExercises != null);
+    assert(watchUsersExercises != null);
     assert(exerciseReceived != null);
     return watchAllStarted();
   }
@@ -141,7 +141,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult watchAllStarted(),
-    TResult watchSearchedExercises(),
+    TResult watchUsersExercises(),
     TResult exerciseReceived(
         Either<ExerciseFailure, KtList<Exercise>> failureOrExercise),
     @required TResult orElse(),
@@ -157,11 +157,11 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult watchAllStarted(_WatchAllStarted value),
-    @required TResult watchSearchedExercises(_WatchSearchedExercises value),
+    @required TResult watchUsersExercises(_WatchSearchedExercises value),
     @required TResult exerciseReceived(_ExerciseReceived value),
   }) {
     assert(watchAllStarted != null);
-    assert(watchSearchedExercises != null);
+    assert(watchUsersExercises != null);
     assert(exerciseReceived != null);
     return watchAllStarted(this);
   }
@@ -170,7 +170,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult watchAllStarted(_WatchAllStarted value),
-    TResult watchSearchedExercises(_WatchSearchedExercises value),
+    TResult watchUsersExercises(_WatchSearchedExercises value),
     TResult exerciseReceived(_ExerciseReceived value),
     @required TResult orElse(),
   }) {
@@ -211,7 +211,7 @@ class _$_WatchSearchedExercises implements _WatchSearchedExercises {
 
   @override
   String toString() {
-    return 'ExerciseWatcherEvent.watchSearchedExercises()';
+    return 'ExerciseWatcherEvent.watchUsersExercises()';
   }
 
   @override
@@ -226,29 +226,29 @@ class _$_WatchSearchedExercises implements _WatchSearchedExercises {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult watchAllStarted(),
-    @required TResult watchSearchedExercises(),
+    @required TResult watchUsersExercises(),
     @required
         TResult exerciseReceived(
             Either<ExerciseFailure, KtList<Exercise>> failureOrExercise),
   }) {
     assert(watchAllStarted != null);
-    assert(watchSearchedExercises != null);
+    assert(watchUsersExercises != null);
     assert(exerciseReceived != null);
-    return watchSearchedExercises();
+    return watchUsersExercises();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult watchAllStarted(),
-    TResult watchSearchedExercises(),
+    TResult watchUsersExercises(),
     TResult exerciseReceived(
         Either<ExerciseFailure, KtList<Exercise>> failureOrExercise),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (watchSearchedExercises != null) {
-      return watchSearchedExercises();
+    if (watchUsersExercises != null) {
+      return watchUsersExercises();
     }
     return orElse();
   }
@@ -257,26 +257,26 @@ class _$_WatchSearchedExercises implements _WatchSearchedExercises {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult watchAllStarted(_WatchAllStarted value),
-    @required TResult watchSearchedExercises(_WatchSearchedExercises value),
+    @required TResult watchUsersExercises(_WatchSearchedExercises value),
     @required TResult exerciseReceived(_ExerciseReceived value),
   }) {
     assert(watchAllStarted != null);
-    assert(watchSearchedExercises != null);
+    assert(watchUsersExercises != null);
     assert(exerciseReceived != null);
-    return watchSearchedExercises(this);
+    return watchUsersExercises(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult watchAllStarted(_WatchAllStarted value),
-    TResult watchSearchedExercises(_WatchSearchedExercises value),
+    TResult watchUsersExercises(_WatchSearchedExercises value),
     TResult exerciseReceived(_ExerciseReceived value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (watchSearchedExercises != null) {
-      return watchSearchedExercises(this);
+    if (watchUsersExercises != null) {
+      return watchUsersExercises(this);
     }
     return orElse();
   }
@@ -352,13 +352,13 @@ class _$_ExerciseReceived implements _ExerciseReceived {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult watchAllStarted(),
-    @required TResult watchSearchedExercises(),
+    @required TResult watchUsersExercises(),
     @required
         TResult exerciseReceived(
             Either<ExerciseFailure, KtList<Exercise>> failureOrExercise),
   }) {
     assert(watchAllStarted != null);
-    assert(watchSearchedExercises != null);
+    assert(watchUsersExercises != null);
     assert(exerciseReceived != null);
     return exerciseReceived(failureOrExercise);
   }
@@ -367,7 +367,7 @@ class _$_ExerciseReceived implements _ExerciseReceived {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult watchAllStarted(),
-    TResult watchSearchedExercises(),
+    TResult watchUsersExercises(),
     TResult exerciseReceived(
         Either<ExerciseFailure, KtList<Exercise>> failureOrExercise),
     @required TResult orElse(),
@@ -383,11 +383,11 @@ class _$_ExerciseReceived implements _ExerciseReceived {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult watchAllStarted(_WatchAllStarted value),
-    @required TResult watchSearchedExercises(_WatchSearchedExercises value),
+    @required TResult watchUsersExercises(_WatchSearchedExercises value),
     @required TResult exerciseReceived(_ExerciseReceived value),
   }) {
     assert(watchAllStarted != null);
-    assert(watchSearchedExercises != null);
+    assert(watchUsersExercises != null);
     assert(exerciseReceived != null);
     return exerciseReceived(this);
   }
@@ -396,7 +396,7 @@ class _$_ExerciseReceived implements _ExerciseReceived {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult watchAllStarted(_WatchAllStarted value),
-    TResult watchSearchedExercises(_WatchSearchedExercises value),
+    TResult watchUsersExercises(_WatchSearchedExercises value),
     TResult exerciseReceived(_ExerciseReceived value),
     @required TResult orElse(),
   }) {

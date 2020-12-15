@@ -19,6 +19,7 @@ class _$ExerciseDtoTearOff {
 // ignore: unused_element
   _ExerciseDto call(
       {@JsonKey(ignore: true) String id,
+      @required String userId,
       @required String name,
       @required int date,
       @required int setsNumb,
@@ -26,6 +27,7 @@ class _$ExerciseDtoTearOff {
       @required @ServerTimestampConverter() FieldValue serverTimeStamp}) {
     return _ExerciseDto(
       id: id,
+      userId: userId,
       name: name,
       date: date,
       setsNumb: setsNumb,
@@ -48,6 +50,7 @@ const $ExerciseDto = _$ExerciseDtoTearOff();
 mixin _$ExerciseDto {
   @JsonKey(ignore: true)
   String get id;
+  String get userId;
   String get name;
   int get date;
   int get setsNumb;
@@ -66,6 +69,7 @@ abstract class $ExerciseDtoCopyWith<$Res> {
       _$ExerciseDtoCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(ignore: true) String id,
+      String userId,
       String name,
       int date,
       int setsNumb,
@@ -84,6 +88,7 @@ class _$ExerciseDtoCopyWithImpl<$Res> implements $ExerciseDtoCopyWith<$Res> {
   @override
   $Res call({
     Object id = freezed,
+    Object userId = freezed,
     Object name = freezed,
     Object date = freezed,
     Object setsNumb = freezed,
@@ -92,6 +97,7 @@ class _$ExerciseDtoCopyWithImpl<$Res> implements $ExerciseDtoCopyWith<$Res> {
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
+      userId: userId == freezed ? _value.userId : userId as String,
       name: name == freezed ? _value.name : name as String,
       date: date == freezed ? _value.date : date as int,
       setsNumb: setsNumb == freezed ? _value.setsNumb : setsNumb as int,
@@ -113,6 +119,7 @@ abstract class _$ExerciseDtoCopyWith<$Res>
   @override
   $Res call(
       {@JsonKey(ignore: true) String id,
+      String userId,
       String name,
       int date,
       int setsNumb,
@@ -133,6 +140,7 @@ class __$ExerciseDtoCopyWithImpl<$Res> extends _$ExerciseDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object id = freezed,
+    Object userId = freezed,
     Object name = freezed,
     Object date = freezed,
     Object setsNumb = freezed,
@@ -141,6 +149,7 @@ class __$ExerciseDtoCopyWithImpl<$Res> extends _$ExerciseDtoCopyWithImpl<$Res>
   }) {
     return _then(_ExerciseDto(
       id: id == freezed ? _value.id : id as String,
+      userId: userId == freezed ? _value.userId : userId as String,
       name: name == freezed ? _value.name : name as String,
       date: date == freezed ? _value.date : date as int,
       setsNumb: setsNumb == freezed ? _value.setsNumb : setsNumb as int,
@@ -159,12 +168,14 @@ class __$ExerciseDtoCopyWithImpl<$Res> extends _$ExerciseDtoCopyWithImpl<$Res>
 class _$_ExerciseDto extends _ExerciseDto {
   const _$_ExerciseDto(
       {@JsonKey(ignore: true) this.id,
+      @required this.userId,
       @required this.name,
       @required this.date,
       @required this.setsNumb,
       @required this.setsList,
       @required @ServerTimestampConverter() this.serverTimeStamp})
-      : assert(name != null),
+      : assert(userId != null),
+        assert(name != null),
         assert(date != null),
         assert(setsNumb != null),
         assert(setsList != null),
@@ -177,6 +188,8 @@ class _$_ExerciseDto extends _ExerciseDto {
   @override
   @JsonKey(ignore: true)
   final String id;
+  @override
+  final String userId;
   @override
   final String name;
   @override
@@ -191,7 +204,7 @@ class _$_ExerciseDto extends _ExerciseDto {
 
   @override
   String toString() {
-    return 'ExerciseDto(id: $id, name: $name, date: $date, setsNumb: $setsNumb, setsList: $setsList, serverTimeStamp: $serverTimeStamp)';
+    return 'ExerciseDto(id: $id, userId: $userId, name: $name, date: $date, setsNumb: $setsNumb, setsList: $setsList, serverTimeStamp: $serverTimeStamp)';
   }
 
   @override
@@ -200,6 +213,8 @@ class _$_ExerciseDto extends _ExerciseDto {
         (other is _ExerciseDto &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.userId, userId) ||
+                const DeepCollectionEquality().equals(other.userId, userId)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.date, date) ||
@@ -219,6 +234,7 @@ class _$_ExerciseDto extends _ExerciseDto {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(userId) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(date) ^
       const DeepCollectionEquality().hash(setsNumb) ^
@@ -239,6 +255,7 @@ abstract class _ExerciseDto extends ExerciseDto {
   const _ExerciseDto._() : super._();
   const factory _ExerciseDto(
           {@JsonKey(ignore: true) String id,
+          @required String userId,
           @required String name,
           @required int date,
           @required int setsNumb,
@@ -252,6 +269,8 @@ abstract class _ExerciseDto extends ExerciseDto {
   @override
   @JsonKey(ignore: true)
   String get id;
+  @override
+  String get userId;
   @override
   String get name;
   @override
