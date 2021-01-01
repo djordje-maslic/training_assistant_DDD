@@ -10,7 +10,7 @@ import 'package:reminder_app/presentation/splash/splash_page.dart';
     MaterialRoute(page: SplashPage,initial: true),
     MaterialRoute(page: SignIn,),
     MaterialRoute(page: ExerciseOverviewPage,),
-    MaterialRoute(page: ExerciseFormPage,fullscreenDialog: true,)
+    MaterialRoute(page: ExerciseFormPage,fullscreenDialog: true),
   ],
 )
 class $Router {}

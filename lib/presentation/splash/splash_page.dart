@@ -4,8 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reminder_app/application/auth/auth_bloc.dart';
 import 'package:reminder_app/application/exercise/exercise_watcher/exercise_watcher_bloc.dart';
 import 'package:reminder_app/injectable.dart';
+import 'package:reminder_app/presentation/core/logo_painter.dart';
 import 'package:reminder_app/presentation/routes/router.gr.dart';
 import 'package:reminder_app/presentation/splash/widgets/splash_body.dart';
+
 
 class SplashPage extends StatelessWidget {
   @override
@@ -18,11 +20,33 @@ class SplashPage extends StatelessWidget {
             child: ListView(
               children: [
                 DrawerHeader(
-                    child: IconButton(
-                  icon: const Icon(Icons.account_circle),
-                  onPressed: () {
-                    // TODO: complete user
-                  },
+                    child: Column(
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.account_circle),
+                      onPressed: () {
+                        // TODO: complete user
+                      },
+                    ),
+                    context.watch<AuthBloc>().state.map(
+                        initial: (_) => const Text(''),
+                        authenticated: (authUser) =>
+                            Text(authUser.user.emailAddress.getOrCrash()),
+                        unauthenticated: (_) => RaisedButton(
+                              onPressed: () {
+                                context.read<AuthBloc>().state.map(
+                                      initial: (_) {},
+                                      authenticated: (_) =>
+                                          ExtendedNavigator.of(context)
+                                              .pushExerciseOverviewPage(),
+                                      unauthenticated: (_) =>
+                                          ExtendedNavigator.of(context)
+                                              .pushSignIn(),
+                                    );
+                              },
+                              child: const Text('Sign in/ Register'),
+                            ))
+                  ],
                 )),
                 IconButton(
                     icon: const Icon(Icons.fitness_center),
@@ -34,23 +58,15 @@ class SplashPage extends StatelessWidget {
                             unauthenticated: (_) =>
                                 ExtendedNavigator.of(context).pushSignIn(),
                           );
-
-                      // ExtendedNavigator.of(context).pushSplashPage();
                     })
               ],
             ),
           ),
           appBar: AppBar(
-            leading: const Card(
-              color: Colors.white,
-              child: Center(
-                  child: Text(
-                '🏋️‍♀️A',
-                style: TextStyle(
-                    color: Colors.amber,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold),
-              )),
+            leading:const CustomPaint(
+
+              painter: LogoPainter(),
+
             ),
             title: const Text('Home'),
           ),
@@ -58,3 +74,4 @@ class SplashPage extends StatelessWidget {
     );
   }
 }
+

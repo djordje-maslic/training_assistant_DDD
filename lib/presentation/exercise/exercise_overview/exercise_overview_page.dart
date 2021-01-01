@@ -6,6 +6,7 @@ import 'package:reminder_app/application/auth/auth_bloc.dart';
 import 'package:reminder_app/application/exercise/exercise_actor/exercise_actor_bloc.dart';
 import 'package:reminder_app/application/exercise/exercise_watcher/exercise_watcher_bloc.dart';
 import 'package:reminder_app/injectable.dart';
+import 'package:reminder_app/presentation/core/logo_painter.dart';
 import 'package:reminder_app/presentation/exercise/exercise_overview/widgets/exercise_overview_body_widget.dart';
 import 'package:reminder_app/presentation/routes/router.gr.dart';
 
@@ -52,7 +53,7 @@ class ExerciseOverviewPage extends StatelessWidget {
           })
         ],
         child: Scaffold(
-          drawer: Drawer(
+          endDrawer: Drawer(
             child: Column(
               children: [
                 const DrawerHeader(
@@ -72,7 +73,11 @@ class ExerciseOverviewPage extends StatelessWidget {
             ),
           ),
           appBar: AppBar(
-            title: const Text('Exercises'),
+            leading:
+              const  CustomPaint(painter: LogoPainter()),
+
+title: const Text('Exercises'),
+
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {

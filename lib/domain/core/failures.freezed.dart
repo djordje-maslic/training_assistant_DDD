@@ -24,7 +24,7 @@ class _$ValueFailureTearOff {
 
 // ignore: unused_element
   ExceedingValue<T> exceedingValue<T>(
-      {@required T failedValue, @required int max}) {
+      {@required T failedValue, @required num max}) {
     return ExceedingValue<T>(
       failedValue: failedValue,
       max: max,
@@ -77,7 +77,7 @@ mixin _$ValueFailure<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult exceedingLength(T failedValue, int max),
-    @required TResult exceedingValue(T failedValue, int max),
+    @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
@@ -87,7 +87,7 @@ mixin _$ValueFailure<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult exceedingLength(T failedValue, int max),
-    TResult exceedingValue(T failedValue, int max),
+    TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),
@@ -208,7 +208,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult exceedingLength(T failedValue, int max),
-    @required TResult exceedingValue(T failedValue, int max),
+    @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
@@ -229,7 +229,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult exceedingLength(T failedValue, int max),
-    TResult exceedingValue(T failedValue, int max),
+    TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),
@@ -299,7 +299,7 @@ abstract class $ExceedingValueCopyWith<T, $Res> {
   factory $ExceedingValueCopyWith(
           ExceedingValue<T> value, $Res Function(ExceedingValue<T>) then) =
       _$ExceedingValueCopyWithImpl<T, $Res>;
-  $Res call({T failedValue, int max});
+  $Res call({T failedValue, num max});
 }
 
 /// @nodoc
@@ -321,7 +321,7 @@ class _$ExceedingValueCopyWithImpl<T, $Res>
     return _then(ExceedingValue<T>(
       failedValue:
           failedValue == freezed ? _value.failedValue : failedValue as T,
-      max: max == freezed ? _value.max : max as int,
+      max: max == freezed ? _value.max : max as num,
     ));
   }
 }
@@ -335,7 +335,7 @@ class _$ExceedingValue<T> implements ExceedingValue<T> {
   @override
   final T failedValue;
   @override
-  final int max;
+  final num max;
 
   @override
   String toString() {
@@ -367,7 +367,7 @@ class _$ExceedingValue<T> implements ExceedingValue<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult exceedingLength(T failedValue, int max),
-    @required TResult exceedingValue(T failedValue, int max),
+    @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
@@ -388,7 +388,7 @@ class _$ExceedingValue<T> implements ExceedingValue<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult exceedingLength(T failedValue, int max),
-    TResult exceedingValue(T failedValue, int max),
+    TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),
@@ -445,11 +445,11 @@ class _$ExceedingValue<T> implements ExceedingValue<T> {
 }
 
 abstract class ExceedingValue<T> implements ValueFailure<T> {
-  const factory ExceedingValue({@required T failedValue, @required int max}) =
+  const factory ExceedingValue({@required T failedValue, @required num max}) =
       _$ExceedingValue<T>;
 
   T get failedValue;
-  int get max;
+  num get max;
   $ExceedingValueCopyWith<T, ExceedingValue<T>> get copyWith;
 }
 
@@ -517,7 +517,7 @@ class _$InvalidDate<T> implements InvalidDate<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult exceedingLength(T failedValue, int max),
-    @required TResult exceedingValue(T failedValue, int max),
+    @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
@@ -538,7 +538,7 @@ class _$InvalidDate<T> implements InvalidDate<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult exceedingLength(T failedValue, int max),
-    TResult exceedingValue(T failedValue, int max),
+    TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),
@@ -661,7 +661,7 @@ class _$Empty<T> implements Empty<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult exceedingLength(T failedValue, int max),
-    @required TResult exceedingValue(T failedValue, int max),
+    @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
@@ -682,7 +682,7 @@ class _$Empty<T> implements Empty<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult exceedingLength(T failedValue, int max),
-    TResult exceedingValue(T failedValue, int max),
+    TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),
@@ -818,7 +818,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult exceedingLength(T failedValue, int max),
-    @required TResult exceedingValue(T failedValue, int max),
+    @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
@@ -839,7 +839,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult exceedingLength(T failedValue, int max),
-    TResult exceedingValue(T failedValue, int max),
+    TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),
@@ -968,7 +968,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult exceedingLength(T failedValue, int max),
-    @required TResult exceedingValue(T failedValue, int max),
+    @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
@@ -989,7 +989,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult exceedingLength(T failedValue, int max),
-    TResult exceedingValue(T failedValue, int max),
+    TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),
@@ -1117,7 +1117,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult exceedingLength(T failedValue, int max),
-    @required TResult exceedingValue(T failedValue, int max),
+    @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
@@ -1138,7 +1138,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult exceedingLength(T failedValue, int max),
-    TResult exceedingValue(T failedValue, int max),
+    TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),

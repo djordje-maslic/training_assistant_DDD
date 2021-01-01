@@ -36,6 +36,11 @@ _$_SetsDto _$_$_SetsDtoFromJson(Map<String, dynamic> json) {
   return _$_SetsDto(
     id: json['id'] as String,
     number: json['number'] as int,
+    goodReps: json['goodReps'] as int,
+    badReps: json['badReps'] as int,
+    weights: (json['weights'] as num)?.toDouble(),
+    distance: (json['distance'] as num)?.toDouble(),
+    setDuration: json['setDuration'] as int,
   );
 }
 
@@ -43,4 +48,9 @@ Map<String, dynamic> _$_$_SetsDtoToJson(_$_SetsDto instance) =>
     <String, dynamic>{
       'id': instance.id,
       'number': instance.number,
+      'goodReps': instance.goodReps,
+      'badReps': instance.badReps,
+      'weights': instance.weights,
+      'distance': instance.distance,
+      'setDuration': instance.setDuration,
     };

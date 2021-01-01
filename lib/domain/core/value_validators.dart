@@ -13,6 +13,14 @@ Either<ValueFailure<String>, String> validateMaxStringLength(
 }
 
 Either<ValueFailure<int>, int> validateMaxIntValue(int input, int maxNumb) {
+  if (0 <= input && input <= maxNumb) {
+    return right(input);
+  } else {
+    return left(ValueFailure.exceedingValue(failedValue: input, max: maxNumb));
+  }
+}
+
+Either<ValueFailure<double>, double> validateMaxDoubleValue(double input, double maxNumb) {
   if (0 < input && input <= maxNumb) {
     return right(input);
   } else {

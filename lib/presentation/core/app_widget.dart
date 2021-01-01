@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reminder_app/application/auth/auth_bloc.dart';
 import 'package:reminder_app/injectable.dart';
-import 'package:reminder_app/presentation/routes/router.gr.dart'as app_router;
-
+import 'package:reminder_app/presentation/routes/router.gr.dart' as app_router;
 
 class AppWidget extends StatelessWidget {
   @override
@@ -16,26 +15,27 @@ class AppWidget extends StatelessWidget {
             ..add(
               const AuthEvent.userCheckRequested(),
             ),
-        )
+        ),
       ],
-      child: MaterialApp(
-        builder: ExtendedNavigator.builder<app_router.Router>(
-          router: app_router.Router(),
-        ),
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData.light().copyWith(
-          primaryColor: const Color(0xffd4af37),
-          accentColor: Colors.amber,
-          inputDecorationTheme: InputDecorationTheme(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
+      child:  MaterialApp(
+          builder: ExtendedNavigator.builder<app_router.Router>(
+            router: app_router.Router(),
           ),
-          floatingActionButtonTheme: const FloatingActionButtonThemeData(
-              backgroundColor: Colors.amber),
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData.light().copyWith(
+            primaryColor: Colors.amber,
+            accentColor: Colors.amber,
+            inputDecorationTheme: InputDecorationTheme(
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+            floatingActionButtonTheme: const FloatingActionButtonThemeData(
+                backgroundColor: Colors.amber),
+          ),
+          title: 'Material App',
         ),
-        title: 'Material App',
-      ),
+
     );
   }
 }

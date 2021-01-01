@@ -17,9 +17,10 @@ class _$UserDtoTearOff {
   const _$UserDtoTearOff();
 
 // ignore: unused_element
-  _UserDto call({@required String id}) {
+  _UserDto call({@required String id, @required String emailAddress}) {
     return _UserDto(
       id: id,
+      emailAddress: emailAddress,
     );
   }
 
@@ -36,6 +37,7 @@ const $UserDto = _$UserDtoTearOff();
 /// @nodoc
 mixin _$UserDto {
   String get id;
+  String get emailAddress;
 
   Map<String, dynamic> toJson();
   $UserDtoCopyWith<UserDto> get copyWith;
@@ -45,7 +47,7 @@ mixin _$UserDto {
 abstract class $UserDtoCopyWith<$Res> {
   factory $UserDtoCopyWith(UserDto value, $Res Function(UserDto) then) =
       _$UserDtoCopyWithImpl<$Res>;
-  $Res call({String id});
+  $Res call({String id, String emailAddress});
 }
 
 /// @nodoc
@@ -59,9 +61,13 @@ class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
   @override
   $Res call({
     Object id = freezed,
+    Object emailAddress = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
+      emailAddress: emailAddress == freezed
+          ? _value.emailAddress
+          : emailAddress as String,
     ));
   }
 }
@@ -71,7 +77,7 @@ abstract class _$UserDtoCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
   factory _$UserDtoCopyWith(_UserDto value, $Res Function(_UserDto) then) =
       __$UserDtoCopyWithImpl<$Res>;
   @override
-  $Res call({String id});
+  $Res call({String id, String emailAddress});
 }
 
 /// @nodoc
@@ -86,9 +92,13 @@ class __$UserDtoCopyWithImpl<$Res> extends _$UserDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object id = freezed,
+    Object emailAddress = freezed,
   }) {
     return _then(_UserDto(
       id: id == freezed ? _value.id : id as String,
+      emailAddress: emailAddress == freezed
+          ? _value.emailAddress
+          : emailAddress as String,
     ));
   }
 }
@@ -97,8 +107,9 @@ class __$UserDtoCopyWithImpl<$Res> extends _$UserDtoCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_UserDto extends _UserDto {
-  const _$_UserDto({@required this.id})
+  const _$_UserDto({@required this.id, @required this.emailAddress})
       : assert(id != null),
+        assert(emailAddress != null),
         super._();
 
   factory _$_UserDto.fromJson(Map<String, dynamic> json) =>
@@ -106,10 +117,12 @@ class _$_UserDto extends _UserDto {
 
   @override
   final String id;
+  @override
+  final String emailAddress;
 
   @override
   String toString() {
-    return 'UserDto(id: $id)';
+    return 'UserDto(id: $id, emailAddress: $emailAddress)';
   }
 
   @override
@@ -117,12 +130,17 @@ class _$_UserDto extends _UserDto {
     return identical(this, other) ||
         (other is _UserDto &&
             (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)));
+                const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.emailAddress, emailAddress) ||
+                const DeepCollectionEquality()
+                    .equals(other.emailAddress, emailAddress)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(id);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(emailAddress);
 
   @override
   _$UserDtoCopyWith<_UserDto> get copyWith =>
@@ -136,12 +154,15 @@ class _$_UserDto extends _UserDto {
 
 abstract class _UserDto extends UserDto {
   const _UserDto._() : super._();
-  const factory _UserDto({@required String id}) = _$_UserDto;
+  const factory _UserDto({@required String id, @required String emailAddress}) =
+      _$_UserDto;
 
   factory _UserDto.fromJson(Map<String, dynamic> json) = _$_UserDto.fromJson;
 
   @override
   String get id;
+  @override
+  String get emailAddress;
   @override
   _$UserDtoCopyWith<_UserDto> get copyWith;
 }

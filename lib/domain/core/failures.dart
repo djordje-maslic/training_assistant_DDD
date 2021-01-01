@@ -11,7 +11,7 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
 
   const factory ValueFailure.exceedingValue({
     @required T failedValue,
-    @required int max,
+    @required num max,
   }) = ExceedingValue<T>;
 
   const factory ValueFailure.invalidDate({

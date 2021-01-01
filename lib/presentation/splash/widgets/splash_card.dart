@@ -11,8 +11,6 @@ import 'package:reminder_app/presentation/splash/widgets/set_display.dart';
 class SplashCard extends StatelessWidget {
   final Exercise exercise;
 
-
-
   const SplashCard({Key key, @required this.exercise}) : super(key: key);
 
   @override
@@ -32,12 +30,21 @@ class SplashCard extends StatelessWidget {
             Card(
               child: Column(children: [
                 Row(children: [
-                  Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),color: Colors.amber),
+                  Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: Colors.amber),
                     width: 50,
                     height: 50,
-                    child:const Center(child:  Text('MD',style: TextStyle(fontSize: 20),)),
+                    child: const Center(
+                        child: Text(
+                      'MD',
+                      style: TextStyle(fontSize: 20),
+                    )),
                   ),
-                  const SizedBox(width: 10,),
+                  const SizedBox(
+                    width: 10,
+                  ),
                   Text(
                     exercise.name.getOrCrash(),
                     style: const TextStyle(
@@ -91,9 +98,6 @@ class SplashCard extends StatelessWidget {
   }
 }
 
-
-
-
 List<int> setsListToIntLis(SetsList list) {
   final List<int> result = list
       .getOrCrash()
@@ -102,4 +106,3 @@ List<int> setsListToIntLis(SetsList list) {
       .asList();
   return result;
 }
-

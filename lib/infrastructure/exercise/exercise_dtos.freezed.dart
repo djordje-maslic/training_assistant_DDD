@@ -295,10 +295,22 @@ class _$SetsDtoTearOff {
   const _$SetsDtoTearOff();
 
 // ignore: unused_element
-  _SetsDto call({@required String id, @required int number}) {
+  _SetsDto call(
+      {@required String id,
+      @required int number,
+      @required int goodReps,
+      @required int badReps,
+      @required double weights,
+      @required double distance,
+      @required int setDuration}) {
     return _SetsDto(
       id: id,
       number: number,
+      goodReps: goodReps,
+      badReps: badReps,
+      weights: weights,
+      distance: distance,
+      setDuration: setDuration,
     );
   }
 
@@ -316,6 +328,11 @@ const $SetsDto = _$SetsDtoTearOff();
 mixin _$SetsDto {
   String get id;
   int get number;
+  int get goodReps;
+  int get badReps;
+  double get weights;
+  double get distance;
+  int get setDuration;
 
   Map<String, dynamic> toJson();
   $SetsDtoCopyWith<SetsDto> get copyWith;
@@ -325,7 +342,14 @@ mixin _$SetsDto {
 abstract class $SetsDtoCopyWith<$Res> {
   factory $SetsDtoCopyWith(SetsDto value, $Res Function(SetsDto) then) =
       _$SetsDtoCopyWithImpl<$Res>;
-  $Res call({String id, int number});
+  $Res call(
+      {String id,
+      int number,
+      int goodReps,
+      int badReps,
+      double weights,
+      double distance,
+      int setDuration});
 }
 
 /// @nodoc
@@ -340,10 +364,21 @@ class _$SetsDtoCopyWithImpl<$Res> implements $SetsDtoCopyWith<$Res> {
   $Res call({
     Object id = freezed,
     Object number = freezed,
+    Object goodReps = freezed,
+    Object badReps = freezed,
+    Object weights = freezed,
+    Object distance = freezed,
+    Object setDuration = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
       number: number == freezed ? _value.number : number as int,
+      goodReps: goodReps == freezed ? _value.goodReps : goodReps as int,
+      badReps: badReps == freezed ? _value.badReps : badReps as int,
+      weights: weights == freezed ? _value.weights : weights as double,
+      distance: distance == freezed ? _value.distance : distance as double,
+      setDuration:
+          setDuration == freezed ? _value.setDuration : setDuration as int,
     ));
   }
 }
@@ -353,7 +388,14 @@ abstract class _$SetsDtoCopyWith<$Res> implements $SetsDtoCopyWith<$Res> {
   factory _$SetsDtoCopyWith(_SetsDto value, $Res Function(_SetsDto) then) =
       __$SetsDtoCopyWithImpl<$Res>;
   @override
-  $Res call({String id, int number});
+  $Res call(
+      {String id,
+      int number,
+      int goodReps,
+      int badReps,
+      double weights,
+      double distance,
+      int setDuration});
 }
 
 /// @nodoc
@@ -369,10 +411,21 @@ class __$SetsDtoCopyWithImpl<$Res> extends _$SetsDtoCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object number = freezed,
+    Object goodReps = freezed,
+    Object badReps = freezed,
+    Object weights = freezed,
+    Object distance = freezed,
+    Object setDuration = freezed,
   }) {
     return _then(_SetsDto(
       id: id == freezed ? _value.id : id as String,
       number: number == freezed ? _value.number : number as int,
+      goodReps: goodReps == freezed ? _value.goodReps : goodReps as int,
+      badReps: badReps == freezed ? _value.badReps : badReps as int,
+      weights: weights == freezed ? _value.weights : weights as double,
+      distance: distance == freezed ? _value.distance : distance as double,
+      setDuration:
+          setDuration == freezed ? _value.setDuration : setDuration as int,
     ));
   }
 }
@@ -381,9 +434,21 @@ class __$SetsDtoCopyWithImpl<$Res> extends _$SetsDtoCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_SetsDto extends _SetsDto {
-  const _$_SetsDto({@required this.id, @required this.number})
+  const _$_SetsDto(
+      {@required this.id,
+      @required this.number,
+      @required this.goodReps,
+      @required this.badReps,
+      @required this.weights,
+      @required this.distance,
+      @required this.setDuration})
       : assert(id != null),
         assert(number != null),
+        assert(goodReps != null),
+        assert(badReps != null),
+        assert(weights != null),
+        assert(distance != null),
+        assert(setDuration != null),
         super._();
 
   factory _$_SetsDto.fromJson(Map<String, dynamic> json) =>
@@ -393,10 +458,20 @@ class _$_SetsDto extends _SetsDto {
   final String id;
   @override
   final int number;
+  @override
+  final int goodReps;
+  @override
+  final int badReps;
+  @override
+  final double weights;
+  @override
+  final double distance;
+  @override
+  final int setDuration;
 
   @override
   String toString() {
-    return 'SetsDto(id: $id, number: $number)';
+    return 'SetsDto(id: $id, number: $number, goodReps: $goodReps, badReps: $badReps, weights: $weights, distance: $distance, setDuration: $setDuration)';
   }
 
   @override
@@ -406,14 +481,34 @@ class _$_SetsDto extends _SetsDto {
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.number, number) ||
-                const DeepCollectionEquality().equals(other.number, number)));
+                const DeepCollectionEquality().equals(other.number, number)) &&
+            (identical(other.goodReps, goodReps) ||
+                const DeepCollectionEquality()
+                    .equals(other.goodReps, goodReps)) &&
+            (identical(other.badReps, badReps) ||
+                const DeepCollectionEquality()
+                    .equals(other.badReps, badReps)) &&
+            (identical(other.weights, weights) ||
+                const DeepCollectionEquality()
+                    .equals(other.weights, weights)) &&
+            (identical(other.distance, distance) ||
+                const DeepCollectionEquality()
+                    .equals(other.distance, distance)) &&
+            (identical(other.setDuration, setDuration) ||
+                const DeepCollectionEquality()
+                    .equals(other.setDuration, setDuration)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(number);
+      const DeepCollectionEquality().hash(number) ^
+      const DeepCollectionEquality().hash(goodReps) ^
+      const DeepCollectionEquality().hash(badReps) ^
+      const DeepCollectionEquality().hash(weights) ^
+      const DeepCollectionEquality().hash(distance) ^
+      const DeepCollectionEquality().hash(setDuration);
 
   @override
   _$SetsDtoCopyWith<_SetsDto> get copyWith =>
@@ -427,8 +522,14 @@ class _$_SetsDto extends _SetsDto {
 
 abstract class _SetsDto extends SetsDto {
   const _SetsDto._() : super._();
-  const factory _SetsDto({@required String id, @required int number}) =
-      _$_SetsDto;
+  const factory _SetsDto(
+      {@required String id,
+      @required int number,
+      @required int goodReps,
+      @required int badReps,
+      @required double weights,
+      @required double distance,
+      @required int setDuration}) = _$_SetsDto;
 
   factory _SetsDto.fromJson(Map<String, dynamic> json) = _$_SetsDto.fromJson;
 
@@ -436,6 +537,16 @@ abstract class _SetsDto extends SetsDto {
   String get id;
   @override
   int get number;
+  @override
+  int get goodReps;
+  @override
+  int get badReps;
+  @override
+  double get weights;
+  @override
+  double get distance;
+  @override
+  int get setDuration;
   @override
   _$SetsDtoCopyWith<_SetsDto> get copyWith;
 }

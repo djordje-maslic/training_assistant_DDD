@@ -8,6 +8,7 @@ import 'package:reminder_app/application/exercise/form_bloc/exercise_form_bloc.d
 import 'package:reminder_app/domain/exercise/exercise.dart';
 import 'package:reminder_app/injectable.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_presentation_classes.dart';
+import 'package:reminder_app/presentation/exercise/exercise_form/misc/duration_picker_providers.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/set_presentation_classes.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/widgets/add_set_tile_widget.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/widgets/body_field_widget.dart';
@@ -115,12 +116,13 @@ class ExerciseFormPageScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: BlocBuilder<ExerciseFormBloc, ExerciseFormState>(
           buildWhen: (p, c) => p.isEditing != c.isEditing,
           builder: (context, state) =>
-              Text(state.isEditing ? 'Edit a exercise' : 'Create exercise'),
+              Text(state.isEditing ? 'Edit exercise' : 'Create exercise'),
         ),
         actions: [
           IconButton(
@@ -133,14 +135,19 @@ class ExerciseFormPageScaffold extends StatelessWidget {
         ],
       ),
       body: BlocBuilder<ExerciseFormBloc, ExerciseFormState>(
-        buildWhen: (p, c) => p.showErrorMessages != c.showErrorMessages,
+       buildWhen: (p, c) => p.showErrorMessages != c.showErrorMessages,
         builder: (context, state) {
           return MultiProvider(
             providers: [
               ChangeNotifierProvider<FormDate>(
                 create: (_) => FormDate(),
               ),
-              ChangeNotifierProvider<FormSets>(create: (_) => FormSets())
+              ChangeNotifierProvider<FormSets>(
+                create: (_) => FormSets(),
+              ),
+              ChangeNotifierProvider<HeightDurationPickerProvider>(
+                create: (_) => HeightDurationPickerProvider(),
+              ),
             ],
             child: Form(
               autovalidateMode: state.showErrorMessages

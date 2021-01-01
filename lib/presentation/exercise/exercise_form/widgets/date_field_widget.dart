@@ -68,51 +68,54 @@ class DateText extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textEditingControllerDate = useTextEditingController();
     final DateTime date = context.formDate.date == null
         ? DateTime.now()
         : DateTime.fromMillisecondsSinceEpoch(context.formDate.date);
-    return BlocBuilder<ExerciseFormBloc, ExerciseFormState>(
-      builder: (context, state) {
-        textEditingControllerDate.text =
-            dateTimeConverter(state.exercise.date.getOrCrash());
-
-        return Column(
-          children: [
-            TextFormField(
-              onTap: () => _selectDate(context, date),
-              decoration: const InputDecoration(
-                prefixIcon: Icon(
-                  Icons.date_range_sharp,
-                  color: Colors.black,
-                ),
+    final textEditingControllerDate = useTextEditingController(
+        text: dateTimeConverter(context.formDate.date));
+    return Column(
+      children: [
+        BlocListener<ExerciseFormBloc, ExerciseFormState>(
+          listener: (context, state) {
+            textEditingControllerDate.text =
+                dateTimeConverter(state.exercise.date.getOrCrash());
+          },
+          child: TextFormField(
+            onTap: () => _selectDate(context, date),
+            onChanged: (_) {
+              context.formDate = context.formDate
+                  .copyWith(date: int.parse(textEditingControllerDate.text));
+            },
+            decoration: const InputDecoration(
+              prefixIcon: Icon(
+                Icons.date_range_sharp,
+                color: Colors.black,
               ),
-              validator: (_) {
-                return context
-                    .read<ExerciseFormBloc>()
-                    .state
-                    .exercise
-                    .date
-                    .value
-                    .fold(
-                        (f) => f.maybeMap(
-                            orElse: () => 'error',
-                            invalidDate: (_) => 'Invalid date',
-                            exceedingLength: (f) =>
-                                'Exceeding length ${f.max}'),
-                        (r) => null);
-              },
-              textAlign: TextAlign.center,
-              controller: textEditingControllerDate,
-              readOnly: true,
-              style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(
-              height: 20.0,
-            ),
-          ],
-        );
-      },
+            validator: (_) {
+              return context
+                  .read<ExerciseFormBloc>()
+                  .state
+                  .exercise
+                  .date
+                  .value
+                  .fold(
+                      (f) => f.maybeMap(
+                          orElse: () => 'error',
+                          invalidDate: (_) => 'Invalid date',
+                          exceedingLength: (f) => 'Exceeding length ${f.max}'),
+                      (r) => null);
+            },
+            textAlign: TextAlign.center,
+            controller: textEditingControllerDate,
+            readOnly: true,
+            style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+          ),
+        ),
+        const SizedBox(
+          height: 20.0,
+        ),
+      ],
     );
   }
 }

@@ -79,18 +79,36 @@ abstract class SetsDto implements _$SetsDto {
   const factory SetsDto({
     @required String id,
     @required int number,
+    @required int goodReps,
+    @required int badReps,
+    @required double weights,
+    @required double distance,
+    @required int setDuration,
   }) = _SetsDto;
 
   factory SetsDto.fromDomain(Sets sets) {
     return SetsDto(
       id: sets.id.getOrCrash(),
       number: sets.number.getOrCrash(),
+      goodReps: sets.goodReps.getOrCrash(),
+      badReps: sets.badReps.getOrCrash(),
+      weights: sets.weights.getOrCrash(),
+      distance: sets.distance.getOrCrash(),
+      setDuration: sets.setDuration.getOrCrash(),
     );
   }
 
   Sets toDomain() {
     return Sets(
-        id: UniqueId.withUniqueString(id), number: RepetitionsNumb(number));
+      id: UniqueId.withUniqueString(id),
+      number: RepetitionsNumb(number),
+      goodReps: GoodReps(goodReps),
+      badReps: BadReps(badReps),
+      weights: Weights(weights),
+      distance: Distance(distance),
+      setDuration: SetDuration(setDuration),
+
+    );
   }
 
   factory SetsDto.fromJson(Map<String, dynamic> json) =>

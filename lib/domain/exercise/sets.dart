@@ -13,14 +13,28 @@ abstract class Sets implements _$Sets {
   const factory Sets({
     @required UniqueId id,
     @required RepetitionsNumb number,
+    @required GoodReps goodReps,
+    @required BadReps badReps,
+    @required Weights weights,
+    @required Distance distance,
+    @required SetDuration setDuration,
   }) = _Sets;
 
   factory Sets.empty() => Sets(
         id: UniqueId(),
         number: RepetitionsNumb(0),
+        goodReps: GoodReps(0),
+        badReps: BadReps(0),
+        weights: Weights(0.0),
+        distance: Distance(0.0),
+        setDuration: SetDuration(0),
       );
 
   Option<ValueFailure<dynamic>> get failureOption {
-    return number.value.fold((f) => some(f), (r) => none());
+    return number.failureOrUnit
+        .andThen(goodReps.failureOrUnit.andThen(badReps.failureOrUnit.andThen(
+            weights.failureOrUnit.andThen(
+                distance.failureOrUnit.andThen(setDuration.failureOrUnit)))))
+        .fold((f) => some(f), (r) => none());
   }
 }
