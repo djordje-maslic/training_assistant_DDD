@@ -17,16 +17,16 @@ class _$ExerciseTearOff {
   _Exercise call(
       {@required UniqueId id,
       @required UniqueId userId,
+      @required UserName userName,
       @required ExerciseName name,
       @required ExerciseDate date,
-      @required NumberOfSets numberOfSets,
       @required SetsList<Sets> setsList}) {
     return _Exercise(
       id: id,
       userId: userId,
+      userName: userName,
       name: name,
       date: date,
-      numberOfSets: numberOfSets,
       setsList: setsList,
     );
   }
@@ -40,9 +40,9 @@ const $Exercise = _$ExerciseTearOff();
 mixin _$Exercise {
   UniqueId get id;
   UniqueId get userId;
+  UserName get userName;
   ExerciseName get name;
   ExerciseDate get date;
-  NumberOfSets get numberOfSets;
   SetsList<Sets> get setsList;
 
   $ExerciseCopyWith<Exercise> get copyWith;
@@ -55,9 +55,9 @@ abstract class $ExerciseCopyWith<$Res> {
   $Res call(
       {UniqueId id,
       UniqueId userId,
+      UserName userName,
       ExerciseName name,
       ExerciseDate date,
-      NumberOfSets numberOfSets,
       SetsList<Sets> setsList});
 }
 
@@ -73,19 +73,17 @@ class _$ExerciseCopyWithImpl<$Res> implements $ExerciseCopyWith<$Res> {
   $Res call({
     Object id = freezed,
     Object userId = freezed,
+    Object userName = freezed,
     Object name = freezed,
     Object date = freezed,
-    Object numberOfSets = freezed,
     Object setsList = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as UniqueId,
       userId: userId == freezed ? _value.userId : userId as UniqueId,
+      userName: userName == freezed ? _value.userName : userName as UserName,
       name: name == freezed ? _value.name : name as ExerciseName,
       date: date == freezed ? _value.date : date as ExerciseDate,
-      numberOfSets: numberOfSets == freezed
-          ? _value.numberOfSets
-          : numberOfSets as NumberOfSets,
       setsList:
           setsList == freezed ? _value.setsList : setsList as SetsList<Sets>,
     ));
@@ -100,9 +98,9 @@ abstract class _$ExerciseCopyWith<$Res> implements $ExerciseCopyWith<$Res> {
   $Res call(
       {UniqueId id,
       UniqueId userId,
+      UserName userName,
       ExerciseName name,
       ExerciseDate date,
-      NumberOfSets numberOfSets,
       SetsList<Sets> setsList});
 }
 
@@ -119,19 +117,17 @@ class __$ExerciseCopyWithImpl<$Res> extends _$ExerciseCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object userId = freezed,
+    Object userName = freezed,
     Object name = freezed,
     Object date = freezed,
-    Object numberOfSets = freezed,
     Object setsList = freezed,
   }) {
     return _then(_Exercise(
       id: id == freezed ? _value.id : id as UniqueId,
       userId: userId == freezed ? _value.userId : userId as UniqueId,
+      userName: userName == freezed ? _value.userName : userName as UserName,
       name: name == freezed ? _value.name : name as ExerciseName,
       date: date == freezed ? _value.date : date as ExerciseDate,
-      numberOfSets: numberOfSets == freezed
-          ? _value.numberOfSets
-          : numberOfSets as NumberOfSets,
       setsList:
           setsList == freezed ? _value.setsList : setsList as SetsList<Sets>,
     ));
@@ -143,15 +139,15 @@ class _$_Exercise extends _Exercise {
   const _$_Exercise(
       {@required this.id,
       @required this.userId,
+      @required this.userName,
       @required this.name,
       @required this.date,
-      @required this.numberOfSets,
       @required this.setsList})
       : assert(id != null),
         assert(userId != null),
+        assert(userName != null),
         assert(name != null),
         assert(date != null),
-        assert(numberOfSets != null),
         assert(setsList != null),
         super._();
 
@@ -160,17 +156,17 @@ class _$_Exercise extends _Exercise {
   @override
   final UniqueId userId;
   @override
+  final UserName userName;
+  @override
   final ExerciseName name;
   @override
   final ExerciseDate date;
-  @override
-  final NumberOfSets numberOfSets;
   @override
   final SetsList<Sets> setsList;
 
   @override
   String toString() {
-    return 'Exercise(id: $id, userId: $userId, name: $name, date: $date, numberOfSets: $numberOfSets, setsList: $setsList)';
+    return 'Exercise(id: $id, userId: $userId, userName: $userName, name: $name, date: $date, setsList: $setsList)';
   }
 
   @override
@@ -181,13 +177,13 @@ class _$_Exercise extends _Exercise {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.userId, userId) ||
                 const DeepCollectionEquality().equals(other.userId, userId)) &&
+            (identical(other.userName, userName) ||
+                const DeepCollectionEquality()
+                    .equals(other.userName, userName)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.date, date) ||
                 const DeepCollectionEquality().equals(other.date, date)) &&
-            (identical(other.numberOfSets, numberOfSets) ||
-                const DeepCollectionEquality()
-                    .equals(other.numberOfSets, numberOfSets)) &&
             (identical(other.setsList, setsList) ||
                 const DeepCollectionEquality()
                     .equals(other.setsList, setsList)));
@@ -198,9 +194,9 @@ class _$_Exercise extends _Exercise {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(userName) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(date) ^
-      const DeepCollectionEquality().hash(numberOfSets) ^
       const DeepCollectionEquality().hash(setsList);
 
   @override
@@ -213,9 +209,9 @@ abstract class _Exercise extends Exercise {
   const factory _Exercise(
       {@required UniqueId id,
       @required UniqueId userId,
+      @required UserName userName,
       @required ExerciseName name,
       @required ExerciseDate date,
-      @required NumberOfSets numberOfSets,
       @required SetsList<Sets> setsList}) = _$_Exercise;
 
   @override
@@ -223,11 +219,11 @@ abstract class _Exercise extends Exercise {
   @override
   UniqueId get userId;
   @override
+  UserName get userName;
+  @override
   ExerciseName get name;
   @override
   ExerciseDate get date;
-  @override
-  NumberOfSets get numberOfSets;
   @override
   SetsList<Sets> get setsList;
   @override

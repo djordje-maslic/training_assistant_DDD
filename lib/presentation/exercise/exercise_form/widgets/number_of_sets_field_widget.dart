@@ -12,7 +12,7 @@ class NumberOfSets extends HookWidget {
       listenWhen: (p, c) => p.isEditing != c.isEditing,
       listener: (context, state) {
         numberOfSetsTextEditingController.text =
-            state.exercise.numberOfSets.getOrCrash().toString();
+            state.exercise.userName.getOrCrash().toString();
       },
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -20,19 +20,19 @@ class NumberOfSets extends HookWidget {
           controller: numberOfSetsTextEditingController,
           decoration: const InputDecoration(labelText: 'Exercise sets number'),
           onChanged: (value) => context.read<ExerciseFormBloc>().add(
-                ExerciseFormEvent.exerciseSetNumbChanged(int.parse(value)),
+                ExerciseFormEvent.exerciseUserNameChanged(value),
               ),
           validator: (_) => context
               .read<ExerciseFormBloc>()
               .state
               .exercise
-              .numberOfSets
+              .userName
               .value
               .fold(
                   (f) => f.maybeMap(
                       orElse: () => null,
-                      empty: (_) => 'Cannot bi empty',
-                      exceedingValue: (f) => 'Exceeding value ${f.max}'),
+                      exceedingLength: (_)=> 'name too long',
+                     ),
                   (r) => null),
         ),
       ),

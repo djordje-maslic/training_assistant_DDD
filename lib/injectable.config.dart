@@ -19,7 +19,11 @@ import 'infrastructure/auth/firebase_auth_facade.dart';
 import 'infrastructure/core/firebase_injectable_module.dart';
 import 'domain/auth/i_auth_facade.dart';
 import 'domain/exercise/i_exercise_repository.dart';
+import 'domain/auth/i_user_repository.dart';
 import 'application/auth/signIn/sign_in_form_bloc.dart';
+import 'application/user/user_actor/user_actor_bloc.dart';
+import 'application/user/user_form_bloc/user_form_bloc.dart';
+import 'application/user/user_watcher/user_watcher_bloc.dart';
 
 /// adds generated dependencies
 /// to the provided [GetIt] instance
@@ -40,6 +44,9 @@ GetIt $initGetIt(
   gh.lazySingleton<IExerciseRepository>(
       () => ExerciseRepository(get<FirebaseFirestore>()));
   gh.factory<SignInFormBloc>(() => SignInFormBloc(get<IAuthFacade>()));
+  gh.factory<UserActorBloc>(() => UserActorBloc(get<IUserRepository>()));
+  gh.factory<UserFormBloc>(() => UserFormBloc(get<IUserRepository>()));
+  gh.factory<UserWatcherBloc>(() => UserWatcherBloc(get<IUserRepository>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));
   gh.factory<ExerciseActorBloc>(
       () => ExerciseActorBloc(get<IExerciseRepository>()));

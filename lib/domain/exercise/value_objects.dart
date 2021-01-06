@@ -126,6 +126,20 @@ class SetDuration extends ValueObject<int> {
     return SetDuration._(
         validateMaxIntValue(input, maxValue));
   }
+
+
+  String get  clockDisplay{ 
+  final int hours = (value.getOrElse(() => 0) / 3600000).floor();
+  final String hoursString = hours >9 ? '$hours' : '0$hours';
+  final int minutes = ((value.getOrElse(() => 0) % 3600000) / 60000).floor();
+  final String minutesString = minutes >9 ? '$minutes' : '0$minutes';
+
+  final int seconds = (((value.getOrElse(() => 0) % 3600000) % 60000) / 1000).floor();
+  final String secondsString = seconds >9 ? '$seconds' : '0$seconds';
+  final String result = '$hoursString:$minutesString:$secondsString';
+  return result;
+  }
+
 }
 
 class SetsList<T> extends ValueObject<KtList<T>> {

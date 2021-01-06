@@ -7,15 +7,15 @@ import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:meta/meta.dart';
 import 'package:reminder_app/domain/auth/i_auth_facade.dart';
+import 'package:reminder_app/domain/auth/value_objects.dart';
 import 'package:reminder_app/domain/core/error.dart';
 import 'package:reminder_app/domain/core/value_objects.dart';
 import 'package:reminder_app/domain/exercise/exercise.dart';
 import 'package:reminder_app/domain/exercise/exercise_failure.dart';
 import 'package:reminder_app/domain/exercise/i_exercise_repository.dart';
 import 'package:reminder_app/domain/exercise/value_objects.dart';
+import 'package:reminder_app/injectable.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/set_presentation_classes.dart';
-
-import '../../../injectable.dart';
 
 part 'exercise_form_event.dart';
 
@@ -58,10 +58,10 @@ class ExerciseFormBloc extends Bloc<ExerciseFormEvent, ExerciseFormState> {
           saveFailureOrSuccessOption: none(),
         );
       },
-      exerciseSetNumbChanged: (e) async* {
+      exerciseUserNameChanged: (e) async* {
         yield state.copyWith(
           exercise: state.exercise.copyWith(
-            numberOfSets: NumberOfSets(e.seriesNumbInt),
+            userName: UserName(e.userName),
           ),
           saveFailureOrSuccessOption: none(),
         );

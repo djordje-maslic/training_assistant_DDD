@@ -6,6 +6,7 @@ import 'package:injectable/injectable.dart';
 import 'package:reminder_app/domain/auth/i_auth_facade.dart';
 import 'package:reminder_app/domain/auth/user.dart';
 
+
 part 'auth_event.dart';
 
 part 'auth_state.dart';

@@ -20,45 +20,66 @@ class SplashPage extends StatelessWidget {
             child: ListView(
               children: [
                 DrawerHeader(
-                    child: Column(
-                  children: [
-                    IconButton(
-                      icon: const Icon(Icons.account_circle),
-                      onPressed: () {
-                        // TODO: complete user
-                      },
-                    ),
-                    context.watch<AuthBloc>().state.map(
-                        initial: (_) => const Text(''),
-                        authenticated: (authUser) =>
-                            Text(authUser.user.emailAddress.getOrCrash()),
-                        unauthenticated: (_) => RaisedButton(
+                    child: FlatButton(onPressed: (){}, child:Column(
+                      children: [
+                        Expanded(
+                          child: IconButton(
+                            icon: const Icon(Icons.account_circle,size: 80,color: Colors.amber,),
+                            onPressed: () {
+                              // TODO: complete user
+                            },
+                          ),
+                        ),
+                        context.watch<AuthBloc>().state.map(
+                            initial: (_) => const Text(''),
+                            authenticated: (authUser) =>
+                                Text(authUser.user.emailAddress.getOrCrash()),
+                            unauthenticated: (_) => RaisedButton(
                               onPressed: () {
                                 context.read<AuthBloc>().state.map(
-                                      initial: (_) {},
-                                      authenticated: (_) =>
-                                          ExtendedNavigator.of(context)
-                                              .pushExerciseOverviewPage(),
-                                      unauthenticated: (_) =>
-                                          ExtendedNavigator.of(context)
-                                              .pushSignIn(),
-                                    );
+                                  initial: (_) {},
+                                  authenticated: (_) =>
+                                      ExtendedNavigator.of(context)
+                                          .pushExerciseOverviewPage(),
+                                  unauthenticated: (_) =>
+                                      ExtendedNavigator.of(context)
+                                          .pushSignIn(),
+                                );
                               },
                               child: const Text('Sign in/ Register'),
                             ))
-                  ],
-                )),
-                IconButton(
-                    icon: const Icon(Icons.fitness_center),
+                      ],
+                    ) )),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: RaisedButton(
+                           color: Colors.amber,
+                      onPressed: () {
+                        context.read<AuthBloc>().state.map(
+                              initial: (_) {},
+                              authenticated: (_) => ExtendedNavigator.of(context)
+                                  .pushExerciseOverviewPage(),
+                              unauthenticated: (_) =>
+                                  ExtendedNavigator.of(context).pushSignIn(),
+                            );
+                      }, child: Row(children:const [ Icon(Icons.fitness_center),Text('Exercises')],),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: RaisedButton(
+                    color: Colors.cyan,
                     onPressed: () {
                       context.read<AuthBloc>().state.map(
-                            initial: (_) {},
-                            authenticated: (_) => ExtendedNavigator.of(context)
-                                .pushExerciseOverviewPage(),
-                            unauthenticated: (_) =>
-                                ExtendedNavigator.of(context).pushSignIn(),
-                          );
-                    })
+                        initial: (_) {},
+                        authenticated: (_) => ExtendedNavigator.of(context)
+                            .pushMealOverviewPage(),
+                        unauthenticated: (_) =>
+                            ExtendedNavigator.of(context).pushSignIn(),
+                      );
+                    }, child: Row(children:const [ Icon(Icons.restaurant),Text('Meals')],),
+                  ),
+                ),
               ],
             ),
           ),

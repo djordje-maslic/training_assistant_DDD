@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:reminder_app/application/exercise/exercise_actor/exercise_actor_bloc.dart';
 import 'package:reminder_app/domain/exercise/exercise.dart';
-import 'package:reminder_app/domain/exercise/sets.dart';
 import 'package:reminder_app/domain/exercise/value_objects.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_time_converter.dart';
 import 'package:reminder_app/presentation/routes/router.gr.dart';
@@ -22,8 +21,8 @@ class ExerciseCard extends StatelessWidget {
     return Card(
       child: InkWell(
         onTap: () {
-         ExtendedNavigator.of(context).pushExerciseFormPage(editedExercise: exercise);
-         
+          ExtendedNavigator.of(context)
+              .pushExerciseFormPage(editedExercise: exercise);
         },
         onLongPress: () {
           final exerciseActorBloc = context.read<ExerciseActorBloc>();
@@ -42,19 +41,8 @@ class ExerciseCard extends StatelessWidget {
                 const SizedBox(
                   height: 4,
                 ),
-                Wrap(
-                  children: [
-                    ...exercise.setsList
-                        .getOrCrash()
-                        .map((set) => SetDisplay(
-                              sets: set,
-                      setList: exercise.setsList,
-                            ))
-                        .iter,
-                  ],
-                )
+                SetDisplay(setList: exercise.setsList)
               ],
-
             ],
           ),
         ),
@@ -82,7 +70,8 @@ class ExerciseCard extends StatelessWidget {
               FlatButton(
                 onPressed: () {
                   exerciseActorBloc.add(ExerciseActorEvent.deleted(exercise));
-                  Navigator.pop(context);},
+                  Navigator.pop(context);
+                },
                 child: const Text('DELETE'),
               )
             ],
@@ -92,12 +81,60 @@ class ExerciseCard extends StatelessWidget {
 }
 
 class SetDisplay extends StatelessWidget {
-  final Sets sets;
   final SetsList setList;
-  const SetDisplay({Key key, @required this.sets, @required this.setList}) : super(key: key);
+
+  const SetDisplay({Key key, @required this.setList}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Text('${setList.getOrCrash().indexOf(sets) +1}.SET: ${sets.number.getOrCrash().toString()} reps  ');
+    return DataTable(columnSpacing: 15.0, columns: const [
+      DataColumn(tooltip: 'Number of set', label: Text('Set')),
+      DataColumn(label: Text('Reps')),
+      DataColumn(label: Text('BadReps')),
+      DataColumn(label: Text('Weight')),
+      DataColumn(label: Text('Distance')),
+      DataColumn(label: Text('Duration')),
+    ], rows: [
+      ...setList
+          .getOrCrash()
+          .map((set) => DataRow(
+                cells: [
+                  DataCell(Text('${setList.getOrCrash().indexOf(set) + 1}')),
+                  DataCell(
+                    Text(
+                      '${set.number.getOrCrash()}',
+                      style: const TextStyle(color: Colors.amber),
+                    ),
+                  ),
+                  DataCell(
+                    Text(
+                      '${set.badReps.getOrCrash()}',
+                      style: const TextStyle(color: Colors.red),
+                    ),
+                  ),
+                  DataCell(
+                    Text(
+                      '${set.weights.getOrCrash()}',
+                      style: const TextStyle(color: Colors.black),
+                    ),
+                  ),
+                  DataCell(
+                    Text(
+                      '${set.distance.getOrCrash()}',
+                      style: const TextStyle(color: Colors.indigo),
+                    ),
+                  ),
+                  DataCell(
+                    Text(
+                      SetDuration(int.tryParse(
+                              set.setDuration.getOrCrash().toString()))
+                          .clockDisplay,
+                      style: const TextStyle(color: Colors.deepPurple),
+                    ),
+                  ),
+                ],
+              ))
+          .iter,
+    ]);
   }
 }

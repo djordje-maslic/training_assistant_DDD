@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import '../../domain/exercise/exercise.dart';
 import '../exercise/exercise_form/exercise_form_page.dart';
 import '../exercise/exercise_overview/exercise_overview_page.dart';
+import '../meal/meal_overview/meal_overview_page.dart';
 import '../sign_in/sign_in_page.dart';
 import '../splash/splash_page.dart';
 
@@ -20,11 +21,13 @@ class Routes {
   static const String signIn = '/sign-in';
   static const String exerciseOverviewPage = '/exercise-overview-page';
   static const String exerciseFormPage = '/exercise-form-page';
+  static const String mealOverviewPage = '/meal-overview-page';
   static const all = <String>{
     splashPage,
     signIn,
     exerciseOverviewPage,
     exerciseFormPage,
+    mealOverviewPage,
   };
 }
 
@@ -36,6 +39,7 @@ class Router extends RouterBase {
     RouteDef(Routes.signIn, page: SignIn),
     RouteDef(Routes.exerciseOverviewPage, page: ExerciseOverviewPage),
     RouteDef(Routes.exerciseFormPage, page: ExerciseFormPage),
+    RouteDef(Routes.mealOverviewPage, page: MealOverviewPage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -69,6 +73,12 @@ class Router extends RouterBase {
         fullscreenDialog: true,
       );
     },
+    MealOverviewPage: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => MealOverviewPage(),
+        settings: data,
+      );
+    },
   };
 }
 
@@ -93,6 +103,9 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
         arguments:
             ExerciseFormPageArguments(key: key, editedExercise: editedExercise),
       );
+
+  Future<dynamic> pushMealOverviewPage() =>
+      push<dynamic>(Routes.mealOverviewPage);
 }
 
 /// ************************************************************************

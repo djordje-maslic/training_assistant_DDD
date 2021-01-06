@@ -36,10 +36,10 @@ class SplashCard extends StatelessWidget {
                         color: Colors.amber),
                     width: 50,
                     height: 50,
-                    child: const Center(
+                    child:  Center(
                         child: Text(
-                      'MD',
-                      style: TextStyle(fontSize: 20),
+                      exercise.userName.getOrCrash().substring(0,2).toUpperCase(),
+                      style:const TextStyle(fontSize: 20),
                     )),
                   ),
                   const SizedBox(
@@ -106,3 +106,4 @@ List<int> setsListToIntLis(SetsList list) {
       .asList();
   return result;
 }
+

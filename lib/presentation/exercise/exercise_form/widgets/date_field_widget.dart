@@ -33,7 +33,7 @@ Future<void> _selectDate(
       initialDate: DateTime.now(),
       currentDate: DateTime.now(),
       firstDate: DateTime(2019),
-      lastDate: DateTime(2021),
+      lastDate: DateTime(2025),
       builder: (context, child) {
         return Theme(
             data: ThemeData.from(

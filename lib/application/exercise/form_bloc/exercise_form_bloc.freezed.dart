@@ -35,9 +35,9 @@ class _$ExerciseFormEventTearOff {
   }
 
 // ignore: unused_element
-  _ExerciseSereiesNumbChanged exerciseSetNumbChanged(int seriesNumbInt) {
+  _ExerciseSereiesNumbChanged exerciseUserNameChanged(String userName) {
     return _ExerciseSereiesNumbChanged(
-      seriesNumbInt,
+      userName,
     );
   }
 
@@ -66,7 +66,7 @@ mixin _$ExerciseFormEvent {
     @required TResult initialized(Option<Exercise> initialExerciseOption),
     @required TResult exerciseNameChanged(String nameStr),
     @required TResult exerciseDateChanged(int dateInt),
-    @required TResult exerciseSetNumbChanged(int seriesNumbInt),
+    @required TResult exerciseUserNameChanged(String userName),
     @required TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
     @required TResult exerciseSaved(),
   });
@@ -75,7 +75,7 @@ mixin _$ExerciseFormEvent {
     TResult initialized(Option<Exercise> initialExerciseOption),
     TResult exerciseNameChanged(String nameStr),
     TResult exerciseDateChanged(int dateInt),
-    TResult exerciseSetNumbChanged(int seriesNumbInt),
+    TResult exerciseUserNameChanged(String userName),
     TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
     TResult exerciseSaved(),
     @required TResult orElse(),
@@ -85,7 +85,8 @@ mixin _$ExerciseFormEvent {
     @required TResult initialized(_Initialized value),
     @required TResult exerciseNameChanged(_ExerciseNameChanged value),
     @required TResult exerciseDateChanged(_ExerciseDateChanged value),
-    @required TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+    @required
+        TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     @required
         TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
     @required TResult exerciseSaved(_ExerciseSavd value),
@@ -95,7 +96,7 @@ mixin _$ExerciseFormEvent {
     TResult initialized(_Initialized value),
     TResult exerciseNameChanged(_ExerciseNameChanged value),
     TResult exerciseDateChanged(_ExerciseDateChanged value),
-    TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+    TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
     TResult exerciseSaved(_ExerciseSavd value),
     @required TResult orElse(),
@@ -187,14 +188,14 @@ class _$_Initialized implements _Initialized {
     @required TResult initialized(Option<Exercise> initialExerciseOption),
     @required TResult exerciseNameChanged(String nameStr),
     @required TResult exerciseDateChanged(int dateInt),
-    @required TResult exerciseSetNumbChanged(int seriesNumbInt),
+    @required TResult exerciseUserNameChanged(String userName),
     @required TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
     @required TResult exerciseSaved(),
   }) {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
     assert(exerciseDateChanged != null);
-    assert(exerciseSetNumbChanged != null);
+    assert(exerciseUserNameChanged != null);
     assert(exerciseSetsChanged != null);
     assert(exerciseSaved != null);
     return initialized(initialExerciseOption);
@@ -206,7 +207,7 @@ class _$_Initialized implements _Initialized {
     TResult initialized(Option<Exercise> initialExerciseOption),
     TResult exerciseNameChanged(String nameStr),
     TResult exerciseDateChanged(int dateInt),
-    TResult exerciseSetNumbChanged(int seriesNumbInt),
+    TResult exerciseUserNameChanged(String userName),
     TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
     TResult exerciseSaved(),
     @required TResult orElse(),
@@ -224,7 +225,8 @@ class _$_Initialized implements _Initialized {
     @required TResult initialized(_Initialized value),
     @required TResult exerciseNameChanged(_ExerciseNameChanged value),
     @required TResult exerciseDateChanged(_ExerciseDateChanged value),
-    @required TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+    @required
+        TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     @required
         TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
     @required TResult exerciseSaved(_ExerciseSavd value),
@@ -232,7 +234,7 @@ class _$_Initialized implements _Initialized {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
     assert(exerciseDateChanged != null);
-    assert(exerciseSetNumbChanged != null);
+    assert(exerciseUserNameChanged != null);
     assert(exerciseSetsChanged != null);
     assert(exerciseSaved != null);
     return initialized(this);
@@ -244,7 +246,7 @@ class _$_Initialized implements _Initialized {
     TResult initialized(_Initialized value),
     TResult exerciseNameChanged(_ExerciseNameChanged value),
     TResult exerciseDateChanged(_ExerciseDateChanged value),
-    TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+    TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
     TResult exerciseSaved(_ExerciseSavd value),
     @required TResult orElse(),
@@ -329,14 +331,14 @@ class _$_ExerciseNameChanged implements _ExerciseNameChanged {
     @required TResult initialized(Option<Exercise> initialExerciseOption),
     @required TResult exerciseNameChanged(String nameStr),
     @required TResult exerciseDateChanged(int dateInt),
-    @required TResult exerciseSetNumbChanged(int seriesNumbInt),
+    @required TResult exerciseUserNameChanged(String userName),
     @required TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
     @required TResult exerciseSaved(),
   }) {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
     assert(exerciseDateChanged != null);
-    assert(exerciseSetNumbChanged != null);
+    assert(exerciseUserNameChanged != null);
     assert(exerciseSetsChanged != null);
     assert(exerciseSaved != null);
     return exerciseNameChanged(nameStr);
@@ -348,7 +350,7 @@ class _$_ExerciseNameChanged implements _ExerciseNameChanged {
     TResult initialized(Option<Exercise> initialExerciseOption),
     TResult exerciseNameChanged(String nameStr),
     TResult exerciseDateChanged(int dateInt),
-    TResult exerciseSetNumbChanged(int seriesNumbInt),
+    TResult exerciseUserNameChanged(String userName),
     TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
     TResult exerciseSaved(),
     @required TResult orElse(),
@@ -366,7 +368,8 @@ class _$_ExerciseNameChanged implements _ExerciseNameChanged {
     @required TResult initialized(_Initialized value),
     @required TResult exerciseNameChanged(_ExerciseNameChanged value),
     @required TResult exerciseDateChanged(_ExerciseDateChanged value),
-    @required TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+    @required
+        TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     @required
         TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
     @required TResult exerciseSaved(_ExerciseSavd value),
@@ -374,7 +377,7 @@ class _$_ExerciseNameChanged implements _ExerciseNameChanged {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
     assert(exerciseDateChanged != null);
-    assert(exerciseSetNumbChanged != null);
+    assert(exerciseUserNameChanged != null);
     assert(exerciseSetsChanged != null);
     assert(exerciseSaved != null);
     return exerciseNameChanged(this);
@@ -386,7 +389,7 @@ class _$_ExerciseNameChanged implements _ExerciseNameChanged {
     TResult initialized(_Initialized value),
     TResult exerciseNameChanged(_ExerciseNameChanged value),
     TResult exerciseDateChanged(_ExerciseDateChanged value),
-    TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+    TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
     TResult exerciseSaved(_ExerciseSavd value),
     @required TResult orElse(),
@@ -470,14 +473,14 @@ class _$_ExerciseDateChanged implements _ExerciseDateChanged {
     @required TResult initialized(Option<Exercise> initialExerciseOption),
     @required TResult exerciseNameChanged(String nameStr),
     @required TResult exerciseDateChanged(int dateInt),
-    @required TResult exerciseSetNumbChanged(int seriesNumbInt),
+    @required TResult exerciseUserNameChanged(String userName),
     @required TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
     @required TResult exerciseSaved(),
   }) {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
     assert(exerciseDateChanged != null);
-    assert(exerciseSetNumbChanged != null);
+    assert(exerciseUserNameChanged != null);
     assert(exerciseSetsChanged != null);
     assert(exerciseSaved != null);
     return exerciseDateChanged(dateInt);
@@ -489,7 +492,7 @@ class _$_ExerciseDateChanged implements _ExerciseDateChanged {
     TResult initialized(Option<Exercise> initialExerciseOption),
     TResult exerciseNameChanged(String nameStr),
     TResult exerciseDateChanged(int dateInt),
-    TResult exerciseSetNumbChanged(int seriesNumbInt),
+    TResult exerciseUserNameChanged(String userName),
     TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
     TResult exerciseSaved(),
     @required TResult orElse(),
@@ -507,7 +510,8 @@ class _$_ExerciseDateChanged implements _ExerciseDateChanged {
     @required TResult initialized(_Initialized value),
     @required TResult exerciseNameChanged(_ExerciseNameChanged value),
     @required TResult exerciseDateChanged(_ExerciseDateChanged value),
-    @required TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+    @required
+        TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     @required
         TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
     @required TResult exerciseSaved(_ExerciseSavd value),
@@ -515,7 +519,7 @@ class _$_ExerciseDateChanged implements _ExerciseDateChanged {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
     assert(exerciseDateChanged != null);
-    assert(exerciseSetNumbChanged != null);
+    assert(exerciseUserNameChanged != null);
     assert(exerciseSetsChanged != null);
     assert(exerciseSaved != null);
     return exerciseDateChanged(this);
@@ -527,7 +531,7 @@ class _$_ExerciseDateChanged implements _ExerciseDateChanged {
     TResult initialized(_Initialized value),
     TResult exerciseNameChanged(_ExerciseNameChanged value),
     TResult exerciseDateChanged(_ExerciseDateChanged value),
-    TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+    TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
     TResult exerciseSaved(_ExerciseSavd value),
     @required TResult orElse(),
@@ -553,7 +557,7 @@ abstract class _$ExerciseSereiesNumbChangedCopyWith<$Res> {
           _ExerciseSereiesNumbChanged value,
           $Res Function(_ExerciseSereiesNumbChanged) then) =
       __$ExerciseSereiesNumbChangedCopyWithImpl<$Res>;
-  $Res call({int seriesNumbInt});
+  $Res call({String userName});
 }
 
 /// @nodoc
@@ -570,39 +574,38 @@ class __$ExerciseSereiesNumbChangedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object seriesNumbInt = freezed,
+    Object userName = freezed,
   }) {
     return _then(_ExerciseSereiesNumbChanged(
-      seriesNumbInt == freezed ? _value.seriesNumbInt : seriesNumbInt as int,
+      userName == freezed ? _value.userName : userName as String,
     ));
   }
 }
 
 /// @nodoc
 class _$_ExerciseSereiesNumbChanged implements _ExerciseSereiesNumbChanged {
-  const _$_ExerciseSereiesNumbChanged(this.seriesNumbInt)
-      : assert(seriesNumbInt != null);
+  const _$_ExerciseSereiesNumbChanged(this.userName) : assert(userName != null);
 
   @override
-  final int seriesNumbInt;
+  final String userName;
 
   @override
   String toString() {
-    return 'ExerciseFormEvent.exerciseSetNumbChanged(seriesNumbInt: $seriesNumbInt)';
+    return 'ExerciseFormEvent.exerciseUserNameChanged(userName: $userName)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _ExerciseSereiesNumbChanged &&
-            (identical(other.seriesNumbInt, seriesNumbInt) ||
+            (identical(other.userName, userName) ||
                 const DeepCollectionEquality()
-                    .equals(other.seriesNumbInt, seriesNumbInt)));
+                    .equals(other.userName, userName)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(seriesNumbInt);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(userName);
 
   @override
   _$ExerciseSereiesNumbChangedCopyWith<_ExerciseSereiesNumbChanged>
@@ -615,17 +618,17 @@ class _$_ExerciseSereiesNumbChanged implements _ExerciseSereiesNumbChanged {
     @required TResult initialized(Option<Exercise> initialExerciseOption),
     @required TResult exerciseNameChanged(String nameStr),
     @required TResult exerciseDateChanged(int dateInt),
-    @required TResult exerciseSetNumbChanged(int seriesNumbInt),
+    @required TResult exerciseUserNameChanged(String userName),
     @required TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
     @required TResult exerciseSaved(),
   }) {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
     assert(exerciseDateChanged != null);
-    assert(exerciseSetNumbChanged != null);
+    assert(exerciseUserNameChanged != null);
     assert(exerciseSetsChanged != null);
     assert(exerciseSaved != null);
-    return exerciseSetNumbChanged(seriesNumbInt);
+    return exerciseUserNameChanged(userName);
   }
 
   @override
@@ -634,14 +637,14 @@ class _$_ExerciseSereiesNumbChanged implements _ExerciseSereiesNumbChanged {
     TResult initialized(Option<Exercise> initialExerciseOption),
     TResult exerciseNameChanged(String nameStr),
     TResult exerciseDateChanged(int dateInt),
-    TResult exerciseSetNumbChanged(int seriesNumbInt),
+    TResult exerciseUserNameChanged(String userName),
     TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
     TResult exerciseSaved(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (exerciseSetNumbChanged != null) {
-      return exerciseSetNumbChanged(seriesNumbInt);
+    if (exerciseUserNameChanged != null) {
+      return exerciseUserNameChanged(userName);
     }
     return orElse();
   }
@@ -652,7 +655,8 @@ class _$_ExerciseSereiesNumbChanged implements _ExerciseSereiesNumbChanged {
     @required TResult initialized(_Initialized value),
     @required TResult exerciseNameChanged(_ExerciseNameChanged value),
     @required TResult exerciseDateChanged(_ExerciseDateChanged value),
-    @required TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+    @required
+        TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     @required
         TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
     @required TResult exerciseSaved(_ExerciseSavd value),
@@ -660,10 +664,10 @@ class _$_ExerciseSereiesNumbChanged implements _ExerciseSereiesNumbChanged {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
     assert(exerciseDateChanged != null);
-    assert(exerciseSetNumbChanged != null);
+    assert(exerciseUserNameChanged != null);
     assert(exerciseSetsChanged != null);
     assert(exerciseSaved != null);
-    return exerciseSetNumbChanged(this);
+    return exerciseUserNameChanged(this);
   }
 
   @override
@@ -672,24 +676,24 @@ class _$_ExerciseSereiesNumbChanged implements _ExerciseSereiesNumbChanged {
     TResult initialized(_Initialized value),
     TResult exerciseNameChanged(_ExerciseNameChanged value),
     TResult exerciseDateChanged(_ExerciseDateChanged value),
-    TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+    TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
     TResult exerciseSaved(_ExerciseSavd value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (exerciseSetNumbChanged != null) {
-      return exerciseSetNumbChanged(this);
+    if (exerciseUserNameChanged != null) {
+      return exerciseUserNameChanged(this);
     }
     return orElse();
   }
 }
 
 abstract class _ExerciseSereiesNumbChanged implements ExerciseFormEvent {
-  const factory _ExerciseSereiesNumbChanged(int seriesNumbInt) =
+  const factory _ExerciseSereiesNumbChanged(String userName) =
       _$_ExerciseSereiesNumbChanged;
 
-  int get seriesNumbInt;
+  String get userName;
   _$ExerciseSereiesNumbChangedCopyWith<_ExerciseSereiesNumbChanged>
       get copyWith;
 }
@@ -762,14 +766,14 @@ class _$_ExerciseRepetitionsListChanged
     @required TResult initialized(Option<Exercise> initialExerciseOption),
     @required TResult exerciseNameChanged(String nameStr),
     @required TResult exerciseDateChanged(int dateInt),
-    @required TResult exerciseSetNumbChanged(int seriesNumbInt),
+    @required TResult exerciseUserNameChanged(String userName),
     @required TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
     @required TResult exerciseSaved(),
   }) {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
     assert(exerciseDateChanged != null);
-    assert(exerciseSetNumbChanged != null);
+    assert(exerciseUserNameChanged != null);
     assert(exerciseSetsChanged != null);
     assert(exerciseSaved != null);
     return exerciseSetsChanged(sets);
@@ -781,7 +785,7 @@ class _$_ExerciseRepetitionsListChanged
     TResult initialized(Option<Exercise> initialExerciseOption),
     TResult exerciseNameChanged(String nameStr),
     TResult exerciseDateChanged(int dateInt),
-    TResult exerciseSetNumbChanged(int seriesNumbInt),
+    TResult exerciseUserNameChanged(String userName),
     TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
     TResult exerciseSaved(),
     @required TResult orElse(),
@@ -799,7 +803,8 @@ class _$_ExerciseRepetitionsListChanged
     @required TResult initialized(_Initialized value),
     @required TResult exerciseNameChanged(_ExerciseNameChanged value),
     @required TResult exerciseDateChanged(_ExerciseDateChanged value),
-    @required TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+    @required
+        TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     @required
         TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
     @required TResult exerciseSaved(_ExerciseSavd value),
@@ -807,7 +812,7 @@ class _$_ExerciseRepetitionsListChanged
     assert(initialized != null);
     assert(exerciseNameChanged != null);
     assert(exerciseDateChanged != null);
-    assert(exerciseSetNumbChanged != null);
+    assert(exerciseUserNameChanged != null);
     assert(exerciseSetsChanged != null);
     assert(exerciseSaved != null);
     return exerciseSetsChanged(this);
@@ -819,7 +824,7 @@ class _$_ExerciseRepetitionsListChanged
     TResult initialized(_Initialized value),
     TResult exerciseNameChanged(_ExerciseNameChanged value),
     TResult exerciseDateChanged(_ExerciseDateChanged value),
-    TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+    TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
     TResult exerciseSaved(_ExerciseSavd value),
     @required TResult orElse(),
@@ -883,14 +888,14 @@ class _$_ExerciseSavd implements _ExerciseSavd {
     @required TResult initialized(Option<Exercise> initialExerciseOption),
     @required TResult exerciseNameChanged(String nameStr),
     @required TResult exerciseDateChanged(int dateInt),
-    @required TResult exerciseSetNumbChanged(int seriesNumbInt),
+    @required TResult exerciseUserNameChanged(String userName),
     @required TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
     @required TResult exerciseSaved(),
   }) {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
     assert(exerciseDateChanged != null);
-    assert(exerciseSetNumbChanged != null);
+    assert(exerciseUserNameChanged != null);
     assert(exerciseSetsChanged != null);
     assert(exerciseSaved != null);
     return exerciseSaved();
@@ -902,7 +907,7 @@ class _$_ExerciseSavd implements _ExerciseSavd {
     TResult initialized(Option<Exercise> initialExerciseOption),
     TResult exerciseNameChanged(String nameStr),
     TResult exerciseDateChanged(int dateInt),
-    TResult exerciseSetNumbChanged(int seriesNumbInt),
+    TResult exerciseUserNameChanged(String userName),
     TResult exerciseSetsChanged(KtList<SetItemPrimitive> sets),
     TResult exerciseSaved(),
     @required TResult orElse(),
@@ -920,7 +925,8 @@ class _$_ExerciseSavd implements _ExerciseSavd {
     @required TResult initialized(_Initialized value),
     @required TResult exerciseNameChanged(_ExerciseNameChanged value),
     @required TResult exerciseDateChanged(_ExerciseDateChanged value),
-    @required TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+    @required
+        TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     @required
         TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
     @required TResult exerciseSaved(_ExerciseSavd value),
@@ -928,7 +934,7 @@ class _$_ExerciseSavd implements _ExerciseSavd {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
     assert(exerciseDateChanged != null);
-    assert(exerciseSetNumbChanged != null);
+    assert(exerciseUserNameChanged != null);
     assert(exerciseSetsChanged != null);
     assert(exerciseSaved != null);
     return exerciseSaved(this);
@@ -940,7 +946,7 @@ class _$_ExerciseSavd implements _ExerciseSavd {
     TResult initialized(_Initialized value),
     TResult exerciseNameChanged(_ExerciseNameChanged value),
     TResult exerciseDateChanged(_ExerciseDateChanged value),
-    TResult exerciseSetNumbChanged(_ExerciseSereiesNumbChanged value),
+    TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
     TResult exerciseSaved(_ExerciseSavd value),
     @required TResult orElse(),

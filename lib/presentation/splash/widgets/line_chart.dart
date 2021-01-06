@@ -5,9 +5,11 @@ import 'package:reminder_app/presentation/splash/misc/repetitions_max.dart';
 import 'package:reminder_app/presentation/splash/widgets/splash_card.dart';
 
 class LineChartSample2 extends StatelessWidget {
-  const LineChartSample2({@required this.list});
+
 
   final SetsList list;
+
+  const LineChartSample2({@required this.list,Key key}): super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +35,7 @@ class LineChartSample2 extends StatelessWidget {
       ],
     );
   }
+
 
   LineChartData mainData(SetsList list) {
     return LineChartData(
@@ -69,10 +72,10 @@ class LineChartSample2 extends StatelessWidget {
         leftTitles: SideTitles(
             showTitles: true,
             getTextStyles: (value) => const TextStyle(
-              color: Color(0xff67727d),
-              fontWeight: FontWeight.bold,
-              fontSize: 15,
-            ),
+                  color: Color(0xff67727d),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                ),
             getTitles: (value) {
               return value.toInt().toString();
             },
@@ -84,14 +87,14 @@ class LineChartSample2 extends StatelessWidget {
           show: true,
           border: Border.all(color: const Color(0xff37434d), width: 2)),
       minX: 0,
-      maxX: list.length - 1.toDouble(),
+      maxX: list.length-1.toDouble(),
       minY: 0,
       maxY: double.parse(repetitionsMax(list)),
       lineBarsData: [
         LineChartBarData(
           spots: setsListToIntLis(list)
               .map((e) => FlSpot(
-              setsListToIntLis(list).indexOf(e).toDouble(), e.toDouble()))
+                  setsListToIntLis(list).indexOf(e).toDouble(), e.toDouble()))
               .toList(),
           isCurved: true,
           colors: [
@@ -111,6 +114,7 @@ class LineChartSample2 extends StatelessWidget {
             ].map((color) => color.withOpacity(0.3)).toList(),
           ),
         ),
+
       ],
     );
   }

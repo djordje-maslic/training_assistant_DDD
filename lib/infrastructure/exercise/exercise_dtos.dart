@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:reminder_app/domain/auth/value_objects.dart';
 import 'package:reminder_app/domain/core/value_objects.dart';
 import 'package:reminder_app/domain/exercise/exercise.dart';
 import 'package:reminder_app/domain/exercise/sets.dart';
@@ -17,9 +18,9 @@ abstract class ExerciseDto implements _$ExerciseDto {
   const factory ExerciseDto(
           {@JsonKey(ignore: true) String id,
           @required String userId,
+          @required String userName,
           @required String name,
           @required int date,
-          @required int setsNumb,
           @required List<SetsDto> setsList,
           @required @ServerTimestampConverter() FieldValue serverTimeStamp}) =
       _ExerciseDto;
@@ -28,9 +29,9 @@ abstract class ExerciseDto implements _$ExerciseDto {
     return ExerciseDto(
       id: exercise.id.getOrCrash(),
       userId: exercise.userId.getOrCrash(),
+      userName: exercise.userName.getOrCrash(),
       name: exercise.name.getOrCrash(),
       date: exercise.date.getOrCrash(),
-      setsNumb: exercise.numberOfSets.getOrCrash(),
       setsList: exercise.setsList
           .getOrCrash()
           .asList()
@@ -44,9 +45,9 @@ abstract class ExerciseDto implements _$ExerciseDto {
     return Exercise(
       id: UniqueId.withUniqueString(id),
       userId: UniqueId.withUniqueString(userId),
+      userName: UserName(userName),
       name: ExerciseName(name),
       date: ExerciseDate(date),
-      numberOfSets: NumberOfSets(setsNumb),
       setsList:
           SetsList(setsList.map((dto) => dto.toDomain()).toImmutableList()),
     );

@@ -7,6 +7,7 @@ import 'package:reminder_app/domain/auth/auth_failure.dart';
 import 'package:reminder_app/domain/auth/i_auth_facade.dart';
 import 'package:reminder_app/domain/auth/user.dart';
 import 'package:reminder_app/domain/auth/value_objects.dart';
+
 import './firebase_user_mapper.dart';
 
 @LazySingleton(as: IAuthFacade)

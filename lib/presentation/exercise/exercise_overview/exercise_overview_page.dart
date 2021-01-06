@@ -52,7 +52,7 @@ class ExerciseOverviewPage extends StatelessWidget {
                 orElse: () {});
           })
         ],
-        child: Scaffold(
+        child: Scaffold(backgroundColor: Colors.amber,
           endDrawer: Drawer(
             child: Column(
               children: [
