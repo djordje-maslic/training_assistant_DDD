@@ -16,26 +16,26 @@ class AppWidget extends StatelessWidget {
               const AuthEvent.userCheckRequested(),
             ),
         ),
-      ],
-      child:  MaterialApp(
-          builder: ExtendedNavigator.builder<app_router.Router>(
-            router: app_router.Router(),
-          ),
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData.light().copyWith(
-            primaryColor: Colors.amber,
-            accentColor: Colors.amber,
-            inputDecorationTheme: InputDecorationTheme(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
-            ),
-            floatingActionButtonTheme: const FloatingActionButtonThemeData(
-                backgroundColor: Colors.amber),
-          ),
-          title: 'Material App',
-        ),
 
+      ],
+      child: MaterialApp(
+        builder: ExtendedNavigator.builder<app_router.Router>(
+          router: app_router.Router(),
+        ),
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData.light().copyWith(
+          primaryColor: Colors.amber,
+          accentColor: Colors.amber,
+          inputDecorationTheme: InputDecorationTheme(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+          floatingActionButtonTheme: const FloatingActionButtonThemeData(
+              backgroundColor: Colors.amber),
+        ),
+        title: 'Material App',
+      ),
     );
   }
 }

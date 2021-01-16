@@ -23,6 +23,7 @@ import 'domain/auth/i_user_repository.dart';
 import 'application/auth/signIn/sign_in_form_bloc.dart';
 import 'application/user/user_actor/user_actor_bloc.dart';
 import 'application/user/user_form_bloc/user_form_bloc.dart';
+import 'infrastructure/auth/user_repository.dart';
 import 'application/user/user_watcher/user_watcher_bloc.dart';
 
 /// adds generated dependencies
@@ -43,6 +44,8 @@ GetIt $initGetIt(
       () => FirebaseAuthFacade(get<FirebaseAuth>(), get<GoogleSignIn>()));
   gh.lazySingleton<IExerciseRepository>(
       () => ExerciseRepository(get<FirebaseFirestore>()));
+  gh.lazySingleton<IUserRepository>(
+      () => UserRepository(get<FirebaseFirestore>()));
   gh.factory<SignInFormBloc>(() => SignInFormBloc(get<IAuthFacade>()));
   gh.factory<UserActorBloc>(() => UserActorBloc(get<IUserRepository>()));
   gh.factory<UserFormBloc>(() => UserFormBloc(get<IUserRepository>()));

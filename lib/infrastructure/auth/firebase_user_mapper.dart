@@ -8,6 +8,9 @@ extension FirebaseUserToDomainExtension on firebase.User {
     return User(
       id: UniqueId.withUniqueString(uid),
       emailAddress: EmailAddress(email),
+      userName: UserName(''),
+      userWeight: UserWeight(0.0),
+      userHeight: UserHeight(0.0),
     );
   }
 }

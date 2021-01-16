@@ -8,91 +8,137 @@ import 'package:reminder_app/presentation/core/logo_painter.dart';
 import 'package:reminder_app/presentation/routes/router.gr.dart';
 import 'package:reminder_app/presentation/splash/widgets/splash_body.dart';
 
-
 class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<ExerciseWatcherBloc>(
-      create: (context) => getIt<ExerciseWatcherBloc>()
-        ..add(const ExerciseWatcherEvent.watchAllStarted()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<ExerciseWatcherBloc>(
+          create: (context) => getIt<ExerciseWatcherBloc>()
+            ..add(const ExerciseWatcherEvent.watchAllStarted()),
+        ),
+      ],
       child: Scaffold(
-          endDrawer: Drawer(
-            child: ListView(
-              children: [
-                DrawerHeader(
-                    child: FlatButton(onPressed: (){}, child:Column(
-                      children: [
-                        Expanded(
-                          child: IconButton(
-                            icon: const Icon(Icons.account_circle,size: 80,color: Colors.amber,),
-                            onPressed: () {
-                              // TODO: complete user
-                            },
-                          ),
+        endDrawer: Drawer(
+          child: ListView(
+            children: [
+              DrawerHeader(
+                child: Column(
+                  children: [
+                    context.watch<AuthBloc>().state.map(
+                      initial: (_) => const Text(''),
+                      authenticated: (authUser) => FlatButton(
+                        onPressed: () {
+                          ExtendedNavigator.of(context)
+                              .pushUserOverviewPage();
+                        },
+                        child: Column(
+                          children: [
+                            const Icon(
+                              Icons.account_circle,
+                              size: 80,
+                              color: Colors.amber,
+                            ),
+                            Text(
+                              authUser.user.emailAddress.getOrCrash(),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            const Text(
+                              'View Profile',
+                              style: TextStyle(color: Colors.blueAccent),
+                            ),
+                          ],
                         ),
-                        context.watch<AuthBloc>().state.map(
-                            initial: (_) => const Text(''),
-                            authenticated: (authUser) =>
-                                Text(authUser.user.emailAddress.getOrCrash()),
-                            unauthenticated: (_) => RaisedButton(
-                              onPressed: () {
-                                context.read<AuthBloc>().state.map(
-                                  initial: (_) {},
-                                  authenticated: (_) =>
-                                      ExtendedNavigator.of(context)
-                                          .pushExerciseOverviewPage(),
-                                  unauthenticated: (_) =>
-                                      ExtendedNavigator.of(context)
-                                          .pushSignIn(),
-                                );
-                              },
-                              child: const Text('Sign in/ Register'),
-                            ))
-                      ],
-                    ) )),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: RaisedButton(
-                           color: Colors.amber,
-                      onPressed: () {
-                        context.read<AuthBloc>().state.map(
-                              initial: (_) {},
-                              authenticated: (_) => ExtendedNavigator.of(context)
-                                  .pushExerciseOverviewPage(),
-                              unauthenticated: (_) =>
-                                  ExtendedNavigator.of(context).pushSignIn(),
-                            );
-                      }, child: Row(children:const [ Icon(Icons.fitness_center),Text('Exercises')],),
+                      ),
+                      unauthenticated: (_) => Column(
+                        children: [
+                          const Icon(
+                            Icons.account_circle,
+                            size: 80,
+                            color: Colors.amber,
+                          ),
+                          RaisedButton(
+                            onPressed: () {
+                              ExtendedNavigator.of(context).pushSignIn();
+                            },
+                            child: const Text('Sign in/ Register'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: RaisedButton(
+                  color: Colors.grey,
+                  onPressed: () {
+                    context.read<AuthBloc>().state.map(
+                      initial: (_) {},
+                      authenticated: (_) => ExtendedNavigator.of(context)
+                          .pushSplashPage(),
+                      unauthenticated: (_) =>
+                          ExtendedNavigator.of(context).pushSignIn(),
+                    );
+                  },
+                  child: Row(
+                    children: const [Icon(Icons.home), Text('Home')],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: RaisedButton(
-                    color: Colors.cyan,
-                    onPressed: () {
-                      context.read<AuthBloc>().state.map(
-                        initial: (_) {},
-                        authenticated: (_) => ExtendedNavigator.of(context)
-                            .pushMealOverviewPage(),
-                        unauthenticated: (_) =>
-                            ExtendedNavigator.of(context).pushSignIn(),
-                      );
-                    }, child: Row(children:const [ Icon(Icons.restaurant),Text('Meals')],),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: RaisedButton(
+                  color: Colors.amber,
+                  onPressed: () {
+                    context.read<AuthBloc>().state.map(
+                      initial: (_) {},
+                      authenticated: (_) => ExtendedNavigator.of(context)
+                          .pushExerciseOverviewPage(),
+                      unauthenticated: (_) =>
+                          ExtendedNavigator.of(context).pushSignIn(),
+                    );
+                  },
+                  child: Row(
+                    children: const [
+                      Icon(Icons.fitness_center),
+                      Text('Exercises')
+                    ],
                   ),
                 ),
-              ],
-            ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: RaisedButton(
+                  color: Colors.cyan,
+                  onPressed: () {
+                    context.read<AuthBloc>().state.map(
+                      initial: (_) {},
+                      authenticated: (_) => ExtendedNavigator.of(context)
+                          .pushMealOverviewPage(),
+                      unauthenticated: (_) =>
+                          ExtendedNavigator.of(context).pushSignIn(),
+                    );
+                  },
+                  child: Row(
+                    children: const [Icon(Icons.restaurant), Text('Meals')],
+                  ),
+                ),
+              ),
+            ],
           ),
-          appBar: AppBar(
-            leading:const CustomPaint(
-
-              painter: LogoPainter(),
-
-            ),
-            title: const Text('Home'),
+        ),
+        appBar: AppBar(
+          leading: const CustomPaint(
+            painter: LogoPainter(),
           ),
-          body: SplashBody()),
+          title: const Text('Home'),
+        ),
+        body: SplashBody(),
+      ),
     );
   }
 }
-

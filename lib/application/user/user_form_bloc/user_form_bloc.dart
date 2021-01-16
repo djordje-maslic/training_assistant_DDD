@@ -27,30 +27,39 @@ class UserFormBloc extends Bloc<UserFormEvent, UserFormState> {
   final IUserRepository _iUserRepository;
 
   @override
-  Stream<UserFormState> mapEventToState(UserFormEvent event,) async* {
+  Stream<UserFormState> mapEventToState(
+    UserFormEvent event,
+  ) async* {
     yield* event.map(
       initialized: (e) async* {
-        yield e.initialUserOption.fold(() => state, (initialUser) =>
-            state.copyWith(user: initialUser, isEditing: true,),);
+        yield e.initialUserOption.fold(
+          () => state,
+          (initialUser) => state.copyWith(
+            user: initialUser,
+            isEditing: true,
+          ),
+        );
       },
       userNameChanged: (e) async* {
         yield state.copyWith(
-            user: state.user.copyWith(
-                userName: UserName(e.nameStr)),
+            user: state.user.copyWith(userName: UserName(e.nameStr)),
             saveFailureOrSuccessOption: none());
       },
       userWeightChanged: (e) async* {
         yield state.copyWith(
-            user: state.user.copyWith(userWeight: UserWeight(e.weightDouble),),
+            user: state.user.copyWith(
+              userWeight: UserWeight(e.weightDouble),
+            ),
             saveFailureOrSuccessOption: none());
       },
       userHeightChanged: (e) async* {
         yield state.copyWith(
-            user: state.user.copyWith(userHeight: UserHeight(e.heightDouble),),
+            user: state.user.copyWith(
+              userHeight: UserHeight(e.heightDouble),
+            ),
             saveFailureOrSuccessOption: none());
       },
       userSaved: (e) async* {
-
         Either<UserFailure, Unit> failureOrSuccess;
 
         final userOption = await getIt<IAuthFacade>().getSignInUser();
@@ -65,12 +74,13 @@ class UserFormBloc extends Bloc<UserFormEvent, UserFormState> {
           failureOrSuccess = state.isEditing
               ? await _iUserRepository.update(state.user)
               : await _iUserRepository.create(
-            state.user.copyWith(
-              id: UniqueId.withUniqueString(
-                user.id.getOrCrash(),
-              ),
-            ),
-          );
+                  state.user.copyWith(
+                      id: UniqueId.withUniqueString(
+                        user.id.getOrCrash(),
+                      ),
+                      emailAddress:
+                          EmailAddress(user.emailAddress.getOrCrash())),
+                );
         }
 
         yield state.copyWith(

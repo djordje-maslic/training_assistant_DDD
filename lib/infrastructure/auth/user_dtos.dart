@@ -13,26 +13,37 @@ abstract class UserDto implements _$UserDto {
   const UserDto._();
 
   const factory UserDto({
-    @required String id,
+    @JsonKey(ignore: true) String id,
     @required String emailAddress,
+    @required String userName,
+    @required double userWeight,
+    @required double userHeight,
   }) = _UserDto;
 
   factory UserDto.fromDomain(User user) {
     return UserDto(
       id: user.id.getOrCrash(),
       emailAddress: user.emailAddress.getOrCrash(),
+      userName: user.userName.getOrCrash(),
+      userWeight: user.userWeight.getOrCrash(),
+      userHeight: user.userHeight.getOrCrash(),
     );
   }
 
   User toDomain() {
     return User(
-        id: UniqueId.withUniqueString(''), emailAddress: EmailAddress(''));
+      id: UniqueId.withUniqueString(id),
+      emailAddress: EmailAddress(emailAddress),
+      userName: UserName(userName),
+      userWeight: UserWeight(userWeight),
+      userHeight: UserHeight(userHeight),
+    );
   }
 
   factory UserDto.fromJson(Map<String, dynamic> json) =>
       _$UserDtoFromJson(json);
 
   factory UserDto.fromFirestore(DocumentSnapshot doc) {
-    return UserDto.fromJson(doc.data());
+    return UserDto.fromJson(doc.data()).copyWith(id: doc.id);
   }
 }

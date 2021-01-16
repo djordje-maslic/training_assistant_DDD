@@ -13,14 +13,17 @@ abstract class User implements _$User {
   const factory User({
     @required UniqueId id,
     @required EmailAddress emailAddress,
-    UserName userName,
-    UserWeight userWeight,
-    UserHeight userHeight,
+    @required UserName userName,
+    @required UserWeight userWeight,
+    @required UserHeight userHeight,
   }) = _User;
 
   factory User.empty() => User(
         id: UniqueId(),
         emailAddress: EmailAddress(''),
+        userName: UserName(''),
+        userWeight: UserWeight(0.0),
+        userHeight: UserHeight(0.0),
       );
 
   Option<ValueFailure<dynamic>> get failureOption {

@@ -24,3 +24,10 @@ extension FirestoreX2 on FirebaseFirestore {
 extension DocumentReferenceX on DocumentReference {
   CollectionReference get exerciseCollection => collection('exercises');
 }
+
+extension FirestoreX3 on FirebaseFirestore {
+  Future<Query> userQuery() async {
+    return FirebaseFirestore.instance
+        .collection('user');
+  }
+}

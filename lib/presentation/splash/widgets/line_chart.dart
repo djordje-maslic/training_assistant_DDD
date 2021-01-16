@@ -35,7 +35,13 @@ class LineChartSample2 extends StatelessWidget {
       ],
     );
   }
-
+List<FlSpot> flSpotList(SetsList list){
+   final List<FlSpot> flSpot=[];
+    for(int i=0; i< list.length; i++){
+      flSpot.add(FlSpot(i.toDouble(), setsListToIntLis(list)[i].toDouble()));
+    }
+        return flSpot;
+}
 
   LineChartData mainData(SetsList list) {
     return LineChartData(
@@ -92,10 +98,7 @@ class LineChartSample2 extends StatelessWidget {
       maxY: double.parse(repetitionsMax(list)),
       lineBarsData: [
         LineChartBarData(
-          spots: setsListToIntLis(list)
-              .map((e) => FlSpot(
-                  setsListToIntLis(list).indexOf(e).toDouble(), e.toDouble()))
-              .toList(),
+          spots: flSpotList(list),
           isCurved: true,
           colors: [
             const Color(0xff23b6e6),

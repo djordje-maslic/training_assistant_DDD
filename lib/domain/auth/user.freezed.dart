@@ -17,9 +17,9 @@ class _$UserTearOff {
   _User call(
       {@required UniqueId id,
       @required EmailAddress emailAddress,
-      UserName userName,
-      UserWeight userWeight,
-      UserHeight userHeight}) {
+      @required UserName userName,
+      @required UserWeight userWeight,
+      @required UserHeight userHeight}) {
     return _User(
       id: id,
       emailAddress: emailAddress,
@@ -136,11 +136,14 @@ class _$_User extends _User {
   const _$_User(
       {@required this.id,
       @required this.emailAddress,
-      this.userName,
-      this.userWeight,
-      this.userHeight})
+      @required this.userName,
+      @required this.userWeight,
+      @required this.userHeight})
       : assert(id != null),
         assert(emailAddress != null),
+        assert(userName != null),
+        assert(userWeight != null),
+        assert(userHeight != null),
         super._();
 
   @override
@@ -198,9 +201,9 @@ abstract class _User extends User {
   const factory _User(
       {@required UniqueId id,
       @required EmailAddress emailAddress,
-      UserName userName,
-      UserWeight userWeight,
-      UserHeight userHeight}) = _$_User;
+      @required UserName userName,
+      @required UserWeight userWeight,
+      @required UserHeight userHeight}) = _$_User;
 
   @override
   UniqueId get id;
