@@ -11,6 +11,10 @@ import 'package:injectable/injectable.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import 'application/auth/auth_bloc.dart';
+import 'application/body_measures/body_measures_actor/body_measures_actor_bloc.dart';
+import 'application/body_measures/body_measures_form/body_measures_form_bloc.dart';
+import 'infrastructure/body_measures/body_measures_repository.dart';
+import 'application/body_measures/body_measures_watcher/body_measures_watcher_bloc.dart';
 import 'application/exercise/exercise_actor/exercise_actor_bloc.dart';
 import 'application/exercise/form_bloc/exercise_form_bloc.dart';
 import 'infrastructure/exercise/exercise_repository.dart';
@@ -18,6 +22,7 @@ import 'application/exercise/exercise_watcher/exercise_watcher_bloc.dart';
 import 'infrastructure/auth/firebase_auth_facade.dart';
 import 'infrastructure/core/firebase_injectable_module.dart';
 import 'domain/auth/i_auth_facade.dart';
+import 'domain/body_measures/i_body_measures_repository.dart';
 import 'domain/exercise/i_exercise_repository.dart';
 import 'domain/auth/i_user_repository.dart';
 import 'application/auth/signIn/sign_in_form_bloc.dart';
@@ -42,6 +47,8 @@ GetIt $initGetIt(
   gh.lazySingleton<GoogleSignIn>(() => firebaseInjectableModule.googleSignIn);
   gh.lazySingleton<IAuthFacade>(
       () => FirebaseAuthFacade(get<FirebaseAuth>(), get<GoogleSignIn>()));
+  gh.lazySingleton<IBodyMeasuresRepository>(
+      () => BodyMeasuresRepository(get<FirebaseFirestore>()));
   gh.lazySingleton<IExerciseRepository>(
       () => ExerciseRepository(get<FirebaseFirestore>()));
   gh.lazySingleton<IUserRepository>(
@@ -51,6 +58,12 @@ GetIt $initGetIt(
   gh.factory<UserFormBloc>(() => UserFormBloc(get<IUserRepository>()));
   gh.factory<UserWatcherBloc>(() => UserWatcherBloc(get<IUserRepository>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));
+  gh.factory<BodyMeasuresActorBloc>(
+      () => BodyMeasuresActorBloc(get<IBodyMeasuresRepository>()));
+  gh.factory<BodyMeasuresFormBloc>(
+      () => BodyMeasuresFormBloc(get<IBodyMeasuresRepository>()));
+  gh.factory<BodyMeasuresWatcherBloc>(
+      () => BodyMeasuresWatcherBloc(get<IBodyMeasuresRepository>()));
   gh.factory<ExerciseActorBloc>(
       () => ExerciseActorBloc(get<IExerciseRepository>()));
   gh.factory<ExerciseFormBloc>(
