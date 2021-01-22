@@ -24,33 +24,34 @@ class BodyMeasuresWatcherBloc
       : super(const BodyMeasuresWatcherState.initial());
 
   StreamSubscription<Either<BodyMeasuresFailure, KtList<BodyMeasures>>>
-  _bodyMeasuresStreamSubscription;
+      _bodyMeasuresStreamSubscription;
 
   @override
   Stream<BodyMeasuresWatcherState> mapEventToState(
-      BodyMeasuresWatcherEvent event,) async* {
-    event.map(
-        watchAllStarted: (e) async* {
-          yield const BodyMeasuresWatcherState.loadInProgress();
-          await _bodyMeasuresStreamSubscription?.cancel();
-          _bodyMeasuresStreamSubscription = _iBodyMeasuresRepository
-              .watchBodyMeasures()
-              .listen((failureOrBodyMeasures) =>
-              add(BodyMeasuresWatcherEvent.bodyMeasureReceived(
-                  failureOrBodyMeasures)));
-        },
-        bodyMeasureReceived: (e) async* {
-          yield e.failureOrBodyMeasures.fold(
-                (failure) => BodyMeasuresWatcherState.loadFailure(failure),
-                (bodyMeasure) =>
-                BodyMeasuresWatcherState.loadSuccess(bodyMeasure),
-          );
-        },
+    BodyMeasuresWatcherEvent event,
+  ) async* {
+    yield* event.map(
+      watchAllStarted: (e) async* {
+        yield const BodyMeasuresWatcherState.loadInProgress();
+        await _bodyMeasuresStreamSubscription?.cancel();
+        _bodyMeasuresStreamSubscription = _iBodyMeasuresRepository
+            .watchBodyMeasures()
+            .listen((failureOrBodyMeasures) => add(
+                BodyMeasuresWatcherEvent.bodyMeasureReceived(
+                    failureOrBodyMeasures)));
+      },
+      bodyMeasureReceived: (e) async* {
+        yield e.failureOrBodyMeasures.fold(
+          (failure) => BodyMeasuresWatcherState.loadFailure(failure),
+          (bodyMeasure) => BodyMeasuresWatcherState.loadSuccess(bodyMeasure),
+        );
+      },
     );
-    @override
-    Future<void> close() async {
-      await _bodyMeasuresStreamSubscription?.cancel();
-      return super.close();
-    }
+  }
+
+  @override
+  Future<void> close() async {
+    await _bodyMeasuresStreamSubscription?.cancel();
+    return super.close();
   }
 }

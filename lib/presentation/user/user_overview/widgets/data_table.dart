@@ -1,8 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:reminder_app/application/auth/auth_bloc.dart';
+import 'package:reminder_app/application/body_measures/body_measures_form/body_measures_form_bloc.dart';
+import 'package:reminder_app/application/body_measures/body_measures_watcher/body_measures_watcher_bloc.dart';
 import 'package:reminder_app/application/user/user_watcher/user_watcher_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:reminder_app/injectable.dart';
+import 'package:reminder_app/presentation/body_measures/body_measures_overview/widgets/body_measures_data_table_widget.dart';
 import 'package:reminder_app/presentation/routes/router.gr.dart';
 
 class UserDataTable extends StatelessWidget {
@@ -18,7 +22,7 @@ class UserDataTable extends StatelessWidget {
           loadSuccess: (stateN) {
             final user = stateN.user;
 
-            return Column(
+            return ListView(
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -95,18 +99,48 @@ class UserDataTable extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(width: 120,
-                  child: RaisedButton(
-                    onPressed: () {
-                      context.read<AuthBloc>().add(const AuthEvent.signOut());
-                    },
-                    child: Row(
-                      children: const [
-                        Icon(Icons.exit_to_app),
-                        Text('Sign Out'),
-                      ],
+                BlocProvider<BodyMeasuresWatcherBloc>(
+                  create: (context) => getIt<BodyMeasuresWatcherBloc>()
+                    ..add(
+                      const BodyMeasuresWatcherEvent.watchAllStarted(),
                     ),
-                  ),
+                  child: const BodyMeasuresDataTableWidget(),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 120,
+                      child: RaisedButton(
+                        onPressed: () {
+                          context
+                              .read<AuthBloc>()
+                              .add(const AuthEvent.signOut());
+                        },
+                        child: Row(
+                          children: const [
+                            Icon(Icons.exit_to_app),
+                            Text('Sign Out'),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 200,
+                      child: RaisedButton(
+                        onPressed: () {
+                          ExtendedNavigator.of(context)
+                              .pushBodyMeasuresFormPage(bodyMeasures: null);
+                        },
+                        child: Row(
+                          children: const [
+                            Icon(Icons.edit),
+                            Text('New body measures'),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             );

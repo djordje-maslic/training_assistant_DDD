@@ -5,7 +5,6 @@ import 'package:kt_dart/kt.dart';
 import 'package:reminder_app/domain/body_measures/body_measures.dart';
 import 'package:reminder_app/domain/body_measures/body_measures_failures.dart';
 import 'package:reminder_app/domain/body_measures/i_body_measures_repository.dart';
-import 'package:reminder_app/domain/core/value_objects.dart';
 import 'package:reminder_app/infrastructure/body_measures/body_measures_dtos.dart';
 import 'package:reminder_app/infrastructure/core/firestore_helpers.dart';
 import 'package:rxdart/rxdart.dart';

@@ -7,7 +7,7 @@ abstract class BodyMeasuresWatcherState with _$BodyMeasuresWatcherState {
   const factory BodyMeasuresWatcherState.loadInProgress() = _LoadInProgress;
 
   const factory BodyMeasuresWatcherState.loadSuccess(
-      KtList<BodyMeasures> exercise) = _LoadSuccess;
+      KtList<BodyMeasures> bodyMeasures) = _LoadSuccess;
 
   const factory BodyMeasuresWatcherState.loadFailure(
       BodyMeasuresFailure failure) = _LoadFailure;

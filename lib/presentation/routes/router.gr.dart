@@ -10,7 +10,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/auth/user.dart';
+import '../../domain/body_measures/body_measures.dart';
 import '../../domain/exercise/exercise.dart';
+import '../body_measures/body_measures_form/body_measures_form_page.dart';
 import '../exercise/exercise_form/exercise_form_page.dart';
 import '../exercise/exercise_overview/exercise_overview_page.dart';
 import '../meal/meal_overview/meal_overview_page.dart';
@@ -27,6 +29,7 @@ class Routes {
   static const String mealOverviewPage = '/meal-overview-page';
   static const String userOverviewPage = '/user-overview-page';
   static const String userFormPage = '/user-form-page';
+  static const String bodyMeasuresFormPage = '/body-measures-form-page';
   static const all = <String>{
     splashPage,
     signIn,
@@ -35,6 +38,7 @@ class Routes {
     mealOverviewPage,
     userOverviewPage,
     userFormPage,
+    bodyMeasuresFormPage,
   };
 }
 
@@ -49,6 +53,7 @@ class Router extends RouterBase {
     RouteDef(Routes.mealOverviewPage, page: MealOverviewPage),
     RouteDef(Routes.userOverviewPage, page: UserOverviewPage),
     RouteDef(Routes.userFormPage, page: UserFormPage),
+    RouteDef(Routes.bodyMeasuresFormPage, page: BodyMeasuresFormPage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -104,6 +109,16 @@ class Router extends RouterBase {
         settings: data,
       );
     },
+    BodyMeasuresFormPage: (data) {
+      final args = data.getArgs<BodyMeasuresFormPageArguments>(nullOk: false);
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => BodyMeasuresFormPage(
+          key: args.key,
+          bodyMeasures: args.bodyMeasures,
+        ),
+        settings: data,
+      );
+    },
   };
 }
 
@@ -143,6 +158,16 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
         Routes.userFormPage,
         arguments: UserFormPageArguments(initialUser: initialUser, key: key),
       );
+
+  Future<dynamic> pushBodyMeasuresFormPage({
+    Key key,
+    @required BodyMeasures bodyMeasures,
+  }) =>
+      push<dynamic>(
+        Routes.bodyMeasuresFormPage,
+        arguments:
+            BodyMeasuresFormPageArguments(key: key, bodyMeasures: bodyMeasures),
+      );
 }
 
 /// ************************************************************************
@@ -161,4 +186,11 @@ class UserFormPageArguments {
   final User initialUser;
   final Key key;
   UserFormPageArguments({@required this.initialUser, this.key});
+}
+
+/// BodyMeasuresFormPage arguments holder class
+class BodyMeasuresFormPageArguments {
+  final Key key;
+  final BodyMeasures bodyMeasures;
+  BodyMeasuresFormPageArguments({this.key, @required this.bodyMeasures});
 }

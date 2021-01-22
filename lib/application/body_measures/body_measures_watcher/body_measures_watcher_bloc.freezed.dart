@@ -321,9 +321,9 @@ class _$BodyMeasuresWatcherStateTearOff {
   }
 
 // ignore: unused_element
-  _LoadSuccess loadSuccess(KtList<BodyMeasures> exercise) {
+  _LoadSuccess loadSuccess(KtList<BodyMeasures> bodyMeasures) {
     return _LoadSuccess(
-      exercise,
+      bodyMeasures,
     );
   }
 
@@ -345,14 +345,14 @@ mixin _$BodyMeasuresWatcherState {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loadInProgress(),
-    @required TResult loadSuccess(KtList<BodyMeasures> exercise),
+    @required TResult loadSuccess(KtList<BodyMeasures> bodyMeasures),
     @required TResult loadFailure(BodyMeasuresFailure failure),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loadInProgress(),
-    TResult loadSuccess(KtList<BodyMeasures> exercise),
+    TResult loadSuccess(KtList<BodyMeasures> bodyMeasures),
     TResult loadFailure(BodyMeasuresFailure failure),
     @required TResult orElse(),
   });
@@ -429,7 +429,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loadInProgress(),
-    @required TResult loadSuccess(KtList<BodyMeasures> exercise),
+    @required TResult loadSuccess(KtList<BodyMeasures> bodyMeasures),
     @required TResult loadFailure(BodyMeasuresFailure failure),
   }) {
     assert(initial != null);
@@ -444,7 +444,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loadInProgress(),
-    TResult loadSuccess(KtList<BodyMeasures> exercise),
+    TResult loadSuccess(KtList<BodyMeasures> bodyMeasures),
     TResult loadFailure(BodyMeasuresFailure failure),
     @required TResult orElse(),
   }) {
@@ -532,7 +532,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loadInProgress(),
-    @required TResult loadSuccess(KtList<BodyMeasures> exercise),
+    @required TResult loadSuccess(KtList<BodyMeasures> bodyMeasures),
     @required TResult loadFailure(BodyMeasuresFailure failure),
   }) {
     assert(initial != null);
@@ -547,7 +547,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loadInProgress(),
-    TResult loadSuccess(KtList<BodyMeasures> exercise),
+    TResult loadSuccess(KtList<BodyMeasures> bodyMeasures),
     TResult loadFailure(BodyMeasuresFailure failure),
     @required TResult orElse(),
   }) {
@@ -599,7 +599,7 @@ abstract class _$LoadSuccessCopyWith<$Res> {
   factory _$LoadSuccessCopyWith(
           _LoadSuccess value, $Res Function(_LoadSuccess) then) =
       __$LoadSuccessCopyWithImpl<$Res>;
-  $Res call({KtList<BodyMeasures> exercise});
+  $Res call({KtList<BodyMeasures> bodyMeasures});
 }
 
 /// @nodoc
@@ -615,38 +615,40 @@ class __$LoadSuccessCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object exercise = freezed,
+    Object bodyMeasures = freezed,
   }) {
     return _then(_LoadSuccess(
-      exercise == freezed ? _value.exercise : exercise as KtList<BodyMeasures>,
+      bodyMeasures == freezed
+          ? _value.bodyMeasures
+          : bodyMeasures as KtList<BodyMeasures>,
     ));
   }
 }
 
 /// @nodoc
 class _$_LoadSuccess implements _LoadSuccess {
-  const _$_LoadSuccess(this.exercise) : assert(exercise != null);
+  const _$_LoadSuccess(this.bodyMeasures) : assert(bodyMeasures != null);
 
   @override
-  final KtList<BodyMeasures> exercise;
+  final KtList<BodyMeasures> bodyMeasures;
 
   @override
   String toString() {
-    return 'BodyMeasuresWatcherState.loadSuccess(exercise: $exercise)';
+    return 'BodyMeasuresWatcherState.loadSuccess(bodyMeasures: $bodyMeasures)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _LoadSuccess &&
-            (identical(other.exercise, exercise) ||
+            (identical(other.bodyMeasures, bodyMeasures) ||
                 const DeepCollectionEquality()
-                    .equals(other.exercise, exercise)));
+                    .equals(other.bodyMeasures, bodyMeasures)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(exercise);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(bodyMeasures);
 
   @override
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
@@ -657,14 +659,14 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loadInProgress(),
-    @required TResult loadSuccess(KtList<BodyMeasures> exercise),
+    @required TResult loadSuccess(KtList<BodyMeasures> bodyMeasures),
     @required TResult loadFailure(BodyMeasuresFailure failure),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
     assert(loadSuccess != null);
     assert(loadFailure != null);
-    return loadSuccess(exercise);
+    return loadSuccess(bodyMeasures);
   }
 
   @override
@@ -672,13 +674,13 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loadInProgress(),
-    TResult loadSuccess(KtList<BodyMeasures> exercise),
+    TResult loadSuccess(KtList<BodyMeasures> bodyMeasures),
     TResult loadFailure(BodyMeasuresFailure failure),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadSuccess != null) {
-      return loadSuccess(exercise);
+      return loadSuccess(bodyMeasures);
     }
     return orElse();
   }
@@ -716,9 +718,10 @@ class _$_LoadSuccess implements _LoadSuccess {
 }
 
 abstract class _LoadSuccess implements BodyMeasuresWatcherState {
-  const factory _LoadSuccess(KtList<BodyMeasures> exercise) = _$_LoadSuccess;
+  const factory _LoadSuccess(KtList<BodyMeasures> bodyMeasures) =
+      _$_LoadSuccess;
 
-  KtList<BodyMeasures> get exercise;
+  KtList<BodyMeasures> get bodyMeasures;
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
 }
 
@@ -796,7 +799,7 @@ class _$_LoadFailure implements _LoadFailure {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loadInProgress(),
-    @required TResult loadSuccess(KtList<BodyMeasures> exercise),
+    @required TResult loadSuccess(KtList<BodyMeasures> bodyMeasures),
     @required TResult loadFailure(BodyMeasuresFailure failure),
   }) {
     assert(initial != null);
@@ -811,7 +814,7 @@ class _$_LoadFailure implements _LoadFailure {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loadInProgress(),
-    TResult loadSuccess(KtList<BodyMeasures> exercise),
+    TResult loadSuccess(KtList<BodyMeasures> bodyMeasures),
     TResult loadFailure(BodyMeasuresFailure failure),
     @required TResult orElse(),
   }) {
