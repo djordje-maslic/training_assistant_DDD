@@ -52,6 +52,7 @@ mixin _$BodyMeasuresDto {
   double get bodyMeasuresHeight;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $BodyMeasuresDtoCopyWith<BodyMeasuresDto> get copyWith;
 }
 
@@ -215,6 +216,7 @@ class _$_BodyMeasuresDto extends _BodyMeasuresDto {
       const DeepCollectionEquality().hash(bodyMeasuresWeight) ^
       const DeepCollectionEquality().hash(bodyMeasuresHeight);
 
+  @JsonKey(ignore: true)
   @override
   _$BodyMeasuresDtoCopyWith<_BodyMeasuresDto> get copyWith =>
       __$BodyMeasuresDtoCopyWithImpl<_BodyMeasuresDto>(this, _$identity);
@@ -249,5 +251,6 @@ abstract class _BodyMeasuresDto extends BodyMeasuresDto {
   @override
   double get bodyMeasuresHeight;
   @override
+  @JsonKey(ignore: true)
   _$BodyMeasuresDtoCopyWith<_BodyMeasuresDto> get copyWith;
 }

@@ -1,12 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:reminder_app/application/auth/auth_bloc.dart';
-import 'package:reminder_app/application/body_measures/body_measures_form/body_measures_form_bloc.dart';
 import 'package:reminder_app/application/body_measures/body_measures_watcher/body_measures_watcher_bloc.dart';
 import 'package:reminder_app/application/user/user_watcher/user_watcher_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:reminder_app/domain/body_measures/body_measures.dart';
+import 'package:reminder_app/domain/body_measures/value_objects.dart';
 import 'package:reminder_app/injectable.dart';
 import 'package:reminder_app/presentation/body_measures/body_measures_overview/widgets/body_measures_data_table_widget.dart';
+import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_time_converter.dart';
 import 'package:reminder_app/presentation/routes/router.gr.dart';
 
 class UserDataTable extends StatelessWidget {
@@ -61,7 +63,7 @@ class UserDataTable extends StatelessWidget {
                     DataColumn(
                       tooltip: 'Number of set',
                       label: Text(
-                        'Weight',
+                        'Date of birth',
                         style: TextStyle(
                           fontSize: 30,
                         ),
@@ -81,7 +83,7 @@ class UserDataTable extends StatelessWidget {
                       cells: [
                         DataCell(
                           Text(
-                            '${user.userWeight.getOrCrash().toString()} kg',
+                            '${dateTimeConverter(user.userDateOfBirth.getOrCrash())} ',
                             style: const TextStyle(
                               fontSize: 30,
                             ),
@@ -150,19 +152,9 @@ class UserDataTable extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Row(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const SizedBox(
-                        width: 300,
-                        child: Text(
-                          'Name: NONE',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
                       RaisedButton(
                         onPressed: () {
                           ExtendedNavigator.of(context)
@@ -174,7 +166,17 @@ class UserDataTable extends StatelessWidget {
                             Text('Edit profile'),
                           ],
                         ),
-                      )
+                      ),
+                      const SizedBox(
+                        width: 300,
+                        child: Text(
+                          'Name: none',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -185,7 +187,7 @@ class UserDataTable extends StatelessWidget {
                     DataColumn(
                       tooltip: 'Number of set',
                       label: Text(
-                        'Weight',
+                        'Date of birth',
                         style: TextStyle(
                           fontSize: 30,
                         ),
@@ -205,7 +207,7 @@ class UserDataTable extends StatelessWidget {
                       cells: [
                         DataCell(
                           Text(
-                            '0.0',
+                            'none',
                             style: TextStyle(
                               fontSize: 30,
                             ),

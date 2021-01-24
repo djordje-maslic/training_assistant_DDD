@@ -8,8 +8,8 @@ abstract class UserFormEvent with _$UserFormEvent {
   const factory UserFormEvent.userNameChanged(String nameStr) =
       _UserNameChanged;
 
-  const factory UserFormEvent.userWeightChanged(double weightDouble) =
-      _UserWeightChanged;
+  const factory UserFormEvent.userDateOfBirthChanged(int userDateOfBirthInt) =
+      _UserDateOfBirthChanged;
 
   const factory UserFormEvent.userHeightChanged(double heightDouble) =
       _UserHeightChanged;

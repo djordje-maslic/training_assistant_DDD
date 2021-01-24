@@ -44,15 +44,14 @@ class UserName extends ValueObject<String> {
 
 
 
-class UserWeight extends ValueObject<double> {
+class UserDateOfBirth extends ValueObject<int> {
   @override
-  final Either<ValueFailure<double>, double> value;
-  static const maxWeight = 300.0;
-  const UserWeight._(this.value);
+  final Either<ValueFailure<int>, int> value;
+ const UserDateOfBirth._(this.value);
 
-  factory UserWeight (double input) {
+  factory UserDateOfBirth (int input) {
     assert(input != null);
-    return UserWeight._(validateMaxDoubleValue(input, maxWeight));
+    return UserDateOfBirth._(validateDateOfBirth(input));
   }
 }
 

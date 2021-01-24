@@ -48,6 +48,7 @@ mixin _$ExerciseActorEvent {
     @required TResult orElse(),
   });
 
+  @JsonKey(ignore: true)
   $ExerciseActorEventCopyWith<ExerciseActorEvent> get copyWith;
 }
 
@@ -147,6 +148,7 @@ class _$_Deleted implements _Deleted {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(exercise);
 
+  @JsonKey(ignore: true)
   @override
   _$DeletedCopyWith<_Deleted> get copyWith =>
       __$DeletedCopyWithImpl<_Deleted>(this, _$identity);
@@ -202,6 +204,7 @@ abstract class _Deleted implements ExerciseActorEvent {
   @override
   Exercise get exercise;
   @override
+  @JsonKey(ignore: true)
   _$DeletedCopyWith<_Deleted> get copyWith;
 }
 
@@ -561,6 +564,7 @@ class _$_DeleteFailure implements _DeleteFailure {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(exerciseFailure);
 
+  @JsonKey(ignore: true)
   @override
   _$DeleteFailureCopyWith<_DeleteFailure> get copyWith =>
       __$DeleteFailureCopyWithImpl<_DeleteFailure>(this, _$identity);
@@ -633,6 +637,7 @@ abstract class _DeleteFailure implements ExerciseActorState {
       _$_DeleteFailure;
 
   ExerciseFailure get exerciseFailure;
+  @JsonKey(ignore: true)
   _$DeleteFailureCopyWith<_DeleteFailure> get copyWith;
 }
 

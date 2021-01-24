@@ -236,6 +236,7 @@ class _$_BodyMeasureReceived implements _BodyMeasureReceived {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(failureOrBodyMeasures);
 
+  @JsonKey(ignore: true)
   @override
   _$BodyMeasureReceivedCopyWith<_BodyMeasureReceived> get copyWith =>
       __$BodyMeasureReceivedCopyWithImpl<_BodyMeasureReceived>(
@@ -303,6 +304,7 @@ abstract class _BodyMeasureReceived implements BodyMeasuresWatcherEvent {
           failureOrBodyMeasures) = _$_BodyMeasureReceived;
 
   Either<BodyMeasuresFailure, KtList<BodyMeasures>> get failureOrBodyMeasures;
+  @JsonKey(ignore: true)
   _$BodyMeasureReceivedCopyWith<_BodyMeasureReceived> get copyWith;
 }
 
@@ -650,6 +652,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(bodyMeasures);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
       __$LoadSuccessCopyWithImpl<_LoadSuccess>(this, _$identity);
@@ -722,6 +725,7 @@ abstract class _LoadSuccess implements BodyMeasuresWatcherState {
       _$_LoadSuccess;
 
   KtList<BodyMeasures> get bodyMeasures;
+  @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
 }
 
@@ -790,6 +794,7 @@ class _$_LoadFailure implements _LoadFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failure);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadFailureCopyWith<_LoadFailure> get copyWith =>
       __$LoadFailureCopyWithImpl<_LoadFailure>(this, _$identity);
@@ -861,5 +866,6 @@ abstract class _LoadFailure implements BodyMeasuresWatcherState {
   const factory _LoadFailure(BodyMeasuresFailure failure) = _$_LoadFailure;
 
   BodyMeasuresFailure get failure;
+  @JsonKey(ignore: true)
   _$LoadFailureCopyWith<_LoadFailure> get copyWith;
 }

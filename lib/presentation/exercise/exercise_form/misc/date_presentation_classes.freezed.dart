@@ -29,6 +29,7 @@ const $DatePrimitive = _$DatePrimitiveTearOff();
 mixin _$DatePrimitive {
   int get date;
 
+  @JsonKey(ignore: true)
   $DatePrimitiveCopyWith<DatePrimitive> get copyWith;
 }
 
@@ -116,6 +117,7 @@ class _$_Dateprimitive extends _Dateprimitive {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(date);
 
+  @JsonKey(ignore: true)
   @override
   _$DateprimitiveCopyWith<_Dateprimitive> get copyWith =>
       __$DateprimitiveCopyWithImpl<_Dateprimitive>(this, _$identity);
@@ -128,5 +130,6 @@ abstract class _Dateprimitive extends DatePrimitive {
   @override
   int get date;
   @override
+  @JsonKey(ignore: true)
   _$DateprimitiveCopyWith<_Dateprimitive> get copyWith;
 }

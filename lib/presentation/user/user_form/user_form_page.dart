@@ -4,10 +4,13 @@ import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:provider/provider.dart';
 import 'package:reminder_app/application/user/user_form_bloc/user_form_bloc.dart';
 import 'package:reminder_app/domain/auth/user.dart';
 import 'package:reminder_app/injectable.dart';
+import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_presentation_classes.dart';
 import 'package:reminder_app/presentation/routes/router.gr.dart';
+import 'package:reminder_app/presentation/user/user_form/widgets/date_picker.dart';
 
 class UserFormPage extends HookWidget {
   final User initialUser;
@@ -128,7 +131,7 @@ class UserFormPageScaffold extends StatelessWidget {
           title: BlocBuilder<UserFormBloc, UserFormState>(
             buildWhen: (p, c) => p.isEditing != c.isEditing,
             builder: (context, state) =>
-                Text(state.isEditing ? 'Edit user' : 'Create user'),
+                Text(state.isEditing ? 'Edit profile' : 'Create profile'),
           ),
           actions: [
             IconButton(
@@ -187,46 +190,13 @@ class UserFormPageScaffold extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Card(
-                      color: Colors.amber,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: TextFormField(
-                          initialValue: user == null
-                              ? '0.0'
-                              : user.userWeight.getOrCrash().toString(),
-                          validator: (_) => context
-                              .read<UserFormBloc>()
-                              .state
-                              .user
-                              .userWeight
-                              .value
-                              .fold(
-                                  (f) => f.maybeMap(
-                                      orElse: () => null,
-                                      exceedingValue: (f) =>
-                                          'Exceeding value ${f.max}'),
-                                  (r) => null),
-                          onChanged: (value) {
-                            context.read<UserFormBloc>().add(
-                                  UserFormEvent.userWeightChanged(
-                                    double.tryParse(value),
-                                  ),
-                                );
-                          },
-                          decoration: const InputDecoration(
-                            labelText: 'Weight',
-                            labelStyle:
-                                TextStyle(fontSize: 30, color: Colors.white),
-                            suffixText: 'kg',
-                            border:
-                                OutlineInputBorder(borderSide: BorderSide.none),
-                          ),
-                        ),
-                      ),
-                    ),
+                 const Padding(
+                    padding:  EdgeInsets.all(8.0),
+                    child: Text('Date of birth',style: TextStyle(fontSize: 20,color: Colors.amber),),
+                  ),
+                  ChangeNotifierProvider<FormDate>(
+                    create: (context) => FormDate(),
+                    child: const UserDateOfBirthWidget(),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),

@@ -48,6 +48,7 @@ mixin _$BodyMeasuresActorEvent {
     @required TResult orElse(),
   });
 
+  @JsonKey(ignore: true)
   $BodyMeasuresActorEventCopyWith<BodyMeasuresActorEvent> get copyWith;
 }
 
@@ -151,6 +152,7 @@ class _$_Deleted implements _Deleted {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(bodyMeasures);
 
+  @JsonKey(ignore: true)
   @override
   _$DeletedCopyWith<_Deleted> get copyWith =>
       __$DeletedCopyWithImpl<_Deleted>(this, _$identity);
@@ -206,6 +208,7 @@ abstract class _Deleted implements BodyMeasuresActorEvent {
   @override
   BodyMeasures get bodyMeasures;
   @override
+  @JsonKey(ignore: true)
   _$DeletedCopyWith<_Deleted> get copyWith;
 }
 
@@ -566,6 +569,7 @@ class _$_DeleteFailure implements _DeleteFailure {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(bodyMeasuresFailure);
 
+  @JsonKey(ignore: true)
   @override
   _$DeleteFailureCopyWith<_DeleteFailure> get copyWith =>
       __$DeleteFailureCopyWithImpl<_DeleteFailure>(this, _$identity);
@@ -638,6 +642,7 @@ abstract class _DeleteFailure implements BodyMeasuresActorState {
       _$_DeleteFailure;
 
   BodyMeasuresFailure get bodyMeasuresFailure;
+  @JsonKey(ignore: true)
   _$DeleteFailureCopyWith<_DeleteFailure> get copyWith;
 }
 

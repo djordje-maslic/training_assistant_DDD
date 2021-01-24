@@ -14,7 +14,7 @@ abstract class User implements _$User {
     @required UniqueId id,
     @required EmailAddress emailAddress,
     @required UserName userName,
-    @required UserWeight userWeight,
+    @required UserDateOfBirth userDateOfBirth,
     @required UserHeight userHeight,
   }) = _User;
 
@@ -22,13 +22,13 @@ abstract class User implements _$User {
         id: UniqueId(),
         emailAddress: EmailAddress(''),
         userName: UserName(''),
-        userWeight: UserWeight(0.0),
+        userDateOfBirth: UserDateOfBirth(0),
         userHeight: UserHeight(0.0),
       );
 
   Option<ValueFailure<dynamic>> get failureOption {
     return userName.failureOrUnit
-        .andThen(userWeight.failureOrUnit)
+        .andThen(userDateOfBirth.failureOrUnit)
         .andThen(userHeight.failureOrUnit)
         .fold((f) => some(f), (_) => none());
   }

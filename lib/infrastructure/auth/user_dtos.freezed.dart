@@ -21,13 +21,13 @@ class _$UserDtoTearOff {
       {@JsonKey(ignore: true) String id,
       @required String emailAddress,
       @required String userName,
-      @required double userWeight,
+      @required int userDateOfBirth,
       @required double userHeight}) {
     return _UserDto(
       id: id,
       emailAddress: emailAddress,
       userName: userName,
-      userWeight: userWeight,
+      userDateOfBirth: userDateOfBirth,
       userHeight: userHeight,
     );
   }
@@ -48,10 +48,11 @@ mixin _$UserDto {
   String get id;
   String get emailAddress;
   String get userName;
-  double get userWeight;
+  int get userDateOfBirth;
   double get userHeight;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $UserDtoCopyWith<UserDto> get copyWith;
 }
 
@@ -63,7 +64,7 @@ abstract class $UserDtoCopyWith<$Res> {
       {@JsonKey(ignore: true) String id,
       String emailAddress,
       String userName,
-      double userWeight,
+      int userDateOfBirth,
       double userHeight});
 }
 
@@ -80,7 +81,7 @@ class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
     Object id = freezed,
     Object emailAddress = freezed,
     Object userName = freezed,
-    Object userWeight = freezed,
+    Object userDateOfBirth = freezed,
     Object userHeight = freezed,
   }) {
     return _then(_value.copyWith(
@@ -89,8 +90,9 @@ class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
           ? _value.emailAddress
           : emailAddress as String,
       userName: userName == freezed ? _value.userName : userName as String,
-      userWeight:
-          userWeight == freezed ? _value.userWeight : userWeight as double,
+      userDateOfBirth: userDateOfBirth == freezed
+          ? _value.userDateOfBirth
+          : userDateOfBirth as int,
       userHeight:
           userHeight == freezed ? _value.userHeight : userHeight as double,
     ));
@@ -106,7 +108,7 @@ abstract class _$UserDtoCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
       {@JsonKey(ignore: true) String id,
       String emailAddress,
       String userName,
-      double userWeight,
+      int userDateOfBirth,
       double userHeight});
 }
 
@@ -124,7 +126,7 @@ class __$UserDtoCopyWithImpl<$Res> extends _$UserDtoCopyWithImpl<$Res>
     Object id = freezed,
     Object emailAddress = freezed,
     Object userName = freezed,
-    Object userWeight = freezed,
+    Object userDateOfBirth = freezed,
     Object userHeight = freezed,
   }) {
     return _then(_UserDto(
@@ -133,8 +135,9 @@ class __$UserDtoCopyWithImpl<$Res> extends _$UserDtoCopyWithImpl<$Res>
           ? _value.emailAddress
           : emailAddress as String,
       userName: userName == freezed ? _value.userName : userName as String,
-      userWeight:
-          userWeight == freezed ? _value.userWeight : userWeight as double,
+      userDateOfBirth: userDateOfBirth == freezed
+          ? _value.userDateOfBirth
+          : userDateOfBirth as int,
       userHeight:
           userHeight == freezed ? _value.userHeight : userHeight as double,
     ));
@@ -149,11 +152,11 @@ class _$_UserDto extends _UserDto {
       {@JsonKey(ignore: true) this.id,
       @required this.emailAddress,
       @required this.userName,
-      @required this.userWeight,
+      @required this.userDateOfBirth,
       @required this.userHeight})
       : assert(emailAddress != null),
         assert(userName != null),
-        assert(userWeight != null),
+        assert(userDateOfBirth != null),
         assert(userHeight != null),
         super._();
 
@@ -168,13 +171,13 @@ class _$_UserDto extends _UserDto {
   @override
   final String userName;
   @override
-  final double userWeight;
+  final int userDateOfBirth;
   @override
   final double userHeight;
 
   @override
   String toString() {
-    return 'UserDto(id: $id, emailAddress: $emailAddress, userName: $userName, userWeight: $userWeight, userHeight: $userHeight)';
+    return 'UserDto(id: $id, emailAddress: $emailAddress, userName: $userName, userDateOfBirth: $userDateOfBirth, userHeight: $userHeight)';
   }
 
   @override
@@ -189,9 +192,9 @@ class _$_UserDto extends _UserDto {
             (identical(other.userName, userName) ||
                 const DeepCollectionEquality()
                     .equals(other.userName, userName)) &&
-            (identical(other.userWeight, userWeight) ||
+            (identical(other.userDateOfBirth, userDateOfBirth) ||
                 const DeepCollectionEquality()
-                    .equals(other.userWeight, userWeight)) &&
+                    .equals(other.userDateOfBirth, userDateOfBirth)) &&
             (identical(other.userHeight, userHeight) ||
                 const DeepCollectionEquality()
                     .equals(other.userHeight, userHeight)));
@@ -203,9 +206,10 @@ class _$_UserDto extends _UserDto {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(emailAddress) ^
       const DeepCollectionEquality().hash(userName) ^
-      const DeepCollectionEquality().hash(userWeight) ^
+      const DeepCollectionEquality().hash(userDateOfBirth) ^
       const DeepCollectionEquality().hash(userHeight);
 
+  @JsonKey(ignore: true)
   @override
   _$UserDtoCopyWith<_UserDto> get copyWith =>
       __$UserDtoCopyWithImpl<_UserDto>(this, _$identity);
@@ -222,7 +226,7 @@ abstract class _UserDto extends UserDto {
       {@JsonKey(ignore: true) String id,
       @required String emailAddress,
       @required String userName,
-      @required double userWeight,
+      @required int userDateOfBirth,
       @required double userHeight}) = _$_UserDto;
 
   factory _UserDto.fromJson(Map<String, dynamic> json) = _$_UserDto.fromJson;
@@ -235,9 +239,10 @@ abstract class _UserDto extends UserDto {
   @override
   String get userName;
   @override
-  double get userWeight;
+  int get userDateOfBirth;
   @override
   double get userHeight;
   @override
+  @JsonKey(ignore: true)
   _$UserDtoCopyWith<_UserDto> get copyWith;
 }

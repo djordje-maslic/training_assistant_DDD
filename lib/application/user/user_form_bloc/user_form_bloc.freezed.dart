@@ -28,9 +28,9 @@ class _$UserFormEventTearOff {
   }
 
 // ignore: unused_element
-  _UserWeightChanged userWeightChanged(double weightDouble) {
-    return _UserWeightChanged(
-      weightDouble,
+  _UserDateOfBirthChanged userDateOfBirthChanged(int userDateOfBirthInt) {
+    return _UserDateOfBirthChanged(
+      userDateOfBirthInt,
     );
   }
 
@@ -57,7 +57,7 @@ mixin _$UserFormEvent {
   TResult when<TResult extends Object>({
     @required TResult initialized(Option<User> initialUserOption),
     @required TResult userNameChanged(String nameStr),
-    @required TResult userWeightChanged(double weightDouble),
+    @required TResult userDateOfBirthChanged(int userDateOfBirthInt),
     @required TResult userHeightChanged(double heightDouble),
     @required TResult userSaved(),
   });
@@ -65,7 +65,7 @@ mixin _$UserFormEvent {
   TResult maybeWhen<TResult extends Object>({
     TResult initialized(Option<User> initialUserOption),
     TResult userNameChanged(String nameStr),
-    TResult userWeightChanged(double weightDouble),
+    TResult userDateOfBirthChanged(int userDateOfBirthInt),
     TResult userHeightChanged(double heightDouble),
     TResult userSaved(),
     @required TResult orElse(),
@@ -74,7 +74,7 @@ mixin _$UserFormEvent {
   TResult map<TResult extends Object>({
     @required TResult initialized(_Initialized value),
     @required TResult userNameChanged(_UserNameChanged value),
-    @required TResult userWeightChanged(_UserWeightChanged value),
+    @required TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
     @required TResult userHeightChanged(_UserHeightChanged value),
     @required TResult userSaved(_UserSavd value),
   });
@@ -82,7 +82,7 @@ mixin _$UserFormEvent {
   TResult maybeMap<TResult extends Object>({
     TResult initialized(_Initialized value),
     TResult userNameChanged(_UserNameChanged value),
-    TResult userWeightChanged(_UserWeightChanged value),
+    TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
     TResult userHeightChanged(_UserHeightChanged value),
     TResult userSaved(_UserSavd value),
     @required TResult orElse(),
@@ -163,6 +163,7 @@ class _$_Initialized implements _Initialized {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(initialUserOption);
 
+  @JsonKey(ignore: true)
   @override
   _$InitializedCopyWith<_Initialized> get copyWith =>
       __$InitializedCopyWithImpl<_Initialized>(this, _$identity);
@@ -172,13 +173,13 @@ class _$_Initialized implements _Initialized {
   TResult when<TResult extends Object>({
     @required TResult initialized(Option<User> initialUserOption),
     @required TResult userNameChanged(String nameStr),
-    @required TResult userWeightChanged(double weightDouble),
+    @required TResult userDateOfBirthChanged(int userDateOfBirthInt),
     @required TResult userHeightChanged(double heightDouble),
     @required TResult userSaved(),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
-    assert(userWeightChanged != null);
+    assert(userDateOfBirthChanged != null);
     assert(userHeightChanged != null);
     assert(userSaved != null);
     return initialized(initialUserOption);
@@ -189,7 +190,7 @@ class _$_Initialized implements _Initialized {
   TResult maybeWhen<TResult extends Object>({
     TResult initialized(Option<User> initialUserOption),
     TResult userNameChanged(String nameStr),
-    TResult userWeightChanged(double weightDouble),
+    TResult userDateOfBirthChanged(int userDateOfBirthInt),
     TResult userHeightChanged(double heightDouble),
     TResult userSaved(),
     @required TResult orElse(),
@@ -206,13 +207,13 @@ class _$_Initialized implements _Initialized {
   TResult map<TResult extends Object>({
     @required TResult initialized(_Initialized value),
     @required TResult userNameChanged(_UserNameChanged value),
-    @required TResult userWeightChanged(_UserWeightChanged value),
+    @required TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
     @required TResult userHeightChanged(_UserHeightChanged value),
     @required TResult userSaved(_UserSavd value),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
-    assert(userWeightChanged != null);
+    assert(userDateOfBirthChanged != null);
     assert(userHeightChanged != null);
     assert(userSaved != null);
     return initialized(this);
@@ -223,7 +224,7 @@ class _$_Initialized implements _Initialized {
   TResult maybeMap<TResult extends Object>({
     TResult initialized(_Initialized value),
     TResult userNameChanged(_UserNameChanged value),
-    TResult userWeightChanged(_UserWeightChanged value),
+    TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
     TResult userHeightChanged(_UserHeightChanged value),
     TResult userSaved(_UserSavd value),
     @required TResult orElse(),
@@ -240,6 +241,7 @@ abstract class _Initialized implements UserFormEvent {
   const factory _Initialized(Option<User> initialUserOption) = _$_Initialized;
 
   Option<User> get initialUserOption;
+  @JsonKey(ignore: true)
   _$InitializedCopyWith<_Initialized> get copyWith;
 }
 
@@ -296,6 +298,7 @@ class _$_UserNameChanged implements _UserNameChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(nameStr);
 
+  @JsonKey(ignore: true)
   @override
   _$UserNameChangedCopyWith<_UserNameChanged> get copyWith =>
       __$UserNameChangedCopyWithImpl<_UserNameChanged>(this, _$identity);
@@ -305,13 +308,13 @@ class _$_UserNameChanged implements _UserNameChanged {
   TResult when<TResult extends Object>({
     @required TResult initialized(Option<User> initialUserOption),
     @required TResult userNameChanged(String nameStr),
-    @required TResult userWeightChanged(double weightDouble),
+    @required TResult userDateOfBirthChanged(int userDateOfBirthInt),
     @required TResult userHeightChanged(double heightDouble),
     @required TResult userSaved(),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
-    assert(userWeightChanged != null);
+    assert(userDateOfBirthChanged != null);
     assert(userHeightChanged != null);
     assert(userSaved != null);
     return userNameChanged(nameStr);
@@ -322,7 +325,7 @@ class _$_UserNameChanged implements _UserNameChanged {
   TResult maybeWhen<TResult extends Object>({
     TResult initialized(Option<User> initialUserOption),
     TResult userNameChanged(String nameStr),
-    TResult userWeightChanged(double weightDouble),
+    TResult userDateOfBirthChanged(int userDateOfBirthInt),
     TResult userHeightChanged(double heightDouble),
     TResult userSaved(),
     @required TResult orElse(),
@@ -339,13 +342,13 @@ class _$_UserNameChanged implements _UserNameChanged {
   TResult map<TResult extends Object>({
     @required TResult initialized(_Initialized value),
     @required TResult userNameChanged(_UserNameChanged value),
-    @required TResult userWeightChanged(_UserWeightChanged value),
+    @required TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
     @required TResult userHeightChanged(_UserHeightChanged value),
     @required TResult userSaved(_UserSavd value),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
-    assert(userWeightChanged != null);
+    assert(userDateOfBirthChanged != null);
     assert(userHeightChanged != null);
     assert(userSaved != null);
     return userNameChanged(this);
@@ -356,7 +359,7 @@ class _$_UserNameChanged implements _UserNameChanged {
   TResult maybeMap<TResult extends Object>({
     TResult initialized(_Initialized value),
     TResult userNameChanged(_UserNameChanged value),
-    TResult userWeightChanged(_UserWeightChanged value),
+    TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
     TResult userHeightChanged(_UserHeightChanged value),
     TResult userSaved(_UserSavd value),
     @required TResult orElse(),
@@ -373,82 +376,89 @@ abstract class _UserNameChanged implements UserFormEvent {
   const factory _UserNameChanged(String nameStr) = _$_UserNameChanged;
 
   String get nameStr;
+  @JsonKey(ignore: true)
   _$UserNameChangedCopyWith<_UserNameChanged> get copyWith;
 }
 
 /// @nodoc
-abstract class _$UserWeightChangedCopyWith<$Res> {
-  factory _$UserWeightChangedCopyWith(
-          _UserWeightChanged value, $Res Function(_UserWeightChanged) then) =
-      __$UserWeightChangedCopyWithImpl<$Res>;
-  $Res call({double weightDouble});
+abstract class _$UserDateOfBirthChangedCopyWith<$Res> {
+  factory _$UserDateOfBirthChangedCopyWith(_UserDateOfBirthChanged value,
+          $Res Function(_UserDateOfBirthChanged) then) =
+      __$UserDateOfBirthChangedCopyWithImpl<$Res>;
+  $Res call({int userDateOfBirthInt});
 }
 
 /// @nodoc
-class __$UserWeightChangedCopyWithImpl<$Res>
+class __$UserDateOfBirthChangedCopyWithImpl<$Res>
     extends _$UserFormEventCopyWithImpl<$Res>
-    implements _$UserWeightChangedCopyWith<$Res> {
-  __$UserWeightChangedCopyWithImpl(
-      _UserWeightChanged _value, $Res Function(_UserWeightChanged) _then)
-      : super(_value, (v) => _then(v as _UserWeightChanged));
+    implements _$UserDateOfBirthChangedCopyWith<$Res> {
+  __$UserDateOfBirthChangedCopyWithImpl(_UserDateOfBirthChanged _value,
+      $Res Function(_UserDateOfBirthChanged) _then)
+      : super(_value, (v) => _then(v as _UserDateOfBirthChanged));
 
   @override
-  _UserWeightChanged get _value => super._value as _UserWeightChanged;
+  _UserDateOfBirthChanged get _value => super._value as _UserDateOfBirthChanged;
 
   @override
   $Res call({
-    Object weightDouble = freezed,
+    Object userDateOfBirthInt = freezed,
   }) {
-    return _then(_UserWeightChanged(
-      weightDouble == freezed ? _value.weightDouble : weightDouble as double,
+    return _then(_UserDateOfBirthChanged(
+      userDateOfBirthInt == freezed
+          ? _value.userDateOfBirthInt
+          : userDateOfBirthInt as int,
     ));
   }
 }
 
 /// @nodoc
-class _$_UserWeightChanged implements _UserWeightChanged {
-  const _$_UserWeightChanged(this.weightDouble) : assert(weightDouble != null);
+class _$_UserDateOfBirthChanged implements _UserDateOfBirthChanged {
+  const _$_UserDateOfBirthChanged(this.userDateOfBirthInt)
+      : assert(userDateOfBirthInt != null);
 
   @override
-  final double weightDouble;
+  final int userDateOfBirthInt;
 
   @override
   String toString() {
-    return 'UserFormEvent.userWeightChanged(weightDouble: $weightDouble)';
+    return 'UserFormEvent.userDateOfBirthChanged(userDateOfBirthInt: $userDateOfBirthInt)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UserWeightChanged &&
-            (identical(other.weightDouble, weightDouble) ||
+        (other is _UserDateOfBirthChanged &&
+            (identical(other.userDateOfBirthInt, userDateOfBirthInt) ||
                 const DeepCollectionEquality()
-                    .equals(other.weightDouble, weightDouble)));
+                    .equals(other.userDateOfBirthInt, userDateOfBirthInt)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(weightDouble);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(userDateOfBirthInt);
 
+  @JsonKey(ignore: true)
   @override
-  _$UserWeightChangedCopyWith<_UserWeightChanged> get copyWith =>
-      __$UserWeightChangedCopyWithImpl<_UserWeightChanged>(this, _$identity);
+  _$UserDateOfBirthChangedCopyWith<_UserDateOfBirthChanged> get copyWith =>
+      __$UserDateOfBirthChangedCopyWithImpl<_UserDateOfBirthChanged>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initialized(Option<User> initialUserOption),
     @required TResult userNameChanged(String nameStr),
-    @required TResult userWeightChanged(double weightDouble),
+    @required TResult userDateOfBirthChanged(int userDateOfBirthInt),
     @required TResult userHeightChanged(double heightDouble),
     @required TResult userSaved(),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
-    assert(userWeightChanged != null);
+    assert(userDateOfBirthChanged != null);
     assert(userHeightChanged != null);
     assert(userSaved != null);
-    return userWeightChanged(weightDouble);
+    return userDateOfBirthChanged(userDateOfBirthInt);
   }
 
   @override
@@ -456,14 +466,14 @@ class _$_UserWeightChanged implements _UserWeightChanged {
   TResult maybeWhen<TResult extends Object>({
     TResult initialized(Option<User> initialUserOption),
     TResult userNameChanged(String nameStr),
-    TResult userWeightChanged(double weightDouble),
+    TResult userDateOfBirthChanged(int userDateOfBirthInt),
     TResult userHeightChanged(double heightDouble),
     TResult userSaved(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (userWeightChanged != null) {
-      return userWeightChanged(weightDouble);
+    if (userDateOfBirthChanged != null) {
+      return userDateOfBirthChanged(userDateOfBirthInt);
     }
     return orElse();
   }
@@ -473,16 +483,16 @@ class _$_UserWeightChanged implements _UserWeightChanged {
   TResult map<TResult extends Object>({
     @required TResult initialized(_Initialized value),
     @required TResult userNameChanged(_UserNameChanged value),
-    @required TResult userWeightChanged(_UserWeightChanged value),
+    @required TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
     @required TResult userHeightChanged(_UserHeightChanged value),
     @required TResult userSaved(_UserSavd value),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
-    assert(userWeightChanged != null);
+    assert(userDateOfBirthChanged != null);
     assert(userHeightChanged != null);
     assert(userSaved != null);
-    return userWeightChanged(this);
+    return userDateOfBirthChanged(this);
   }
 
   @override
@@ -490,24 +500,26 @@ class _$_UserWeightChanged implements _UserWeightChanged {
   TResult maybeMap<TResult extends Object>({
     TResult initialized(_Initialized value),
     TResult userNameChanged(_UserNameChanged value),
-    TResult userWeightChanged(_UserWeightChanged value),
+    TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
     TResult userHeightChanged(_UserHeightChanged value),
     TResult userSaved(_UserSavd value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (userWeightChanged != null) {
-      return userWeightChanged(this);
+    if (userDateOfBirthChanged != null) {
+      return userDateOfBirthChanged(this);
     }
     return orElse();
   }
 }
 
-abstract class _UserWeightChanged implements UserFormEvent {
-  const factory _UserWeightChanged(double weightDouble) = _$_UserWeightChanged;
+abstract class _UserDateOfBirthChanged implements UserFormEvent {
+  const factory _UserDateOfBirthChanged(int userDateOfBirthInt) =
+      _$_UserDateOfBirthChanged;
 
-  double get weightDouble;
-  _$UserWeightChangedCopyWith<_UserWeightChanged> get copyWith;
+  int get userDateOfBirthInt;
+  @JsonKey(ignore: true)
+  _$UserDateOfBirthChangedCopyWith<_UserDateOfBirthChanged> get copyWith;
 }
 
 /// @nodoc
@@ -564,6 +576,7 @@ class _$_UserHeightChanged implements _UserHeightChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(heightDouble);
 
+  @JsonKey(ignore: true)
   @override
   _$UserHeightChangedCopyWith<_UserHeightChanged> get copyWith =>
       __$UserHeightChangedCopyWithImpl<_UserHeightChanged>(this, _$identity);
@@ -573,13 +586,13 @@ class _$_UserHeightChanged implements _UserHeightChanged {
   TResult when<TResult extends Object>({
     @required TResult initialized(Option<User> initialUserOption),
     @required TResult userNameChanged(String nameStr),
-    @required TResult userWeightChanged(double weightDouble),
+    @required TResult userDateOfBirthChanged(int userDateOfBirthInt),
     @required TResult userHeightChanged(double heightDouble),
     @required TResult userSaved(),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
-    assert(userWeightChanged != null);
+    assert(userDateOfBirthChanged != null);
     assert(userHeightChanged != null);
     assert(userSaved != null);
     return userHeightChanged(heightDouble);
@@ -590,7 +603,7 @@ class _$_UserHeightChanged implements _UserHeightChanged {
   TResult maybeWhen<TResult extends Object>({
     TResult initialized(Option<User> initialUserOption),
     TResult userNameChanged(String nameStr),
-    TResult userWeightChanged(double weightDouble),
+    TResult userDateOfBirthChanged(int userDateOfBirthInt),
     TResult userHeightChanged(double heightDouble),
     TResult userSaved(),
     @required TResult orElse(),
@@ -607,13 +620,13 @@ class _$_UserHeightChanged implements _UserHeightChanged {
   TResult map<TResult extends Object>({
     @required TResult initialized(_Initialized value),
     @required TResult userNameChanged(_UserNameChanged value),
-    @required TResult userWeightChanged(_UserWeightChanged value),
+    @required TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
     @required TResult userHeightChanged(_UserHeightChanged value),
     @required TResult userSaved(_UserSavd value),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
-    assert(userWeightChanged != null);
+    assert(userDateOfBirthChanged != null);
     assert(userHeightChanged != null);
     assert(userSaved != null);
     return userHeightChanged(this);
@@ -624,7 +637,7 @@ class _$_UserHeightChanged implements _UserHeightChanged {
   TResult maybeMap<TResult extends Object>({
     TResult initialized(_Initialized value),
     TResult userNameChanged(_UserNameChanged value),
-    TResult userWeightChanged(_UserWeightChanged value),
+    TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
     TResult userHeightChanged(_UserHeightChanged value),
     TResult userSaved(_UserSavd value),
     @required TResult orElse(),
@@ -641,6 +654,7 @@ abstract class _UserHeightChanged implements UserFormEvent {
   const factory _UserHeightChanged(double heightDouble) = _$_UserHeightChanged;
 
   double get heightDouble;
+  @JsonKey(ignore: true)
   _$UserHeightChangedCopyWith<_UserHeightChanged> get copyWith;
 }
 
@@ -682,13 +696,13 @@ class _$_UserSavd implements _UserSavd {
   TResult when<TResult extends Object>({
     @required TResult initialized(Option<User> initialUserOption),
     @required TResult userNameChanged(String nameStr),
-    @required TResult userWeightChanged(double weightDouble),
+    @required TResult userDateOfBirthChanged(int userDateOfBirthInt),
     @required TResult userHeightChanged(double heightDouble),
     @required TResult userSaved(),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
-    assert(userWeightChanged != null);
+    assert(userDateOfBirthChanged != null);
     assert(userHeightChanged != null);
     assert(userSaved != null);
     return userSaved();
@@ -699,7 +713,7 @@ class _$_UserSavd implements _UserSavd {
   TResult maybeWhen<TResult extends Object>({
     TResult initialized(Option<User> initialUserOption),
     TResult userNameChanged(String nameStr),
-    TResult userWeightChanged(double weightDouble),
+    TResult userDateOfBirthChanged(int userDateOfBirthInt),
     TResult userHeightChanged(double heightDouble),
     TResult userSaved(),
     @required TResult orElse(),
@@ -716,13 +730,13 @@ class _$_UserSavd implements _UserSavd {
   TResult map<TResult extends Object>({
     @required TResult initialized(_Initialized value),
     @required TResult userNameChanged(_UserNameChanged value),
-    @required TResult userWeightChanged(_UserWeightChanged value),
+    @required TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
     @required TResult userHeightChanged(_UserHeightChanged value),
     @required TResult userSaved(_UserSavd value),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
-    assert(userWeightChanged != null);
+    assert(userDateOfBirthChanged != null);
     assert(userHeightChanged != null);
     assert(userSaved != null);
     return userSaved(this);
@@ -733,7 +747,7 @@ class _$_UserSavd implements _UserSavd {
   TResult maybeMap<TResult extends Object>({
     TResult initialized(_Initialized value),
     TResult userNameChanged(_UserNameChanged value),
-    TResult userWeightChanged(_UserWeightChanged value),
+    TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
     TResult userHeightChanged(_UserHeightChanged value),
     TResult userSaved(_UserSavd value),
     @required TResult orElse(),
@@ -783,6 +797,7 @@ mixin _$UserFormState {
   bool get isSaving;
   Option<Either<UserFailure, Unit>> get saveFailureOrSuccessOption;
 
+  @JsonKey(ignore: true)
   $UserFormStateCopyWith<UserFormState> get copyWith;
 }
 
@@ -954,6 +969,7 @@ class _$_UserFormState implements _UserFormState {
       const DeepCollectionEquality().hash(isSaving) ^
       const DeepCollectionEquality().hash(saveFailureOrSuccessOption);
 
+  @JsonKey(ignore: true)
   @override
   _$UserFormStateCopyWith<_UserFormState> get copyWith =>
       __$UserFormStateCopyWithImpl<_UserFormState>(this, _$identity);
@@ -984,5 +1000,6 @@ abstract class _UserFormState implements UserFormState {
   @override
   Option<Either<UserFailure, Unit>> get saveFailureOrSuccessOption;
   @override
+  @JsonKey(ignore: true)
   _$UserFormStateCopyWith<_UserFormState> get copyWith;
 }

@@ -20,7 +20,8 @@ Either<ValueFailure<int>, int> validateMaxIntValue(int input, int maxNumb) {
   }
 }
 
-Either<ValueFailure<double>, double> validateMaxDoubleValue(double input, double maxNumb) {
+Either<ValueFailure<double>, double> validateMaxDoubleValue(
+    double input, double maxNumb) {
   if (0 <= input && input <= maxNumb) {
     return right(input);
   } else {
@@ -28,15 +29,22 @@ Either<ValueFailure<double>, double> validateMaxDoubleValue(double input, double
   }
 }
 
-
-Either<ValueFailure<int>, int> validateDateTime(
-    int input) {
+Either<ValueFailure<int>, int> validateDateTime(int input) {
   final bool dateTimeCheck = input >= 0;
   if (dateTimeCheck) {
     return right(input);
   } else {
-    return left(ValueFailure.invalidDate(
-        failedValue: input));
+    return left(ValueFailure.invalidDate(failedValue: input));
+  }
+}
+
+Either<ValueFailure<int>, int> validateDateOfBirth(int input) {
+  final bool dateTimeCheck =
+      input >= 0 && input <= DateTime.now().millisecondsSinceEpoch;
+  if (dateTimeCheck) {
+    return right(input);
+  } else {
+    return left(ValueFailure.invalidDateOfBirth(failedValue: input));
   }
 }
 
@@ -55,7 +63,6 @@ Either<ValueFailure<int>, int> validateIntNotEmpty(int input) {
     return left(ValueFailure.empty(failedValue: input));
   }
 }
-
 
 Either<ValueFailure<KtList<T>>, KtList<T>> validateMaxListLength<T>(
     KtList<T> input, int maxLength) {

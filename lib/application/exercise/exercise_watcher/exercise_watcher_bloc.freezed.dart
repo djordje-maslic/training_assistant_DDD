@@ -344,6 +344,7 @@ class _$_ExerciseReceived implements _ExerciseReceived {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(failureOrExercise);
 
+  @JsonKey(ignore: true)
   @override
   _$ExerciseReceivedCopyWith<_ExerciseReceived> get copyWith =>
       __$ExerciseReceivedCopyWithImpl<_ExerciseReceived>(this, _$identity);
@@ -414,6 +415,7 @@ abstract class _ExerciseReceived implements ExerciseWatcherEvent {
       _$_ExerciseReceived;
 
   Either<ExerciseFailure, KtList<Exercise>> get failureOrExercise;
+  @JsonKey(ignore: true)
   _$ExerciseReceivedCopyWith<_ExerciseReceived> get copyWith;
 }
 
@@ -759,6 +761,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(exercise);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
       __$LoadSuccessCopyWithImpl<_LoadSuccess>(this, _$identity);
@@ -830,6 +833,7 @@ abstract class _LoadSuccess implements ExerciseWatcherState {
   const factory _LoadSuccess(KtList<Exercise> exercise) = _$_LoadSuccess;
 
   KtList<Exercise> get exercise;
+  @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
 }
 
@@ -898,6 +902,7 @@ class _$_LoadFailure implements _LoadFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failure);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadFailureCopyWith<_LoadFailure> get copyWith =>
       __$LoadFailureCopyWithImpl<_LoadFailure>(this, _$identity);
@@ -969,5 +974,6 @@ abstract class _LoadFailure implements ExerciseWatcherState {
   const factory _LoadFailure(ExerciseFailure failure) = _$_LoadFailure;
 
   ExerciseFailure get failure;
+  @JsonKey(ignore: true)
   _$LoadFailureCopyWith<_LoadFailure> get copyWith;
 }

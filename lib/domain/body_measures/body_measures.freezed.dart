@@ -42,6 +42,7 @@ mixin _$BodyMeasures {
   UserWeight get bodyMeasuresWeight;
   UserHeight get bodyMeasuresHeight;
 
+  @JsonKey(ignore: true)
   $BodyMeasuresCopyWith<BodyMeasures> get copyWith;
 }
 
@@ -198,6 +199,7 @@ class _$_BodyMeasures extends _BodyMeasures {
       const DeepCollectionEquality().hash(bodyMeasuresWeight) ^
       const DeepCollectionEquality().hash(bodyMeasuresHeight);
 
+  @JsonKey(ignore: true)
   @override
   _$BodyMeasuresCopyWith<_BodyMeasures> get copyWith =>
       __$BodyMeasuresCopyWithImpl<_BodyMeasures>(this, _$identity);
@@ -223,5 +225,6 @@ abstract class _BodyMeasures extends BodyMeasures {
   @override
   UserHeight get bodyMeasuresHeight;
   @override
+  @JsonKey(ignore: true)
   _$BodyMeasuresCopyWith<_BodyMeasures> get copyWith;
 }

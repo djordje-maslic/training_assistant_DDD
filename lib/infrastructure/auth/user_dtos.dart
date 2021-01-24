@@ -16,7 +16,7 @@ abstract class UserDto implements _$UserDto {
     @JsonKey(ignore: true) String id,
     @required String emailAddress,
     @required String userName,
-    @required double userWeight,
+    @required int userDateOfBirth,
     @required double userHeight,
   }) = _UserDto;
 
@@ -25,7 +25,7 @@ abstract class UserDto implements _$UserDto {
       id: user.id.getOrCrash(),
       emailAddress: user.emailAddress.getOrCrash(),
       userName: user.userName.getOrCrash(),
-      userWeight: user.userWeight.getOrCrash(),
+      userDateOfBirth: user.userDateOfBirth.getOrCrash(),
       userHeight: user.userHeight.getOrCrash(),
     );
   }
@@ -35,7 +35,7 @@ abstract class UserDto implements _$UserDto {
       id: UniqueId.withUniqueString(id),
       emailAddress: EmailAddress(emailAddress),
       userName: UserName(userName),
-      userWeight: UserWeight(userWeight),
+      userDateOfBirth: UserDateOfBirth(userDateOfBirth),
       userHeight: UserHeight(userHeight),
     );
   }

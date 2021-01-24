@@ -48,6 +48,7 @@ mixin _$SetItemPrimitive {
   double get distance;
   int get setDuration;
 
+  @JsonKey(ignore: true)
   $SetItemPrimitiveCopyWith<SetItemPrimitive> get copyWith;
 }
 
@@ -239,6 +240,7 @@ class _$_SetItemprimitive extends _SetItemprimitive
       const DeepCollectionEquality().hash(distance) ^
       const DeepCollectionEquality().hash(setDuration);
 
+  @JsonKey(ignore: true)
   @override
   _$SetItemprimitiveCopyWith<_SetItemprimitive> get copyWith =>
       __$SetItemprimitiveCopyWithImpl<_SetItemprimitive>(this, _$identity);
@@ -270,5 +272,6 @@ abstract class _SetItemprimitive extends SetItemPrimitive {
   @override
   int get setDuration;
   @override
+  @JsonKey(ignore: true)
   _$SetItemprimitiveCopyWith<_SetItemprimitive> get copyWith;
 }

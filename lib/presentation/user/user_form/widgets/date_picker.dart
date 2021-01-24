@@ -2,28 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:provider/provider.dart';
-import 'package:reminder_app/application/body_measures/body_measures_form/body_measures_form_bloc.dart';
+import 'package:reminder_app/application/user/user_form_bloc/user_form_bloc.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_presentation_classes.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_time_converter.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/build_context_x.dart';
 
-class BodyMeasuresDateFieldWidget extends StatelessWidget {
-  const BodyMeasuresDateFieldWidget({
+class UserDateOfBirthWidget extends StatelessWidget {
+  const UserDateOfBirthWidget({
     Key key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Consumer<FormDate>(
-        builder: (context, formDate, child) {
+        padding: const EdgeInsets.all(16.0),
+        child: Consumer<FormDate>(builder: (context, formDate, child) {
           return DateText(
             formDate: formDate,
           );
-        },
-      ),
-    );
+        }));
   }
 }
 
@@ -32,37 +29,35 @@ Future<void> _selectDate(
   DateTime selectedDate,
 ) async {
   final DateTime picked = await showDatePicker(
-    context: context,
-    initialDate: DateTime.now(),
-    currentDate: DateTime.now(),
-    firstDate: DateTime(2019),
-    lastDate: DateTime(2025),
-    builder: (context, child) {
-      return Theme(
-          data: ThemeData.from(
-            colorScheme: const ColorScheme.light().copyWith(
-              onBackground: Colors.grey,
-              onSurface: Colors.black,
-              onPrimary: Colors.grey,
-              primary: Colors.amber,
+      context: context,
+      initialDate: DateTime.now(),
+      currentDate: DateTime.now(),
+      firstDate: DateTime(1940),
+      lastDate: DateTime(2025),
+      builder: (context, child) {
+        return Theme(
+            data: ThemeData.from(
+              colorScheme: const ColorScheme.light().copyWith(
+                onBackground: Colors.grey,
+                onSurface: Colors.black,
+                onPrimary: Colors.grey,
+                primary: Colors.amber,
+              ),
+              textTheme: const TextTheme(
+                caption: TextStyle(fontSize: 20),
+                button: TextStyle(fontSize: 20),
+                overline: TextStyle(fontSize: 12, fontWeight: FontWeight.w800),
+              ),
             ),
-            textTheme: const TextTheme(
-              caption: TextStyle(fontSize: 20),
-              button: TextStyle(fontSize: 20),
-              overline: TextStyle(fontSize: 12, fontWeight: FontWeight.w800),
-            ),
-          ),
-          child: child);
-    },
-  );
-  if (picked != null && (picked.year != DateTime.now().year ||
-      picked.month != DateTime.now().month ||
-      picked.day != DateTime.now().day)) {
-    context.read<BodyMeasuresFormBloc>().add(
-        BodyMeasuresFormEvent.bodyMeasuresDateChanged(
-            picked.millisecondsSinceEpoch));
-  }else if(selectedDate == null){}
-
+            child: child);
+      });
+  if (picked != null &&
+      (picked.year != DateTime.now().year ||
+          picked.month != DateTime.now().month ||
+          picked.day != DateTime.now().day)) {
+    context.read<UserFormBloc>().add(
+        UserFormEvent.userDateOfBirthChanged(picked.millisecondsSinceEpoch));
+  } else if (selectedDate == null) {}
 }
 
 class DateText extends HookWidget {
@@ -75,15 +70,13 @@ class DateText extends HookWidget {
         ? DateTime.now()
         : DateTime.fromMillisecondsSinceEpoch(context.formDate.date);
     final textEditingControllerDate = useTextEditingController(
-      text: dateTimeConverter(
-          context.formDate.date ?? DateTime.now().millisecondsSinceEpoch),
-    );
+        text: dateTimeConverter(context.formDate.date));
     return Column(
       children: [
-        BlocListener<BodyMeasuresFormBloc, BodyMeasuresFormState>(
+        BlocListener<UserFormBloc, UserFormState>(
           listener: (context, state) {
-            textEditingControllerDate.text = dateTimeConverter(
-                state.bodyMeasures.bodyMeasuresDate.getOrCrash());
+            textEditingControllerDate.text =
+                dateTimeConverter(state.user.userDateOfBirth.getOrCrash());
           },
           child: TextFormField(
             onTap: () => _selectDate(context, date),
@@ -99,16 +92,16 @@ class DateText extends HookWidget {
             ),
             validator: (_) {
               return context
-                  .read<BodyMeasuresFormBloc>()
+                  .read<UserFormBloc>()
                   .state
-                  .bodyMeasures
-                  .bodyMeasuresDate
+                  .user
+                  .userDateOfBirth
                   .value
                   .fold(
                       (f) => f.maybeMap(
-                          orElse: () => 'error',
-                          invalidDate: (_) => 'Invalid date',
-                          exceedingLength: (f) => 'Exceeding length ${f.max}'),
+                            orElse: () => 'error',
+                            invalidDate: (_) => 'Invalid date',
+                          ),
                       (r) => null);
             },
             textAlign: TextAlign.center,

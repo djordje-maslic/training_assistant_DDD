@@ -48,6 +48,7 @@ mixin _$Sets {
   Distance get distance;
   SetDuration get setDuration;
 
+  @JsonKey(ignore: true)
   $SetsCopyWith<Sets> get copyWith;
 }
 
@@ -220,6 +221,7 @@ class _$_Sets extends _Sets {
       const DeepCollectionEquality().hash(distance) ^
       const DeepCollectionEquality().hash(setDuration);
 
+  @JsonKey(ignore: true)
   @override
   _$SetsCopyWith<_Sets> get copyWith =>
       __$SetsCopyWithImpl<_Sets>(this, _$identity);
@@ -251,5 +253,6 @@ abstract class _Sets extends Sets {
   @override
   SetDuration get setDuration;
   @override
+  @JsonKey(ignore: true)
   _$SetsCopyWith<_Sets> get copyWith;
 }

@@ -169,6 +169,7 @@ class _$_Initialized implements _Initialized {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(initialBodyMeasuresOption);
 
+  @JsonKey(ignore: true)
   @override
   _$InitializedCopyWith<_Initialized> get copyWith =>
       __$InitializedCopyWithImpl<_Initialized>(this, _$identity);
@@ -250,6 +251,7 @@ abstract class _Initialized implements BodyMeasuresFormEvent {
       _$_Initialized;
 
   Option<BodyMeasures> get initialBodyMeasuresOption;
+  @JsonKey(ignore: true)
   _$InitializedCopyWith<_Initialized> get copyWith;
 }
 
@@ -307,6 +309,7 @@ class _$_BodyMeasuresDateChanged implements _BodyMeasuresDateChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(dateInt);
 
+  @JsonKey(ignore: true)
   @override
   _$BodyMeasuresDateChangedCopyWith<_BodyMeasuresDateChanged> get copyWith =>
       __$BodyMeasuresDateChangedCopyWithImpl<_BodyMeasuresDateChanged>(
@@ -389,6 +392,7 @@ abstract class _BodyMeasuresDateChanged implements BodyMeasuresFormEvent {
       _$_BodyMeasuresDateChanged;
 
   int get dateInt;
+  @JsonKey(ignore: true)
   _$BodyMeasuresDateChangedCopyWith<_BodyMeasuresDateChanged> get copyWith;
 }
 
@@ -448,6 +452,7 @@ class _$_BodyMeasuresWeightChanged implements _BodyMeasuresWeightChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(weightDouble);
 
+  @JsonKey(ignore: true)
   @override
   _$BodyMeasuresWeightChangedCopyWith<_BodyMeasuresWeightChanged>
       get copyWith =>
@@ -531,6 +536,7 @@ abstract class _BodyMeasuresWeightChanged implements BodyMeasuresFormEvent {
       _$_BodyMeasuresWeightChanged;
 
   double get weightDouble;
+  @JsonKey(ignore: true)
   _$BodyMeasuresWeightChangedCopyWith<_BodyMeasuresWeightChanged> get copyWith;
 }
 
@@ -590,6 +596,7 @@ class _$_BodyMeasuresHeightChanged implements _BodyMeasuresHeightChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(heightDouble);
 
+  @JsonKey(ignore: true)
   @override
   _$BodyMeasuresHeightChangedCopyWith<_BodyMeasuresHeightChanged>
       get copyWith =>
@@ -673,6 +680,7 @@ abstract class _BodyMeasuresHeightChanged implements BodyMeasuresFormEvent {
       _$_BodyMeasuresHeightChanged;
 
   double get heightDouble;
+  @JsonKey(ignore: true)
   _$BodyMeasuresHeightChangedCopyWith<_BodyMeasuresHeightChanged> get copyWith;
 }
 
@@ -827,6 +835,7 @@ mixin _$BodyMeasuresFormState {
   bool get isSaving;
   Option<Either<BodyMeasuresFailure, Unit>> get saveFailureOrSuccessOption;
 
+  @JsonKey(ignore: true)
   $BodyMeasuresFormStateCopyWith<BodyMeasuresFormState> get copyWith;
 }
 
@@ -1005,6 +1014,7 @@ class _$_BodyMeasuresFormState implements _BodyMeasuresFormState {
       const DeepCollectionEquality().hash(isSaving) ^
       const DeepCollectionEquality().hash(saveFailureOrSuccessOption);
 
+  @JsonKey(ignore: true)
   @override
   _$BodyMeasuresFormStateCopyWith<_BodyMeasuresFormState> get copyWith =>
       __$BodyMeasuresFormStateCopyWithImpl<_BodyMeasuresFormState>(
@@ -1036,5 +1046,6 @@ abstract class _BodyMeasuresFormState implements BodyMeasuresFormState {
   @override
   Option<Either<BodyMeasuresFailure, Unit>> get saveFailureOrSuccessOption;
   @override
+  @JsonKey(ignore: true)
   _$BodyMeasuresFormStateCopyWith<_BodyMeasuresFormState> get copyWith;
 }

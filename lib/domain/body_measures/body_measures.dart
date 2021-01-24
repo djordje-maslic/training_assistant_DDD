@@ -21,7 +21,7 @@ abstract class BodyMeasures implements _$BodyMeasures {
   factory BodyMeasures.empty() => BodyMeasures(
         id: UniqueId(),
         userId: UniqueId.withUniqueString(''),
-        bodyMeasuresDate: MeasuresDate(0),
+        bodyMeasuresDate: MeasuresDate(DateTime.now().millisecondsSinceEpoch),
         bodyMeasuresWeight: UserWeight(0.0),
         bodyMeasuresHeight: UserHeight(0.0),
       );

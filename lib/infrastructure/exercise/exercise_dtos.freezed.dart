@@ -59,6 +59,7 @@ mixin _$ExerciseDto {
   FieldValue get serverTimeStamp;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $ExerciseDtoCopyWith<ExerciseDto> get copyWith;
 }
 
@@ -241,6 +242,7 @@ class _$_ExerciseDto extends _ExerciseDto {
       const DeepCollectionEquality().hash(setsList) ^
       const DeepCollectionEquality().hash(serverTimeStamp);
 
+  @JsonKey(ignore: true)
   @override
   _$ExerciseDtoCopyWith<_ExerciseDto> get copyWith =>
       __$ExerciseDtoCopyWithImpl<_ExerciseDto>(this, _$identity);
@@ -283,6 +285,7 @@ abstract class _ExerciseDto extends ExerciseDto {
   @ServerTimestampConverter()
   FieldValue get serverTimeStamp;
   @override
+  @JsonKey(ignore: true)
   _$ExerciseDtoCopyWith<_ExerciseDto> get copyWith;
 }
 
@@ -335,6 +338,7 @@ mixin _$SetsDto {
   int get setDuration;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $SetsDtoCopyWith<SetsDto> get copyWith;
 }
 
@@ -510,6 +514,7 @@ class _$_SetsDto extends _SetsDto {
       const DeepCollectionEquality().hash(distance) ^
       const DeepCollectionEquality().hash(setDuration);
 
+  @JsonKey(ignore: true)
   @override
   _$SetsDtoCopyWith<_SetsDto> get copyWith =>
       __$SetsDtoCopyWithImpl<_SetsDto>(this, _$identity);
@@ -548,5 +553,6 @@ abstract class _SetsDto extends SetsDto {
   @override
   int get setDuration;
   @override
+  @JsonKey(ignore: true)
   _$SetsDtoCopyWith<_SetsDto> get copyWith;
 }

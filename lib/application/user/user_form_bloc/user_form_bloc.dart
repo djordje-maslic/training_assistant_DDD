@@ -45,10 +45,10 @@ class UserFormBloc extends Bloc<UserFormEvent, UserFormState> {
             user: state.user.copyWith(userName: UserName(e.nameStr)),
             saveFailureOrSuccessOption: none());
       },
-      userWeightChanged: (e) async* {
+      userDateOfBirthChanged: (e) async* {
         yield state.copyWith(
             user: state.user.copyWith(
-              userWeight: UserWeight(e.weightDouble),
+              userDateOfBirth: UserDateOfBirth(e.userDateOfBirthInt),
             ),
             saveFailureOrSuccessOption: none());
       },

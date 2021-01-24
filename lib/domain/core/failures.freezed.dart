@@ -39,6 +39,13 @@ class _$ValueFailureTearOff {
   }
 
 // ignore: unused_element
+  InvalidDateOfBirth<T> invalidDateOfBirth<T>({@required T failedValue}) {
+    return InvalidDateOfBirth<T>(
+      failedValue: failedValue,
+    );
+  }
+
+// ignore: unused_element
   Empty<T> empty<T>({@required T failedValue}) {
     return Empty<T>(
       failedValue: failedValue,
@@ -79,6 +86,7 @@ mixin _$ValueFailure<T> {
     @required TResult exceedingLength(T failedValue, int max),
     @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
+    @required TResult invalidDateOfBirth(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(String failedValue),
@@ -89,6 +97,7 @@ mixin _$ValueFailure<T> {
     TResult exceedingLength(T failedValue, int max),
     TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
+    TResult invalidDateOfBirth(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(String failedValue),
@@ -100,6 +109,7 @@ mixin _$ValueFailure<T> {
     @required TResult exceedingLength(ExceedingLength<T> value),
     @required TResult exceedingValue(ExceedingValue<T> value),
     @required TResult invalidDate(InvalidDate<T> value),
+    @required TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
     @required TResult empty(Empty<T> value),
     @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
@@ -110,6 +120,7 @@ mixin _$ValueFailure<T> {
     TResult exceedingLength(ExceedingLength<T> value),
     TResult exceedingValue(ExceedingValue<T> value),
     TResult invalidDate(InvalidDate<T> value),
+    TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
     TResult empty(Empty<T> value),
     TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),
@@ -200,6 +211,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
       const DeepCollectionEquality().hash(failedValue) ^
       const DeepCollectionEquality().hash(max);
 
+  @JsonKey(ignore: true)
   @override
   $ExceedingLengthCopyWith<T, ExceedingLength<T>> get copyWith =>
       _$ExceedingLengthCopyWithImpl<T, ExceedingLength<T>>(this, _$identity);
@@ -210,6 +222,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     @required TResult exceedingLength(T failedValue, int max),
     @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
+    @required TResult invalidDateOfBirth(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(String failedValue),
@@ -218,6 +231,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     assert(exceedingLength != null);
     assert(exceedingValue != null);
     assert(invalidDate != null);
+    assert(invalidDateOfBirth != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -231,6 +245,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult exceedingLength(T failedValue, int max),
     TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
+    TResult invalidDateOfBirth(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(String failedValue),
@@ -250,6 +265,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     @required TResult exceedingLength(ExceedingLength<T> value),
     @required TResult exceedingValue(ExceedingValue<T> value),
     @required TResult invalidDate(InvalidDate<T> value),
+    @required TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
     @required TResult empty(Empty<T> value),
     @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
@@ -258,6 +274,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     assert(exceedingLength != null);
     assert(exceedingValue != null);
     assert(invalidDate != null);
+    assert(invalidDateOfBirth != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -271,6 +288,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult exceedingLength(ExceedingLength<T> value),
     TResult exceedingValue(ExceedingValue<T> value),
     TResult invalidDate(InvalidDate<T> value),
+    TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
     TResult empty(Empty<T> value),
     TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),
@@ -291,6 +309,7 @@ abstract class ExceedingLength<T> implements ValueFailure<T> {
 
   T get failedValue;
   int get max;
+  @JsonKey(ignore: true)
   $ExceedingLengthCopyWith<T, ExceedingLength<T>> get copyWith;
 }
 
@@ -359,6 +378,7 @@ class _$ExceedingValue<T> implements ExceedingValue<T> {
       const DeepCollectionEquality().hash(failedValue) ^
       const DeepCollectionEquality().hash(max);
 
+  @JsonKey(ignore: true)
   @override
   $ExceedingValueCopyWith<T, ExceedingValue<T>> get copyWith =>
       _$ExceedingValueCopyWithImpl<T, ExceedingValue<T>>(this, _$identity);
@@ -369,6 +389,7 @@ class _$ExceedingValue<T> implements ExceedingValue<T> {
     @required TResult exceedingLength(T failedValue, int max),
     @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
+    @required TResult invalidDateOfBirth(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(String failedValue),
@@ -377,6 +398,7 @@ class _$ExceedingValue<T> implements ExceedingValue<T> {
     assert(exceedingLength != null);
     assert(exceedingValue != null);
     assert(invalidDate != null);
+    assert(invalidDateOfBirth != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -390,6 +412,7 @@ class _$ExceedingValue<T> implements ExceedingValue<T> {
     TResult exceedingLength(T failedValue, int max),
     TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
+    TResult invalidDateOfBirth(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(String failedValue),
@@ -409,6 +432,7 @@ class _$ExceedingValue<T> implements ExceedingValue<T> {
     @required TResult exceedingLength(ExceedingLength<T> value),
     @required TResult exceedingValue(ExceedingValue<T> value),
     @required TResult invalidDate(InvalidDate<T> value),
+    @required TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
     @required TResult empty(Empty<T> value),
     @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
@@ -417,6 +441,7 @@ class _$ExceedingValue<T> implements ExceedingValue<T> {
     assert(exceedingLength != null);
     assert(exceedingValue != null);
     assert(invalidDate != null);
+    assert(invalidDateOfBirth != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -430,6 +455,7 @@ class _$ExceedingValue<T> implements ExceedingValue<T> {
     TResult exceedingLength(ExceedingLength<T> value),
     TResult exceedingValue(ExceedingValue<T> value),
     TResult invalidDate(InvalidDate<T> value),
+    TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
     TResult empty(Empty<T> value),
     TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),
@@ -450,6 +476,7 @@ abstract class ExceedingValue<T> implements ValueFailure<T> {
 
   T get failedValue;
   num get max;
+  @JsonKey(ignore: true)
   $ExceedingValueCopyWith<T, ExceedingValue<T>> get copyWith;
 }
 
@@ -509,6 +536,7 @@ class _$InvalidDate<T> implements InvalidDate<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidDateCopyWith<T, InvalidDate<T>> get copyWith =>
       _$InvalidDateCopyWithImpl<T, InvalidDate<T>>(this, _$identity);
@@ -519,6 +547,7 @@ class _$InvalidDate<T> implements InvalidDate<T> {
     @required TResult exceedingLength(T failedValue, int max),
     @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
+    @required TResult invalidDateOfBirth(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(String failedValue),
@@ -527,6 +556,7 @@ class _$InvalidDate<T> implements InvalidDate<T> {
     assert(exceedingLength != null);
     assert(exceedingValue != null);
     assert(invalidDate != null);
+    assert(invalidDateOfBirth != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -540,6 +570,7 @@ class _$InvalidDate<T> implements InvalidDate<T> {
     TResult exceedingLength(T failedValue, int max),
     TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
+    TResult invalidDateOfBirth(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(String failedValue),
@@ -559,6 +590,7 @@ class _$InvalidDate<T> implements InvalidDate<T> {
     @required TResult exceedingLength(ExceedingLength<T> value),
     @required TResult exceedingValue(ExceedingValue<T> value),
     @required TResult invalidDate(InvalidDate<T> value),
+    @required TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
     @required TResult empty(Empty<T> value),
     @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
@@ -567,6 +599,7 @@ class _$InvalidDate<T> implements InvalidDate<T> {
     assert(exceedingLength != null);
     assert(exceedingValue != null);
     assert(invalidDate != null);
+    assert(invalidDateOfBirth != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -580,6 +613,7 @@ class _$InvalidDate<T> implements InvalidDate<T> {
     TResult exceedingLength(ExceedingLength<T> value),
     TResult exceedingValue(ExceedingValue<T> value),
     TResult invalidDate(InvalidDate<T> value),
+    TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
     TResult empty(Empty<T> value),
     TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),
@@ -598,7 +632,166 @@ abstract class InvalidDate<T> implements ValueFailure<T> {
   const factory InvalidDate({@required T failedValue}) = _$InvalidDate<T>;
 
   T get failedValue;
+  @JsonKey(ignore: true)
   $InvalidDateCopyWith<T, InvalidDate<T>> get copyWith;
+}
+
+/// @nodoc
+abstract class $InvalidDateOfBirthCopyWith<T, $Res> {
+  factory $InvalidDateOfBirthCopyWith(InvalidDateOfBirth<T> value,
+          $Res Function(InvalidDateOfBirth<T>) then) =
+      _$InvalidDateOfBirthCopyWithImpl<T, $Res>;
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class _$InvalidDateOfBirthCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $InvalidDateOfBirthCopyWith<T, $Res> {
+  _$InvalidDateOfBirthCopyWithImpl(
+      InvalidDateOfBirth<T> _value, $Res Function(InvalidDateOfBirth<T>) _then)
+      : super(_value, (v) => _then(v as InvalidDateOfBirth<T>));
+
+  @override
+  InvalidDateOfBirth<T> get _value => super._value as InvalidDateOfBirth<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(InvalidDateOfBirth<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as T,
+    ));
+  }
+}
+
+/// @nodoc
+class _$InvalidDateOfBirth<T> implements InvalidDateOfBirth<T> {
+  const _$InvalidDateOfBirth({@required this.failedValue})
+      : assert(failedValue != null);
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.invalidDateOfBirth(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is InvalidDateOfBirth<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
+
+  @JsonKey(ignore: true)
+  @override
+  $InvalidDateOfBirthCopyWith<T, InvalidDateOfBirth<T>> get copyWith =>
+      _$InvalidDateOfBirthCopyWithImpl<T, InvalidDateOfBirth<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult exceedingLength(T failedValue, int max),
+    @required TResult exceedingValue(T failedValue, num max),
+    @required TResult invalidDate(T failedValue),
+    @required TResult invalidDateOfBirth(T failedValue),
+    @required TResult empty(T failedValue),
+    @required TResult listTooLong(T failedValue, int max),
+    @required TResult invalidEmail(String failedValue),
+    @required TResult shortPassword(String failedValue),
+  }) {
+    assert(exceedingLength != null);
+    assert(exceedingValue != null);
+    assert(invalidDate != null);
+    assert(invalidDateOfBirth != null);
+    assert(empty != null);
+    assert(listTooLong != null);
+    assert(invalidEmail != null);
+    assert(shortPassword != null);
+    return invalidDateOfBirth(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult exceedingLength(T failedValue, int max),
+    TResult exceedingValue(T failedValue, num max),
+    TResult invalidDate(T failedValue),
+    TResult invalidDateOfBirth(T failedValue),
+    TResult empty(T failedValue),
+    TResult listTooLong(T failedValue, int max),
+    TResult invalidEmail(String failedValue),
+    TResult shortPassword(String failedValue),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (invalidDateOfBirth != null) {
+      return invalidDateOfBirth(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult exceedingLength(ExceedingLength<T> value),
+    @required TResult exceedingValue(ExceedingValue<T> value),
+    @required TResult invalidDate(InvalidDate<T> value),
+    @required TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
+    @required TResult empty(Empty<T> value),
+    @required TResult listTooLong(ListTooLong<T> value),
+    @required TResult invalidEmail(InvalidEmail<T> value),
+    @required TResult shortPassword(ShortPassword<T> value),
+  }) {
+    assert(exceedingLength != null);
+    assert(exceedingValue != null);
+    assert(invalidDate != null);
+    assert(invalidDateOfBirth != null);
+    assert(empty != null);
+    assert(listTooLong != null);
+    assert(invalidEmail != null);
+    assert(shortPassword != null);
+    return invalidDateOfBirth(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult exceedingLength(ExceedingLength<T> value),
+    TResult exceedingValue(ExceedingValue<T> value),
+    TResult invalidDate(InvalidDate<T> value),
+    TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
+    TResult empty(Empty<T> value),
+    TResult listTooLong(ListTooLong<T> value),
+    TResult invalidEmail(InvalidEmail<T> value),
+    TResult shortPassword(ShortPassword<T> value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (invalidDateOfBirth != null) {
+      return invalidDateOfBirth(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidDateOfBirth<T> implements ValueFailure<T> {
+  const factory InvalidDateOfBirth({@required T failedValue}) =
+      _$InvalidDateOfBirth<T>;
+
+  T get failedValue;
+  @JsonKey(ignore: true)
+  $InvalidDateOfBirthCopyWith<T, InvalidDateOfBirth<T>> get copyWith;
 }
 
 /// @nodoc
@@ -653,6 +846,7 @@ class _$Empty<T> implements Empty<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $EmptyCopyWith<T, Empty<T>> get copyWith =>
       _$EmptyCopyWithImpl<T, Empty<T>>(this, _$identity);
@@ -663,6 +857,7 @@ class _$Empty<T> implements Empty<T> {
     @required TResult exceedingLength(T failedValue, int max),
     @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
+    @required TResult invalidDateOfBirth(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(String failedValue),
@@ -671,6 +866,7 @@ class _$Empty<T> implements Empty<T> {
     assert(exceedingLength != null);
     assert(exceedingValue != null);
     assert(invalidDate != null);
+    assert(invalidDateOfBirth != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -684,6 +880,7 @@ class _$Empty<T> implements Empty<T> {
     TResult exceedingLength(T failedValue, int max),
     TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
+    TResult invalidDateOfBirth(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(String failedValue),
@@ -703,6 +900,7 @@ class _$Empty<T> implements Empty<T> {
     @required TResult exceedingLength(ExceedingLength<T> value),
     @required TResult exceedingValue(ExceedingValue<T> value),
     @required TResult invalidDate(InvalidDate<T> value),
+    @required TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
     @required TResult empty(Empty<T> value),
     @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
@@ -711,6 +909,7 @@ class _$Empty<T> implements Empty<T> {
     assert(exceedingLength != null);
     assert(exceedingValue != null);
     assert(invalidDate != null);
+    assert(invalidDateOfBirth != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -724,6 +923,7 @@ class _$Empty<T> implements Empty<T> {
     TResult exceedingLength(ExceedingLength<T> value),
     TResult exceedingValue(ExceedingValue<T> value),
     TResult invalidDate(InvalidDate<T> value),
+    TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
     TResult empty(Empty<T> value),
     TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),
@@ -742,6 +942,7 @@ abstract class Empty<T> implements ValueFailure<T> {
   const factory Empty({@required T failedValue}) = _$Empty<T>;
 
   T get failedValue;
+  @JsonKey(ignore: true)
   $EmptyCopyWith<T, Empty<T>> get copyWith;
 }
 
@@ -810,6 +1011,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
       const DeepCollectionEquality().hash(failedValue) ^
       const DeepCollectionEquality().hash(max);
 
+  @JsonKey(ignore: true)
   @override
   $ListTooLongCopyWith<T, ListTooLong<T>> get copyWith =>
       _$ListTooLongCopyWithImpl<T, ListTooLong<T>>(this, _$identity);
@@ -820,6 +1022,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     @required TResult exceedingLength(T failedValue, int max),
     @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
+    @required TResult invalidDateOfBirth(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(String failedValue),
@@ -828,6 +1031,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     assert(exceedingLength != null);
     assert(exceedingValue != null);
     assert(invalidDate != null);
+    assert(invalidDateOfBirth != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -841,6 +1045,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     TResult exceedingLength(T failedValue, int max),
     TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
+    TResult invalidDateOfBirth(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(String failedValue),
@@ -860,6 +1065,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     @required TResult exceedingLength(ExceedingLength<T> value),
     @required TResult exceedingValue(ExceedingValue<T> value),
     @required TResult invalidDate(InvalidDate<T> value),
+    @required TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
     @required TResult empty(Empty<T> value),
     @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
@@ -868,6 +1074,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     assert(exceedingLength != null);
     assert(exceedingValue != null);
     assert(invalidDate != null);
+    assert(invalidDateOfBirth != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -881,6 +1088,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     TResult exceedingLength(ExceedingLength<T> value),
     TResult exceedingValue(ExceedingValue<T> value),
     TResult invalidDate(InvalidDate<T> value),
+    TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
     TResult empty(Empty<T> value),
     TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),
@@ -901,6 +1109,7 @@ abstract class ListTooLong<T> implements ValueFailure<T> {
 
   T get failedValue;
   int get max;
+  @JsonKey(ignore: true)
   $ListTooLongCopyWith<T, ListTooLong<T>> get copyWith;
 }
 
@@ -960,6 +1169,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidEmailCopyWith<T, InvalidEmail<T>> get copyWith =>
       _$InvalidEmailCopyWithImpl<T, InvalidEmail<T>>(this, _$identity);
@@ -970,6 +1180,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     @required TResult exceedingLength(T failedValue, int max),
     @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
+    @required TResult invalidDateOfBirth(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(String failedValue),
@@ -978,6 +1189,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     assert(exceedingLength != null);
     assert(exceedingValue != null);
     assert(invalidDate != null);
+    assert(invalidDateOfBirth != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -991,6 +1203,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult exceedingLength(T failedValue, int max),
     TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
+    TResult invalidDateOfBirth(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(String failedValue),
@@ -1010,6 +1223,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     @required TResult exceedingLength(ExceedingLength<T> value),
     @required TResult exceedingValue(ExceedingValue<T> value),
     @required TResult invalidDate(InvalidDate<T> value),
+    @required TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
     @required TResult empty(Empty<T> value),
     @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
@@ -1018,6 +1232,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     assert(exceedingLength != null);
     assert(exceedingValue != null);
     assert(invalidDate != null);
+    assert(invalidDateOfBirth != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -1031,6 +1246,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult exceedingLength(ExceedingLength<T> value),
     TResult exceedingValue(ExceedingValue<T> value),
     TResult invalidDate(InvalidDate<T> value),
+    TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
     TResult empty(Empty<T> value),
     TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),
@@ -1050,6 +1266,7 @@ abstract class InvalidEmail<T> implements ValueFailure<T> {
       _$InvalidEmail<T>;
 
   String get failedValue;
+  @JsonKey(ignore: true)
   $InvalidEmailCopyWith<T, InvalidEmail<T>> get copyWith;
 }
 
@@ -1109,6 +1326,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $ShortPasswordCopyWith<T, ShortPassword<T>> get copyWith =>
       _$ShortPasswordCopyWithImpl<T, ShortPassword<T>>(this, _$identity);
@@ -1119,6 +1337,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     @required TResult exceedingLength(T failedValue, int max),
     @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
+    @required TResult invalidDateOfBirth(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(String failedValue),
@@ -1127,6 +1346,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     assert(exceedingLength != null);
     assert(exceedingValue != null);
     assert(invalidDate != null);
+    assert(invalidDateOfBirth != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -1140,6 +1360,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult exceedingLength(T failedValue, int max),
     TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
+    TResult invalidDateOfBirth(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(String failedValue),
@@ -1159,6 +1380,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     @required TResult exceedingLength(ExceedingLength<T> value),
     @required TResult exceedingValue(ExceedingValue<T> value),
     @required TResult invalidDate(InvalidDate<T> value),
+    @required TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
     @required TResult empty(Empty<T> value),
     @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
@@ -1167,6 +1389,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     assert(exceedingLength != null);
     assert(exceedingValue != null);
     assert(invalidDate != null);
+    assert(invalidDateOfBirth != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -1180,6 +1403,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult exceedingLength(ExceedingLength<T> value),
     TResult exceedingValue(ExceedingValue<T> value),
     TResult invalidDate(InvalidDate<T> value),
+    TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
     TResult empty(Empty<T> value),
     TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),
@@ -1199,5 +1423,6 @@ abstract class ShortPassword<T> implements ValueFailure<T> {
       _$ShortPassword<T>;
 
   String get failedValue;
+  @JsonKey(ignore: true)
   $ShortPasswordCopyWith<T, ShortPassword<T>> get copyWith;
 }

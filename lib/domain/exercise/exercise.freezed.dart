@@ -45,6 +45,7 @@ mixin _$Exercise {
   ExerciseDate get date;
   SetsList<Sets> get setsList;
 
+  @JsonKey(ignore: true)
   $ExerciseCopyWith<Exercise> get copyWith;
 }
 
@@ -199,6 +200,7 @@ class _$_Exercise extends _Exercise {
       const DeepCollectionEquality().hash(date) ^
       const DeepCollectionEquality().hash(setsList);
 
+  @JsonKey(ignore: true)
   @override
   _$ExerciseCopyWith<_Exercise> get copyWith =>
       __$ExerciseCopyWithImpl<_Exercise>(this, _$identity);
@@ -227,5 +229,6 @@ abstract class _Exercise extends Exercise {
   @override
   SetsList<Sets> get setsList;
   @override
+  @JsonKey(ignore: true)
   _$ExerciseCopyWith<_Exercise> get copyWith;
 }

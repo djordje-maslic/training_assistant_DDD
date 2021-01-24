@@ -51,6 +51,7 @@ mixin _$MealFailures<T> {
     @required TResult orElse(),
   });
 
+  @JsonKey(ignore: true)
   $MealFailuresCopyWith<T, MealFailures<T>> get copyWith;
 }
 
@@ -151,6 +152,7 @@ class _$StringToLong<T> implements StringToLong<T> {
       const DeepCollectionEquality().hash(failedValue) ^
       const DeepCollectionEquality().hash(max);
 
+  @JsonKey(ignore: true)
   @override
   $StringToLongCopyWith<T, StringToLong<T>> get copyWith =>
       _$StringToLongCopyWithImpl<T, StringToLong<T>>(this, _$identity);
@@ -209,5 +211,6 @@ abstract class StringToLong<T> implements MealFailures<T> {
   @override
   int get max;
   @override
+  @JsonKey(ignore: true)
   $StringToLongCopyWith<T, StringToLong<T>> get copyWith;
 }

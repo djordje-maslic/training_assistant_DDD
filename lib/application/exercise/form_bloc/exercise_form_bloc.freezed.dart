@@ -178,6 +178,7 @@ class _$_Initialized implements _Initialized {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(initialExerciseOption);
 
+  @JsonKey(ignore: true)
   @override
   _$InitializedCopyWith<_Initialized> get copyWith =>
       __$InitializedCopyWithImpl<_Initialized>(this, _$identity);
@@ -264,6 +265,7 @@ abstract class _Initialized implements ExerciseFormEvent {
       _$_Initialized;
 
   Option<Exercise> get initialExerciseOption;
+  @JsonKey(ignore: true)
   _$InitializedCopyWith<_Initialized> get copyWith;
 }
 
@@ -320,6 +322,7 @@ class _$_ExerciseNameChanged implements _ExerciseNameChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(nameStr);
 
+  @JsonKey(ignore: true)
   @override
   _$ExerciseNameChangedCopyWith<_ExerciseNameChanged> get copyWith =>
       __$ExerciseNameChangedCopyWithImpl<_ExerciseNameChanged>(
@@ -406,6 +409,7 @@ abstract class _ExerciseNameChanged implements ExerciseFormEvent {
   const factory _ExerciseNameChanged(String nameStr) = _$_ExerciseNameChanged;
 
   String get nameStr;
+  @JsonKey(ignore: true)
   _$ExerciseNameChangedCopyWith<_ExerciseNameChanged> get copyWith;
 }
 
@@ -462,6 +466,7 @@ class _$_ExerciseDateChanged implements _ExerciseDateChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(dateInt);
 
+  @JsonKey(ignore: true)
   @override
   _$ExerciseDateChangedCopyWith<_ExerciseDateChanged> get copyWith =>
       __$ExerciseDateChangedCopyWithImpl<_ExerciseDateChanged>(
@@ -548,6 +553,7 @@ abstract class _ExerciseDateChanged implements ExerciseFormEvent {
   const factory _ExerciseDateChanged(int dateInt) = _$_ExerciseDateChanged;
 
   int get dateInt;
+  @JsonKey(ignore: true)
   _$ExerciseDateChangedCopyWith<_ExerciseDateChanged> get copyWith;
 }
 
@@ -607,6 +613,7 @@ class _$_ExerciseSereiesNumbChanged implements _ExerciseSereiesNumbChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(userName);
 
+  @JsonKey(ignore: true)
   @override
   _$ExerciseSereiesNumbChangedCopyWith<_ExerciseSereiesNumbChanged>
       get copyWith => __$ExerciseSereiesNumbChangedCopyWithImpl<
@@ -694,6 +701,7 @@ abstract class _ExerciseSereiesNumbChanged implements ExerciseFormEvent {
       _$_ExerciseSereiesNumbChanged;
 
   String get userName;
+  @JsonKey(ignore: true)
   _$ExerciseSereiesNumbChangedCopyWith<_ExerciseSereiesNumbChanged>
       get copyWith;
 }
@@ -755,6 +763,7 @@ class _$_ExerciseRepetitionsListChanged
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(sets);
 
+  @JsonKey(ignore: true)
   @override
   _$ExerciseRepetitionsListChangedCopyWith<_ExerciseRepetitionsListChanged>
       get copyWith => __$ExerciseRepetitionsListChangedCopyWithImpl<
@@ -842,6 +851,7 @@ abstract class _ExerciseRepetitionsListChanged implements ExerciseFormEvent {
       _$_ExerciseRepetitionsListChanged;
 
   KtList<SetItemPrimitive> get sets;
+  @JsonKey(ignore: true)
   _$ExerciseRepetitionsListChangedCopyWith<_ExerciseRepetitionsListChanged>
       get copyWith;
 }
@@ -1001,6 +1011,7 @@ mixin _$ExerciseFormState {
   bool get isSaving;
   Option<Either<ExerciseFailure, Unit>> get saveFailureOrSuccessOption;
 
+  @JsonKey(ignore: true)
   $ExerciseFormStateCopyWith<ExerciseFormState> get copyWith;
 }
 
@@ -1173,6 +1184,7 @@ class _$_ExerciseFormState implements _ExerciseFormState {
       const DeepCollectionEquality().hash(isSaving) ^
       const DeepCollectionEquality().hash(saveFailureOrSuccessOption);
 
+  @JsonKey(ignore: true)
   @override
   _$ExerciseFormStateCopyWith<_ExerciseFormState> get copyWith =>
       __$ExerciseFormStateCopyWithImpl<_ExerciseFormState>(this, _$identity);
@@ -1203,5 +1215,6 @@ abstract class _ExerciseFormState implements ExerciseFormState {
   @override
   Option<Either<ExerciseFailure, Unit>> get saveFailureOrSuccessOption;
   @override
+  @JsonKey(ignore: true)
   _$ExerciseFormStateCopyWith<_ExerciseFormState> get copyWith;
 }
