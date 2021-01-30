@@ -4,8 +4,6 @@ import 'package:reminder_app/application/auth/auth_bloc.dart';
 import 'package:reminder_app/application/body_measures/body_measures_watcher/body_measures_watcher_bloc.dart';
 import 'package:reminder_app/application/user/user_watcher/user_watcher_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:reminder_app/domain/body_measures/body_measures.dart';
-import 'package:reminder_app/domain/body_measures/value_objects.dart';
 import 'package:reminder_app/injectable.dart';
 import 'package:reminder_app/presentation/body_measures/body_measures_overview/widgets/body_measures_data_table_widget.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_time_converter.dart';
@@ -26,54 +24,33 @@ class UserDataTable extends StatelessWidget {
 
             return ListView(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: 250,
-                        child: Text(
-                          'Name: ${user.userName.getOrCrash()}',
-                          style: const TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                      RaisedButton(
-                        onPressed: () {
-                          ExtendedNavigator.of(context)
-                              .pushUserFormPage(initialUser: user);
-                        },
-                        child: Row(
-                          children: const [
-                            Icon(Icons.edit),
-                            Text('Edit profile'),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
                 DataTable(
                   columnSpacing: 20.0,
-                  dataRowHeight: 60,
+                  dataRowHeight: 40,
+                  headingRowHeight: 40,
                   columns: const [
+                    DataColumn(
+                      label: Text(
+                        'User name',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
                     DataColumn(
                       tooltip: 'Number of set',
                       label: Text(
                         'Date of birth',
                         style: TextStyle(
-                          fontSize: 30,
+                          fontSize: 15,
                         ),
                       ),
                     ),
                     DataColumn(
                       label: Text(
-                        'Height',
+                        'Gender',
                         style: TextStyle(
-                          fontSize: 30,
+                          fontSize: 15,
                         ),
                       ),
                     ),
@@ -83,17 +60,26 @@ class UserDataTable extends StatelessWidget {
                       cells: [
                         DataCell(
                           Text(
+                            user.userName.getOrCrash() ?? 'none',
+                            style: const TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),showEditIcon: true,onTap: ()=> ExtendedNavigator.of(context)
+                            .pushUserFormPage(initialUser: user),
+                        ),
+                        DataCell(
+                          Text(
                             '${dateTimeConverter(user.userDateOfBirth.getOrCrash())} ',
                             style: const TextStyle(
-                              fontSize: 30,
+                              fontSize: 20,
                             ),
                           ),
                         ),
                         DataCell(
                           Text(
-                            '${user.userHeight.getOrCrash().toString()} cm',
+                            user.userGender.getOrCrash() ? 'male' : 'female',
                             style: const TextStyle(
-                              fontSize: 30,
+                              fontSize: 20,
                             ),
                           ),
                         ),
@@ -127,21 +113,7 @@ class UserDataTable extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 200,
-                      child: RaisedButton(
-                        onPressed: () {
-                          ExtendedNavigator.of(context)
-                              .pushBodyMeasuresFormPage(bodyMeasures: null);
-                        },
-                        child: Row(
-                          children: const [
-                            Icon(Icons.edit),
-                            Text('New body measures'),
-                          ],
-                        ),
-                      ),
-                    ),
+                    const SizedBox(width: 200,)
                   ],
                 ),
               ],
@@ -152,32 +124,17 @@ class UserDataTable extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      RaisedButton(
-                        onPressed: () {
-                          ExtendedNavigator.of(context)
-                              .pushUserFormPage(initialUser: null);
-                        },
-                        child: Row(
-                          children: const [
-                            Icon(Icons.edit),
-                            Text('Edit profile'),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 300,
-                        child: Text(
-                          'Name: none',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                    ],
+                  child: RaisedButton(
+                    onPressed: () {
+                      ExtendedNavigator.of(context)
+                          .pushUserFormPage(initialUser: null);
+                    },
+                    child: Row(
+                      children: const [
+                        Icon(Icons.edit),
+                        Text('Edit profile'),
+                      ],
+                    ),
                   ),
                 ),
                 DataTable(
@@ -185,11 +142,20 @@ class UserDataTable extends StatelessWidget {
                   dataRowHeight: 60,
                   columns: const [
                     DataColumn(
+
+                      label: Text(
+                        'User name',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                    DataColumn(
                       tooltip: 'Number of set',
                       label: Text(
                         'Date of birth',
                         style: TextStyle(
-                          fontSize: 30,
+                          fontSize: 15,
                         ),
                       ),
                     ),
@@ -197,7 +163,7 @@ class UserDataTable extends StatelessWidget {
                       label: Text(
                         'Height',
                         style: TextStyle(
-                          fontSize: 30,
+                          fontSize: 15,
                         ),
                       ),
                     ),
@@ -209,7 +175,15 @@ class UserDataTable extends StatelessWidget {
                           Text(
                             'none',
                             style: TextStyle(
-                              fontSize: 30,
+                              fontSize: 15,
+                            ),
+                          ),
+                        ),
+                        DataCell(
+                          Text(
+                            'none',
+                            style: TextStyle(
+                              fontSize: 15,
                             ),
                           ),
                         ),
@@ -217,12 +191,34 @@ class UserDataTable extends StatelessWidget {
                           Text(
                             '0.0',
                             style: TextStyle(
-                              fontSize: 30,
+                              fontSize: 15,
                             ),
                           ),
                         ),
                       ],
                     ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 120,
+                      child: RaisedButton(
+                        onPressed: () {
+                          context
+                              .read<AuthBloc>()
+                              .add(const AuthEvent.signOut());
+                        },
+                        child: Row(
+                          children: const [
+                            Icon(Icons.exit_to_app),
+                            Text('Sign Out'),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 200,)
                   ],
                 ),
               ],

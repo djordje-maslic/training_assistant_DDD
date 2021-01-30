@@ -51,14 +51,14 @@ Future<void> _selectDate(
             ),
             child: child);
       });
-  if (picked != null && picked.year != DateTime.now().year ||
+  if (picked != null && (picked.year != DateTime.now().year ||
       picked.month != DateTime.now().month ||
-      picked.day != DateTime.now().day) {
+      picked.day != DateTime.now().day)) {
     context.read<ExerciseFormBloc>().add(
         ExerciseFormEvent.exerciseDateChanged(picked.millisecondsSinceEpoch));
   } else {
-    context.read<ExerciseFormBloc>().add(ExerciseFormEvent.exerciseDateChanged(
-        DateTime.now().millisecondsSinceEpoch));
+    context.read<ExerciseFormBloc>().add(
+        ExerciseFormEvent.exerciseDateChanged(selectedDate.millisecondsSinceEpoch));
   }
 }
 

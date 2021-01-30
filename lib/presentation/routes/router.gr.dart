@@ -115,6 +115,7 @@ class Router extends RouterBase {
         builder: (context) => BodyMeasuresFormPage(
           key: args.key,
           bodyMeasures: args.bodyMeasures,
+          lastBodyMeasuresForHintText: args.lastBodyMeasuresForHintText,
         ),
         settings: data,
       );
@@ -162,11 +163,14 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushBodyMeasuresFormPage({
     Key key,
     @required BodyMeasures bodyMeasures,
+    @required BodyMeasures lastBodyMeasuresForHintText,
   }) =>
       push<dynamic>(
         Routes.bodyMeasuresFormPage,
-        arguments:
-            BodyMeasuresFormPageArguments(key: key, bodyMeasures: bodyMeasures),
+        arguments: BodyMeasuresFormPageArguments(
+            key: key,
+            bodyMeasures: bodyMeasures,
+            lastBodyMeasuresForHintText: lastBodyMeasuresForHintText),
       );
 }
 
@@ -192,5 +196,9 @@ class UserFormPageArguments {
 class BodyMeasuresFormPageArguments {
   final Key key;
   final BodyMeasures bodyMeasures;
-  BodyMeasuresFormPageArguments({this.key, @required this.bodyMeasures});
+  final BodyMeasures lastBodyMeasuresForHintText;
+  BodyMeasuresFormPageArguments(
+      {this.key,
+      @required this.bodyMeasures,
+      @required this.lastBodyMeasuresForHintText});
 }

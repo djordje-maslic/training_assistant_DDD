@@ -22,13 +22,13 @@ class _$UserDtoTearOff {
       @required String emailAddress,
       @required String userName,
       @required int userDateOfBirth,
-      @required double userHeight}) {
+      @required bool userGender}) {
     return _UserDto(
       id: id,
       emailAddress: emailAddress,
       userName: userName,
       userDateOfBirth: userDateOfBirth,
-      userHeight: userHeight,
+      userGender: userGender,
     );
   }
 
@@ -49,7 +49,7 @@ mixin _$UserDto {
   String get emailAddress;
   String get userName;
   int get userDateOfBirth;
-  double get userHeight;
+  bool get userGender;
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
@@ -65,7 +65,7 @@ abstract class $UserDtoCopyWith<$Res> {
       String emailAddress,
       String userName,
       int userDateOfBirth,
-      double userHeight});
+      bool userGender});
 }
 
 /// @nodoc
@@ -82,7 +82,7 @@ class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
     Object emailAddress = freezed,
     Object userName = freezed,
     Object userDateOfBirth = freezed,
-    Object userHeight = freezed,
+    Object userGender = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
@@ -93,8 +93,8 @@ class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
       userDateOfBirth: userDateOfBirth == freezed
           ? _value.userDateOfBirth
           : userDateOfBirth as int,
-      userHeight:
-          userHeight == freezed ? _value.userHeight : userHeight as double,
+      userGender:
+          userGender == freezed ? _value.userGender : userGender as bool,
     ));
   }
 }
@@ -109,7 +109,7 @@ abstract class _$UserDtoCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
       String emailAddress,
       String userName,
       int userDateOfBirth,
-      double userHeight});
+      bool userGender});
 }
 
 /// @nodoc
@@ -127,7 +127,7 @@ class __$UserDtoCopyWithImpl<$Res> extends _$UserDtoCopyWithImpl<$Res>
     Object emailAddress = freezed,
     Object userName = freezed,
     Object userDateOfBirth = freezed,
-    Object userHeight = freezed,
+    Object userGender = freezed,
   }) {
     return _then(_UserDto(
       id: id == freezed ? _value.id : id as String,
@@ -138,8 +138,8 @@ class __$UserDtoCopyWithImpl<$Res> extends _$UserDtoCopyWithImpl<$Res>
       userDateOfBirth: userDateOfBirth == freezed
           ? _value.userDateOfBirth
           : userDateOfBirth as int,
-      userHeight:
-          userHeight == freezed ? _value.userHeight : userHeight as double,
+      userGender:
+          userGender == freezed ? _value.userGender : userGender as bool,
     ));
   }
 }
@@ -153,11 +153,11 @@ class _$_UserDto extends _UserDto {
       @required this.emailAddress,
       @required this.userName,
       @required this.userDateOfBirth,
-      @required this.userHeight})
+      @required this.userGender})
       : assert(emailAddress != null),
         assert(userName != null),
         assert(userDateOfBirth != null),
-        assert(userHeight != null),
+        assert(userGender != null),
         super._();
 
   factory _$_UserDto.fromJson(Map<String, dynamic> json) =>
@@ -173,11 +173,11 @@ class _$_UserDto extends _UserDto {
   @override
   final int userDateOfBirth;
   @override
-  final double userHeight;
+  final bool userGender;
 
   @override
   String toString() {
-    return 'UserDto(id: $id, emailAddress: $emailAddress, userName: $userName, userDateOfBirth: $userDateOfBirth, userHeight: $userHeight)';
+    return 'UserDto(id: $id, emailAddress: $emailAddress, userName: $userName, userDateOfBirth: $userDateOfBirth, userGender: $userGender)';
   }
 
   @override
@@ -195,9 +195,9 @@ class _$_UserDto extends _UserDto {
             (identical(other.userDateOfBirth, userDateOfBirth) ||
                 const DeepCollectionEquality()
                     .equals(other.userDateOfBirth, userDateOfBirth)) &&
-            (identical(other.userHeight, userHeight) ||
+            (identical(other.userGender, userGender) ||
                 const DeepCollectionEquality()
-                    .equals(other.userHeight, userHeight)));
+                    .equals(other.userGender, userGender)));
   }
 
   @override
@@ -207,7 +207,7 @@ class _$_UserDto extends _UserDto {
       const DeepCollectionEquality().hash(emailAddress) ^
       const DeepCollectionEquality().hash(userName) ^
       const DeepCollectionEquality().hash(userDateOfBirth) ^
-      const DeepCollectionEquality().hash(userHeight);
+      const DeepCollectionEquality().hash(userGender);
 
   @JsonKey(ignore: true)
   @override
@@ -227,7 +227,7 @@ abstract class _UserDto extends UserDto {
       @required String emailAddress,
       @required String userName,
       @required int userDateOfBirth,
-      @required double userHeight}) = _$_UserDto;
+      @required bool userGender}) = _$_UserDto;
 
   factory _UserDto.fromJson(Map<String, dynamic> json) = _$_UserDto.fromJson;
 
@@ -241,7 +241,7 @@ abstract class _UserDto extends UserDto {
   @override
   int get userDateOfBirth;
   @override
-  double get userHeight;
+  bool get userGender;
   @override
   @JsonKey(ignore: true)
   _$UserDtoCopyWith<_UserDto> get copyWith;

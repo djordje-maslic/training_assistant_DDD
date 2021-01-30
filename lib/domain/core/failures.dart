@@ -22,6 +22,9 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
     @required T failedValue,
   }) = InvalidDateOfBirth<T>;
 
+  const factory ValueFailure.invalidBool({@required T failedValue}) =
+  InvalidBool<T>;
+
   const factory ValueFailure.empty({
     @required T failedValue,
   }) = Empty<T>;
@@ -36,4 +39,6 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
 
   const factory ValueFailure.shortPassword({@required String failedValue}) =
       ShortPassword<T>;
+
+
 }

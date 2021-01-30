@@ -61,7 +61,9 @@ Future<void> _selectDate(
     context.read<BodyMeasuresFormBloc>().add(
         BodyMeasuresFormEvent.bodyMeasuresDateChanged(
             picked.millisecondsSinceEpoch));
-  }else if(selectedDate == null){}
+  }else{  context.read<BodyMeasuresFormBloc>().add(
+      BodyMeasuresFormEvent.bodyMeasuresDateChanged(
+          selectedDate.millisecondsSinceEpoch));}
 
 }
 
@@ -98,6 +100,7 @@ class DateText extends HookWidget {
               ),
             ),
             validator: (_) {
+
               return context
                   .read<BodyMeasuresFormBloc>()
                   .state

@@ -17,7 +17,7 @@ abstract class UserDto implements _$UserDto {
     @required String emailAddress,
     @required String userName,
     @required int userDateOfBirth,
-    @required double userHeight,
+    @required bool userGender,
   }) = _UserDto;
 
   factory UserDto.fromDomain(User user) {
@@ -26,7 +26,7 @@ abstract class UserDto implements _$UserDto {
       emailAddress: user.emailAddress.getOrCrash(),
       userName: user.userName.getOrCrash(),
       userDateOfBirth: user.userDateOfBirth.getOrCrash(),
-      userHeight: user.userHeight.getOrCrash(),
+      userGender: user.userGender.getOrCrash(),
     );
   }
 
@@ -36,7 +36,7 @@ abstract class UserDto implements _$UserDto {
       emailAddress: EmailAddress(emailAddress),
       userName: UserName(userName),
       userDateOfBirth: UserDateOfBirth(userDateOfBirth),
-      userHeight: UserHeight(userHeight),
+      userGender: UserGender(input:userGender),
     );
   }
 

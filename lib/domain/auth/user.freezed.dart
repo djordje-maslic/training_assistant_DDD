@@ -19,13 +19,13 @@ class _$UserTearOff {
       @required EmailAddress emailAddress,
       @required UserName userName,
       @required UserDateOfBirth userDateOfBirth,
-      @required UserHeight userHeight}) {
+      @required UserGender userGender}) {
     return _User(
       id: id,
       emailAddress: emailAddress,
       userName: userName,
       userDateOfBirth: userDateOfBirth,
-      userHeight: userHeight,
+      userGender: userGender,
     );
   }
 }
@@ -40,7 +40,7 @@ mixin _$User {
   EmailAddress get emailAddress;
   UserName get userName;
   UserDateOfBirth get userDateOfBirth;
-  UserHeight get userHeight;
+  UserGender get userGender;
 
   @JsonKey(ignore: true)
   $UserCopyWith<User> get copyWith;
@@ -55,7 +55,7 @@ abstract class $UserCopyWith<$Res> {
       EmailAddress emailAddress,
       UserName userName,
       UserDateOfBirth userDateOfBirth,
-      UserHeight userHeight});
+      UserGender userGender});
 }
 
 /// @nodoc
@@ -72,7 +72,7 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
     Object emailAddress = freezed,
     Object userName = freezed,
     Object userDateOfBirth = freezed,
-    Object userHeight = freezed,
+    Object userGender = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as UniqueId,
@@ -83,8 +83,8 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
       userDateOfBirth: userDateOfBirth == freezed
           ? _value.userDateOfBirth
           : userDateOfBirth as UserDateOfBirth,
-      userHeight:
-          userHeight == freezed ? _value.userHeight : userHeight as UserHeight,
+      userGender:
+          userGender == freezed ? _value.userGender : userGender as UserGender,
     ));
   }
 }
@@ -99,7 +99,7 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       EmailAddress emailAddress,
       UserName userName,
       UserDateOfBirth userDateOfBirth,
-      UserHeight userHeight});
+      UserGender userGender});
 }
 
 /// @nodoc
@@ -117,7 +117,7 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
     Object emailAddress = freezed,
     Object userName = freezed,
     Object userDateOfBirth = freezed,
-    Object userHeight = freezed,
+    Object userGender = freezed,
   }) {
     return _then(_User(
       id: id == freezed ? _value.id : id as UniqueId,
@@ -128,8 +128,8 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
       userDateOfBirth: userDateOfBirth == freezed
           ? _value.userDateOfBirth
           : userDateOfBirth as UserDateOfBirth,
-      userHeight:
-          userHeight == freezed ? _value.userHeight : userHeight as UserHeight,
+      userGender:
+          userGender == freezed ? _value.userGender : userGender as UserGender,
     ));
   }
 }
@@ -141,12 +141,12 @@ class _$_User extends _User {
       @required this.emailAddress,
       @required this.userName,
       @required this.userDateOfBirth,
-      @required this.userHeight})
+      @required this.userGender})
       : assert(id != null),
         assert(emailAddress != null),
         assert(userName != null),
         assert(userDateOfBirth != null),
-        assert(userHeight != null),
+        assert(userGender != null),
         super._();
 
   @override
@@ -158,11 +158,11 @@ class _$_User extends _User {
   @override
   final UserDateOfBirth userDateOfBirth;
   @override
-  final UserHeight userHeight;
+  final UserGender userGender;
 
   @override
   String toString() {
-    return 'User(id: $id, emailAddress: $emailAddress, userName: $userName, userDateOfBirth: $userDateOfBirth, userHeight: $userHeight)';
+    return 'User(id: $id, emailAddress: $emailAddress, userName: $userName, userDateOfBirth: $userDateOfBirth, userGender: $userGender)';
   }
 
   @override
@@ -180,9 +180,9 @@ class _$_User extends _User {
             (identical(other.userDateOfBirth, userDateOfBirth) ||
                 const DeepCollectionEquality()
                     .equals(other.userDateOfBirth, userDateOfBirth)) &&
-            (identical(other.userHeight, userHeight) ||
+            (identical(other.userGender, userGender) ||
                 const DeepCollectionEquality()
-                    .equals(other.userHeight, userHeight)));
+                    .equals(other.userGender, userGender)));
   }
 
   @override
@@ -192,7 +192,7 @@ class _$_User extends _User {
       const DeepCollectionEquality().hash(emailAddress) ^
       const DeepCollectionEquality().hash(userName) ^
       const DeepCollectionEquality().hash(userDateOfBirth) ^
-      const DeepCollectionEquality().hash(userHeight);
+      const DeepCollectionEquality().hash(userGender);
 
   @JsonKey(ignore: true)
   @override
@@ -207,7 +207,7 @@ abstract class _User extends User {
       @required EmailAddress emailAddress,
       @required UserName userName,
       @required UserDateOfBirth userDateOfBirth,
-      @required UserHeight userHeight}) = _$_User;
+      @required UserGender userGender}) = _$_User;
 
   @override
   UniqueId get id;
@@ -218,7 +218,7 @@ abstract class _User extends User {
   @override
   UserDateOfBirth get userDateOfBirth;
   @override
-  UserHeight get userHeight;
+  UserGender get userGender;
   @override
   @JsonKey(ignore: true)
   _$UserCopyWith<_User> get copyWith;

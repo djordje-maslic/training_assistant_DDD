@@ -6,6 +6,8 @@ part 'user_failure.freezed.dart';
 abstract class UserFailure with _$UserFailure {
   const factory UserFailure.unexpected() = _Unexpected;
 
+  const factory UserFailure.noUserProfile() = _NoUserProfile;
+
   const factory UserFailure.insufficientPermission() = _InsufficientPermission;
 
   const factory UserFailure.unableToUpdate() = _UnableToUpdate;

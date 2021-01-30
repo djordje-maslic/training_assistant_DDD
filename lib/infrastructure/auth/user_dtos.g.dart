@@ -11,7 +11,7 @@ _$_UserDto _$_$_UserDtoFromJson(Map<String, dynamic> json) {
     emailAddress: json['emailAddress'] as String,
     userName: json['userName'] as String,
     userDateOfBirth: json['userDateOfBirth'] as int,
-    userHeight: (json['userHeight'] as num)?.toDouble(),
+    userGender: json['userGender'] as bool,
   );
 }
 
@@ -20,5 +20,5 @@ Map<String, dynamic> _$_$_UserDtoToJson(_$_UserDto instance) =>
       'emailAddress': instance.emailAddress,
       'userName': instance.userName,
       'userDateOfBirth': instance.userDateOfBirth,
-      'userHeight': instance.userHeight,
+      'userGender': instance.userGender,
     };

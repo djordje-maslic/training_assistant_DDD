@@ -46,6 +46,13 @@ class _$ValueFailureTearOff {
   }
 
 // ignore: unused_element
+  InvalidBool<T> invalidBool<T>({@required T failedValue}) {
+    return InvalidBool<T>(
+      failedValue: failedValue,
+    );
+  }
+
+// ignore: unused_element
   Empty<T> empty<T>({@required T failedValue}) {
     return Empty<T>(
       failedValue: failedValue,
@@ -87,6 +94,7 @@ mixin _$ValueFailure<T> {
     @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
     @required TResult invalidDateOfBirth(T failedValue),
+    @required TResult invalidBool(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(String failedValue),
@@ -98,6 +106,7 @@ mixin _$ValueFailure<T> {
     TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
     TResult invalidDateOfBirth(T failedValue),
+    TResult invalidBool(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(String failedValue),
@@ -110,6 +119,7 @@ mixin _$ValueFailure<T> {
     @required TResult exceedingValue(ExceedingValue<T> value),
     @required TResult invalidDate(InvalidDate<T> value),
     @required TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
+    @required TResult invalidBool(InvalidBool<T> value),
     @required TResult empty(Empty<T> value),
     @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
@@ -121,6 +131,7 @@ mixin _$ValueFailure<T> {
     TResult exceedingValue(ExceedingValue<T> value),
     TResult invalidDate(InvalidDate<T> value),
     TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
+    TResult invalidBool(InvalidBool<T> value),
     TResult empty(Empty<T> value),
     TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),
@@ -223,6 +234,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
     @required TResult invalidDateOfBirth(T failedValue),
+    @required TResult invalidBool(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(String failedValue),
@@ -232,6 +244,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     assert(exceedingValue != null);
     assert(invalidDate != null);
     assert(invalidDateOfBirth != null);
+    assert(invalidBool != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -246,6 +259,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
     TResult invalidDateOfBirth(T failedValue),
+    TResult invalidBool(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(String failedValue),
@@ -266,6 +280,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     @required TResult exceedingValue(ExceedingValue<T> value),
     @required TResult invalidDate(InvalidDate<T> value),
     @required TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
+    @required TResult invalidBool(InvalidBool<T> value),
     @required TResult empty(Empty<T> value),
     @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
@@ -275,6 +290,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     assert(exceedingValue != null);
     assert(invalidDate != null);
     assert(invalidDateOfBirth != null);
+    assert(invalidBool != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -289,6 +305,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult exceedingValue(ExceedingValue<T> value),
     TResult invalidDate(InvalidDate<T> value),
     TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
+    TResult invalidBool(InvalidBool<T> value),
     TResult empty(Empty<T> value),
     TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),
@@ -390,6 +407,7 @@ class _$ExceedingValue<T> implements ExceedingValue<T> {
     @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
     @required TResult invalidDateOfBirth(T failedValue),
+    @required TResult invalidBool(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(String failedValue),
@@ -399,6 +417,7 @@ class _$ExceedingValue<T> implements ExceedingValue<T> {
     assert(exceedingValue != null);
     assert(invalidDate != null);
     assert(invalidDateOfBirth != null);
+    assert(invalidBool != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -413,6 +432,7 @@ class _$ExceedingValue<T> implements ExceedingValue<T> {
     TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
     TResult invalidDateOfBirth(T failedValue),
+    TResult invalidBool(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(String failedValue),
@@ -433,6 +453,7 @@ class _$ExceedingValue<T> implements ExceedingValue<T> {
     @required TResult exceedingValue(ExceedingValue<T> value),
     @required TResult invalidDate(InvalidDate<T> value),
     @required TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
+    @required TResult invalidBool(InvalidBool<T> value),
     @required TResult empty(Empty<T> value),
     @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
@@ -442,6 +463,7 @@ class _$ExceedingValue<T> implements ExceedingValue<T> {
     assert(exceedingValue != null);
     assert(invalidDate != null);
     assert(invalidDateOfBirth != null);
+    assert(invalidBool != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -456,6 +478,7 @@ class _$ExceedingValue<T> implements ExceedingValue<T> {
     TResult exceedingValue(ExceedingValue<T> value),
     TResult invalidDate(InvalidDate<T> value),
     TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
+    TResult invalidBool(InvalidBool<T> value),
     TResult empty(Empty<T> value),
     TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),
@@ -548,6 +571,7 @@ class _$InvalidDate<T> implements InvalidDate<T> {
     @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
     @required TResult invalidDateOfBirth(T failedValue),
+    @required TResult invalidBool(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(String failedValue),
@@ -557,6 +581,7 @@ class _$InvalidDate<T> implements InvalidDate<T> {
     assert(exceedingValue != null);
     assert(invalidDate != null);
     assert(invalidDateOfBirth != null);
+    assert(invalidBool != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -571,6 +596,7 @@ class _$InvalidDate<T> implements InvalidDate<T> {
     TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
     TResult invalidDateOfBirth(T failedValue),
+    TResult invalidBool(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(String failedValue),
@@ -591,6 +617,7 @@ class _$InvalidDate<T> implements InvalidDate<T> {
     @required TResult exceedingValue(ExceedingValue<T> value),
     @required TResult invalidDate(InvalidDate<T> value),
     @required TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
+    @required TResult invalidBool(InvalidBool<T> value),
     @required TResult empty(Empty<T> value),
     @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
@@ -600,6 +627,7 @@ class _$InvalidDate<T> implements InvalidDate<T> {
     assert(exceedingValue != null);
     assert(invalidDate != null);
     assert(invalidDateOfBirth != null);
+    assert(invalidBool != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -614,6 +642,7 @@ class _$InvalidDate<T> implements InvalidDate<T> {
     TResult exceedingValue(ExceedingValue<T> value),
     TResult invalidDate(InvalidDate<T> value),
     TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
+    TResult invalidBool(InvalidBool<T> value),
     TResult empty(Empty<T> value),
     TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),
@@ -705,6 +734,7 @@ class _$InvalidDateOfBirth<T> implements InvalidDateOfBirth<T> {
     @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
     @required TResult invalidDateOfBirth(T failedValue),
+    @required TResult invalidBool(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(String failedValue),
@@ -714,6 +744,7 @@ class _$InvalidDateOfBirth<T> implements InvalidDateOfBirth<T> {
     assert(exceedingValue != null);
     assert(invalidDate != null);
     assert(invalidDateOfBirth != null);
+    assert(invalidBool != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -728,6 +759,7 @@ class _$InvalidDateOfBirth<T> implements InvalidDateOfBirth<T> {
     TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
     TResult invalidDateOfBirth(T failedValue),
+    TResult invalidBool(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(String failedValue),
@@ -748,6 +780,7 @@ class _$InvalidDateOfBirth<T> implements InvalidDateOfBirth<T> {
     @required TResult exceedingValue(ExceedingValue<T> value),
     @required TResult invalidDate(InvalidDate<T> value),
     @required TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
+    @required TResult invalidBool(InvalidBool<T> value),
     @required TResult empty(Empty<T> value),
     @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
@@ -757,6 +790,7 @@ class _$InvalidDateOfBirth<T> implements InvalidDateOfBirth<T> {
     assert(exceedingValue != null);
     assert(invalidDate != null);
     assert(invalidDateOfBirth != null);
+    assert(invalidBool != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -771,6 +805,7 @@ class _$InvalidDateOfBirth<T> implements InvalidDateOfBirth<T> {
     TResult exceedingValue(ExceedingValue<T> value),
     TResult invalidDate(InvalidDate<T> value),
     TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
+    TResult invalidBool(InvalidBool<T> value),
     TResult empty(Empty<T> value),
     TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),
@@ -792,6 +827,168 @@ abstract class InvalidDateOfBirth<T> implements ValueFailure<T> {
   T get failedValue;
   @JsonKey(ignore: true)
   $InvalidDateOfBirthCopyWith<T, InvalidDateOfBirth<T>> get copyWith;
+}
+
+/// @nodoc
+abstract class $InvalidBoolCopyWith<T, $Res> {
+  factory $InvalidBoolCopyWith(
+          InvalidBool<T> value, $Res Function(InvalidBool<T>) then) =
+      _$InvalidBoolCopyWithImpl<T, $Res>;
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class _$InvalidBoolCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $InvalidBoolCopyWith<T, $Res> {
+  _$InvalidBoolCopyWithImpl(
+      InvalidBool<T> _value, $Res Function(InvalidBool<T>) _then)
+      : super(_value, (v) => _then(v as InvalidBool<T>));
+
+  @override
+  InvalidBool<T> get _value => super._value as InvalidBool<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(InvalidBool<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as T,
+    ));
+  }
+}
+
+/// @nodoc
+class _$InvalidBool<T> implements InvalidBool<T> {
+  const _$InvalidBool({@required this.failedValue})
+      : assert(failedValue != null);
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.invalidBool(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is InvalidBool<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
+
+  @JsonKey(ignore: true)
+  @override
+  $InvalidBoolCopyWith<T, InvalidBool<T>> get copyWith =>
+      _$InvalidBoolCopyWithImpl<T, InvalidBool<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult exceedingLength(T failedValue, int max),
+    @required TResult exceedingValue(T failedValue, num max),
+    @required TResult invalidDate(T failedValue),
+    @required TResult invalidDateOfBirth(T failedValue),
+    @required TResult invalidBool(T failedValue),
+    @required TResult empty(T failedValue),
+    @required TResult listTooLong(T failedValue, int max),
+    @required TResult invalidEmail(String failedValue),
+    @required TResult shortPassword(String failedValue),
+  }) {
+    assert(exceedingLength != null);
+    assert(exceedingValue != null);
+    assert(invalidDate != null);
+    assert(invalidDateOfBirth != null);
+    assert(invalidBool != null);
+    assert(empty != null);
+    assert(listTooLong != null);
+    assert(invalidEmail != null);
+    assert(shortPassword != null);
+    return invalidBool(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult exceedingLength(T failedValue, int max),
+    TResult exceedingValue(T failedValue, num max),
+    TResult invalidDate(T failedValue),
+    TResult invalidDateOfBirth(T failedValue),
+    TResult invalidBool(T failedValue),
+    TResult empty(T failedValue),
+    TResult listTooLong(T failedValue, int max),
+    TResult invalidEmail(String failedValue),
+    TResult shortPassword(String failedValue),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (invalidBool != null) {
+      return invalidBool(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult exceedingLength(ExceedingLength<T> value),
+    @required TResult exceedingValue(ExceedingValue<T> value),
+    @required TResult invalidDate(InvalidDate<T> value),
+    @required TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
+    @required TResult invalidBool(InvalidBool<T> value),
+    @required TResult empty(Empty<T> value),
+    @required TResult listTooLong(ListTooLong<T> value),
+    @required TResult invalidEmail(InvalidEmail<T> value),
+    @required TResult shortPassword(ShortPassword<T> value),
+  }) {
+    assert(exceedingLength != null);
+    assert(exceedingValue != null);
+    assert(invalidDate != null);
+    assert(invalidDateOfBirth != null);
+    assert(invalidBool != null);
+    assert(empty != null);
+    assert(listTooLong != null);
+    assert(invalidEmail != null);
+    assert(shortPassword != null);
+    return invalidBool(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult exceedingLength(ExceedingLength<T> value),
+    TResult exceedingValue(ExceedingValue<T> value),
+    TResult invalidDate(InvalidDate<T> value),
+    TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
+    TResult invalidBool(InvalidBool<T> value),
+    TResult empty(Empty<T> value),
+    TResult listTooLong(ListTooLong<T> value),
+    TResult invalidEmail(InvalidEmail<T> value),
+    TResult shortPassword(ShortPassword<T> value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (invalidBool != null) {
+      return invalidBool(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidBool<T> implements ValueFailure<T> {
+  const factory InvalidBool({@required T failedValue}) = _$InvalidBool<T>;
+
+  T get failedValue;
+  @JsonKey(ignore: true)
+  $InvalidBoolCopyWith<T, InvalidBool<T>> get copyWith;
 }
 
 /// @nodoc
@@ -858,6 +1055,7 @@ class _$Empty<T> implements Empty<T> {
     @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
     @required TResult invalidDateOfBirth(T failedValue),
+    @required TResult invalidBool(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(String failedValue),
@@ -867,6 +1065,7 @@ class _$Empty<T> implements Empty<T> {
     assert(exceedingValue != null);
     assert(invalidDate != null);
     assert(invalidDateOfBirth != null);
+    assert(invalidBool != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -881,6 +1080,7 @@ class _$Empty<T> implements Empty<T> {
     TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
     TResult invalidDateOfBirth(T failedValue),
+    TResult invalidBool(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(String failedValue),
@@ -901,6 +1101,7 @@ class _$Empty<T> implements Empty<T> {
     @required TResult exceedingValue(ExceedingValue<T> value),
     @required TResult invalidDate(InvalidDate<T> value),
     @required TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
+    @required TResult invalidBool(InvalidBool<T> value),
     @required TResult empty(Empty<T> value),
     @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
@@ -910,6 +1111,7 @@ class _$Empty<T> implements Empty<T> {
     assert(exceedingValue != null);
     assert(invalidDate != null);
     assert(invalidDateOfBirth != null);
+    assert(invalidBool != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -924,6 +1126,7 @@ class _$Empty<T> implements Empty<T> {
     TResult exceedingValue(ExceedingValue<T> value),
     TResult invalidDate(InvalidDate<T> value),
     TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
+    TResult invalidBool(InvalidBool<T> value),
     TResult empty(Empty<T> value),
     TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),
@@ -1023,6 +1226,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
     @required TResult invalidDateOfBirth(T failedValue),
+    @required TResult invalidBool(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(String failedValue),
@@ -1032,6 +1236,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     assert(exceedingValue != null);
     assert(invalidDate != null);
     assert(invalidDateOfBirth != null);
+    assert(invalidBool != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -1046,6 +1251,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
     TResult invalidDateOfBirth(T failedValue),
+    TResult invalidBool(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(String failedValue),
@@ -1066,6 +1272,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     @required TResult exceedingValue(ExceedingValue<T> value),
     @required TResult invalidDate(InvalidDate<T> value),
     @required TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
+    @required TResult invalidBool(InvalidBool<T> value),
     @required TResult empty(Empty<T> value),
     @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
@@ -1075,6 +1282,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     assert(exceedingValue != null);
     assert(invalidDate != null);
     assert(invalidDateOfBirth != null);
+    assert(invalidBool != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -1089,6 +1297,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     TResult exceedingValue(ExceedingValue<T> value),
     TResult invalidDate(InvalidDate<T> value),
     TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
+    TResult invalidBool(InvalidBool<T> value),
     TResult empty(Empty<T> value),
     TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),
@@ -1181,6 +1390,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
     @required TResult invalidDateOfBirth(T failedValue),
+    @required TResult invalidBool(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(String failedValue),
@@ -1190,6 +1400,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     assert(exceedingValue != null);
     assert(invalidDate != null);
     assert(invalidDateOfBirth != null);
+    assert(invalidBool != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -1204,6 +1415,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
     TResult invalidDateOfBirth(T failedValue),
+    TResult invalidBool(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(String failedValue),
@@ -1224,6 +1436,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     @required TResult exceedingValue(ExceedingValue<T> value),
     @required TResult invalidDate(InvalidDate<T> value),
     @required TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
+    @required TResult invalidBool(InvalidBool<T> value),
     @required TResult empty(Empty<T> value),
     @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
@@ -1233,6 +1446,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     assert(exceedingValue != null);
     assert(invalidDate != null);
     assert(invalidDateOfBirth != null);
+    assert(invalidBool != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -1247,6 +1461,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult exceedingValue(ExceedingValue<T> value),
     TResult invalidDate(InvalidDate<T> value),
     TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
+    TResult invalidBool(InvalidBool<T> value),
     TResult empty(Empty<T> value),
     TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),
@@ -1338,6 +1553,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     @required TResult exceedingValue(T failedValue, num max),
     @required TResult invalidDate(T failedValue),
     @required TResult invalidDateOfBirth(T failedValue),
+    @required TResult invalidBool(T failedValue),
     @required TResult empty(T failedValue),
     @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(String failedValue),
@@ -1347,6 +1563,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     assert(exceedingValue != null);
     assert(invalidDate != null);
     assert(invalidDateOfBirth != null);
+    assert(invalidBool != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -1361,6 +1578,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult exceedingValue(T failedValue, num max),
     TResult invalidDate(T failedValue),
     TResult invalidDateOfBirth(T failedValue),
+    TResult invalidBool(T failedValue),
     TResult empty(T failedValue),
     TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(String failedValue),
@@ -1381,6 +1599,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     @required TResult exceedingValue(ExceedingValue<T> value),
     @required TResult invalidDate(InvalidDate<T> value),
     @required TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
+    @required TResult invalidBool(InvalidBool<T> value),
     @required TResult empty(Empty<T> value),
     @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
@@ -1390,6 +1609,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     assert(exceedingValue != null);
     assert(invalidDate != null);
     assert(invalidDateOfBirth != null);
+    assert(invalidBool != null);
     assert(empty != null);
     assert(listTooLong != null);
     assert(invalidEmail != null);
@@ -1404,6 +1624,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult exceedingValue(ExceedingValue<T> value),
     TResult invalidDate(InvalidDate<T> value),
     TResult invalidDateOfBirth(InvalidDateOfBirth<T> value),
+    TResult invalidBool(InvalidBool<T> value),
     TResult empty(Empty<T> value),
     TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),

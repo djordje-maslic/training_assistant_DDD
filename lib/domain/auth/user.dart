@@ -15,21 +15,21 @@ abstract class User implements _$User {
     @required EmailAddress emailAddress,
     @required UserName userName,
     @required UserDateOfBirth userDateOfBirth,
-    @required UserHeight userHeight,
+    @required UserGender userGender,
   }) = _User;
 
   factory User.empty() => User(
         id: UniqueId(),
         emailAddress: EmailAddress(''),
-        userName: UserName(''),
+        userName: UserName('NN'),
         userDateOfBirth: UserDateOfBirth(0),
-        userHeight: UserHeight(0.0),
+        userGender: UserGender(input: true),
       );
 
   Option<ValueFailure<dynamic>> get failureOption {
     return userName.failureOrUnit
         .andThen(userDateOfBirth.failureOrUnit)
-        .andThen(userHeight.failureOrUnit)
+        .andThen(userGender.failureOrUnit)
         .fold((f) => some(f), (_) => none());
   }
 }

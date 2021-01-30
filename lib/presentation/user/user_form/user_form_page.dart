@@ -37,6 +37,7 @@ class UserFormPage extends HookWidget {
                 (failure) {
                   FlushbarHelper.createError(
                     message: failure.map(
+                      noUserProfile: (_) => 'No user profile',
                       unexpected: (_) =>
                           'Unexpected error occurred , please contact support.',
                       insufficientPermission: (_) =>
@@ -190,53 +191,69 @@ class UserFormPageScaffold extends StatelessWidget {
                       ),
                     ),
                   ),
-                 const Padding(
-                    padding:  EdgeInsets.all(8.0),
-                    child: Text('Date of birth',style: TextStyle(fontSize: 20,color: Colors.amber),),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Text(
+                      'Date of birth',
+                      style: TextStyle(fontSize: 20, color: Colors.amber),
+                    ),
                   ),
                   ChangeNotifierProvider<FormDate>(
                     create: (context) => FormDate(),
                     child: const UserDateOfBirthWidget(),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Card(
-                      color: Colors.amber,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: TextFormField(
-                          initialValue: user == null
-                              ? '0.0'
-                              : user.userHeight.getOrCrash().toString(),
-                          validator: (_) => context
-                              .read<UserFormBloc>()
-                              .state
-                              .user
-                              .userHeight
-                              .value
-                              .fold(
-                                  (f) => f.maybeMap(
-                                      orElse: () => null,
-                                      exceedingValue: (f) =>
-                                          'Exceeding value ${f.max}'),
-                                  (r) => null),
-                          onChanged: (value) {
-                            context.read<UserFormBloc>().add(
-                                UserFormEvent.userHeightChanged(
-                                    double.tryParse(value)));
-                          },
-                          decoration: const InputDecoration(
-                            labelText: 'Height',
-                            labelStyle:
-                                TextStyle(fontSize: 30, color: Colors.white),
-                            suffixText: 'cm',
-                            border:
-                                OutlineInputBorder(borderSide: BorderSide.none),
-                          ),
-                        ),
+                 const Center(
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
+                        'Gender',
+                        style: TextStyle(fontSize: 20, color: Colors.amber),
                       ),
                     ),
                   ),
+                  BlocBuilder<UserFormBloc, UserFormState>(
+                      builder: (context, state) {
+                    final bool switcher = state.user.userGender.getOrCrash();
+                    return Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ToggleButtons(
+                          disabledColor: Colors.grey,
+                          selectedColor: Colors.white,
+                          selectedBorderColor: Colors.amber,
+                          fillColor: Colors.amber,
+                          isSelected: [switcher, !switcher],
+                          onPressed: (int index) {
+                            if (index == 0) {
+                              context.read<UserFormBloc>().add(
+                                  const UserFormEvent.userGenderChanged(
+                                      genderBool: true));
+                            } else {
+                              context.read<UserFormBloc>().add(
+                                  const UserFormEvent.userGenderChanged(
+                                      genderBool: false));
+                            }
+                          },
+                          children: const [
+                            Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Text(
+                                'male',
+                                style: TextStyle(fontSize: 30),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Text(
+                                'female',
+                                style: TextStyle(fontSize: 30),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    );
+                  })
                 ],
               ),
             );

@@ -35,9 +35,9 @@ class _$UserFormEventTearOff {
   }
 
 // ignore: unused_element
-  _UserHeightChanged userHeightChanged(double heightDouble) {
-    return _UserHeightChanged(
-      heightDouble,
+  _UserGenderChanged userGenderChanged({@required bool genderBool}) {
+    return _UserGenderChanged(
+      genderBool: genderBool,
     );
   }
 
@@ -58,7 +58,7 @@ mixin _$UserFormEvent {
     @required TResult initialized(Option<User> initialUserOption),
     @required TResult userNameChanged(String nameStr),
     @required TResult userDateOfBirthChanged(int userDateOfBirthInt),
-    @required TResult userHeightChanged(double heightDouble),
+    @required TResult userGenderChanged(bool genderBool),
     @required TResult userSaved(),
   });
   @optionalTypeArgs
@@ -66,7 +66,7 @@ mixin _$UserFormEvent {
     TResult initialized(Option<User> initialUserOption),
     TResult userNameChanged(String nameStr),
     TResult userDateOfBirthChanged(int userDateOfBirthInt),
-    TResult userHeightChanged(double heightDouble),
+    TResult userGenderChanged(bool genderBool),
     TResult userSaved(),
     @required TResult orElse(),
   });
@@ -75,7 +75,7 @@ mixin _$UserFormEvent {
     @required TResult initialized(_Initialized value),
     @required TResult userNameChanged(_UserNameChanged value),
     @required TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
-    @required TResult userHeightChanged(_UserHeightChanged value),
+    @required TResult userGenderChanged(_UserGenderChanged value),
     @required TResult userSaved(_UserSavd value),
   });
   @optionalTypeArgs
@@ -83,7 +83,7 @@ mixin _$UserFormEvent {
     TResult initialized(_Initialized value),
     TResult userNameChanged(_UserNameChanged value),
     TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
-    TResult userHeightChanged(_UserHeightChanged value),
+    TResult userGenderChanged(_UserGenderChanged value),
     TResult userSaved(_UserSavd value),
     @required TResult orElse(),
   });
@@ -174,13 +174,13 @@ class _$_Initialized implements _Initialized {
     @required TResult initialized(Option<User> initialUserOption),
     @required TResult userNameChanged(String nameStr),
     @required TResult userDateOfBirthChanged(int userDateOfBirthInt),
-    @required TResult userHeightChanged(double heightDouble),
+    @required TResult userGenderChanged(bool genderBool),
     @required TResult userSaved(),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
     assert(userDateOfBirthChanged != null);
-    assert(userHeightChanged != null);
+    assert(userGenderChanged != null);
     assert(userSaved != null);
     return initialized(initialUserOption);
   }
@@ -191,7 +191,7 @@ class _$_Initialized implements _Initialized {
     TResult initialized(Option<User> initialUserOption),
     TResult userNameChanged(String nameStr),
     TResult userDateOfBirthChanged(int userDateOfBirthInt),
-    TResult userHeightChanged(double heightDouble),
+    TResult userGenderChanged(bool genderBool),
     TResult userSaved(),
     @required TResult orElse(),
   }) {
@@ -208,13 +208,13 @@ class _$_Initialized implements _Initialized {
     @required TResult initialized(_Initialized value),
     @required TResult userNameChanged(_UserNameChanged value),
     @required TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
-    @required TResult userHeightChanged(_UserHeightChanged value),
+    @required TResult userGenderChanged(_UserGenderChanged value),
     @required TResult userSaved(_UserSavd value),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
     assert(userDateOfBirthChanged != null);
-    assert(userHeightChanged != null);
+    assert(userGenderChanged != null);
     assert(userSaved != null);
     return initialized(this);
   }
@@ -225,7 +225,7 @@ class _$_Initialized implements _Initialized {
     TResult initialized(_Initialized value),
     TResult userNameChanged(_UserNameChanged value),
     TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
-    TResult userHeightChanged(_UserHeightChanged value),
+    TResult userGenderChanged(_UserGenderChanged value),
     TResult userSaved(_UserSavd value),
     @required TResult orElse(),
   }) {
@@ -309,13 +309,13 @@ class _$_UserNameChanged implements _UserNameChanged {
     @required TResult initialized(Option<User> initialUserOption),
     @required TResult userNameChanged(String nameStr),
     @required TResult userDateOfBirthChanged(int userDateOfBirthInt),
-    @required TResult userHeightChanged(double heightDouble),
+    @required TResult userGenderChanged(bool genderBool),
     @required TResult userSaved(),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
     assert(userDateOfBirthChanged != null);
-    assert(userHeightChanged != null);
+    assert(userGenderChanged != null);
     assert(userSaved != null);
     return userNameChanged(nameStr);
   }
@@ -326,7 +326,7 @@ class _$_UserNameChanged implements _UserNameChanged {
     TResult initialized(Option<User> initialUserOption),
     TResult userNameChanged(String nameStr),
     TResult userDateOfBirthChanged(int userDateOfBirthInt),
-    TResult userHeightChanged(double heightDouble),
+    TResult userGenderChanged(bool genderBool),
     TResult userSaved(),
     @required TResult orElse(),
   }) {
@@ -343,13 +343,13 @@ class _$_UserNameChanged implements _UserNameChanged {
     @required TResult initialized(_Initialized value),
     @required TResult userNameChanged(_UserNameChanged value),
     @required TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
-    @required TResult userHeightChanged(_UserHeightChanged value),
+    @required TResult userGenderChanged(_UserGenderChanged value),
     @required TResult userSaved(_UserSavd value),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
     assert(userDateOfBirthChanged != null);
-    assert(userHeightChanged != null);
+    assert(userGenderChanged != null);
     assert(userSaved != null);
     return userNameChanged(this);
   }
@@ -360,7 +360,7 @@ class _$_UserNameChanged implements _UserNameChanged {
     TResult initialized(_Initialized value),
     TResult userNameChanged(_UserNameChanged value),
     TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
-    TResult userHeightChanged(_UserHeightChanged value),
+    TResult userGenderChanged(_UserGenderChanged value),
     TResult userSaved(_UserSavd value),
     @required TResult orElse(),
   }) {
@@ -450,13 +450,13 @@ class _$_UserDateOfBirthChanged implements _UserDateOfBirthChanged {
     @required TResult initialized(Option<User> initialUserOption),
     @required TResult userNameChanged(String nameStr),
     @required TResult userDateOfBirthChanged(int userDateOfBirthInt),
-    @required TResult userHeightChanged(double heightDouble),
+    @required TResult userGenderChanged(bool genderBool),
     @required TResult userSaved(),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
     assert(userDateOfBirthChanged != null);
-    assert(userHeightChanged != null);
+    assert(userGenderChanged != null);
     assert(userSaved != null);
     return userDateOfBirthChanged(userDateOfBirthInt);
   }
@@ -467,7 +467,7 @@ class _$_UserDateOfBirthChanged implements _UserDateOfBirthChanged {
     TResult initialized(Option<User> initialUserOption),
     TResult userNameChanged(String nameStr),
     TResult userDateOfBirthChanged(int userDateOfBirthInt),
-    TResult userHeightChanged(double heightDouble),
+    TResult userGenderChanged(bool genderBool),
     TResult userSaved(),
     @required TResult orElse(),
   }) {
@@ -484,13 +484,13 @@ class _$_UserDateOfBirthChanged implements _UserDateOfBirthChanged {
     @required TResult initialized(_Initialized value),
     @required TResult userNameChanged(_UserNameChanged value),
     @required TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
-    @required TResult userHeightChanged(_UserHeightChanged value),
+    @required TResult userGenderChanged(_UserGenderChanged value),
     @required TResult userSaved(_UserSavd value),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
     assert(userDateOfBirthChanged != null);
-    assert(userHeightChanged != null);
+    assert(userGenderChanged != null);
     assert(userSaved != null);
     return userDateOfBirthChanged(this);
   }
@@ -501,7 +501,7 @@ class _$_UserDateOfBirthChanged implements _UserDateOfBirthChanged {
     TResult initialized(_Initialized value),
     TResult userNameChanged(_UserNameChanged value),
     TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
-    TResult userHeightChanged(_UserHeightChanged value),
+    TResult userGenderChanged(_UserGenderChanged value),
     TResult userSaved(_UserSavd value),
     @required TResult orElse(),
   }) {
@@ -523,63 +523,65 @@ abstract class _UserDateOfBirthChanged implements UserFormEvent {
 }
 
 /// @nodoc
-abstract class _$UserHeightChangedCopyWith<$Res> {
-  factory _$UserHeightChangedCopyWith(
-          _UserHeightChanged value, $Res Function(_UserHeightChanged) then) =
-      __$UserHeightChangedCopyWithImpl<$Res>;
-  $Res call({double heightDouble});
+abstract class _$UserGenderChangedCopyWith<$Res> {
+  factory _$UserGenderChangedCopyWith(
+          _UserGenderChanged value, $Res Function(_UserGenderChanged) then) =
+      __$UserGenderChangedCopyWithImpl<$Res>;
+  $Res call({bool genderBool});
 }
 
 /// @nodoc
-class __$UserHeightChangedCopyWithImpl<$Res>
+class __$UserGenderChangedCopyWithImpl<$Res>
     extends _$UserFormEventCopyWithImpl<$Res>
-    implements _$UserHeightChangedCopyWith<$Res> {
-  __$UserHeightChangedCopyWithImpl(
-      _UserHeightChanged _value, $Res Function(_UserHeightChanged) _then)
-      : super(_value, (v) => _then(v as _UserHeightChanged));
+    implements _$UserGenderChangedCopyWith<$Res> {
+  __$UserGenderChangedCopyWithImpl(
+      _UserGenderChanged _value, $Res Function(_UserGenderChanged) _then)
+      : super(_value, (v) => _then(v as _UserGenderChanged));
 
   @override
-  _UserHeightChanged get _value => super._value as _UserHeightChanged;
+  _UserGenderChanged get _value => super._value as _UserGenderChanged;
 
   @override
   $Res call({
-    Object heightDouble = freezed,
+    Object genderBool = freezed,
   }) {
-    return _then(_UserHeightChanged(
-      heightDouble == freezed ? _value.heightDouble : heightDouble as double,
+    return _then(_UserGenderChanged(
+      genderBool:
+          genderBool == freezed ? _value.genderBool : genderBool as bool,
     ));
   }
 }
 
 /// @nodoc
-class _$_UserHeightChanged implements _UserHeightChanged {
-  const _$_UserHeightChanged(this.heightDouble) : assert(heightDouble != null);
+class _$_UserGenderChanged implements _UserGenderChanged {
+  const _$_UserGenderChanged({@required this.genderBool})
+      : assert(genderBool != null);
 
   @override
-  final double heightDouble;
+  final bool genderBool;
 
   @override
   String toString() {
-    return 'UserFormEvent.userHeightChanged(heightDouble: $heightDouble)';
+    return 'UserFormEvent.userGenderChanged(genderBool: $genderBool)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UserHeightChanged &&
-            (identical(other.heightDouble, heightDouble) ||
+        (other is _UserGenderChanged &&
+            (identical(other.genderBool, genderBool) ||
                 const DeepCollectionEquality()
-                    .equals(other.heightDouble, heightDouble)));
+                    .equals(other.genderBool, genderBool)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(heightDouble);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(genderBool);
 
   @JsonKey(ignore: true)
   @override
-  _$UserHeightChangedCopyWith<_UserHeightChanged> get copyWith =>
-      __$UserHeightChangedCopyWithImpl<_UserHeightChanged>(this, _$identity);
+  _$UserGenderChangedCopyWith<_UserGenderChanged> get copyWith =>
+      __$UserGenderChangedCopyWithImpl<_UserGenderChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -587,15 +589,15 @@ class _$_UserHeightChanged implements _UserHeightChanged {
     @required TResult initialized(Option<User> initialUserOption),
     @required TResult userNameChanged(String nameStr),
     @required TResult userDateOfBirthChanged(int userDateOfBirthInt),
-    @required TResult userHeightChanged(double heightDouble),
+    @required TResult userGenderChanged(bool genderBool),
     @required TResult userSaved(),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
     assert(userDateOfBirthChanged != null);
-    assert(userHeightChanged != null);
+    assert(userGenderChanged != null);
     assert(userSaved != null);
-    return userHeightChanged(heightDouble);
+    return userGenderChanged(genderBool);
   }
 
   @override
@@ -604,13 +606,13 @@ class _$_UserHeightChanged implements _UserHeightChanged {
     TResult initialized(Option<User> initialUserOption),
     TResult userNameChanged(String nameStr),
     TResult userDateOfBirthChanged(int userDateOfBirthInt),
-    TResult userHeightChanged(double heightDouble),
+    TResult userGenderChanged(bool genderBool),
     TResult userSaved(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (userHeightChanged != null) {
-      return userHeightChanged(heightDouble);
+    if (userGenderChanged != null) {
+      return userGenderChanged(genderBool);
     }
     return orElse();
   }
@@ -621,15 +623,15 @@ class _$_UserHeightChanged implements _UserHeightChanged {
     @required TResult initialized(_Initialized value),
     @required TResult userNameChanged(_UserNameChanged value),
     @required TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
-    @required TResult userHeightChanged(_UserHeightChanged value),
+    @required TResult userGenderChanged(_UserGenderChanged value),
     @required TResult userSaved(_UserSavd value),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
     assert(userDateOfBirthChanged != null);
-    assert(userHeightChanged != null);
+    assert(userGenderChanged != null);
     assert(userSaved != null);
-    return userHeightChanged(this);
+    return userGenderChanged(this);
   }
 
   @override
@@ -638,24 +640,25 @@ class _$_UserHeightChanged implements _UserHeightChanged {
     TResult initialized(_Initialized value),
     TResult userNameChanged(_UserNameChanged value),
     TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
-    TResult userHeightChanged(_UserHeightChanged value),
+    TResult userGenderChanged(_UserGenderChanged value),
     TResult userSaved(_UserSavd value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (userHeightChanged != null) {
-      return userHeightChanged(this);
+    if (userGenderChanged != null) {
+      return userGenderChanged(this);
     }
     return orElse();
   }
 }
 
-abstract class _UserHeightChanged implements UserFormEvent {
-  const factory _UserHeightChanged(double heightDouble) = _$_UserHeightChanged;
+abstract class _UserGenderChanged implements UserFormEvent {
+  const factory _UserGenderChanged({@required bool genderBool}) =
+      _$_UserGenderChanged;
 
-  double get heightDouble;
+  bool get genderBool;
   @JsonKey(ignore: true)
-  _$UserHeightChangedCopyWith<_UserHeightChanged> get copyWith;
+  _$UserGenderChangedCopyWith<_UserGenderChanged> get copyWith;
 }
 
 /// @nodoc
@@ -697,13 +700,13 @@ class _$_UserSavd implements _UserSavd {
     @required TResult initialized(Option<User> initialUserOption),
     @required TResult userNameChanged(String nameStr),
     @required TResult userDateOfBirthChanged(int userDateOfBirthInt),
-    @required TResult userHeightChanged(double heightDouble),
+    @required TResult userGenderChanged(bool genderBool),
     @required TResult userSaved(),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
     assert(userDateOfBirthChanged != null);
-    assert(userHeightChanged != null);
+    assert(userGenderChanged != null);
     assert(userSaved != null);
     return userSaved();
   }
@@ -714,7 +717,7 @@ class _$_UserSavd implements _UserSavd {
     TResult initialized(Option<User> initialUserOption),
     TResult userNameChanged(String nameStr),
     TResult userDateOfBirthChanged(int userDateOfBirthInt),
-    TResult userHeightChanged(double heightDouble),
+    TResult userGenderChanged(bool genderBool),
     TResult userSaved(),
     @required TResult orElse(),
   }) {
@@ -731,13 +734,13 @@ class _$_UserSavd implements _UserSavd {
     @required TResult initialized(_Initialized value),
     @required TResult userNameChanged(_UserNameChanged value),
     @required TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
-    @required TResult userHeightChanged(_UserHeightChanged value),
+    @required TResult userGenderChanged(_UserGenderChanged value),
     @required TResult userSaved(_UserSavd value),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
     assert(userDateOfBirthChanged != null);
-    assert(userHeightChanged != null);
+    assert(userGenderChanged != null);
     assert(userSaved != null);
     return userSaved(this);
   }
@@ -748,7 +751,7 @@ class _$_UserSavd implements _UserSavd {
     TResult initialized(_Initialized value),
     TResult userNameChanged(_UserNameChanged value),
     TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
-    TResult userHeightChanged(_UserHeightChanged value),
+    TResult userGenderChanged(_UserGenderChanged value),
     TResult userSaved(_UserSavd value),
     @required TResult orElse(),
   }) {

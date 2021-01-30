@@ -41,69 +41,103 @@ class BodyMeasuresDataTableWidget extends StatelessWidget {
                 }
               }
             }
-            return DataTable(
-              columnSpacing: 20.0,
-              dataRowHeight: 60,
-              columns: const [
-                DataColumn(
-                  label: Text(
-                    'Date',
-                    style: TextStyle(
-                      fontSize: 30,
+            return Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(18.0),
+                  child: RaisedButton(
+                    shape: const StadiumBorder(),
+                    onPressed: () {
+                      ExtendedNavigator.of(context).pushBodyMeasuresFormPage(
+                          bodyMeasures: null,
+                          lastBodyMeasuresForHintText: bodyMeasuresList.isEmpty
+                              ? BodyMeasures.empty()
+                              : bodyMeasuresList[0]);
+                    },
+                    child: Row(
+                      children: const [
+                        Icon(Icons.add),
+                        Text(
+                          'New body measures',
+                        ),
+                      ],
                     ),
                   ),
                 ),
-                DataColumn(
-                  label: Text(
-                    'Weight',
-                    style: TextStyle(
-                      fontSize: 30,
-                    ),
-                  ),
-                ),
-                DataColumn(
-                  label: Text(
-                    'Height',
-                    style: TextStyle(
-                      fontSize: 30,
-                    ),
+                SingleChildScrollView(scrollDirection: Axis.horizontal,
+                  child: DataTable(
+                    columnSpacing: 10,
+                    dataRowHeight: 40,
+                    columns: const [
+                      DataColumn(
+                        label: Text(
+                          'Date',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                      DataColumn(
+                        label: Text(
+                          'Weight',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                      DataColumn(
+                        label: Text(
+                          'Height',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                    ],
+                    rows: bodyMeasuresList.map((bodyMeasure) {
+                      return DataRow(
+                        cells: [
+                          DataCell(
+                              Text(
+                                dateTimeConverter(
+                                    bodyMeasure.bodyMeasuresDate.getOrCrash()),
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                ),
+                              ),
+                              showEditIcon: true,
+                              onTap: () {
+                            ExtendedNavigator.of(context)
+                                .pushBodyMeasuresFormPage(
+                                    bodyMeasures: bodyMeasure,
+                                    lastBodyMeasuresForHintText: null);
+                          }),
+                          DataCell(
+                            Text(
+                              bodyMeasure.bodyMeasuresWeight
+                                  .getOrCrash()
+                                  .toString(),
+                              style: const TextStyle(
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                          DataCell(
+                            Text(
+                              bodyMeasure.bodyMeasuresHeight
+                                  .getOrCrash()
+                                  .toString(),
+                              style: const TextStyle(
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
+                    }).toList(),
                   ),
                 ),
               ],
-              rows: bodyMeasuresList.map((bodyMeasure) {
-                return DataRow(
-                  cells: [
-                    DataCell(
-                        Text(
-                          dateTimeConverter(
-                              bodyMeasure.bodyMeasuresDate.getOrCrash()),
-                          style: const TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                        showEditIcon: true, onTap: () {
-                      ExtendedNavigator.of(context)
-                          .pushBodyMeasuresFormPage(bodyMeasures: bodyMeasure);
-                    }),
-                    DataCell(
-                      Text(
-                        bodyMeasure.bodyMeasuresWeight.getOrCrash().toString(),
-                        style: const TextStyle(
-                          fontSize: 20,
-                        ),
-                      ),
-                    ),
-                    DataCell(
-                      Text(
-                        bodyMeasure.bodyMeasuresHeight.getOrCrash().toString(),
-                        style: const TextStyle(
-                          fontSize: 20,
-                        ),
-                      ),
-                    ),
-                  ],
-                );
-              }).toList(),
             );
           },
           loadFailure: (_) => const Text('Load failure'),

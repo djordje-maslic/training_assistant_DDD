@@ -13,7 +13,6 @@ import 'package:reminder_app/presentation/exercise/exercise_form/misc/set_presen
 import 'package:reminder_app/presentation/exercise/exercise_form/widgets/add_set_tile_widget.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/widgets/body_field_widget.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/widgets/date_field_widget.dart';
-import 'package:reminder_app/presentation/exercise/exercise_form/widgets/number_of_sets_field_widget.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/widgets/set_list_widget.dart';
 import 'package:reminder_app/presentation/routes/router.gr.dart';
 
@@ -116,26 +115,30 @@ class ExerciseFormPageScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: BlocBuilder<ExerciseFormBloc, ExerciseFormState>(
           buildWhen: (p, c) => p.isEditing != c.isEditing,
-          builder: (context, state) =>
+          builder: (context, state) => Row(
+            children: [
+              const Text('T'),const Icon(Icons.architecture),
               Text(state.isEditing ? 'Edit exercise' : 'Create exercise'),
+            ],
+          ),
         ),
         actions: [
           IconButton(
-              icon: const Icon(Icons.check),
-              onPressed: () {
-                context
-                    .read<ExerciseFormBloc>()
-                    .add(const ExerciseFormEvent.exerciseSaved());
-              })
+            icon: const Icon(Icons.check),
+            onPressed: () {
+              context
+                  .read<ExerciseFormBloc>()
+                  .add(const ExerciseFormEvent.exerciseSaved());
+            },
+          )
         ],
       ),
       body: BlocBuilder<ExerciseFormBloc, ExerciseFormState>(
-       buildWhen: (p, c) => p.showErrorMessages != c.showErrorMessages,
+        buildWhen: (p, c) => p.showErrorMessages != c.showErrorMessages,
         builder: (context, state) {
           return MultiProvider(
             providers: [
@@ -158,7 +161,6 @@ class ExerciseFormPageScaffold extends StatelessWidget {
                   children: const [
                     BodyField(),
                     DateFieldWidget(),
-                    NumberOfSets(),
                     SetListWidget(),
                     AddSetTile(),
                   ],

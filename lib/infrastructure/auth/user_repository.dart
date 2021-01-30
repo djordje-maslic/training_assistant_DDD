@@ -19,22 +19,29 @@ class UserRepository implements IUserRepository {
   UserRepository(this._firebaseFirestore);
 
   @override
-  Future<Either<UserFailure, user.User>> read() {
-    // TODO: implement read
-    throw UnimplementedError();
+  Future<Option<user.User>> read() async {
+    final signInUser = await getIt<IAuthFacade>().getSignInUser();
+    final userNew = signInUser.getOrElse(() => throw NotAuthenticatedError());
+    final userDocument = await _firebaseFirestore.userDocument1();
+    final DocumentSnapshot snapshot = await userDocument.get();
+    final user =
+        snapshot.exists ? UserDto.fromFirestore(snapshot).toDomain() : userNew;
+    return optionOf(user);
   }
 
   @override
   Stream<Either<UserFailure, user.User>> watchUser() async* {
     final userDocument = await _firebaseFirestore.userQuery();
-   final signInUser = await getIt<IAuthFacade>().getSignInUser();
-   final userNew= signInUser.getOrElse(() => throw NotAuthenticatedError());
+    final signInUser = await getIt<IAuthFacade>().getSignInUser();
+    final userNew = signInUser.getOrElse(() => throw NotAuthenticatedError());
 
     yield* userDocument
         .snapshots()
         .map((snapshot) => right<UserFailure, user.User>(snapshot.docs
-            .map((doc) => UserDto.fromFirestore(doc).toDomain()).toList()
-            .firstWhere((element) => element.id.getOrCrash() == userNew.id.getOrCrash() )))
+            .map((doc) => UserDto.fromFirestore(doc).toDomain())
+            .toList()
+            .firstWhere((element) =>
+                element.id.getOrCrash() == userNew.id.getOrCrash())))
         .onErrorReturnWith((e) {
       if (e is FirebaseException && e.message.contains('PERMISSION_DENIED')) {
         return left(const UserFailure.insufficientPermission());

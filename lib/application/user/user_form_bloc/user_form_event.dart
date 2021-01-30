@@ -11,8 +11,8 @@ abstract class UserFormEvent with _$UserFormEvent {
   const factory UserFormEvent.userDateOfBirthChanged(int userDateOfBirthInt) =
       _UserDateOfBirthChanged;
 
-  const factory UserFormEvent.userHeightChanged(double heightDouble) =
-      _UserHeightChanged;
+  const factory UserFormEvent.userGenderChanged({@required bool genderBool}) =
+      _UserGenderChanged;
 
   const factory UserFormEvent.userSaved() = _UserSavd;
 }

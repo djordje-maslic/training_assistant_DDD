@@ -52,10 +52,10 @@ class UserFormBloc extends Bloc<UserFormEvent, UserFormState> {
             ),
             saveFailureOrSuccessOption: none());
       },
-      userHeightChanged: (e) async* {
+      userGenderChanged: (e) async* {
         yield state.copyWith(
             user: state.user.copyWith(
-              userHeight: UserHeight(e.heightDouble),
+              userGender: UserGender(input:e.genderBool),
             ),
             saveFailureOrSuccessOption: none());
       },

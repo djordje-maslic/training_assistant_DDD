@@ -32,6 +32,16 @@ extension FirestoreX3 on FirebaseFirestore {
         .collection('user');
   }
 }
+
+extension FirestoreX7 on FirebaseFirestore {
+ Future<DocumentReference> userDocument1()async {
+    final userOption = await getIt<IAuthFacade>().getSignInUser();
+    final user = userOption.getOrElse(() => throw NotAuthenticatedError());
+    return FirebaseFirestore.instance
+        .collection('user').doc(user.id.getOrCrash());
+  }
+}
+
 extension FirestoreX4 on FirebaseFirestore {
   Future<Query> bodyMeasuresOfUserQuery() async {
     final userOption = await getIt<IAuthFacade>().getSignInUser();

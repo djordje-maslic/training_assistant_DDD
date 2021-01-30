@@ -19,6 +19,11 @@ class _$UserFailureTearOff {
   }
 
 // ignore: unused_element
+  _NoUserProfile noUserProfile() {
+    return const _NoUserProfile();
+  }
+
+// ignore: unused_element
   _InsufficientPermission insufficientPermission() {
     return const _InsufficientPermission();
   }
@@ -38,12 +43,14 @@ mixin _$UserFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult unexpected(),
+    @required TResult noUserProfile(),
     @required TResult insufficientPermission(),
     @required TResult unableToUpdate(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult unexpected(),
+    TResult noUserProfile(),
     TResult insufficientPermission(),
     TResult unableToUpdate(),
     @required TResult orElse(),
@@ -51,12 +58,14 @@ mixin _$UserFailure {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult unexpected(_Unexpected value),
+    @required TResult noUserProfile(_NoUserProfile value),
     @required TResult insufficientPermission(_InsufficientPermission value),
     @required TResult unableToUpdate(_UnableToUpdate value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult unexpected(_Unexpected value),
+    TResult noUserProfile(_NoUserProfile value),
     TResult insufficientPermission(_InsufficientPermission value),
     TResult unableToUpdate(_UnableToUpdate value),
     @required TResult orElse(),
@@ -118,10 +127,12 @@ class _$_Unexpected implements _Unexpected {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult unexpected(),
+    @required TResult noUserProfile(),
     @required TResult insufficientPermission(),
     @required TResult unableToUpdate(),
   }) {
     assert(unexpected != null);
+    assert(noUserProfile != null);
     assert(insufficientPermission != null);
     assert(unableToUpdate != null);
     return unexpected();
@@ -131,6 +142,7 @@ class _$_Unexpected implements _Unexpected {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult unexpected(),
+    TResult noUserProfile(),
     TResult insufficientPermission(),
     TResult unableToUpdate(),
     @required TResult orElse(),
@@ -146,10 +158,12 @@ class _$_Unexpected implements _Unexpected {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult unexpected(_Unexpected value),
+    @required TResult noUserProfile(_NoUserProfile value),
     @required TResult insufficientPermission(_InsufficientPermission value),
     @required TResult unableToUpdate(_UnableToUpdate value),
   }) {
     assert(unexpected != null);
+    assert(noUserProfile != null);
     assert(insufficientPermission != null);
     assert(unableToUpdate != null);
     return unexpected(this);
@@ -159,6 +173,7 @@ class _$_Unexpected implements _Unexpected {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult unexpected(_Unexpected value),
+    TResult noUserProfile(_NoUserProfile value),
     TResult insufficientPermission(_InsufficientPermission value),
     TResult unableToUpdate(_UnableToUpdate value),
     @required TResult orElse(),
@@ -173,6 +188,108 @@ class _$_Unexpected implements _Unexpected {
 
 abstract class _Unexpected implements UserFailure {
   const factory _Unexpected() = _$_Unexpected;
+}
+
+/// @nodoc
+abstract class _$NoUserProfileCopyWith<$Res> {
+  factory _$NoUserProfileCopyWith(
+          _NoUserProfile value, $Res Function(_NoUserProfile) then) =
+      __$NoUserProfileCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$NoUserProfileCopyWithImpl<$Res> extends _$UserFailureCopyWithImpl<$Res>
+    implements _$NoUserProfileCopyWith<$Res> {
+  __$NoUserProfileCopyWithImpl(
+      _NoUserProfile _value, $Res Function(_NoUserProfile) _then)
+      : super(_value, (v) => _then(v as _NoUserProfile));
+
+  @override
+  _NoUserProfile get _value => super._value as _NoUserProfile;
+}
+
+/// @nodoc
+class _$_NoUserProfile implements _NoUserProfile {
+  const _$_NoUserProfile();
+
+  @override
+  String toString() {
+    return 'UserFailure.noUserProfile()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _NoUserProfile);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult unexpected(),
+    @required TResult noUserProfile(),
+    @required TResult insufficientPermission(),
+    @required TResult unableToUpdate(),
+  }) {
+    assert(unexpected != null);
+    assert(noUserProfile != null);
+    assert(insufficientPermission != null);
+    assert(unableToUpdate != null);
+    return noUserProfile();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult unexpected(),
+    TResult noUserProfile(),
+    TResult insufficientPermission(),
+    TResult unableToUpdate(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (noUserProfile != null) {
+      return noUserProfile();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult unexpected(_Unexpected value),
+    @required TResult noUserProfile(_NoUserProfile value),
+    @required TResult insufficientPermission(_InsufficientPermission value),
+    @required TResult unableToUpdate(_UnableToUpdate value),
+  }) {
+    assert(unexpected != null);
+    assert(noUserProfile != null);
+    assert(insufficientPermission != null);
+    assert(unableToUpdate != null);
+    return noUserProfile(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult unexpected(_Unexpected value),
+    TResult noUserProfile(_NoUserProfile value),
+    TResult insufficientPermission(_InsufficientPermission value),
+    TResult unableToUpdate(_UnableToUpdate value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (noUserProfile != null) {
+      return noUserProfile(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NoUserProfile implements UserFailure {
+  const factory _NoUserProfile() = _$_NoUserProfile;
 }
 
 /// @nodoc
@@ -215,10 +332,12 @@ class _$_InsufficientPermission implements _InsufficientPermission {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult unexpected(),
+    @required TResult noUserProfile(),
     @required TResult insufficientPermission(),
     @required TResult unableToUpdate(),
   }) {
     assert(unexpected != null);
+    assert(noUserProfile != null);
     assert(insufficientPermission != null);
     assert(unableToUpdate != null);
     return insufficientPermission();
@@ -228,6 +347,7 @@ class _$_InsufficientPermission implements _InsufficientPermission {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult unexpected(),
+    TResult noUserProfile(),
     TResult insufficientPermission(),
     TResult unableToUpdate(),
     @required TResult orElse(),
@@ -243,10 +363,12 @@ class _$_InsufficientPermission implements _InsufficientPermission {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult unexpected(_Unexpected value),
+    @required TResult noUserProfile(_NoUserProfile value),
     @required TResult insufficientPermission(_InsufficientPermission value),
     @required TResult unableToUpdate(_UnableToUpdate value),
   }) {
     assert(unexpected != null);
+    assert(noUserProfile != null);
     assert(insufficientPermission != null);
     assert(unableToUpdate != null);
     return insufficientPermission(this);
@@ -256,6 +378,7 @@ class _$_InsufficientPermission implements _InsufficientPermission {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult unexpected(_Unexpected value),
+    TResult noUserProfile(_NoUserProfile value),
     TResult insufficientPermission(_InsufficientPermission value),
     TResult unableToUpdate(_UnableToUpdate value),
     @required TResult orElse(),
@@ -312,10 +435,12 @@ class _$_UnableToUpdate implements _UnableToUpdate {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult unexpected(),
+    @required TResult noUserProfile(),
     @required TResult insufficientPermission(),
     @required TResult unableToUpdate(),
   }) {
     assert(unexpected != null);
+    assert(noUserProfile != null);
     assert(insufficientPermission != null);
     assert(unableToUpdate != null);
     return unableToUpdate();
@@ -325,6 +450,7 @@ class _$_UnableToUpdate implements _UnableToUpdate {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult unexpected(),
+    TResult noUserProfile(),
     TResult insufficientPermission(),
     TResult unableToUpdate(),
     @required TResult orElse(),
@@ -340,10 +466,12 @@ class _$_UnableToUpdate implements _UnableToUpdate {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult unexpected(_Unexpected value),
+    @required TResult noUserProfile(_NoUserProfile value),
     @required TResult insufficientPermission(_InsufficientPermission value),
     @required TResult unableToUpdate(_UnableToUpdate value),
   }) {
     assert(unexpected != null);
+    assert(noUserProfile != null);
     assert(insufficientPermission != null);
     assert(unableToUpdate != null);
     return unableToUpdate(this);
@@ -353,6 +481,7 @@ class _$_UnableToUpdate implements _UnableToUpdate {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult unexpected(_Unexpected value),
+    TResult noUserProfile(_NoUserProfile value),
     TResult insufficientPermission(_InsufficientPermission value),
     TResult unableToUpdate(_UnableToUpdate value),
     @required TResult orElse(),

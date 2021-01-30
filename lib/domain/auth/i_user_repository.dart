@@ -7,7 +7,7 @@ abstract class IUserRepository {
 
   Future<Either<UserFailure, Unit>> create(User user);
 
-  Future<Either<UserFailure, User>> read();
+  Future<Option<User>> read();
 
   Future<Either<UserFailure, Unit>> update(User user);
 

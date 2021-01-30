@@ -35,7 +35,6 @@ abstract class Exercise implements _$Exercise {
   Option<ValueFailure<dynamic>> get failureOption {
     return name.failureOrUnit
         .andThen(date.failureOrUnit)
-        .andThen(userName.failureOrUnit)
         .andThen(setsList.failureOrUnit)
         .andThen(setsList
             .getOrCrash()

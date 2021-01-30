@@ -10,7 +10,7 @@ extension FirebaseUserToDomainExtension on firebase.User {
       emailAddress: EmailAddress(email),
       userName: UserName(''),
       userDateOfBirth: UserDateOfBirth(0),
-      userHeight: UserHeight(0.0),
+      userGender: UserGender(input:true),
     );
   }
 }

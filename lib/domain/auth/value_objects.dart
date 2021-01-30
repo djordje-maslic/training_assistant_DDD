@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:reminder_app/domain/core/failures.dart';
 import 'package:reminder_app/domain/core/value_objects.dart';
 import 'package:reminder_app/domain/core/value_validators.dart';
@@ -64,5 +65,17 @@ class UserHeight extends ValueObject<double> {
   factory UserHeight (double input) {
     assert(input != null);
     return UserHeight._(validateMaxDoubleValue(input, maxHeight));
+  }
+}
+
+class UserGender extends ValueObject<bool> {
+  @override
+  final Either<ValueFailure<bool>, bool> value;
+
+  const UserGender._(this.value);
+
+  factory UserGender ({@required bool input}) {
+    assert(input != null);
+    return UserGender._(validateUserGender(input: input));
   }
 }

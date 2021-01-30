@@ -16,19 +16,20 @@ class UserOverviewPage extends StatelessWidget {
           const UserWatcherEvent.watchUser(),
         ),
       child: Scaffold(
+        backgroundColor: Colors.amber[300],
         appBar: AppBar(
           leading: IconButton(
-              icon: const Icon(Icons.arrow_back),
+              icon:  Icon(Icons.arrow_back,color: Colors.grey[800],),
               onPressed: () => ExtendedNavigator.of(context).pushSplashPage()),
           title: Row(
             children: [
-              const Icon(Icons.account_circle),
+               Icon(Icons.account_circle,color:Colors.grey[800],),
               Text(
                 context.watch<AuthBloc>().state.maybeMap(
                       orElse: () => 'User',
                       authenticated: (state) =>
                           state.user.emailAddress.getOrCrash(),
-                    ),
+                    ),style: TextStyle(color: Colors.grey[800]),
               ),
             ],
           ),

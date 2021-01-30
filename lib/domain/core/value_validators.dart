@@ -90,3 +90,11 @@ Either<ValueFailure<String>, String> validatePassword(String input) {
     return left(ValueFailure.shortPassword(failedValue: input));
   }
 }
+
+Either<ValueFailure<bool>, bool> validateUserGender({bool input}) {
+  if (input is bool) {
+    return right(input);
+  } else {
+    return left(ValueFailure.invalidBool(failedValue: input));
+  }
+}
