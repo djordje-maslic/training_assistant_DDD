@@ -13,7 +13,6 @@ abstract class Sets implements _$Sets {
   const factory Sets({
     @required UniqueId id,
     @required RepetitionsNumb number,
-    @required GoodReps goodReps,
     @required BadReps badReps,
     @required Weights weights,
     @required Distance distance,
@@ -23,7 +22,6 @@ abstract class Sets implements _$Sets {
   factory Sets.empty() => Sets(
         id: UniqueId(),
         number: RepetitionsNumb(0),
-        goodReps: GoodReps(0),
         badReps: BadReps(0),
         weights: Weights(0.0),
         distance: Distance(0.0),
@@ -31,10 +29,10 @@ abstract class Sets implements _$Sets {
       );
 
   Option<ValueFailure<dynamic>> get failureOption {
-    return number.failureOrUnit
-        .andThen(goodReps.failureOrUnit.andThen(badReps.failureOrUnit.andThen(
+    return number.failureOrUnit.andThen
+        (badReps.failureOrUnit.andThen(
             weights.failureOrUnit.andThen(
-                distance.failureOrUnit.andThen(setDuration.failureOrUnit)))))
+                distance.failureOrUnit.andThen(setDuration.failureOrUnit))))
         .fold((f) => some(f), (r) => none());
   }
 }

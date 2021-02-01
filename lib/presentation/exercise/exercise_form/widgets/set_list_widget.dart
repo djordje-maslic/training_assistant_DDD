@@ -14,7 +14,6 @@ import 'package:reminder_app/presentation/exercise/exercise_form/misc/duration_p
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/set_presentation_classes.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/widgets/bad_reps_number_picker.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/widgets/distance_field_widget.dart';
-import 'package:reminder_app/presentation/exercise/exercise_form/widgets/good_reps_number_picker.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/widgets/reps_number_picker.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/widgets/set_duration_widget.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/widgets/weights_field_widget.dart';
@@ -24,7 +23,6 @@ class SetListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return BlocListener<ExerciseFormBloc, ExerciseFormState>(
       listenWhen: (p, c) =>
           p.exercise.setsList.isFull != c.exercise.setsList.isFull,
@@ -48,7 +46,7 @@ class SetListWidget extends StatelessWidget {
                   index) {
                 Provider.of<HeightDurationPickerProvider>(context)
                     .value
-                    .insert(index,300.0);
+                    .insert(index, 300.0);
               }
 
               return SetTile(
@@ -74,7 +72,6 @@ class SetTile extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final set = context.formSets.getOrElse(
       index,
       (_) => SetItemPrimitive.empty(),
@@ -94,7 +91,6 @@ class SetTile extends HookWidget {
             ((((context.formSets[index].setDuration % 3600000) % 60000) / 1000)
                     .floor())
                 .toString());
-
 
     final sizeOfDurationPicker = useState<double>(100.0);
 
@@ -135,7 +131,6 @@ class SetTile extends HookWidget {
                 // leading:
 
                 title: Stack(
-
                   children: [
                     Column(
                       children: [
@@ -150,8 +145,6 @@ class SetTile extends HookWidget {
                                   child: RepsNumberPicker(
                                     index: index,
                                     set: set,
-                                    badRepsStateController:
-                                        badRepsStateController,
                                   ),
                                 ),
                               ],
@@ -176,11 +169,11 @@ class SetTile extends HookWidget {
                           children: [
                             Column(
                               children: [
-                                const Text('good:'),
+                                const Text('bad reps:'),
                                 SizedBox(
                                   width: 150,
                                   height: 70,
-                                  child: GoodRepsNumberPicker(
+                                  child: BadRepsNumberPicker(
                                     index: index,
                                     set: set,
                                     badRepsStateController:
@@ -208,21 +201,8 @@ class SetTile extends HookWidget {
                         Row(
                           children: [
                             const SizedBox(
-                              width: 50,
-                            ),
-                            Column(
-                              children: [
-                                const Text('bad:'),
-                                SizedBox(
-                                    width: 60,
-                                    height: 60,
-                                    child: BadRepsNumberPicker(
-                                      index: index,
-                                      set: set,
-                                      badRepsStateController:
-                                          badRepsStateController,
-                                    )),
-                              ],
+                              width: 110,
+                              height: 60,
                             ),
                             GestureDetector(
                               onTap: () {
@@ -230,8 +210,6 @@ class SetTile extends HookWidget {
                                         context,
                                         listen: false)
                                     .value[index] = 0;
-
-
 
                                 sizeOfDurationPicker.value == 0
                                     ? sizeOfDurationPicker.value = 100
@@ -250,9 +228,7 @@ class SetTile extends HookWidget {
                         ),
                       ],
                     ),
-
                     DurationPickerWidget(
-
                       index: index,
                       hoursFormFieldController: hoursFormFieldController,
                       minFormFieldController: minFormFieldController,
@@ -288,157 +264,155 @@ class DurationPickerWidget extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-
-
     final color = useState<Color>(Colors.grey);
 
-        return AnimatedPositioned(
-          duration: const Duration(milliseconds: 100),
-          bottom:
-              Provider.of<HeightDurationPickerProvider>(context).value[index],
-          right:
-              Provider.of<HeightDurationPickerProvider>(context).value[index],
-          onEnd: () {
-            color.value = Colors.grey;
-          },
-          child: Card(
-
-            color: color.value,
-            child: Padding(
-              padding:
-                  const EdgeInsets.only(left: 8, top: 8, right: 28, bottom: 28),
-              child: Row(
+    return AnimatedPositioned(
+      duration: const Duration(milliseconds: 100),
+      bottom: Provider.of<HeightDurationPickerProvider>(context).value[index],
+      right: Provider.of<HeightDurationPickerProvider>(context).value[index],
+      onEnd: () {
+        color.value = Colors.grey;
+      },
+      child: Card(
+        color: color.value,
+        child: Padding(
+          padding:
+              const EdgeInsets.only(left: 8, top: 8, right: 28, bottom: 28),
+          child: Row(
+            children: [
+              Column(
                 children: [
-                  Column(
-                    children: [
-                      RaisedButton(
-                        onPressed: () {
-                        final   int sumDurationMilliseconds = (int.tryParse(
-                               hoursFormFieldController.text) *
-                               3600000) + (int.tryParse(
-                               minFormFieldController.text) *
-                               60000) + (int.tryParse(
-                               secFormFieldController.text) *
-                               1000);
-                          context.formSets = context.formSets.map((setList) =>
+                  RaisedButton(
+                    onPressed: () {
+                      final int sumDurationMilliseconds = (int.tryParse(
+                                  hoursFormFieldController.text) *
+                              3600000) +
+                          (int.tryParse(minFormFieldController.text) * 60000) +
+                          (int.tryParse(secFormFieldController.text) * 1000);
+                      context.formSets = context.formSets.map((setList) =>
                           setList == set
                               ? set.copyWith(
-                              setDuration: sumDurationMilliseconds)
+                                  setDuration: sumDurationMilliseconds)
                               : setList);
-                          context.read<ExerciseFormBloc>().add(
-                              ExerciseFormEvent.exerciseSetsChanged(
-                                  context.formSets));
+                      context.read<ExerciseFormBloc>().add(
+                          ExerciseFormEvent.exerciseSetsChanged(
+                              context.formSets));
 
-                          Provider.of<HeightDurationPickerProvider>(context,
-                                  listen: false)
-                              .value[index] = 300.0;
-                          color.value = Colors.white;
-
-
-                        },
-                        child: const Text(
-                          'OK',
-                          style: TextStyle(fontSize: 25),
-                        ),
-                      ),
-
-                    ],
-                  ),
-                  Column(children: [
-                    const Text(
-                      'h',
-                      style: TextStyle(fontSize: 17),
+                      Provider.of<HeightDurationPickerProvider>(context,
+                              listen: false)
+                          .value[index] = 300.0;
+                      color.value = Colors.white;
+                    },
+                    child: const Text(
+                      'OK',
+                      style: TextStyle(fontSize: 25),
                     ),
-                    NumberPicker.integer(
-                      textMapper: (value){if(int.tryParse(value) >9){return value;}else{return '0$value';}},
-                      infiniteLoop: true,
-                      listViewWidth: 70,
-                      initialValue: int.tryParse(hoursFormFieldController.text),
-                      minValue: 0,
-                      maxValue: 23,
-                      onChanged: (value) {
-                        hoursFormFieldController.text = value.toString();
-                        final   int sumDurationMilliseconds = (int.tryParse(
-                            hoursFormFieldController.text) *
-                            3600000) + (int.tryParse(
-                            minFormFieldController.text) *
-                            60000) + (int.tryParse(
-                            secFormFieldController.text) *
-                            1000);
-                        context.formSets = context.formSets.map((setList) =>
-                        setList == set
-                            ? set.copyWith(
-                            setDuration: sumDurationMilliseconds)
-                            : setList);
-                      },
-                    ),
-                  ]),
-                  Column(children: [
-                    const Text(
-                      'min',
-                      style: TextStyle(fontSize: 17),
-                    ),
-                    NumberPicker.integer(
-                      textMapper: (value){if(int.tryParse(value) >9){return value;}else{return '0$value';}},
-                      infiniteLoop: true,
-                      listViewWidth: 70,
-                      initialValue: int.tryParse(minFormFieldController.text),
-                      minValue: 0,
-                      maxValue: 59,
-                      onChanged: (value) {
-                        minFormFieldController.text = value.toString();
-                        final   int sumDurationMilliseconds = (int.tryParse(
-                            hoursFormFieldController.text) *
-                            3600000) + (int.tryParse(
-                            minFormFieldController.text) *
-                            60000) + (int.tryParse(
-                            secFormFieldController.text) *
-                            1000);
-                        context.formSets = context.formSets.map((setList) =>
-                        setList == set
-                            ? set.copyWith(
-                            setDuration: sumDurationMilliseconds)
-                            : setList);
-                      },
-                    ),
-                  ]),
-                  Column(
-                    children: [
-                      const Text(
-                        'sec',
-                        style: TextStyle(fontSize: 17),
-                      ),
-                      NumberPicker.integer(
-                        textMapper: (value){if(int.tryParse(value) >9){return value;}else{return '0$value';}},
-                        infiniteLoop: true,
-                        listViewWidth: 70,
-                        initialValue:
-                            int.tryParse(secFormFieldController.text),
-                        minValue: 0,
-                        maxValue: 59,
-                        onChanged: (value) {
-                          secFormFieldController.text = value.toString();
-                          final   int sumDurationMilliseconds = (int.tryParse(
-                              hoursFormFieldController.text) *
-                              3600000) + (int.tryParse(
-                              minFormFieldController.text) *
-                              60000) + (int.tryParse(
-                              secFormFieldController.text) *
-                              1000);
-                          context.formSets = context.formSets.map((setList) =>
-                          setList == set
-                              ? set.copyWith(
-                              setDuration: sumDurationMilliseconds)
-                              : setList);
-                        },
-                      ),
-                    ],
                   ),
                 ],
               ),
-            ),
+              Column(children: [
+                const Text(
+                  'h',
+                  style: TextStyle(fontSize: 17),
+                ),
+                NumberPicker.integer(
+                  textMapper: (value) {
+                    if (int.tryParse(value) > 9) {
+                      return value;
+                    } else {
+                      return '0$value';
+                    }
+                  },
+                  infiniteLoop: true,
+                  listViewWidth: 70,
+                  initialValue: int.tryParse(hoursFormFieldController.text),
+                  minValue: 0,
+                  maxValue: 23,
+                  onChanged: (value) {
+                    hoursFormFieldController.text = value.toString();
+                    final int sumDurationMilliseconds = (int.tryParse(
+                                hoursFormFieldController.text) *
+                            3600000) +
+                        (int.tryParse(minFormFieldController.text) * 60000) +
+                        (int.tryParse(secFormFieldController.text) * 1000);
+                    context.formSets = context.formSets.map((setList) =>
+                        setList == set
+                            ? set.copyWith(setDuration: sumDurationMilliseconds)
+                            : setList);
+                  },
+                ),
+              ]),
+              Column(children: [
+                const Text(
+                  'min',
+                  style: TextStyle(fontSize: 17),
+                ),
+                NumberPicker.integer(
+                  textMapper: (value) {
+                    if (int.tryParse(value) > 9) {
+                      return value;
+                    } else {
+                      return '0$value';
+                    }
+                  },
+                  infiniteLoop: true,
+                  listViewWidth: 70,
+                  initialValue: int.tryParse(minFormFieldController.text),
+                  minValue: 0,
+                  maxValue: 59,
+                  onChanged: (value) {
+                    minFormFieldController.text = value.toString();
+                    final int sumDurationMilliseconds = (int.tryParse(
+                                hoursFormFieldController.text) *
+                            3600000) +
+                        (int.tryParse(minFormFieldController.text) * 60000) +
+                        (int.tryParse(secFormFieldController.text) * 1000);
+                    context.formSets = context.formSets.map((setList) =>
+                        setList == set
+                            ? set.copyWith(setDuration: sumDurationMilliseconds)
+                            : setList);
+                  },
+                ),
+              ]),
+              Column(
+                children: [
+                  const Text(
+                    'sec',
+                    style: TextStyle(fontSize: 17),
+                  ),
+                  NumberPicker.integer(
+                    textMapper: (value) {
+                      if (int.tryParse(value) > 9) {
+                        return value;
+                      } else {
+                        return '0$value';
+                      }
+                    },
+                    infiniteLoop: true,
+                    listViewWidth: 70,
+                    initialValue: int.tryParse(secFormFieldController.text),
+                    minValue: 0,
+                    maxValue: 59,
+                    onChanged: (value) {
+                      secFormFieldController.text = value.toString();
+                      final int sumDurationMilliseconds = (int.tryParse(
+                                  hoursFormFieldController.text) *
+                              3600000) +
+                          (int.tryParse(minFormFieldController.text) * 60000) +
+                          (int.tryParse(secFormFieldController.text) * 1000);
+                      context.formSets = context.formSets.map((setList) =>
+                          setList == set
+                              ? set.copyWith(
+                                  setDuration: sumDurationMilliseconds)
+                              : setList);
+                    },
+                  ),
+                ],
+              ),
+            ],
           ),
-        );
-
+        ),
+      ),
+    );
   }
 }

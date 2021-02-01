@@ -58,20 +58,6 @@ class RepetitionsNumb extends ValueObject<int> {
   }
 }
 
-class GoodReps extends ValueObject<int>{
-  @override
-
- final Either<ValueFailure<int>, int> value;
-  static const maxValue = 1000;
-
-  const GoodReps._(this.value);
-
-  factory GoodReps(int input){
-    assert(input != null);
-    return GoodReps._(validateMaxIntValue(input,maxValue));
-  }
-
-}
 class BadReps extends ValueObject<int> {
   @override
   final Either<ValueFailure<int>, int> value;

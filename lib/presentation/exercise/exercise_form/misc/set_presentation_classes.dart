@@ -18,7 +18,6 @@ abstract class SetItemPrimitive implements _$SetItemPrimitive {
   const factory SetItemPrimitive({
     @required UniqueId id,
     @required int number,
-    @required int goodReps,
     @required int badReps,
     @required double weights,
     @required double distance,
@@ -28,7 +27,6 @@ abstract class SetItemPrimitive implements _$SetItemPrimitive {
   factory SetItemPrimitive.empty() => SetItemPrimitive(
         id: UniqueId(),
         number: 0,
-        goodReps: 0,
         badReps: 0,
         weights: 0.0,
         distance: 0.0,
@@ -39,7 +37,6 @@ abstract class SetItemPrimitive implements _$SetItemPrimitive {
     return SetItemPrimitive(
       id: sets.id,
       number: sets.number.getOrCrash(),
-      goodReps: sets.goodReps.getOrCrash(),
       badReps: sets.badReps.getOrCrash(),
       weights: sets.weights.getOrCrash(),
       distance: sets.distance.getOrCrash(),
@@ -51,7 +48,6 @@ abstract class SetItemPrimitive implements _$SetItemPrimitive {
     return Sets(
       id: id,
       number: RepetitionsNumb(number),
-      goodReps: GoodReps(goodReps),
       badReps: BadReps(badReps),
       weights: Weights(weights),
       distance: Distance(distance),

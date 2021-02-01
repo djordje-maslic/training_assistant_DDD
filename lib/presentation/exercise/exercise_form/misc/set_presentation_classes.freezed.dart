@@ -17,7 +17,6 @@ class _$SetItemPrimitiveTearOff {
   _SetItemprimitive call(
       {@required UniqueId id,
       @required int number,
-      @required int goodReps,
       @required int badReps,
       @required double weights,
       @required double distance,
@@ -25,7 +24,6 @@ class _$SetItemPrimitiveTearOff {
     return _SetItemprimitive(
       id: id,
       number: number,
-      goodReps: goodReps,
       badReps: badReps,
       weights: weights,
       distance: distance,
@@ -42,7 +40,6 @@ const $SetItemPrimitive = _$SetItemPrimitiveTearOff();
 mixin _$SetItemPrimitive {
   UniqueId get id;
   int get number;
-  int get goodReps;
   int get badReps;
   double get weights;
   double get distance;
@@ -60,7 +57,6 @@ abstract class $SetItemPrimitiveCopyWith<$Res> {
   $Res call(
       {UniqueId id,
       int number,
-      int goodReps,
       int badReps,
       double weights,
       double distance,
@@ -80,7 +76,6 @@ class _$SetItemPrimitiveCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object number = freezed,
-    Object goodReps = freezed,
     Object badReps = freezed,
     Object weights = freezed,
     Object distance = freezed,
@@ -89,7 +84,6 @@ class _$SetItemPrimitiveCopyWithImpl<$Res>
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as UniqueId,
       number: number == freezed ? _value.number : number as int,
-      goodReps: goodReps == freezed ? _value.goodReps : goodReps as int,
       badReps: badReps == freezed ? _value.badReps : badReps as int,
       weights: weights == freezed ? _value.weights : weights as double,
       distance: distance == freezed ? _value.distance : distance as double,
@@ -109,7 +103,6 @@ abstract class _$SetItemprimitiveCopyWith<$Res>
   $Res call(
       {UniqueId id,
       int number,
-      int goodReps,
       int badReps,
       double weights,
       double distance,
@@ -131,7 +124,6 @@ class __$SetItemprimitiveCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object number = freezed,
-    Object goodReps = freezed,
     Object badReps = freezed,
     Object weights = freezed,
     Object distance = freezed,
@@ -140,7 +132,6 @@ class __$SetItemprimitiveCopyWithImpl<$Res>
     return _then(_SetItemprimitive(
       id: id == freezed ? _value.id : id as UniqueId,
       number: number == freezed ? _value.number : number as int,
-      goodReps: goodReps == freezed ? _value.goodReps : goodReps as int,
       badReps: badReps == freezed ? _value.badReps : badReps as int,
       weights: weights == freezed ? _value.weights : weights as double,
       distance: distance == freezed ? _value.distance : distance as double,
@@ -156,14 +147,12 @@ class _$_SetItemprimitive extends _SetItemprimitive
   const _$_SetItemprimitive(
       {@required this.id,
       @required this.number,
-      @required this.goodReps,
       @required this.badReps,
       @required this.weights,
       @required this.distance,
       @required this.setDuration})
       : assert(id != null),
         assert(number != null),
-        assert(goodReps != null),
         assert(badReps != null),
         assert(weights != null),
         assert(distance != null),
@@ -175,8 +164,6 @@ class _$_SetItemprimitive extends _SetItemprimitive
   @override
   final int number;
   @override
-  final int goodReps;
-  @override
   final int badReps;
   @override
   final double weights;
@@ -187,7 +174,7 @@ class _$_SetItemprimitive extends _SetItemprimitive
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SetItemPrimitive(id: $id, number: $number, goodReps: $goodReps, badReps: $badReps, weights: $weights, distance: $distance, setDuration: $setDuration)';
+    return 'SetItemPrimitive(id: $id, number: $number, badReps: $badReps, weights: $weights, distance: $distance, setDuration: $setDuration)';
   }
 
   @override
@@ -197,7 +184,6 @@ class _$_SetItemprimitive extends _SetItemprimitive
       ..add(DiagnosticsProperty('type', 'SetItemPrimitive'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('number', number))
-      ..add(DiagnosticsProperty('goodReps', goodReps))
       ..add(DiagnosticsProperty('badReps', badReps))
       ..add(DiagnosticsProperty('weights', weights))
       ..add(DiagnosticsProperty('distance', distance))
@@ -212,9 +198,6 @@ class _$_SetItemprimitive extends _SetItemprimitive
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.number, number) ||
                 const DeepCollectionEquality().equals(other.number, number)) &&
-            (identical(other.goodReps, goodReps) ||
-                const DeepCollectionEquality()
-                    .equals(other.goodReps, goodReps)) &&
             (identical(other.badReps, badReps) ||
                 const DeepCollectionEquality()
                     .equals(other.badReps, badReps)) &&
@@ -234,7 +217,6 @@ class _$_SetItemprimitive extends _SetItemprimitive
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(number) ^
-      const DeepCollectionEquality().hash(goodReps) ^
       const DeepCollectionEquality().hash(badReps) ^
       const DeepCollectionEquality().hash(weights) ^
       const DeepCollectionEquality().hash(distance) ^
@@ -251,7 +233,6 @@ abstract class _SetItemprimitive extends SetItemPrimitive {
   const factory _SetItemprimitive(
       {@required UniqueId id,
       @required int number,
-      @required int goodReps,
       @required int badReps,
       @required double weights,
       @required double distance,
@@ -261,8 +242,6 @@ abstract class _SetItemprimitive extends SetItemPrimitive {
   UniqueId get id;
   @override
   int get number;
-  @override
-  int get goodReps;
   @override
   int get badReps;
   @override

@@ -17,7 +17,6 @@ class _$SetsTearOff {
   _Sets call(
       {@required UniqueId id,
       @required RepetitionsNumb number,
-      @required GoodReps goodReps,
       @required BadReps badReps,
       @required Weights weights,
       @required Distance distance,
@@ -25,7 +24,6 @@ class _$SetsTearOff {
     return _Sets(
       id: id,
       number: number,
-      goodReps: goodReps,
       badReps: badReps,
       weights: weights,
       distance: distance,
@@ -42,7 +40,6 @@ const $Sets = _$SetsTearOff();
 mixin _$Sets {
   UniqueId get id;
   RepetitionsNumb get number;
-  GoodReps get goodReps;
   BadReps get badReps;
   Weights get weights;
   Distance get distance;
@@ -59,7 +56,6 @@ abstract class $SetsCopyWith<$Res> {
   $Res call(
       {UniqueId id,
       RepetitionsNumb number,
-      GoodReps goodReps,
       BadReps badReps,
       Weights weights,
       Distance distance,
@@ -78,7 +74,6 @@ class _$SetsCopyWithImpl<$Res> implements $SetsCopyWith<$Res> {
   $Res call({
     Object id = freezed,
     Object number = freezed,
-    Object goodReps = freezed,
     Object badReps = freezed,
     Object weights = freezed,
     Object distance = freezed,
@@ -87,7 +82,6 @@ class _$SetsCopyWithImpl<$Res> implements $SetsCopyWith<$Res> {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as UniqueId,
       number: number == freezed ? _value.number : number as RepetitionsNumb,
-      goodReps: goodReps == freezed ? _value.goodReps : goodReps as GoodReps,
       badReps: badReps == freezed ? _value.badReps : badReps as BadReps,
       weights: weights == freezed ? _value.weights : weights as Weights,
       distance: distance == freezed ? _value.distance : distance as Distance,
@@ -106,7 +100,6 @@ abstract class _$SetsCopyWith<$Res> implements $SetsCopyWith<$Res> {
   $Res call(
       {UniqueId id,
       RepetitionsNumb number,
-      GoodReps goodReps,
       BadReps badReps,
       Weights weights,
       Distance distance,
@@ -126,7 +119,6 @@ class __$SetsCopyWithImpl<$Res> extends _$SetsCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object number = freezed,
-    Object goodReps = freezed,
     Object badReps = freezed,
     Object weights = freezed,
     Object distance = freezed,
@@ -135,7 +127,6 @@ class __$SetsCopyWithImpl<$Res> extends _$SetsCopyWithImpl<$Res>
     return _then(_Sets(
       id: id == freezed ? _value.id : id as UniqueId,
       number: number == freezed ? _value.number : number as RepetitionsNumb,
-      goodReps: goodReps == freezed ? _value.goodReps : goodReps as GoodReps,
       badReps: badReps == freezed ? _value.badReps : badReps as BadReps,
       weights: weights == freezed ? _value.weights : weights as Weights,
       distance: distance == freezed ? _value.distance : distance as Distance,
@@ -151,14 +142,12 @@ class _$_Sets extends _Sets {
   const _$_Sets(
       {@required this.id,
       @required this.number,
-      @required this.goodReps,
       @required this.badReps,
       @required this.weights,
       @required this.distance,
       @required this.setDuration})
       : assert(id != null),
         assert(number != null),
-        assert(goodReps != null),
         assert(badReps != null),
         assert(weights != null),
         assert(distance != null),
@@ -170,8 +159,6 @@ class _$_Sets extends _Sets {
   @override
   final RepetitionsNumb number;
   @override
-  final GoodReps goodReps;
-  @override
   final BadReps badReps;
   @override
   final Weights weights;
@@ -182,7 +169,7 @@ class _$_Sets extends _Sets {
 
   @override
   String toString() {
-    return 'Sets(id: $id, number: $number, goodReps: $goodReps, badReps: $badReps, weights: $weights, distance: $distance, setDuration: $setDuration)';
+    return 'Sets(id: $id, number: $number, badReps: $badReps, weights: $weights, distance: $distance, setDuration: $setDuration)';
   }
 
   @override
@@ -193,9 +180,6 @@ class _$_Sets extends _Sets {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.number, number) ||
                 const DeepCollectionEquality().equals(other.number, number)) &&
-            (identical(other.goodReps, goodReps) ||
-                const DeepCollectionEquality()
-                    .equals(other.goodReps, goodReps)) &&
             (identical(other.badReps, badReps) ||
                 const DeepCollectionEquality()
                     .equals(other.badReps, badReps)) &&
@@ -215,7 +199,6 @@ class _$_Sets extends _Sets {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(number) ^
-      const DeepCollectionEquality().hash(goodReps) ^
       const DeepCollectionEquality().hash(badReps) ^
       const DeepCollectionEquality().hash(weights) ^
       const DeepCollectionEquality().hash(distance) ^
@@ -232,7 +215,6 @@ abstract class _Sets extends Sets {
   const factory _Sets(
       {@required UniqueId id,
       @required RepetitionsNumb number,
-      @required GoodReps goodReps,
       @required BadReps badReps,
       @required Weights weights,
       @required Distance distance,
@@ -242,8 +224,6 @@ abstract class _Sets extends Sets {
   UniqueId get id;
   @override
   RepetitionsNumb get number;
-  @override
-  GoodReps get goodReps;
   @override
   BadReps get badReps;
   @override

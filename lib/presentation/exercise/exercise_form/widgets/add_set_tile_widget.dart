@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:reminder_app/application/exercise/form_bloc/exercise_form_bloc.dart';
+import 'package:reminder_app/domain/core/value_objects.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/set_presentation_classes.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/build_context_x.dart';
 
@@ -29,9 +30,11 @@ class AddSetTile extends StatelessWidget {
               child: Icon(Icons.add),
             ),
             onTap: () {
+              context.formSets.isEmpty() ?
              context.formSets =
                 context.formSets
-                      .plusElement(SetItemPrimitive.empty());
+                      .plusElement(SetItemPrimitive.empty()) : context.formSets = context.formSets
+                  .plusElement(context.formSets[context.formSets.lastIndex].copyWith(id: UniqueId()));
               context.read<ExerciseFormBloc>().add(
                     ExerciseFormEvent.exerciseSetsChanged(
                         context.formSets),
