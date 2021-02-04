@@ -11,7 +11,17 @@ class SetDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-        '${setList.getOrCrash().indexOf(sets) + 1}.SET: ${sets.number.getOrCrash().toString()} reps  ');
+    return Wrap(
+      children: [
+        Text(
+          '${setList.getOrCrash().indexOf(sets) + 1}.SET:',
+          style: TextStyle(color: Colors.indigo[400],fontSize: 20),
+        ),
+        Text(
+          ' ${sets.number.getOrCrash().toString()} reps  ',
+          style: const TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),
+        ),
+      ],
+    );
   }
 }

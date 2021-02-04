@@ -19,17 +19,17 @@ class UserOverviewPage extends StatelessWidget {
         backgroundColor: Colors.amber[300],
         appBar: AppBar(
           leading: IconButton(
-              icon:  Icon(Icons.arrow_back,color: Colors.grey[800],),
+              icon:  Icon(Icons.arrow_back,color: Colors.indigo[900],),
               onPressed: () => ExtendedNavigator.of(context).pushSplashPage()),
           title: Row(
             children: [
-               Icon(Icons.account_circle,color:Colors.grey[800],),
+               Icon(Icons.account_circle,color:Colors.indigo[900],),
               Text(
                 context.watch<AuthBloc>().state.maybeMap(
                       orElse: () => 'User',
                       authenticated: (state) =>
                           state.user.emailAddress.getOrCrash(),
-                    ),style: TextStyle(color: Colors.grey[800]),
+                    ),style: TextStyle(color: Colors.indigo[900]),
               ),
             ],
           ),

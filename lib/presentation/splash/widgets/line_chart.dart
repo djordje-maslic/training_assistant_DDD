@@ -17,15 +17,10 @@ class LineChartSample2 extends StatelessWidget {
       children: <Widget>[
         AspectRatio(
           aspectRatio: 1.70,
-          child: Container(
-            decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(18),
-                ),
-                color: Color(0xff232d37)),
+          child: Card( color: Colors.indigo[100],elevation: 10,
             child: Padding(
               padding: const EdgeInsets.only(
-                  right: 18.0, left: 12.0, top: 24, bottom: 12),
+                  right: 18.0, left: 2.0, top: 24, bottom: 22),
               child: LineChart(
                 mainData(list),
               ),
@@ -101,8 +96,8 @@ List<FlSpot> flSpotList(SetsList list){
           spots: flSpotList(list),
           isCurved: true,
           colors: [
-            const Color(0xff23b6e6),
-            const Color(0xff02d39a),
+            Colors.yellowAccent,
+            Colors.greenAccent
           ],
           barWidth: 5,
           isStrokeCapRound: true,
@@ -112,8 +107,8 @@ List<FlSpot> flSpotList(SetsList list){
           belowBarData: BarAreaData(
             show: true,
             colors: [
-              const Color(0xff23b6e6),
-              const Color(0xff02d39a),
+              Colors.yellowAccent,
+              Colors.greenAccent,
             ].map((color) => color.withOpacity(0.3)).toList(),
           ),
         ),

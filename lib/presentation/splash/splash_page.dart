@@ -18,7 +18,7 @@ class SplashPage extends StatelessWidget {
             ..add(const ExerciseWatcherEvent.watchAllStarted()),
         ),
       ],
-      child: Scaffold(
+      child: Scaffold(backgroundColor: Colors.amber[200],
         endDrawer: Drawer(
           child: ListView(
             children: [

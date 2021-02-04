@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flushbar/flushbar_helper.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -141,7 +142,7 @@ class UserFormPageScaffold extends StatelessWidget {
                   context
                       .read<UserFormBloc>()
                       .add(const UserFormEvent.userSaved());
-                  ExtendedNavigator.of(context).pushUserOverviewPage();
+
                 })
           ],
         ),
@@ -161,6 +162,7 @@ class UserFormPageScaffold extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: TextFormField(
+                          maxLength: 30,
                           initialValue:
                               user == null ? '' : user.userName.getOrCrash(),
                           validator: (_) => context

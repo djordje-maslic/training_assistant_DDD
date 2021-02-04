@@ -45,7 +45,7 @@ class BodyMeasuresDataTableWidget extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(18.0),
-                  child: RaisedButton(
+                  child: RaisedButton(color: Colors.indigo[100],elevation: 10,
                     shape: const StadiumBorder(),
                     onPressed: () {
                       ExtendedNavigator.of(context).pushBodyMeasuresFormPage(

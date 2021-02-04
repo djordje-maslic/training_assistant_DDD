@@ -33,14 +33,15 @@ Future<void> _selectDate(
       initialDate: DateTime.now(),
       currentDate: DateTime.now(),
       firstDate: DateTime(2019),
-      lastDate: DateTime(2025),
+      lastDate: DateTime.now(),
       builder: (context, child) {
         return Theme(
             data: ThemeData.from(
               colorScheme: const ColorScheme.light().copyWith(
-                onBackground: Colors.grey,
-                onSurface: Colors.black,
-                onPrimary: Colors.grey,
+                background:Colors.amber[100],
+                onBackground: Colors.indigo[300],
+                onSurface: Colors.indigo[900],
+                onPrimary: Colors.indigo[300],
                 primary: Colors.amber,
               ),
               textTheme: const TextTheme(
@@ -51,14 +52,11 @@ Future<void> _selectDate(
             ),
             child: child);
       });
-  if (picked != null && (picked.year != DateTime.now().year ||
-      picked.month != DateTime.now().month ||
-      picked.day != DateTime.now().day)) {
+  if (picked != null ) {
     context.read<ExerciseFormBloc>().add(
         ExerciseFormEvent.exerciseDateChanged(picked.millisecondsSinceEpoch));
-  } else {
-    context.read<ExerciseFormBloc>().add(
-        ExerciseFormEvent.exerciseDateChanged(selectedDate.millisecondsSinceEpoch));
+  }  else{
+
   }
 }
 
@@ -69,7 +67,7 @@ class DateText extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final DateTime date = context.formDate.date == null
-        ? DateTime.now()
+        ? null
         : DateTime.fromMillisecondsSinceEpoch(context.formDate.date);
     final textEditingControllerDate = useTextEditingController(
         text: dateTimeConverter(context.formDate.date));

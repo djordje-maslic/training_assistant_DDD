@@ -31,9 +31,11 @@ import 'package:reminder_app/presentation/user/user_overview/user_overview_page.
     ),
     MaterialRoute(
       page: UserFormPage,
+      fullscreenDialog: true,
     ),
     MaterialRoute(
       page: BodyMeasuresFormPage,
+      fullscreenDialog: true,
     ),
   ],
 )

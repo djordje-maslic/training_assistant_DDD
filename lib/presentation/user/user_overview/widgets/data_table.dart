@@ -24,68 +24,70 @@ class UserDataTable extends StatelessWidget {
 
             return ListView(
               children: [
-                DataTable(
-                  columnSpacing: 20.0,
-                  dataRowHeight: 40,
-                  headingRowHeight: 40,
-                  columns: const [
-                    DataColumn(
-                      label: Text(
-                        'User name',
-                        style: TextStyle(
-                          fontSize: 15,
-                        ),
-                      ),
-                    ),
-                    DataColumn(
-                      tooltip: 'Number of set',
-                      label: Text(
-                        'Date of birth',
-                        style: TextStyle(
-                          fontSize: 15,
-                        ),
-                      ),
-                    ),
-                    DataColumn(
-                      label: Text(
-                        'Gender',
-                        style: TextStyle(
-                          fontSize: 15,
-                        ),
-                      ),
-                    ),
-                  ],
-                  rows: [
-                    DataRow(
-                      cells: [
-                        DataCell(
-                          Text(
-                            user.userName.getOrCrash() ?? 'none',
-                            style: const TextStyle(
-                              fontSize: 20,
-                            ),
-                          ),showEditIcon: true,onTap: ()=> ExtendedNavigator.of(context)
-                            .pushUserFormPage(initialUser: user),
-                        ),
-                        DataCell(
-                          Text(
-                            '${dateTimeConverter(user.userDateOfBirth.getOrCrash())} ',
-                            style: const TextStyle(
-                              fontSize: 20,
-                            ),
+                SingleChildScrollView(scrollDirection: Axis.horizontal,
+                  child: DataTable(
+                    columnSpacing: 20.0,
+                    dataRowHeight: 40,
+                    headingRowHeight: 40,
+                    columns: const [
+                      DataColumn(
+                        label: Text(
+                          'User name',
+                          style: TextStyle(
+                            fontSize: 15,
                           ),
                         ),
-                        DataCell(
-                          Text(
-                            user.userGender.getOrCrash() ? 'male' : 'female',
-                            style: const TextStyle(
-                              fontSize: 20,
-                            ),
+                      ),
+                      DataColumn(
+                        tooltip: 'Number of set',
+                        label: Text(
+                          'Date of birth',
+                          style: TextStyle(
+                            fontSize: 15,
                           ),
                         ),
-                      ],
-                    ),
-                  ],
+                      ),
+                      DataColumn(
+                        label: Text(
+                          'Gender',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                    ],
+                    rows: [
+                      DataRow(
+                        cells: [
+                          DataCell(
+                            Text(
+                              user.userName.getOrCrash() ?? 'none',
+                              style: const TextStyle(
+                                fontSize: 20,
+                              ),
+                            ),showEditIcon: true,onTap: ()=> ExtendedNavigator.of(context)
+                              .pushUserFormPage(initialUser: user),
+                          ),
+                          DataCell(
+                            Text(
+                              '${dateTimeConverter(user.userDateOfBirth.getOrCrash())} ',
+                              style: const TextStyle(
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                          DataCell(
+                            Text(
+                              user.userGender.getOrCrash() ? 'male' : 'female',
+                              style: const TextStyle(
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
                 BlocProvider<BodyMeasuresWatcherBloc>(
                   create: (context) => getIt<BodyMeasuresWatcherBloc>()
@@ -99,7 +101,7 @@ class UserDataTable extends StatelessWidget {
                   children: [
                     SizedBox(
                       width: 120,
-                      child: RaisedButton(
+                      child: RaisedButton(color: Colors.indigo[100],elevation: 10,
                         onPressed: () {
                           context
                               .read<AuthBloc>()
@@ -124,7 +126,7 @@ class UserDataTable extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: RaisedButton(
+                  child: RaisedButton(color: Colors.indigo[100],
                     onPressed: () {
                       ExtendedNavigator.of(context)
                           .pushUserFormPage(initialUser: null);

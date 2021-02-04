@@ -107,6 +107,7 @@ class Router extends RouterBase {
           key: args.key,
         ),
         settings: data,
+        fullscreenDialog: true,
       );
     },
     BodyMeasuresFormPage: (data) {
@@ -118,6 +119,7 @@ class Router extends RouterBase {
           lastBodyMeasuresForHintText: args.lastBodyMeasuresForHintText,
         ),
         settings: data,
+        fullscreenDialog: true,
       );
     },
   };
