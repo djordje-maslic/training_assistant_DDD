@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reminder_app/application/auth/auth_bloc.dart';
 import 'package:reminder_app/application/user/user_watcher/user_watcher_bloc.dart';
 import 'package:reminder_app/injectable.dart';
-import 'package:reminder_app/presentation/routes/router.gr.dart';
 import 'package:reminder_app/presentation/user/user_overview/widgets/data_table.dart';
 
 class UserOverviewPage extends StatelessWidget {
@@ -20,7 +19,7 @@ class UserOverviewPage extends StatelessWidget {
         appBar: AppBar(
           leading: IconButton(
               icon:  Icon(Icons.arrow_back,color: Colors.indigo[900],),
-              onPressed: () => ExtendedNavigator.of(context).pushSplashPage()),
+              onPressed: () => ExtendedNavigator.of(context).pop()),
           title: Row(
             children: [
                Icon(Icons.account_circle,color:Colors.indigo[900],),

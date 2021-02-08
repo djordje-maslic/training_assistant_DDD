@@ -123,13 +123,25 @@ class UserFormPageScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<UserFormBloc, UserFormState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        state.saveFailureOrSuccessOption.fold(
+            () => () {},
+            (either) => either.fold(
+                    (f) => FlushbarHelper.createError(
+                          message: f.map(
+                              unexpected: (_) =>
+                                  'Something unexpected happened please contact support',
+                              noUserProfile: (_) => 'No user profile',
+                              insufficientPermission: (_) =>
+                                  'Insufficient permission',
+                              unableToUpdate: (_) => 'Unable to update'),
+                        ).show(context), (r) {
+                  ExtendedNavigator.of(context)
+                      .popAndPush(Routes.userOverviewPage);
+                }));
+      },
       child: Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () =>
-                  ExtendedNavigator.of(context).pushUserOverviewPage()),
           title: BlocBuilder<UserFormBloc, UserFormState>(
             buildWhen: (p, c) => p.isEditing != c.isEditing,
             builder: (context, state) =>
@@ -142,7 +154,6 @@ class UserFormPageScaffold extends StatelessWidget {
                   context
                       .read<UserFormBloc>()
                       .add(const UserFormEvent.userSaved());
-
                 })
           ],
         ),
@@ -204,7 +215,7 @@ class UserFormPageScaffold extends StatelessWidget {
                     create: (context) => FormDate(),
                     child: const UserDateOfBirthWidget(),
                   ),
-                 const Center(
+                  const Center(
                     child: Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Text(

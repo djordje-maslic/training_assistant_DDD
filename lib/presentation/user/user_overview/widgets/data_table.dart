@@ -103,9 +103,11 @@ class UserDataTable extends StatelessWidget {
                       width: 120,
                       child: RaisedButton(color: Colors.indigo[100],elevation: 10,
                         onPressed: () {
+
                           context
                               .read<AuthBloc>()
                               .add(const AuthEvent.signOut());
+
                         },
                         child: Row(
                           children: const [

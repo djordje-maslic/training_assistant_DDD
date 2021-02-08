@@ -15,6 +15,7 @@ import 'package:reminder_app/presentation/user/user_overview/user_overview_page.
     MaterialRoute(page: SplashPage, initial: true),
     MaterialRoute(
       page: SignIn,
+      fullscreenDialog: true,
     ),
     MaterialRoute(
       page: ExerciseOverviewPage,

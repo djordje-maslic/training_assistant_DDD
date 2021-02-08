@@ -24,8 +24,8 @@ class SignInForm extends StatelessWidget {
                       'Invalid Email and Password combination'),
             ).show(context),
             (_) {
-              ExtendedNavigator.of(context)
-                  .replace(Routes.exerciseOverviewPage);
+              ExtendedNavigator.of(context).push(Routes.splashPage);
+
               context
                   .read<AuthBloc>()
                   .add(const AuthEvent.userCheckRequested());

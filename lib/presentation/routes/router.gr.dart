@@ -68,6 +68,7 @@ class Router extends RouterBase {
       return MaterialPageRoute<dynamic>(
         builder: (context) => SignIn(),
         settings: data,
+        fullscreenDialog: true,
       );
     },
     ExerciseOverviewPage: (data) {
