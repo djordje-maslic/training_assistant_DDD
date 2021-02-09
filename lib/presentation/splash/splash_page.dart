@@ -25,7 +25,7 @@ class SplashPage extends StatelessWidget {
             Builder(builder: (context) {
               return IconButton(
                   icon: context.watch<AuthBloc>().state.maybeMap(
-                      orElse: () => null,
+                      orElse: () => const Icon(Icons.account_circle),
                       unauthenticated: (_) => const Icon(Icons.account_circle),
                       authenticated: (state) {
                         return SizedBox(child: CircleAvatar(backgroundColor: Colors.indigo[100],

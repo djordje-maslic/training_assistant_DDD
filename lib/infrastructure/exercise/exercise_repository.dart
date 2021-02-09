@@ -18,7 +18,7 @@ class ExerciseRepository implements IExerciseRepository {
 
   @override
   Stream<Either<ExerciseFailure, KtList<Exercise>>> watchAllExercise() async* {
-    final userDocument = await _firebaseFirestore.userDocument();
+    final userDocument = await _firebaseFirestore.exerciseDocument();
     yield* userDocument
        .orderBy('date',descending: true)
         .snapshots()

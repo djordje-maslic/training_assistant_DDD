@@ -1,6 +1,8 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
+import 'package:kt_dart/collection.dart';
 import 'package:reminder_app/application/body_measures/body_measures_form/body_measures_form_bloc.dart';
+import 'package:reminder_app/application/body_measures/body_measures_watcher/body_measures_watcher_bloc.dart';
 import 'package:reminder_app/domain/body_measures/body_measures.dart';
 import 'package:reminder_app/domain/body_measures/i_body_measures_repository.dart';
 import 'package:test/test.dart';
@@ -37,21 +39,17 @@ void main() {
     blocTest(
       'initial state of body measures form',
       build: () {
-        when(mockBodyMeasuresRepository.create(any)).thenAnswer((
-            realInvocation) async => const Right(unit));
-        when(mockBodyMeasures).thenAnswer((realInvocation) => mockBodyMeasures);
-        return BodyMeasuresFormBloc(mockBodyMeasuresRepository);
+
+        return BodyMeasuresWatcherBloc(mockBodyMeasuresRepository);
       },
       act: (bloc) {
-        bloc.add(const BodyMeasuresFormEvent.bodyMeasuresHeightChanged(100));
+        bloc.add(BodyMeasuresWatcherEvent.bodyMeasureReceived(right([BodyMeasures.empty()].toImmutableList())));
       },
       expect: [
-       BodyMeasuresFormState(
-            bodyMeasures: BodyMeasures.empty(),
-            showErrorMessages: false,
-            isEditing: false,
-            isSaving: false,
-            saveFailureOrSuccessOption:const None())
+
+        BodyMeasuresWatcherState.loadSuccess([BodyMeasures.empty()].toImmutableList()),
+        
+
       ],
     );
   });

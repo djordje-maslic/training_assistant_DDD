@@ -50,8 +50,8 @@ class _$ExerciseFormEventTearOff {
   }
 
 // ignore: unused_element
-  _ExerciseSavd exerciseSaved() {
-    return const _ExerciseSavd();
+  _ExerciseSaved exerciseSaved() {
+    return const _ExerciseSaved();
   }
 }
 
@@ -89,7 +89,7 @@ mixin _$ExerciseFormEvent {
         TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     @required
         TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
-    @required TResult exerciseSaved(_ExerciseSavd value),
+    @required TResult exerciseSaved(_ExerciseSaved value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
@@ -98,7 +98,7 @@ mixin _$ExerciseFormEvent {
     TResult exerciseDateChanged(_ExerciseDateChanged value),
     TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
-    TResult exerciseSaved(_ExerciseSavd value),
+    TResult exerciseSaved(_ExerciseSaved value),
     @required TResult orElse(),
   });
 }
@@ -230,7 +230,7 @@ class _$_Initialized implements _Initialized {
         TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     @required
         TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
-    @required TResult exerciseSaved(_ExerciseSavd value),
+    @required TResult exerciseSaved(_ExerciseSaved value),
   }) {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
@@ -249,7 +249,7 @@ class _$_Initialized implements _Initialized {
     TResult exerciseDateChanged(_ExerciseDateChanged value),
     TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
-    TResult exerciseSaved(_ExerciseSavd value),
+    TResult exerciseSaved(_ExerciseSaved value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -375,7 +375,7 @@ class _$_ExerciseNameChanged implements _ExerciseNameChanged {
         TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     @required
         TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
-    @required TResult exerciseSaved(_ExerciseSavd value),
+    @required TResult exerciseSaved(_ExerciseSaved value),
   }) {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
@@ -394,7 +394,7 @@ class _$_ExerciseNameChanged implements _ExerciseNameChanged {
     TResult exerciseDateChanged(_ExerciseDateChanged value),
     TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
-    TResult exerciseSaved(_ExerciseSavd value),
+    TResult exerciseSaved(_ExerciseSaved value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -519,7 +519,7 @@ class _$_ExerciseDateChanged implements _ExerciseDateChanged {
         TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     @required
         TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
-    @required TResult exerciseSaved(_ExerciseSavd value),
+    @required TResult exerciseSaved(_ExerciseSaved value),
   }) {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
@@ -538,7 +538,7 @@ class _$_ExerciseDateChanged implements _ExerciseDateChanged {
     TResult exerciseDateChanged(_ExerciseDateChanged value),
     TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
-    TResult exerciseSaved(_ExerciseSavd value),
+    TResult exerciseSaved(_ExerciseSaved value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -666,7 +666,7 @@ class _$_ExerciseSereiesNumbChanged implements _ExerciseSereiesNumbChanged {
         TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     @required
         TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
-    @required TResult exerciseSaved(_ExerciseSavd value),
+    @required TResult exerciseSaved(_ExerciseSaved value),
   }) {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
@@ -685,7 +685,7 @@ class _$_ExerciseSereiesNumbChanged implements _ExerciseSereiesNumbChanged {
     TResult exerciseDateChanged(_ExerciseDateChanged value),
     TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
-    TResult exerciseSaved(_ExerciseSavd value),
+    TResult exerciseSaved(_ExerciseSaved value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -816,7 +816,7 @@ class _$_ExerciseRepetitionsListChanged
         TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     @required
         TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
-    @required TResult exerciseSaved(_ExerciseSavd value),
+    @required TResult exerciseSaved(_ExerciseSaved value),
   }) {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
@@ -835,7 +835,7 @@ class _$_ExerciseRepetitionsListChanged
     TResult exerciseDateChanged(_ExerciseDateChanged value),
     TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
-    TResult exerciseSaved(_ExerciseSavd value),
+    TResult exerciseSaved(_ExerciseSaved value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -857,27 +857,27 @@ abstract class _ExerciseRepetitionsListChanged implements ExerciseFormEvent {
 }
 
 /// @nodoc
-abstract class _$ExerciseSavdCopyWith<$Res> {
-  factory _$ExerciseSavdCopyWith(
-          _ExerciseSavd value, $Res Function(_ExerciseSavd) then) =
-      __$ExerciseSavdCopyWithImpl<$Res>;
+abstract class _$ExerciseSavedCopyWith<$Res> {
+  factory _$ExerciseSavedCopyWith(
+          _ExerciseSaved value, $Res Function(_ExerciseSaved) then) =
+      __$ExerciseSavedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$ExerciseSavdCopyWithImpl<$Res>
+class __$ExerciseSavedCopyWithImpl<$Res>
     extends _$ExerciseFormEventCopyWithImpl<$Res>
-    implements _$ExerciseSavdCopyWith<$Res> {
-  __$ExerciseSavdCopyWithImpl(
-      _ExerciseSavd _value, $Res Function(_ExerciseSavd) _then)
-      : super(_value, (v) => _then(v as _ExerciseSavd));
+    implements _$ExerciseSavedCopyWith<$Res> {
+  __$ExerciseSavedCopyWithImpl(
+      _ExerciseSaved _value, $Res Function(_ExerciseSaved) _then)
+      : super(_value, (v) => _then(v as _ExerciseSaved));
 
   @override
-  _ExerciseSavd get _value => super._value as _ExerciseSavd;
+  _ExerciseSaved get _value => super._value as _ExerciseSaved;
 }
 
 /// @nodoc
-class _$_ExerciseSavd implements _ExerciseSavd {
-  const _$_ExerciseSavd();
+class _$_ExerciseSaved implements _ExerciseSaved {
+  const _$_ExerciseSaved();
 
   @override
   String toString() {
@@ -886,7 +886,7 @@ class _$_ExerciseSavd implements _ExerciseSavd {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _ExerciseSavd);
+    return identical(this, other) || (other is _ExerciseSaved);
   }
 
   @override
@@ -939,7 +939,7 @@ class _$_ExerciseSavd implements _ExerciseSavd {
         TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     @required
         TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
-    @required TResult exerciseSaved(_ExerciseSavd value),
+    @required TResult exerciseSaved(_ExerciseSaved value),
   }) {
     assert(initialized != null);
     assert(exerciseNameChanged != null);
@@ -958,7 +958,7 @@ class _$_ExerciseSavd implements _ExerciseSavd {
     TResult exerciseDateChanged(_ExerciseDateChanged value),
     TResult exerciseUserNameChanged(_ExerciseSereiesNumbChanged value),
     TResult exerciseSetsChanged(_ExerciseRepetitionsListChanged value),
-    TResult exerciseSaved(_ExerciseSavd value),
+    TResult exerciseSaved(_ExerciseSaved value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -969,8 +969,8 @@ class _$_ExerciseSavd implements _ExerciseSavd {
   }
 }
 
-abstract class _ExerciseSavd implements ExerciseFormEvent {
-  const factory _ExerciseSavd() = _$_ExerciseSavd;
+abstract class _ExerciseSaved implements ExerciseFormEvent {
+  const factory _ExerciseSaved() = _$_ExerciseSaved;
 }
 
 /// @nodoc

@@ -17,5 +17,5 @@ abstract class ExerciseFormEvent with _$ExerciseFormEvent {
   const factory ExerciseFormEvent.exerciseSetsChanged(
       KtList<SetItemPrimitive> sets) = _ExerciseRepetitionsListChanged;
 
-  const factory ExerciseFormEvent.exerciseSaved() = _ExerciseSavd;
+  const factory ExerciseFormEvent.exerciseSaved() = _ExerciseSaved;
 }

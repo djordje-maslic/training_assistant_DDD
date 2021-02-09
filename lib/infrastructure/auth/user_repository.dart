@@ -22,7 +22,7 @@ class UserRepository implements IUserRepository {
   Future<Option<user.User>> read() async {
     final signInUser = await getIt<IAuthFacade>().getSignInUser();
     final userNew = signInUser.getOrElse(() => throw NotAuthenticatedError());
-    final userDocument = await _firebaseFirestore.userDocument1();
+    final userDocument = await _firebaseFirestore.userDocument();
     final DocumentSnapshot snapshot = await userDocument.get();
     final user =
         snapshot.exists ? UserDto.fromFirestore(snapshot).toDomain() : userNew;

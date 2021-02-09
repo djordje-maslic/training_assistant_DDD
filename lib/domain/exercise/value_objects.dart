@@ -30,20 +30,6 @@ class ExerciseDate extends ValueObject<int> {
   }
 }
 
-class NumberOfSets extends ValueObject<int> {
-  @override
-  final Either<ValueFailure<int>, int> value;
-  static const maxValue = 30;
-
-  const NumberOfSets._(this.value);
-
-  factory NumberOfSets(int input) {
-    assert(input != null);
-    return NumberOfSets._(
-        validateMaxIntValue(input, maxValue).flatMap(validateIntNotEmpty));
-  }
-}
-
 class RepetitionsNumb extends ValueObject<int> {
   @override
   final Either<ValueFailure<int>, int> value;

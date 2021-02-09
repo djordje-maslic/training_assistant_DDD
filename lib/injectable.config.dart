@@ -24,7 +24,12 @@ import 'infrastructure/core/firebase_injectable_module.dart';
 import 'domain/auth/i_auth_facade.dart';
 import 'domain/body_measures/i_body_measures_repository.dart';
 import 'domain/exercise/i_exercise_repository.dart';
+import 'domain/nutrition/i_nutrition_repository.dart';
 import 'domain/auth/i_user_repository.dart';
+import 'application/nutrition/nutrition_actor/nutrition_actor_bloc.dart';
+import 'application/nutrition/nutrition_form/nutrition_form_bloc.dart';
+import 'infrastructure/nutrition/nutrition_repository.dart';
+import 'application/nutrition/nutrition_watcher/nutrition_watcher_bloc.dart';
 import 'application/auth/signIn/sign_in_form_bloc.dart';
 import 'application/user/user_actor/user_actor_bloc.dart';
 import 'application/user/user_form_bloc/user_form_bloc.dart';
@@ -51,8 +56,16 @@ GetIt $initGetIt(
       () => BodyMeasuresRepository(get<FirebaseFirestore>()));
   gh.lazySingleton<IExerciseRepository>(
       () => ExerciseRepository(get<FirebaseFirestore>()));
+  gh.lazySingleton<INutritionRepository>(
+      () => NutritionRepository(get<FirebaseFirestore>()));
   gh.lazySingleton<IUserRepository>(
       () => UserRepository(get<FirebaseFirestore>()));
+  gh.factory<NutritionActorBloc>(
+      () => NutritionActorBloc(get<INutritionRepository>()));
+  gh.factory<NutritionFormBloc>(
+      () => NutritionFormBloc(get<INutritionRepository>()));
+  gh.factory<NutritionWatcherBloc>(
+      () => NutritionWatcherBloc(get<INutritionRepository>()));
   gh.factory<SignInFormBloc>(() => SignInFormBloc(get<IAuthFacade>()));
   gh.factory<UserActorBloc>(() => UserActorBloc(get<IUserRepository>()));
   gh.factory<UserFormBloc>(() => UserFormBloc(get<IUserRepository>()));

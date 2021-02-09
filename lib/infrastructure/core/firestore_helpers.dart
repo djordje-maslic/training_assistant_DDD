@@ -5,7 +5,7 @@ import 'package:reminder_app/domain/core/error.dart';
 import 'package:reminder_app/injectable.dart';
 
 extension FirestoreX on FirebaseFirestore {
-  Future<CollectionReference> userDocument() async {
+  Future<CollectionReference> exerciseDocument() async {
     return FirebaseFirestore.instance.collection('exercises');
   }
 }
@@ -21,28 +21,48 @@ extension FirestoreX2 on FirebaseFirestore {
   }
 }
 
-
 extension DocumentReferenceX on DocumentReference {
   CollectionReference get exerciseCollection => collection('exercises');
 }
 
-extension FirestoreX3 on FirebaseFirestore {
-  Future<Query> userQuery() async {
-    return FirebaseFirestore.instance
-        .collection('user');
+extension FirestoreN on FirebaseFirestore {
+  Future<CollectionReference> nutritionDocument() async {
+    return FirebaseFirestore.instance.collection('nutrition');
   }
 }
 
-extension FirestoreX7 on FirebaseFirestore {
- Future<DocumentReference> userDocument1()async {
+extension FirestoreN2 on FirebaseFirestore {
+  Future<Query> nutritionOfUserQuery() async {
+    final userOption = await getIt<IAuthFacade>().getSignInUser();
+    final user = userOption.getOrElse(() => throw NotAuthenticatedError());
+
+    return FirebaseFirestore.instance
+        .collection('nutrition')
+        .where('userId', isEqualTo: user.id.getOrCrash());
+  }
+}
+
+extension DocumentReferenceN on DocumentReference {
+  CollectionReference get nutritionCollection => collection('nutrition');
+}
+
+extension FirestoreUQ on FirebaseFirestore {
+  Future<Query> userQuery() async {
+    return FirebaseFirestore.instance.collection('user');
+  }
+}
+
+extension FirestoreU on FirebaseFirestore {
+  Future<DocumentReference> userDocument() async {
     final userOption = await getIt<IAuthFacade>().getSignInUser();
     final user = userOption.getOrElse(() => throw NotAuthenticatedError());
     return FirebaseFirestore.instance
-        .collection('user').doc(user.id.getOrCrash());
+        .collection('user')
+        .doc(user.id.getOrCrash());
   }
 }
 
-extension FirestoreX4 on FirebaseFirestore {
+extension FirestoreBM on FirebaseFirestore {
   Future<Query> bodyMeasuresOfUserQuery() async {
     final userOption = await getIt<IAuthFacade>().getSignInUser();
     final user = userOption.getOrElse(() => throw NotAuthenticatedError());
