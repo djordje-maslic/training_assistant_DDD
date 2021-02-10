@@ -36,7 +36,7 @@ class NutritionFormBloc extends Bloc<NutritionFormEvent, NutritionFormState> {
   Stream<NutritionFormState> mapEventToState(
     NutritionFormEvent event,
   ) async* {
-    event.map(
+    yield* event.map(
       initialized: (e) async* {
         yield e.initialNutritionOption.fold(
           () => state,

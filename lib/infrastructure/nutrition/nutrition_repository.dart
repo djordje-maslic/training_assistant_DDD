@@ -20,7 +20,7 @@ class NutritionRepository implements INutritionRepository {
   Stream<Either<NutritionFailure, KtList<Nutrition>>> watchNutrition() async* {
     final nutritionDocument = await _firebaseFirestore.nutritionDocument();
     yield* nutritionDocument
-        .orderBy('date', descending: true)
+        .orderBy('nutritionDateTime', descending: true)
         .snapshots()
         .map((snapshot) => right<NutritionFailure, KtList<Nutrition>>(snapshot
             .docs
@@ -96,7 +96,7 @@ class NutritionRepository implements INutritionRepository {
   @override
   Future<Either<NutritionFailure, Unit>> delete(Nutrition nutrition) async {
     try {
-      final nutritionDoc = _firebaseFirestore.collection('exercises');
+      final nutritionDoc = _firebaseFirestore.collection('nutrition');
       final nutritionId = nutrition.id.getOrCrash();
 
       await nutritionDoc.doc(nutritionId).delete();

@@ -27,7 +27,8 @@ abstract class Nutrition implements _$Nutrition {
         userId: UniqueId.withUniqueString(''),
         userName: UserName(''),
         nutritionName: NutritionName(''),
-        nutritionDateTime: NutritionDateTime(0),
+        nutritionDateTime:
+            NutritionDateTime(DateTime.now().millisecondsSinceEpoch),
         nutrientsList: NutrientsList(emptyList()),
       );
 

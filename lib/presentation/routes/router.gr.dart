@@ -12,10 +12,13 @@ import 'package:flutter/material.dart';
 import '../../domain/auth/user.dart';
 import '../../domain/body_measures/body_measures.dart';
 import '../../domain/exercise/exercise.dart';
+import '../../domain/nutrition/nutrition.dart';
 import '../body_measures/body_measures_form/body_measures_form_page.dart';
 import '../exercise/exercise_form/exercise_form_page.dart';
 import '../exercise/exercise_overview/exercise_overview_page.dart';
 import '../meal/meal_overview/meal_overview_page.dart';
+import '../nutrition/nutrition_form/nutrition_form_page.dart';
+import '../nutrition/nutrition_overview/nutrition_overview.page.dart';
 import '../sign_in/sign_in_page.dart';
 import '../splash/splash_page.dart';
 import '../user/user_form/user_form_page.dart';
@@ -30,6 +33,8 @@ class Routes {
   static const String userOverviewPage = '/user-overview-page';
   static const String userFormPage = '/user-form-page';
   static const String bodyMeasuresFormPage = '/body-measures-form-page';
+  static const String nutritionOverviewPage = '/nutrition-overview-page';
+  static const String nutritionFormPage = '/nutrition-form-page';
   static const all = <String>{
     splashPage,
     signIn,
@@ -39,6 +44,8 @@ class Routes {
     userOverviewPage,
     userFormPage,
     bodyMeasuresFormPage,
+    nutritionOverviewPage,
+    nutritionFormPage,
   };
 }
 
@@ -54,6 +61,8 @@ class Router extends RouterBase {
     RouteDef(Routes.userOverviewPage, page: UserOverviewPage),
     RouteDef(Routes.userFormPage, page: UserFormPage),
     RouteDef(Routes.bodyMeasuresFormPage, page: BodyMeasuresFormPage),
+    RouteDef(Routes.nutritionOverviewPage, page: NutritionOverviewPage),
+    RouteDef(Routes.nutritionFormPage, page: NutritionFormPage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -123,6 +132,23 @@ class Router extends RouterBase {
         fullscreenDialog: true,
       );
     },
+    NutritionOverviewPage: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => NutritionOverviewPage(),
+        settings: data,
+      );
+    },
+    NutritionFormPage: (data) {
+      final args = data.getArgs<NutritionFormPageArguments>(nullOk: false);
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => NutritionFormPage(
+          key: args.key,
+          editedNutrition: args.editedNutrition,
+        ),
+        settings: data,
+        fullscreenDialog: true,
+      );
+    },
   };
 }
 
@@ -175,6 +201,19 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
             bodyMeasures: bodyMeasures,
             lastBodyMeasuresForHintText: lastBodyMeasuresForHintText),
       );
+
+  Future<dynamic> pushNutritionOverviewPage() =>
+      push<dynamic>(Routes.nutritionOverviewPage);
+
+  Future<dynamic> pushNutritionFormPage({
+    Key key,
+    @required Nutrition editedNutrition,
+  }) =>
+      push<dynamic>(
+        Routes.nutritionFormPage,
+        arguments: NutritionFormPageArguments(
+            key: key, editedNutrition: editedNutrition),
+      );
 }
 
 /// ************************************************************************
@@ -204,4 +243,11 @@ class BodyMeasuresFormPageArguments {
       {this.key,
       @required this.bodyMeasures,
       @required this.lastBodyMeasuresForHintText});
+}
+
+/// NutritionFormPage arguments holder class
+class NutritionFormPageArguments {
+  final Key key;
+  final Nutrition editedNutrition;
+  NutritionFormPageArguments({this.key, @required this.editedNutrition});
 }

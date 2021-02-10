@@ -17,7 +17,8 @@ class DrawerCore extends StatelessWidget {
                       initial: (_) => const Text(''),
                       authenticated: (authUser) => FlatButton(
                         onPressed: () {
-                          ExtendedNavigator.of(context).popAndPush(Routes.userOverviewPage);
+                          ExtendedNavigator.of(context)
+                              .popAndPush(Routes.userOverviewPage);
                         },
                         child: Column(
                           children: [
@@ -77,8 +78,8 @@ class DrawerCore extends StatelessWidget {
               onPressed: () {
                 context.read<AuthBloc>().state.map(
                       initial: (_) {},
-                      authenticated: (_) => ExtendedNavigator.of(context).popAndPush(Routes.exerciseOverviewPage)
-                          ,
+                      authenticated: (_) => ExtendedNavigator.of(context)
+                          .popAndPush(Routes.exerciseOverviewPage),
                       unauthenticated: (_) =>
                           ExtendedNavigator.of(context).pushSignIn(),
                     );
@@ -95,14 +96,14 @@ class DrawerCore extends StatelessWidget {
               onPressed: () {
                 context.read<AuthBloc>().state.map(
                       initial: (_) {},
-                      authenticated: (_) =>
-                          ExtendedNavigator.of(context).popAndPush(Routes.mealOverviewPage),
+                      authenticated: (_) => ExtendedNavigator.of(context)
+                          .popAndPush(Routes.nutritionOverviewPage),
                       unauthenticated: (_) =>
                           ExtendedNavigator.of(context).pushSignIn(),
                     );
               },
               child: Row(
-                children: const [Icon(Icons.restaurant), Text('Meals')],
+                children: const [Icon(Icons.restaurant), Text('Nutrition')],
               ),
             ),
           ),
