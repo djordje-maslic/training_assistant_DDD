@@ -27,17 +27,16 @@ class UserFormBloc extends Bloc<UserFormEvent, UserFormState> {
   final IUserRepository _iUserRepository;
 
   @override
-  Stream<UserFormState> mapEventToState(
-    UserFormEvent event,
-  ) async* {
+  Stream<UserFormState> mapEventToState(UserFormEvent event,) async* {
     yield* event.map(
       initialized: (e) async* {
         yield e.initialUserOption.fold(
-          () => state,
-          (initialUser) => state.copyWith(
-            user: initialUser,
-            isEditing: true,
-          ),
+              () => state,
+              (initialUser) =>
+              state.copyWith(
+                user: initialUser,
+                isEditing: true,
+              ),
         );
       },
       userNameChanged: (e) async* {
@@ -55,7 +54,53 @@ class UserFormBloc extends Bloc<UserFormEvent, UserFormState> {
       userGenderChanged: (e) async* {
         yield state.copyWith(
             user: state.user.copyWith(
-              userGender: UserGender(input:e.genderBool),
+              userGender: UserGender(input: e.genderBool),
+            ),
+            saveFailureOrSuccessOption: none());
+      },
+      exerciseDistanceUnitChanged: (e) async* {
+        yield state.copyWith(
+            user: state.user.copyWith(
+              exerciseDistanceUnit: ExerciseDistanceUnit(
+                  e.exerciseDistanceUnitString),
+            ),
+            saveFailureOrSuccessOption: none());
+      },
+      exerciseWeightUnitChanged: (e) async* {
+        yield state.copyWith(
+            user: state.user.copyWith(
+              exerciseWeightUnit: ExerciseWeightUnit(
+                  e.exerciseWeightUnitString),
+            ),
+            saveFailureOrSuccessOption: none());
+      },
+      userHeightUnitChanged: (e) async* {
+        yield state.copyWith(
+            user: state.user.copyWith(
+              userHeightUnit: UserHeightUnit(e.userHeightUnitString),
+            ),
+            saveFailureOrSuccessOption: none());
+      },
+      userWeightUnitChanged: (e) async* {
+        yield state.copyWith(
+            user: state.user.copyWith(
+              userWeightUnit: UserWeightUnit(e.userWeightUnitString),
+            ),
+            saveFailureOrSuccessOption: none());
+      },
+      nutritionWeightUnitChanged: (e) async* {
+        yield state.copyWith(
+            user: state.user.copyWith(
+              nutritionWeightUnit: NutritionWeightUnit(
+                  e.nutritionWeightUnitString),
+            ),
+            saveFailureOrSuccessOption: none());
+      },
+      nutritionVolumeUnitChanged: (e) async* {
+        yield state.copyWith(
+            user: state.user.copyWith(
+              nutritionVolumeUnit: NutritionVolumeUnit(
+                  e.nutritionVolumeUnitString),
             ),
             saveFailureOrSuccessOption: none());
       },
@@ -74,13 +119,13 @@ class UserFormBloc extends Bloc<UserFormEvent, UserFormState> {
           failureOrSuccess = state.isEditing
               ? await _iUserRepository.update(state.user)
               : await _iUserRepository.create(
-                  state.user.copyWith(
-                      id: UniqueId.withUniqueString(
-                        user.id.getOrCrash(),
-                      ),
-                      emailAddress:
-                          EmailAddress(user.emailAddress.getOrCrash())),
-                );
+            state.user.copyWith(
+                id: UniqueId.withUniqueString(
+                  user.id.getOrCrash(),
+                ),
+                emailAddress:
+                EmailAddress(user.emailAddress.getOrCrash())),
+          );
         }
 
         yield state.copyWith(
@@ -89,6 +134,7 @@ class UserFormBloc extends Bloc<UserFormEvent, UserFormState> {
           saveFailureOrSuccessOption: optionOf(failureOrSuccess),
         );
       },
+
     );
   }
 }

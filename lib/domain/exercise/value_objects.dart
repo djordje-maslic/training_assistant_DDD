@@ -114,12 +114,12 @@ class SetDuration extends ValueObject<int> {
 
 }
 
-class SetsList<T> extends ValueObject<KtList<T>> {
+class SetsList<Sets> extends ValueObject<KtList<Sets>> {
   @override
-  final Either<ValueFailure<KtList<T>>, KtList<T>> value;
+  final Either<ValueFailure<KtList<Sets>>, KtList<Sets>> value;
   static const maxLength = 30;
 
-  factory SetsList(KtList<T> input) {
+  factory SetsList(KtList<Sets> input) {
     assert(input != null);
     return SetsList._(validateMaxListLength(input, maxLength));
   }

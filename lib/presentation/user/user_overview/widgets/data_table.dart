@@ -107,7 +107,8 @@ class UserDataTable extends StatelessWidget {
                           context
                               .read<AuthBloc>()
                               .add(const AuthEvent.signOut());
-
+                          ExtendedNavigator.of(context)
+                              .popAndPush(Routes.splashPage);
                         },
                         child: Row(
                           children: const [

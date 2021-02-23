@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route_annotations.dart';
 import 'package:reminder_app/presentation/body_measures/body_measures_form/body_measures_form_page.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/exercise_form_page.dart';
 import 'package:reminder_app/presentation/exercise/exercise_overview/exercise_overview_page.dart';
-import 'package:reminder_app/presentation/meal/meal_overview/meal_overview_page.dart';
 import 'package:reminder_app/presentation/nutrition/nutrition_form/nutrition_form_page.dart';
 import 'package:reminder_app/presentation/nutrition/nutrition_overview/nutrition_overview.page.dart';
 import 'package:reminder_app/presentation/sign_in/sign_in_page.dart';
@@ -25,9 +24,6 @@ import 'package:reminder_app/presentation/user/user_overview/user_overview_page.
     MaterialRoute(
       page: ExerciseFormPage,
       fullscreenDialog: true,
-    ),
-    MaterialRoute(
-      page: MealOverviewPage,
     ),
     MaterialRoute(
       page: UserOverviewPage,

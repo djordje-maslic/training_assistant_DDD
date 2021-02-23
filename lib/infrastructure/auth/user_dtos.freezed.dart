@@ -22,13 +22,25 @@ class _$UserDtoTearOff {
       @required String emailAddress,
       @required String userName,
       @required int userDateOfBirth,
-      @required bool userGender}) {
+      @required bool userGender,
+      @required String exerciseDistanceUnit,
+      @required String exerciseWeightUnit,
+      @required String userHeightUnit,
+      @required String userWeightUnit,
+      @required String nutritionWeightUnit,
+      @required String nutritionVolumeUnit}) {
     return _UserDto(
       id: id,
       emailAddress: emailAddress,
       userName: userName,
       userDateOfBirth: userDateOfBirth,
       userGender: userGender,
+      exerciseDistanceUnit: exerciseDistanceUnit,
+      exerciseWeightUnit: exerciseWeightUnit,
+      userHeightUnit: userHeightUnit,
+      userWeightUnit: userWeightUnit,
+      nutritionWeightUnit: nutritionWeightUnit,
+      nutritionVolumeUnit: nutritionVolumeUnit,
     );
   }
 
@@ -50,6 +62,12 @@ mixin _$UserDto {
   String get userName;
   int get userDateOfBirth;
   bool get userGender;
+  String get exerciseDistanceUnit;
+  String get exerciseWeightUnit;
+  String get userHeightUnit;
+  String get userWeightUnit;
+  String get nutritionWeightUnit;
+  String get nutritionVolumeUnit;
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
@@ -65,7 +83,13 @@ abstract class $UserDtoCopyWith<$Res> {
       String emailAddress,
       String userName,
       int userDateOfBirth,
-      bool userGender});
+      bool userGender,
+      String exerciseDistanceUnit,
+      String exerciseWeightUnit,
+      String userHeightUnit,
+      String userWeightUnit,
+      String nutritionWeightUnit,
+      String nutritionVolumeUnit});
 }
 
 /// @nodoc
@@ -83,6 +107,12 @@ class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
     Object userName = freezed,
     Object userDateOfBirth = freezed,
     Object userGender = freezed,
+    Object exerciseDistanceUnit = freezed,
+    Object exerciseWeightUnit = freezed,
+    Object userHeightUnit = freezed,
+    Object userWeightUnit = freezed,
+    Object nutritionWeightUnit = freezed,
+    Object nutritionVolumeUnit = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
@@ -95,6 +125,24 @@ class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
           : userDateOfBirth as int,
       userGender:
           userGender == freezed ? _value.userGender : userGender as bool,
+      exerciseDistanceUnit: exerciseDistanceUnit == freezed
+          ? _value.exerciseDistanceUnit
+          : exerciseDistanceUnit as String,
+      exerciseWeightUnit: exerciseWeightUnit == freezed
+          ? _value.exerciseWeightUnit
+          : exerciseWeightUnit as String,
+      userHeightUnit: userHeightUnit == freezed
+          ? _value.userHeightUnit
+          : userHeightUnit as String,
+      userWeightUnit: userWeightUnit == freezed
+          ? _value.userWeightUnit
+          : userWeightUnit as String,
+      nutritionWeightUnit: nutritionWeightUnit == freezed
+          ? _value.nutritionWeightUnit
+          : nutritionWeightUnit as String,
+      nutritionVolumeUnit: nutritionVolumeUnit == freezed
+          ? _value.nutritionVolumeUnit
+          : nutritionVolumeUnit as String,
     ));
   }
 }
@@ -109,7 +157,13 @@ abstract class _$UserDtoCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
       String emailAddress,
       String userName,
       int userDateOfBirth,
-      bool userGender});
+      bool userGender,
+      String exerciseDistanceUnit,
+      String exerciseWeightUnit,
+      String userHeightUnit,
+      String userWeightUnit,
+      String nutritionWeightUnit,
+      String nutritionVolumeUnit});
 }
 
 /// @nodoc
@@ -128,6 +182,12 @@ class __$UserDtoCopyWithImpl<$Res> extends _$UserDtoCopyWithImpl<$Res>
     Object userName = freezed,
     Object userDateOfBirth = freezed,
     Object userGender = freezed,
+    Object exerciseDistanceUnit = freezed,
+    Object exerciseWeightUnit = freezed,
+    Object userHeightUnit = freezed,
+    Object userWeightUnit = freezed,
+    Object nutritionWeightUnit = freezed,
+    Object nutritionVolumeUnit = freezed,
   }) {
     return _then(_UserDto(
       id: id == freezed ? _value.id : id as String,
@@ -140,6 +200,24 @@ class __$UserDtoCopyWithImpl<$Res> extends _$UserDtoCopyWithImpl<$Res>
           : userDateOfBirth as int,
       userGender:
           userGender == freezed ? _value.userGender : userGender as bool,
+      exerciseDistanceUnit: exerciseDistanceUnit == freezed
+          ? _value.exerciseDistanceUnit
+          : exerciseDistanceUnit as String,
+      exerciseWeightUnit: exerciseWeightUnit == freezed
+          ? _value.exerciseWeightUnit
+          : exerciseWeightUnit as String,
+      userHeightUnit: userHeightUnit == freezed
+          ? _value.userHeightUnit
+          : userHeightUnit as String,
+      userWeightUnit: userWeightUnit == freezed
+          ? _value.userWeightUnit
+          : userWeightUnit as String,
+      nutritionWeightUnit: nutritionWeightUnit == freezed
+          ? _value.nutritionWeightUnit
+          : nutritionWeightUnit as String,
+      nutritionVolumeUnit: nutritionVolumeUnit == freezed
+          ? _value.nutritionVolumeUnit
+          : nutritionVolumeUnit as String,
     ));
   }
 }
@@ -153,11 +231,23 @@ class _$_UserDto extends _UserDto {
       @required this.emailAddress,
       @required this.userName,
       @required this.userDateOfBirth,
-      @required this.userGender})
+      @required this.userGender,
+      @required this.exerciseDistanceUnit,
+      @required this.exerciseWeightUnit,
+      @required this.userHeightUnit,
+      @required this.userWeightUnit,
+      @required this.nutritionWeightUnit,
+      @required this.nutritionVolumeUnit})
       : assert(emailAddress != null),
         assert(userName != null),
         assert(userDateOfBirth != null),
         assert(userGender != null),
+        assert(exerciseDistanceUnit != null),
+        assert(exerciseWeightUnit != null),
+        assert(userHeightUnit != null),
+        assert(userWeightUnit != null),
+        assert(nutritionWeightUnit != null),
+        assert(nutritionVolumeUnit != null),
         super._();
 
   factory _$_UserDto.fromJson(Map<String, dynamic> json) =>
@@ -174,10 +264,22 @@ class _$_UserDto extends _UserDto {
   final int userDateOfBirth;
   @override
   final bool userGender;
+  @override
+  final String exerciseDistanceUnit;
+  @override
+  final String exerciseWeightUnit;
+  @override
+  final String userHeightUnit;
+  @override
+  final String userWeightUnit;
+  @override
+  final String nutritionWeightUnit;
+  @override
+  final String nutritionVolumeUnit;
 
   @override
   String toString() {
-    return 'UserDto(id: $id, emailAddress: $emailAddress, userName: $userName, userDateOfBirth: $userDateOfBirth, userGender: $userGender)';
+    return 'UserDto(id: $id, emailAddress: $emailAddress, userName: $userName, userDateOfBirth: $userDateOfBirth, userGender: $userGender, exerciseDistanceUnit: $exerciseDistanceUnit, exerciseWeightUnit: $exerciseWeightUnit, userHeightUnit: $userHeightUnit, userWeightUnit: $userWeightUnit, nutritionWeightUnit: $nutritionWeightUnit, nutritionVolumeUnit: $nutritionVolumeUnit)';
   }
 
   @override
@@ -197,7 +299,25 @@ class _$_UserDto extends _UserDto {
                     .equals(other.userDateOfBirth, userDateOfBirth)) &&
             (identical(other.userGender, userGender) ||
                 const DeepCollectionEquality()
-                    .equals(other.userGender, userGender)));
+                    .equals(other.userGender, userGender)) &&
+            (identical(other.exerciseDistanceUnit, exerciseDistanceUnit) ||
+                const DeepCollectionEquality().equals(
+                    other.exerciseDistanceUnit, exerciseDistanceUnit)) &&
+            (identical(other.exerciseWeightUnit, exerciseWeightUnit) ||
+                const DeepCollectionEquality()
+                    .equals(other.exerciseWeightUnit, exerciseWeightUnit)) &&
+            (identical(other.userHeightUnit, userHeightUnit) ||
+                const DeepCollectionEquality()
+                    .equals(other.userHeightUnit, userHeightUnit)) &&
+            (identical(other.userWeightUnit, userWeightUnit) ||
+                const DeepCollectionEquality()
+                    .equals(other.userWeightUnit, userWeightUnit)) &&
+            (identical(other.nutritionWeightUnit, nutritionWeightUnit) ||
+                const DeepCollectionEquality()
+                    .equals(other.nutritionWeightUnit, nutritionWeightUnit)) &&
+            (identical(other.nutritionVolumeUnit, nutritionVolumeUnit) ||
+                const DeepCollectionEquality()
+                    .equals(other.nutritionVolumeUnit, nutritionVolumeUnit)));
   }
 
   @override
@@ -207,7 +327,13 @@ class _$_UserDto extends _UserDto {
       const DeepCollectionEquality().hash(emailAddress) ^
       const DeepCollectionEquality().hash(userName) ^
       const DeepCollectionEquality().hash(userDateOfBirth) ^
-      const DeepCollectionEquality().hash(userGender);
+      const DeepCollectionEquality().hash(userGender) ^
+      const DeepCollectionEquality().hash(exerciseDistanceUnit) ^
+      const DeepCollectionEquality().hash(exerciseWeightUnit) ^
+      const DeepCollectionEquality().hash(userHeightUnit) ^
+      const DeepCollectionEquality().hash(userWeightUnit) ^
+      const DeepCollectionEquality().hash(nutritionWeightUnit) ^
+      const DeepCollectionEquality().hash(nutritionVolumeUnit);
 
   @JsonKey(ignore: true)
   @override
@@ -227,7 +353,13 @@ abstract class _UserDto extends UserDto {
       @required String emailAddress,
       @required String userName,
       @required int userDateOfBirth,
-      @required bool userGender}) = _$_UserDto;
+      @required bool userGender,
+      @required String exerciseDistanceUnit,
+      @required String exerciseWeightUnit,
+      @required String userHeightUnit,
+      @required String userWeightUnit,
+      @required String nutritionWeightUnit,
+      @required String nutritionVolumeUnit}) = _$_UserDto;
 
   factory _UserDto.fromJson(Map<String, dynamic> json) = _$_UserDto.fromJson;
 
@@ -242,6 +374,18 @@ abstract class _UserDto extends UserDto {
   int get userDateOfBirth;
   @override
   bool get userGender;
+  @override
+  String get exerciseDistanceUnit;
+  @override
+  String get exerciseWeightUnit;
+  @override
+  String get userHeightUnit;
+  @override
+  String get userWeightUnit;
+  @override
+  String get nutritionWeightUnit;
+  @override
+  String get nutritionVolumeUnit;
   @override
   @JsonKey(ignore: true)
   _$UserDtoCopyWith<_UserDto> get copyWith;

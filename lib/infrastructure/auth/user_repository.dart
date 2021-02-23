@@ -31,17 +31,14 @@ class UserRepository implements IUserRepository {
 
   @override
   Stream<Either<UserFailure, user.User>> watchUser() async* {
-    final userDocument = await _firebaseFirestore.userQuery();
+    final userDocument = await _firebaseFirestore.userDocument();
     final signInUser = await getIt<IAuthFacade>().getSignInUser();
     final userNew = signInUser.getOrElse(() => throw NotAuthenticatedError());
 
     yield* userDocument
         .snapshots()
-        .map((snapshot) => right<UserFailure, user.User>(snapshot.docs
-            .map((doc) => UserDto.fromFirestore(doc).toDomain())
-            .toList()
-            .firstWhere((element) =>
-                element.id.getOrCrash() == userNew.id.getOrCrash())))
+        .map((snapshot) => right<UserFailure, user.User>(
+            UserDto.fromFirestore(snapshot).toDomain()))
         .onErrorReturnWith((e) {
       if (e is FirebaseException && e.message.contains('PERMISSION_DENIED')) {
         return left(const UserFailure.insufficientPermission());

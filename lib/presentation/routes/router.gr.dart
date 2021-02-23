@@ -16,7 +16,6 @@ import '../../domain/nutrition/nutrition.dart';
 import '../body_measures/body_measures_form/body_measures_form_page.dart';
 import '../exercise/exercise_form/exercise_form_page.dart';
 import '../exercise/exercise_overview/exercise_overview_page.dart';
-import '../meal/meal_overview/meal_overview_page.dart';
 import '../nutrition/nutrition_form/nutrition_form_page.dart';
 import '../nutrition/nutrition_overview/nutrition_overview.page.dart';
 import '../sign_in/sign_in_page.dart';
@@ -29,7 +28,6 @@ class Routes {
   static const String signIn = '/sign-in';
   static const String exerciseOverviewPage = '/exercise-overview-page';
   static const String exerciseFormPage = '/exercise-form-page';
-  static const String mealOverviewPage = '/meal-overview-page';
   static const String userOverviewPage = '/user-overview-page';
   static const String userFormPage = '/user-form-page';
   static const String bodyMeasuresFormPage = '/body-measures-form-page';
@@ -40,7 +38,6 @@ class Routes {
     signIn,
     exerciseOverviewPage,
     exerciseFormPage,
-    mealOverviewPage,
     userOverviewPage,
     userFormPage,
     bodyMeasuresFormPage,
@@ -57,7 +54,6 @@ class Router extends RouterBase {
     RouteDef(Routes.signIn, page: SignIn),
     RouteDef(Routes.exerciseOverviewPage, page: ExerciseOverviewPage),
     RouteDef(Routes.exerciseFormPage, page: ExerciseFormPage),
-    RouteDef(Routes.mealOverviewPage, page: MealOverviewPage),
     RouteDef(Routes.userOverviewPage, page: UserOverviewPage),
     RouteDef(Routes.userFormPage, page: UserFormPage),
     RouteDef(Routes.bodyMeasuresFormPage, page: BodyMeasuresFormPage),
@@ -95,12 +91,6 @@ class Router extends RouterBase {
         ),
         settings: data,
         fullscreenDialog: true,
-      );
-    },
-    MealOverviewPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => MealOverviewPage(),
-        settings: data,
       );
     },
     UserOverviewPage: (data) {
@@ -173,9 +163,6 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
         arguments:
             ExerciseFormPageArguments(key: key, editedExercise: editedExercise),
       );
-
-  Future<dynamic> pushMealOverviewPage() =>
-      push<dynamic>(Routes.mealOverviewPage);
 
   Future<dynamic> pushUserOverviewPage() =>
       push<dynamic>(Routes.userOverviewPage);

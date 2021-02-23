@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reminder_app/application/auth/auth_bloc.dart';
+import 'package:reminder_app/application/user/user_watcher/user_watcher_bloc.dart';
 import 'package:reminder_app/injectable.dart';
 import 'package:reminder_app/presentation/routes/router.gr.dart' as app_router;
 
@@ -16,7 +17,12 @@ class AppWidget extends StatelessWidget {
               const AuthEvent.userCheckRequested(),
             ),
         ),
-
+        BlocProvider(
+          create: (context) => getIt<UserWatcherBloc>()
+            ..add(
+              const UserWatcherEvent.watchUser(),
+            ),
+        ),
       ],
       child: MaterialApp(
         builder: ExtendedNavigator.builder<app_router.Router>(

@@ -10,7 +10,13 @@ extension FirebaseUserToDomainExtension on firebase.User {
       emailAddress: EmailAddress(email),
       userName: UserName(''),
       userDateOfBirth: UserDateOfBirth(0),
-      userGender: UserGender(input:true),
+      userGender: UserGender(input: true),
+      exerciseDistanceUnit: ExerciseDistanceUnit('km'),
+      exerciseWeightUnit: ExerciseWeightUnit('kg'),
+      userHeightUnit: UserHeightUnit('cm'),
+      userWeightUnit: UserWeightUnit('kg'),
+      nutritionWeightUnit: NutritionWeightUnit('g'),
+      nutritionVolumeUnit: NutritionVolumeUnit('l'),
     );
   }
 }

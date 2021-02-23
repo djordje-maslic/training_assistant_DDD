@@ -18,6 +18,12 @@ abstract class UserDto implements _$UserDto {
     @required String userName,
     @required int userDateOfBirth,
     @required bool userGender,
+    @required String exerciseDistanceUnit,
+    @required String exerciseWeightUnit,
+    @required String userHeightUnit,
+    @required String userWeightUnit,
+    @required String nutritionWeightUnit,
+    @required String nutritionVolumeUnit,
   }) = _UserDto;
 
   factory UserDto.fromDomain(User user) {
@@ -27,6 +33,12 @@ abstract class UserDto implements _$UserDto {
       userName: user.userName.getOrCrash(),
       userDateOfBirth: user.userDateOfBirth.getOrCrash(),
       userGender: user.userGender.getOrCrash(),
+      exerciseDistanceUnit: user.exerciseDistanceUnit.getOrCrash(),
+      exerciseWeightUnit: user.exerciseWeightUnit.getOrCrash(),
+      userHeightUnit: user.userHeightUnit.getOrCrash(),
+      userWeightUnit: user.userWeightUnit.getOrCrash(),
+      nutritionWeightUnit: user.nutritionWeightUnit.getOrCrash(),
+      nutritionVolumeUnit: user.nutritionVolumeUnit.getOrCrash(),
     );
   }
 
@@ -36,7 +48,13 @@ abstract class UserDto implements _$UserDto {
       emailAddress: EmailAddress(emailAddress),
       userName: UserName(userName),
       userDateOfBirth: UserDateOfBirth(userDateOfBirth),
-      userGender: UserGender(input:userGender),
+      userGender: UserGender(input: userGender),
+      exerciseDistanceUnit: ExerciseDistanceUnit(exerciseDistanceUnit),
+      exerciseWeightUnit: ExerciseWeightUnit(exerciseWeightUnit),
+      userHeightUnit: UserHeightUnit(userHeightUnit),
+      userWeightUnit: UserWeightUnit(userWeightUnit),
+      nutritionWeightUnit: NutritionWeightUnit(nutritionWeightUnit),
+      nutritionVolumeUnit: NutritionVolumeUnit(nutritionVolumeUnit),
     );
   }
 

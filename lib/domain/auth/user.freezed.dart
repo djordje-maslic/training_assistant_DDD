@@ -19,13 +19,25 @@ class _$UserTearOff {
       @required EmailAddress emailAddress,
       @required UserName userName,
       @required UserDateOfBirth userDateOfBirth,
-      @required UserGender userGender}) {
+      @required UserGender userGender,
+      @required ExerciseDistanceUnit exerciseDistanceUnit,
+      @required ExerciseWeightUnit exerciseWeightUnit,
+      @required UserHeightUnit userHeightUnit,
+      @required UserWeightUnit userWeightUnit,
+      @required NutritionWeightUnit nutritionWeightUnit,
+      @required NutritionVolumeUnit nutritionVolumeUnit}) {
     return _User(
       id: id,
       emailAddress: emailAddress,
       userName: userName,
       userDateOfBirth: userDateOfBirth,
       userGender: userGender,
+      exerciseDistanceUnit: exerciseDistanceUnit,
+      exerciseWeightUnit: exerciseWeightUnit,
+      userHeightUnit: userHeightUnit,
+      userWeightUnit: userWeightUnit,
+      nutritionWeightUnit: nutritionWeightUnit,
+      nutritionVolumeUnit: nutritionVolumeUnit,
     );
   }
 }
@@ -41,6 +53,12 @@ mixin _$User {
   UserName get userName;
   UserDateOfBirth get userDateOfBirth;
   UserGender get userGender;
+  ExerciseDistanceUnit get exerciseDistanceUnit;
+  ExerciseWeightUnit get exerciseWeightUnit;
+  UserHeightUnit get userHeightUnit;
+  UserWeightUnit get userWeightUnit;
+  NutritionWeightUnit get nutritionWeightUnit;
+  NutritionVolumeUnit get nutritionVolumeUnit;
 
   @JsonKey(ignore: true)
   $UserCopyWith<User> get copyWith;
@@ -55,7 +73,13 @@ abstract class $UserCopyWith<$Res> {
       EmailAddress emailAddress,
       UserName userName,
       UserDateOfBirth userDateOfBirth,
-      UserGender userGender});
+      UserGender userGender,
+      ExerciseDistanceUnit exerciseDistanceUnit,
+      ExerciseWeightUnit exerciseWeightUnit,
+      UserHeightUnit userHeightUnit,
+      UserWeightUnit userWeightUnit,
+      NutritionWeightUnit nutritionWeightUnit,
+      NutritionVolumeUnit nutritionVolumeUnit});
 }
 
 /// @nodoc
@@ -73,6 +97,12 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
     Object userName = freezed,
     Object userDateOfBirth = freezed,
     Object userGender = freezed,
+    Object exerciseDistanceUnit = freezed,
+    Object exerciseWeightUnit = freezed,
+    Object userHeightUnit = freezed,
+    Object userWeightUnit = freezed,
+    Object nutritionWeightUnit = freezed,
+    Object nutritionVolumeUnit = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as UniqueId,
@@ -85,6 +115,24 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
           : userDateOfBirth as UserDateOfBirth,
       userGender:
           userGender == freezed ? _value.userGender : userGender as UserGender,
+      exerciseDistanceUnit: exerciseDistanceUnit == freezed
+          ? _value.exerciseDistanceUnit
+          : exerciseDistanceUnit as ExerciseDistanceUnit,
+      exerciseWeightUnit: exerciseWeightUnit == freezed
+          ? _value.exerciseWeightUnit
+          : exerciseWeightUnit as ExerciseWeightUnit,
+      userHeightUnit: userHeightUnit == freezed
+          ? _value.userHeightUnit
+          : userHeightUnit as UserHeightUnit,
+      userWeightUnit: userWeightUnit == freezed
+          ? _value.userWeightUnit
+          : userWeightUnit as UserWeightUnit,
+      nutritionWeightUnit: nutritionWeightUnit == freezed
+          ? _value.nutritionWeightUnit
+          : nutritionWeightUnit as NutritionWeightUnit,
+      nutritionVolumeUnit: nutritionVolumeUnit == freezed
+          ? _value.nutritionVolumeUnit
+          : nutritionVolumeUnit as NutritionVolumeUnit,
     ));
   }
 }
@@ -99,7 +147,13 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       EmailAddress emailAddress,
       UserName userName,
       UserDateOfBirth userDateOfBirth,
-      UserGender userGender});
+      UserGender userGender,
+      ExerciseDistanceUnit exerciseDistanceUnit,
+      ExerciseWeightUnit exerciseWeightUnit,
+      UserHeightUnit userHeightUnit,
+      UserWeightUnit userWeightUnit,
+      NutritionWeightUnit nutritionWeightUnit,
+      NutritionVolumeUnit nutritionVolumeUnit});
 }
 
 /// @nodoc
@@ -118,6 +172,12 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
     Object userName = freezed,
     Object userDateOfBirth = freezed,
     Object userGender = freezed,
+    Object exerciseDistanceUnit = freezed,
+    Object exerciseWeightUnit = freezed,
+    Object userHeightUnit = freezed,
+    Object userWeightUnit = freezed,
+    Object nutritionWeightUnit = freezed,
+    Object nutritionVolumeUnit = freezed,
   }) {
     return _then(_User(
       id: id == freezed ? _value.id : id as UniqueId,
@@ -130,6 +190,24 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
           : userDateOfBirth as UserDateOfBirth,
       userGender:
           userGender == freezed ? _value.userGender : userGender as UserGender,
+      exerciseDistanceUnit: exerciseDistanceUnit == freezed
+          ? _value.exerciseDistanceUnit
+          : exerciseDistanceUnit as ExerciseDistanceUnit,
+      exerciseWeightUnit: exerciseWeightUnit == freezed
+          ? _value.exerciseWeightUnit
+          : exerciseWeightUnit as ExerciseWeightUnit,
+      userHeightUnit: userHeightUnit == freezed
+          ? _value.userHeightUnit
+          : userHeightUnit as UserHeightUnit,
+      userWeightUnit: userWeightUnit == freezed
+          ? _value.userWeightUnit
+          : userWeightUnit as UserWeightUnit,
+      nutritionWeightUnit: nutritionWeightUnit == freezed
+          ? _value.nutritionWeightUnit
+          : nutritionWeightUnit as NutritionWeightUnit,
+      nutritionVolumeUnit: nutritionVolumeUnit == freezed
+          ? _value.nutritionVolumeUnit
+          : nutritionVolumeUnit as NutritionVolumeUnit,
     ));
   }
 }
@@ -141,12 +219,24 @@ class _$_User extends _User {
       @required this.emailAddress,
       @required this.userName,
       @required this.userDateOfBirth,
-      @required this.userGender})
+      @required this.userGender,
+      @required this.exerciseDistanceUnit,
+      @required this.exerciseWeightUnit,
+      @required this.userHeightUnit,
+      @required this.userWeightUnit,
+      @required this.nutritionWeightUnit,
+      @required this.nutritionVolumeUnit})
       : assert(id != null),
         assert(emailAddress != null),
         assert(userName != null),
         assert(userDateOfBirth != null),
         assert(userGender != null),
+        assert(exerciseDistanceUnit != null),
+        assert(exerciseWeightUnit != null),
+        assert(userHeightUnit != null),
+        assert(userWeightUnit != null),
+        assert(nutritionWeightUnit != null),
+        assert(nutritionVolumeUnit != null),
         super._();
 
   @override
@@ -159,10 +249,22 @@ class _$_User extends _User {
   final UserDateOfBirth userDateOfBirth;
   @override
   final UserGender userGender;
+  @override
+  final ExerciseDistanceUnit exerciseDistanceUnit;
+  @override
+  final ExerciseWeightUnit exerciseWeightUnit;
+  @override
+  final UserHeightUnit userHeightUnit;
+  @override
+  final UserWeightUnit userWeightUnit;
+  @override
+  final NutritionWeightUnit nutritionWeightUnit;
+  @override
+  final NutritionVolumeUnit nutritionVolumeUnit;
 
   @override
   String toString() {
-    return 'User(id: $id, emailAddress: $emailAddress, userName: $userName, userDateOfBirth: $userDateOfBirth, userGender: $userGender)';
+    return 'User(id: $id, emailAddress: $emailAddress, userName: $userName, userDateOfBirth: $userDateOfBirth, userGender: $userGender, exerciseDistanceUnit: $exerciseDistanceUnit, exerciseWeightUnit: $exerciseWeightUnit, userHeightUnit: $userHeightUnit, userWeightUnit: $userWeightUnit, nutritionWeightUnit: $nutritionWeightUnit, nutritionVolumeUnit: $nutritionVolumeUnit)';
   }
 
   @override
@@ -182,7 +284,25 @@ class _$_User extends _User {
                     .equals(other.userDateOfBirth, userDateOfBirth)) &&
             (identical(other.userGender, userGender) ||
                 const DeepCollectionEquality()
-                    .equals(other.userGender, userGender)));
+                    .equals(other.userGender, userGender)) &&
+            (identical(other.exerciseDistanceUnit, exerciseDistanceUnit) ||
+                const DeepCollectionEquality().equals(
+                    other.exerciseDistanceUnit, exerciseDistanceUnit)) &&
+            (identical(other.exerciseWeightUnit, exerciseWeightUnit) ||
+                const DeepCollectionEquality()
+                    .equals(other.exerciseWeightUnit, exerciseWeightUnit)) &&
+            (identical(other.userHeightUnit, userHeightUnit) ||
+                const DeepCollectionEquality()
+                    .equals(other.userHeightUnit, userHeightUnit)) &&
+            (identical(other.userWeightUnit, userWeightUnit) ||
+                const DeepCollectionEquality()
+                    .equals(other.userWeightUnit, userWeightUnit)) &&
+            (identical(other.nutritionWeightUnit, nutritionWeightUnit) ||
+                const DeepCollectionEquality()
+                    .equals(other.nutritionWeightUnit, nutritionWeightUnit)) &&
+            (identical(other.nutritionVolumeUnit, nutritionVolumeUnit) ||
+                const DeepCollectionEquality()
+                    .equals(other.nutritionVolumeUnit, nutritionVolumeUnit)));
   }
 
   @override
@@ -192,7 +312,13 @@ class _$_User extends _User {
       const DeepCollectionEquality().hash(emailAddress) ^
       const DeepCollectionEquality().hash(userName) ^
       const DeepCollectionEquality().hash(userDateOfBirth) ^
-      const DeepCollectionEquality().hash(userGender);
+      const DeepCollectionEquality().hash(userGender) ^
+      const DeepCollectionEquality().hash(exerciseDistanceUnit) ^
+      const DeepCollectionEquality().hash(exerciseWeightUnit) ^
+      const DeepCollectionEquality().hash(userHeightUnit) ^
+      const DeepCollectionEquality().hash(userWeightUnit) ^
+      const DeepCollectionEquality().hash(nutritionWeightUnit) ^
+      const DeepCollectionEquality().hash(nutritionVolumeUnit);
 
   @JsonKey(ignore: true)
   @override
@@ -207,7 +333,13 @@ abstract class _User extends User {
       @required EmailAddress emailAddress,
       @required UserName userName,
       @required UserDateOfBirth userDateOfBirth,
-      @required UserGender userGender}) = _$_User;
+      @required UserGender userGender,
+      @required ExerciseDistanceUnit exerciseDistanceUnit,
+      @required ExerciseWeightUnit exerciseWeightUnit,
+      @required UserHeightUnit userHeightUnit,
+      @required UserWeightUnit userWeightUnit,
+      @required NutritionWeightUnit nutritionWeightUnit,
+      @required NutritionVolumeUnit nutritionVolumeUnit}) = _$_User;
 
   @override
   UniqueId get id;
@@ -219,6 +351,18 @@ abstract class _User extends User {
   UserDateOfBirth get userDateOfBirth;
   @override
   UserGender get userGender;
+  @override
+  ExerciseDistanceUnit get exerciseDistanceUnit;
+  @override
+  ExerciseWeightUnit get exerciseWeightUnit;
+  @override
+  UserHeightUnit get userHeightUnit;
+  @override
+  UserWeightUnit get userWeightUnit;
+  @override
+  NutritionWeightUnit get nutritionWeightUnit;
+  @override
+  NutritionVolumeUnit get nutritionVolumeUnit;
   @override
   @JsonKey(ignore: true)
   _$UserCopyWith<_User> get copyWith;

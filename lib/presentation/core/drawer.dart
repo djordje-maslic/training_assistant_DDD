@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reminder_app/application/auth/auth_bloc.dart';
+import 'package:reminder_app/application/user/user_watcher/user_watcher_bloc.dart';
 import 'package:reminder_app/presentation/routes/router.gr.dart';
 
 class DrawerCore extends StatelessWidget {
@@ -17,6 +18,9 @@ class DrawerCore extends StatelessWidget {
                       initial: (_) => const Text(''),
                       authenticated: (authUser) => FlatButton(
                         onPressed: () {
+                          context
+                              .read<UserWatcherBloc>()
+                              .add(const UserWatcherEvent.watchUser());
                           ExtendedNavigator.of(context)
                               .popAndPush(Routes.userOverviewPage);
                         },
@@ -76,6 +80,9 @@ class DrawerCore extends StatelessWidget {
             child: RaisedButton(
               color: Colors.amber,
               onPressed: () {
+                context
+                    .read<UserWatcherBloc>()
+                    .add(const UserWatcherEvent.watchUser());
                 context.read<AuthBloc>().state.map(
                       initial: (_) {},
                       authenticated: (_) => ExtendedNavigator.of(context)
@@ -94,6 +101,9 @@ class DrawerCore extends StatelessWidget {
             child: RaisedButton(
               color: Colors.cyan,
               onPressed: () {
+                context
+                    .read<UserWatcherBloc>()
+                    .add(const UserWatcherEvent.watchUser());
                 context.read<AuthBloc>().state.map(
                       initial: (_) {},
                       authenticated: (_) => ExtendedNavigator.of(context)

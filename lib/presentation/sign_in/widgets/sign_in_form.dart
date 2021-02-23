@@ -56,6 +56,7 @@ class SignInForm extends StatelessWidget {
                   height: 8,
                 ),
                 TextFormField(
+                  key:const Key('sign in email text form field'),
                   autocorrect: false,
                   decoration: const InputDecoration(
                     labelText: 'Email',

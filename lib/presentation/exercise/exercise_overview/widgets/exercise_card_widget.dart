@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:reminder_app/application/exercise/exercise_actor/exercise_actor_bloc.dart';
+import 'package:reminder_app/application/user/user_watcher/user_watcher_bloc.dart';
 import 'package:reminder_app/domain/exercise/exercise.dart';
+import 'package:reminder_app/domain/exercise/sets.dart';
 import 'package:reminder_app/domain/exercise/value_objects.dart';
+import 'package:reminder_app/presentation/core/misc/unit_converter.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_time_converter.dart';
 import 'package:reminder_app/presentation/routes/router.gr.dart';
 
@@ -81,19 +84,52 @@ class ExerciseCard extends StatelessWidget {
 }
 
 class SetDisplay extends StatelessWidget {
-  final SetsList setList;
+  final SetsList<Sets> setList;
 
   const SetDisplay({Key key, @required this.setList}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return DataTable(columnSpacing: 15.0, columns: const [
-      DataColumn(tooltip: 'Number of set', label: Text('Set')),
-      DataColumn(label: Text('Reps')),
-      DataColumn(label: Text('BadReps')),
-      DataColumn(label: Text('Weight')),
-      DataColumn(label: Text('Distance')),
-      DataColumn(label: Text('Duration')),
+    return DataTable(columnSpacing: 10.0, columns: [
+      const DataColumn(tooltip: 'Number of set', label: Text('Set')),
+      const DataColumn(label: Text('Reps')),
+      const DataColumn(label: Text('BadReps')),
+      DataColumn(
+          label: Expanded(
+        child: Column(
+          children: [
+           const Text('Weight'),
+            Text(context.watch<UserWatcherBloc>().state.map(
+              initial: (_) => '',
+              loadInProgress: (_) => '',
+              loadSuccess: (state) =>
+                  state.user.exerciseWeightUnit.getOrCrash(),
+              loadFailure: (_) => 'kg',
+            )),
+          ],
+        ),
+      )),
+      DataColumn(
+          label: Expanded(
+        child: Column(
+          children: [
+           const Text('Distance'),
+            Text(context.watch<UserWatcherBloc>().state.map(
+              initial: (_) => '',
+              loadInProgress: (_) => '',
+              loadSuccess: (state) =>
+                  state.user.exerciseDistanceUnit.getOrCrash(),
+              loadFailure: (_) => 'km',
+            ))
+          ],
+        ),
+      )),
+       DataColumn(label: Column(
+        children:const[
+          Text('Duration'),
+          Text('h:min:sec')
+        ],
+      )),
     ], rows: [
       ...setList
           .getOrCrash()
@@ -114,13 +150,19 @@ class SetDisplay extends StatelessWidget {
                   ),
                   DataCell(
                     Text(
-                      '${set.weights.getOrCrash()}',
+                      unitExerciseWeightConverter(
+                        weight: set.weights.getOrCrash(),
+                        bloc: context.watch<UserWatcherBloc>(),
+                      )?.toStringAsFixed(2) ?? '',
                       style: const TextStyle(color: Colors.black),
                     ),
                   ),
                   DataCell(
                     Text(
-                      '${set.distance.getOrCrash()}',
+                      unitExerciseDistanceConverter(
+                        distance: set.distance.getOrCrash(),
+                        bloc: context.watch<UserWatcherBloc>(),
+                      )?.toStringAsFixed(2) ?? '',
                       style: const TextStyle(color: Colors.indigo),
                     ),
                   ),

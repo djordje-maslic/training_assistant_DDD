@@ -2,7 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reminder_app/application/body_measures/body_measures_watcher/body_measures_watcher_bloc.dart';
+import 'package:reminder_app/application/user/user_watcher/user_watcher_bloc.dart';
 import 'package:reminder_app/domain/body_measures/body_measures.dart';
+import 'package:reminder_app/presentation/core/misc/unit_converter.dart';
 
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_time_converter.dart';
 import 'package:reminder_app/presentation/routes/router.gr.dart';
@@ -45,7 +47,9 @@ class BodyMeasuresDataTableWidget extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(18.0),
-                  child: RaisedButton(color: Colors.indigo[100],elevation: 10,
+                  child: RaisedButton(
+                    color: Colors.indigo[100],
+                    elevation: 10,
                     shape: const StadiumBorder(),
                     onPressed: () {
                       ExtendedNavigator.of(context).pushBodyMeasuresFormPage(
@@ -64,12 +68,13 @@ class BodyMeasuresDataTableWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                SingleChildScrollView(scrollDirection: Axis.horizontal,
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
                   child: DataTable(
                     columnSpacing: 10,
                     dataRowHeight: 40,
-                    columns: const [
-                      DataColumn(
+                    columns: [
+                      const DataColumn(
                         label: Text(
                           'Date',
                           style: TextStyle(
@@ -78,19 +83,41 @@ class BodyMeasuresDataTableWidget extends StatelessWidget {
                         ),
                       ),
                       DataColumn(
-                        label: Text(
-                          'Weight',
-                          style: TextStyle(
-                            fontSize: 15,
-                          ),
+                        label: Column(
+                          children: [
+                            const Text(
+                              'Weight',
+                              style: TextStyle(
+                                fontSize: 15,
+                              ),
+                            ),
+                            Text(context.watch<UserWatcherBloc>().state.map(
+                                  initial: (_) => '',
+                                  loadInProgress: (_) => '',
+                                  loadSuccess: (state) =>
+                                      state.user.userWeightUnit.getOrCrash(),
+                                  loadFailure: (_) => 'kg',
+                                )),
+                          ],
                         ),
                       ),
                       DataColumn(
-                        label: Text(
-                          'Height',
-                          style: TextStyle(
-                            fontSize: 15,
-                          ),
+                        label: Column(
+                          children: [
+                            const Text(
+                              'Height',
+                              style: TextStyle(
+                                fontSize: 15,
+                              ),
+                            ),
+                            Text(context.watch<UserWatcherBloc>().state.map(
+                                  initial: (_) => '',
+                                  loadInProgress: (_) => '',
+                                  loadSuccess: (state) =>
+                                      state.user.userHeightUnit.getOrCrash(),
+                                  loadFailure: (_) => 'cm',
+                                )),
+                          ],
                         ),
                       ),
                     ],
@@ -105,8 +132,7 @@ class BodyMeasuresDataTableWidget extends StatelessWidget {
                                   fontSize: 20,
                                 ),
                               ),
-                              showEditIcon: true,
-                              onTap: () {
+                              showEditIcon: true, onTap: () {
                             ExtendedNavigator.of(context)
                                 .pushBodyMeasuresFormPage(
                                     bodyMeasures: bodyMeasure,
@@ -114,9 +140,11 @@ class BodyMeasuresDataTableWidget extends StatelessWidget {
                           }),
                           DataCell(
                             Text(
-                              bodyMeasure.bodyMeasuresWeight
-                                  .getOrCrash()
-                                  .toString(),
+                              unitUserWeightConverter(
+                                      weight: bodyMeasure.bodyMeasuresWeight
+                                          .getOrCrash(),
+                                      bloc: context.watch<UserWatcherBloc>())
+                                  .toStringAsFixed(2),
                               style: const TextStyle(
                                 fontSize: 20,
                               ),
@@ -124,9 +152,27 @@ class BodyMeasuresDataTableWidget extends StatelessWidget {
                           ),
                           DataCell(
                             Text(
-                              bodyMeasure.bodyMeasuresHeight
-                                  .getOrCrash()
-                                  .toString(),
+                              context.watch<UserWatcherBloc>().state.map(
+                                          initial: (_) => '',
+                                          loadInProgress: (_) => '',
+                                          loadSuccess: (state) => state
+                                              .user.userHeightUnit
+                                              .getOrCrash(),
+                                          loadFailure: (_) => 'cm') ==
+                                      'ft'
+                                  ? inToFeetInStringConverter(
+                                      inches: unitUserHeightConverter(
+                                        height: bodyMeasure.bodyMeasuresHeight
+                                            .getOrCrash(),
+                                        bloc: context.watch<UserWatcherBloc>(),
+                                      ),
+                                    )
+                                  : unitUserHeightConverter(
+                                          height: bodyMeasure.bodyMeasuresHeight
+                                              .getOrCrash(),
+                                          bloc:
+                                              context.watch<UserWatcherBloc>())
+                                      .toStringAsFixed(2),
                               style: const TextStyle(
                                 fontSize: 20,
                               ),

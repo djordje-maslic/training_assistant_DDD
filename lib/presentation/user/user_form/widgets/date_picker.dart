@@ -38,7 +38,7 @@ Future<void> _selectDate(
         return Theme(
             data: ThemeData.from(
               colorScheme: const ColorScheme.light().copyWith(
-                background:Colors.amber[100],
+                background: Colors.amber[100],
                 onBackground: Colors.indigo[300],
                 onSurface: Colors.indigo[900],
                 onPrimary: Colors.indigo[300],
@@ -58,8 +58,7 @@ Future<void> _selectDate(
           picked.day != DateTime.now().day)) {
     context.read<UserFormBloc>().add(
         UserFormEvent.userDateOfBirthChanged(picked.millisecondsSinceEpoch));
-  }
-  else{}
+  } else {}
 }
 
 class DateText extends HookWidget {
@@ -109,7 +108,11 @@ class DateText extends HookWidget {
             textAlign: TextAlign.center,
             controller: textEditingControllerDate,
             readOnly: true,
-            style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            style: const TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+              color: Colors.indigoAccent,
+            ),
           ),
         ),
         const SizedBox(

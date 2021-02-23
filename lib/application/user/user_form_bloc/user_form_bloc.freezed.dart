@@ -42,6 +42,54 @@ class _$UserFormEventTearOff {
   }
 
 // ignore: unused_element
+  _ExerciseDistanceUnitChanged exerciseDistanceUnitChanged(
+      {@required String exerciseDistanceUnitString}) {
+    return _ExerciseDistanceUnitChanged(
+      exerciseDistanceUnitString: exerciseDistanceUnitString,
+    );
+  }
+
+// ignore: unused_element
+  _ExerciseWeightUnitChanged exerciseWeightUnitChanged(
+      {@required String exerciseWeightUnitString}) {
+    return _ExerciseWeightUnitChanged(
+      exerciseWeightUnitString: exerciseWeightUnitString,
+    );
+  }
+
+// ignore: unused_element
+  _UserHeightUnitChanged userHeightUnitChanged(
+      {@required String userHeightUnitString}) {
+    return _UserHeightUnitChanged(
+      userHeightUnitString: userHeightUnitString,
+    );
+  }
+
+// ignore: unused_element
+  _UserWeightUnitChanged userWeightUnitChanged(
+      {@required String userWeightUnitString}) {
+    return _UserWeightUnitChanged(
+      userWeightUnitString: userWeightUnitString,
+    );
+  }
+
+// ignore: unused_element
+  _NutritionWeightUnitChanged nutritionWeightUnitChanged(
+      {@required String nutritionWeightUnitString}) {
+    return _NutritionWeightUnitChanged(
+      nutritionWeightUnitString: nutritionWeightUnitString,
+    );
+  }
+
+// ignore: unused_element
+  _NutritionVolumeUnitChanged nutritionVolumeUnitChanged(
+      {@required String nutritionVolumeUnitString}) {
+    return _NutritionVolumeUnitChanged(
+      nutritionVolumeUnitString: nutritionVolumeUnitString,
+    );
+  }
+
+// ignore: unused_element
   _UserSavd userSaved() {
     return const _UserSavd();
   }
@@ -59,6 +107,16 @@ mixin _$UserFormEvent {
     @required TResult userNameChanged(String nameStr),
     @required TResult userDateOfBirthChanged(int userDateOfBirthInt),
     @required TResult userGenderChanged(bool genderBool),
+    @required
+        TResult exerciseDistanceUnitChanged(String exerciseDistanceUnitString),
+    @required
+        TResult exerciseWeightUnitChanged(String exerciseWeightUnitString),
+    @required TResult userHeightUnitChanged(String userHeightUnitString),
+    @required TResult userWeightUnitChanged(String userWeightUnitString),
+    @required
+        TResult nutritionWeightUnitChanged(String nutritionWeightUnitString),
+    @required
+        TResult nutritionVolumeUnitChanged(String nutritionVolumeUnitString),
     @required TResult userSaved(),
   });
   @optionalTypeArgs
@@ -67,6 +125,12 @@ mixin _$UserFormEvent {
     TResult userNameChanged(String nameStr),
     TResult userDateOfBirthChanged(int userDateOfBirthInt),
     TResult userGenderChanged(bool genderBool),
+    TResult exerciseDistanceUnitChanged(String exerciseDistanceUnitString),
+    TResult exerciseWeightUnitChanged(String exerciseWeightUnitString),
+    TResult userHeightUnitChanged(String userHeightUnitString),
+    TResult userWeightUnitChanged(String userWeightUnitString),
+    TResult nutritionWeightUnitChanged(String nutritionWeightUnitString),
+    TResult nutritionVolumeUnitChanged(String nutritionVolumeUnitString),
     TResult userSaved(),
     @required TResult orElse(),
   });
@@ -76,6 +140,16 @@ mixin _$UserFormEvent {
     @required TResult userNameChanged(_UserNameChanged value),
     @required TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
     @required TResult userGenderChanged(_UserGenderChanged value),
+    @required
+        TResult exerciseDistanceUnitChanged(_ExerciseDistanceUnitChanged value),
+    @required
+        TResult exerciseWeightUnitChanged(_ExerciseWeightUnitChanged value),
+    @required TResult userHeightUnitChanged(_UserHeightUnitChanged value),
+    @required TResult userWeightUnitChanged(_UserWeightUnitChanged value),
+    @required
+        TResult nutritionWeightUnitChanged(_NutritionWeightUnitChanged value),
+    @required
+        TResult nutritionVolumeUnitChanged(_NutritionVolumeUnitChanged value),
     @required TResult userSaved(_UserSavd value),
   });
   @optionalTypeArgs
@@ -84,6 +158,12 @@ mixin _$UserFormEvent {
     TResult userNameChanged(_UserNameChanged value),
     TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
     TResult userGenderChanged(_UserGenderChanged value),
+    TResult exerciseDistanceUnitChanged(_ExerciseDistanceUnitChanged value),
+    TResult exerciseWeightUnitChanged(_ExerciseWeightUnitChanged value),
+    TResult userHeightUnitChanged(_UserHeightUnitChanged value),
+    TResult userWeightUnitChanged(_UserWeightUnitChanged value),
+    TResult nutritionWeightUnitChanged(_NutritionWeightUnitChanged value),
+    TResult nutritionVolumeUnitChanged(_NutritionVolumeUnitChanged value),
     TResult userSaved(_UserSavd value),
     @required TResult orElse(),
   });
@@ -175,12 +255,28 @@ class _$_Initialized implements _Initialized {
     @required TResult userNameChanged(String nameStr),
     @required TResult userDateOfBirthChanged(int userDateOfBirthInt),
     @required TResult userGenderChanged(bool genderBool),
+    @required
+        TResult exerciseDistanceUnitChanged(String exerciseDistanceUnitString),
+    @required
+        TResult exerciseWeightUnitChanged(String exerciseWeightUnitString),
+    @required TResult userHeightUnitChanged(String userHeightUnitString),
+    @required TResult userWeightUnitChanged(String userWeightUnitString),
+    @required
+        TResult nutritionWeightUnitChanged(String nutritionWeightUnitString),
+    @required
+        TResult nutritionVolumeUnitChanged(String nutritionVolumeUnitString),
     @required TResult userSaved(),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
     assert(userDateOfBirthChanged != null);
     assert(userGenderChanged != null);
+    assert(exerciseDistanceUnitChanged != null);
+    assert(exerciseWeightUnitChanged != null);
+    assert(userHeightUnitChanged != null);
+    assert(userWeightUnitChanged != null);
+    assert(nutritionWeightUnitChanged != null);
+    assert(nutritionVolumeUnitChanged != null);
     assert(userSaved != null);
     return initialized(initialUserOption);
   }
@@ -192,6 +288,12 @@ class _$_Initialized implements _Initialized {
     TResult userNameChanged(String nameStr),
     TResult userDateOfBirthChanged(int userDateOfBirthInt),
     TResult userGenderChanged(bool genderBool),
+    TResult exerciseDistanceUnitChanged(String exerciseDistanceUnitString),
+    TResult exerciseWeightUnitChanged(String exerciseWeightUnitString),
+    TResult userHeightUnitChanged(String userHeightUnitString),
+    TResult userWeightUnitChanged(String userWeightUnitString),
+    TResult nutritionWeightUnitChanged(String nutritionWeightUnitString),
+    TResult nutritionVolumeUnitChanged(String nutritionVolumeUnitString),
     TResult userSaved(),
     @required TResult orElse(),
   }) {
@@ -209,12 +311,28 @@ class _$_Initialized implements _Initialized {
     @required TResult userNameChanged(_UserNameChanged value),
     @required TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
     @required TResult userGenderChanged(_UserGenderChanged value),
+    @required
+        TResult exerciseDistanceUnitChanged(_ExerciseDistanceUnitChanged value),
+    @required
+        TResult exerciseWeightUnitChanged(_ExerciseWeightUnitChanged value),
+    @required TResult userHeightUnitChanged(_UserHeightUnitChanged value),
+    @required TResult userWeightUnitChanged(_UserWeightUnitChanged value),
+    @required
+        TResult nutritionWeightUnitChanged(_NutritionWeightUnitChanged value),
+    @required
+        TResult nutritionVolumeUnitChanged(_NutritionVolumeUnitChanged value),
     @required TResult userSaved(_UserSavd value),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
     assert(userDateOfBirthChanged != null);
     assert(userGenderChanged != null);
+    assert(exerciseDistanceUnitChanged != null);
+    assert(exerciseWeightUnitChanged != null);
+    assert(userHeightUnitChanged != null);
+    assert(userWeightUnitChanged != null);
+    assert(nutritionWeightUnitChanged != null);
+    assert(nutritionVolumeUnitChanged != null);
     assert(userSaved != null);
     return initialized(this);
   }
@@ -226,6 +344,12 @@ class _$_Initialized implements _Initialized {
     TResult userNameChanged(_UserNameChanged value),
     TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
     TResult userGenderChanged(_UserGenderChanged value),
+    TResult exerciseDistanceUnitChanged(_ExerciseDistanceUnitChanged value),
+    TResult exerciseWeightUnitChanged(_ExerciseWeightUnitChanged value),
+    TResult userHeightUnitChanged(_UserHeightUnitChanged value),
+    TResult userWeightUnitChanged(_UserWeightUnitChanged value),
+    TResult nutritionWeightUnitChanged(_NutritionWeightUnitChanged value),
+    TResult nutritionVolumeUnitChanged(_NutritionVolumeUnitChanged value),
     TResult userSaved(_UserSavd value),
     @required TResult orElse(),
   }) {
@@ -310,12 +434,28 @@ class _$_UserNameChanged implements _UserNameChanged {
     @required TResult userNameChanged(String nameStr),
     @required TResult userDateOfBirthChanged(int userDateOfBirthInt),
     @required TResult userGenderChanged(bool genderBool),
+    @required
+        TResult exerciseDistanceUnitChanged(String exerciseDistanceUnitString),
+    @required
+        TResult exerciseWeightUnitChanged(String exerciseWeightUnitString),
+    @required TResult userHeightUnitChanged(String userHeightUnitString),
+    @required TResult userWeightUnitChanged(String userWeightUnitString),
+    @required
+        TResult nutritionWeightUnitChanged(String nutritionWeightUnitString),
+    @required
+        TResult nutritionVolumeUnitChanged(String nutritionVolumeUnitString),
     @required TResult userSaved(),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
     assert(userDateOfBirthChanged != null);
     assert(userGenderChanged != null);
+    assert(exerciseDistanceUnitChanged != null);
+    assert(exerciseWeightUnitChanged != null);
+    assert(userHeightUnitChanged != null);
+    assert(userWeightUnitChanged != null);
+    assert(nutritionWeightUnitChanged != null);
+    assert(nutritionVolumeUnitChanged != null);
     assert(userSaved != null);
     return userNameChanged(nameStr);
   }
@@ -327,6 +467,12 @@ class _$_UserNameChanged implements _UserNameChanged {
     TResult userNameChanged(String nameStr),
     TResult userDateOfBirthChanged(int userDateOfBirthInt),
     TResult userGenderChanged(bool genderBool),
+    TResult exerciseDistanceUnitChanged(String exerciseDistanceUnitString),
+    TResult exerciseWeightUnitChanged(String exerciseWeightUnitString),
+    TResult userHeightUnitChanged(String userHeightUnitString),
+    TResult userWeightUnitChanged(String userWeightUnitString),
+    TResult nutritionWeightUnitChanged(String nutritionWeightUnitString),
+    TResult nutritionVolumeUnitChanged(String nutritionVolumeUnitString),
     TResult userSaved(),
     @required TResult orElse(),
   }) {
@@ -344,12 +490,28 @@ class _$_UserNameChanged implements _UserNameChanged {
     @required TResult userNameChanged(_UserNameChanged value),
     @required TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
     @required TResult userGenderChanged(_UserGenderChanged value),
+    @required
+        TResult exerciseDistanceUnitChanged(_ExerciseDistanceUnitChanged value),
+    @required
+        TResult exerciseWeightUnitChanged(_ExerciseWeightUnitChanged value),
+    @required TResult userHeightUnitChanged(_UserHeightUnitChanged value),
+    @required TResult userWeightUnitChanged(_UserWeightUnitChanged value),
+    @required
+        TResult nutritionWeightUnitChanged(_NutritionWeightUnitChanged value),
+    @required
+        TResult nutritionVolumeUnitChanged(_NutritionVolumeUnitChanged value),
     @required TResult userSaved(_UserSavd value),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
     assert(userDateOfBirthChanged != null);
     assert(userGenderChanged != null);
+    assert(exerciseDistanceUnitChanged != null);
+    assert(exerciseWeightUnitChanged != null);
+    assert(userHeightUnitChanged != null);
+    assert(userWeightUnitChanged != null);
+    assert(nutritionWeightUnitChanged != null);
+    assert(nutritionVolumeUnitChanged != null);
     assert(userSaved != null);
     return userNameChanged(this);
   }
@@ -361,6 +523,12 @@ class _$_UserNameChanged implements _UserNameChanged {
     TResult userNameChanged(_UserNameChanged value),
     TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
     TResult userGenderChanged(_UserGenderChanged value),
+    TResult exerciseDistanceUnitChanged(_ExerciseDistanceUnitChanged value),
+    TResult exerciseWeightUnitChanged(_ExerciseWeightUnitChanged value),
+    TResult userHeightUnitChanged(_UserHeightUnitChanged value),
+    TResult userWeightUnitChanged(_UserWeightUnitChanged value),
+    TResult nutritionWeightUnitChanged(_NutritionWeightUnitChanged value),
+    TResult nutritionVolumeUnitChanged(_NutritionVolumeUnitChanged value),
     TResult userSaved(_UserSavd value),
     @required TResult orElse(),
   }) {
@@ -451,12 +619,28 @@ class _$_UserDateOfBirthChanged implements _UserDateOfBirthChanged {
     @required TResult userNameChanged(String nameStr),
     @required TResult userDateOfBirthChanged(int userDateOfBirthInt),
     @required TResult userGenderChanged(bool genderBool),
+    @required
+        TResult exerciseDistanceUnitChanged(String exerciseDistanceUnitString),
+    @required
+        TResult exerciseWeightUnitChanged(String exerciseWeightUnitString),
+    @required TResult userHeightUnitChanged(String userHeightUnitString),
+    @required TResult userWeightUnitChanged(String userWeightUnitString),
+    @required
+        TResult nutritionWeightUnitChanged(String nutritionWeightUnitString),
+    @required
+        TResult nutritionVolumeUnitChanged(String nutritionVolumeUnitString),
     @required TResult userSaved(),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
     assert(userDateOfBirthChanged != null);
     assert(userGenderChanged != null);
+    assert(exerciseDistanceUnitChanged != null);
+    assert(exerciseWeightUnitChanged != null);
+    assert(userHeightUnitChanged != null);
+    assert(userWeightUnitChanged != null);
+    assert(nutritionWeightUnitChanged != null);
+    assert(nutritionVolumeUnitChanged != null);
     assert(userSaved != null);
     return userDateOfBirthChanged(userDateOfBirthInt);
   }
@@ -468,6 +652,12 @@ class _$_UserDateOfBirthChanged implements _UserDateOfBirthChanged {
     TResult userNameChanged(String nameStr),
     TResult userDateOfBirthChanged(int userDateOfBirthInt),
     TResult userGenderChanged(bool genderBool),
+    TResult exerciseDistanceUnitChanged(String exerciseDistanceUnitString),
+    TResult exerciseWeightUnitChanged(String exerciseWeightUnitString),
+    TResult userHeightUnitChanged(String userHeightUnitString),
+    TResult userWeightUnitChanged(String userWeightUnitString),
+    TResult nutritionWeightUnitChanged(String nutritionWeightUnitString),
+    TResult nutritionVolumeUnitChanged(String nutritionVolumeUnitString),
     TResult userSaved(),
     @required TResult orElse(),
   }) {
@@ -485,12 +675,28 @@ class _$_UserDateOfBirthChanged implements _UserDateOfBirthChanged {
     @required TResult userNameChanged(_UserNameChanged value),
     @required TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
     @required TResult userGenderChanged(_UserGenderChanged value),
+    @required
+        TResult exerciseDistanceUnitChanged(_ExerciseDistanceUnitChanged value),
+    @required
+        TResult exerciseWeightUnitChanged(_ExerciseWeightUnitChanged value),
+    @required TResult userHeightUnitChanged(_UserHeightUnitChanged value),
+    @required TResult userWeightUnitChanged(_UserWeightUnitChanged value),
+    @required
+        TResult nutritionWeightUnitChanged(_NutritionWeightUnitChanged value),
+    @required
+        TResult nutritionVolumeUnitChanged(_NutritionVolumeUnitChanged value),
     @required TResult userSaved(_UserSavd value),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
     assert(userDateOfBirthChanged != null);
     assert(userGenderChanged != null);
+    assert(exerciseDistanceUnitChanged != null);
+    assert(exerciseWeightUnitChanged != null);
+    assert(userHeightUnitChanged != null);
+    assert(userWeightUnitChanged != null);
+    assert(nutritionWeightUnitChanged != null);
+    assert(nutritionVolumeUnitChanged != null);
     assert(userSaved != null);
     return userDateOfBirthChanged(this);
   }
@@ -502,6 +708,12 @@ class _$_UserDateOfBirthChanged implements _UserDateOfBirthChanged {
     TResult userNameChanged(_UserNameChanged value),
     TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
     TResult userGenderChanged(_UserGenderChanged value),
+    TResult exerciseDistanceUnitChanged(_ExerciseDistanceUnitChanged value),
+    TResult exerciseWeightUnitChanged(_ExerciseWeightUnitChanged value),
+    TResult userHeightUnitChanged(_UserHeightUnitChanged value),
+    TResult userWeightUnitChanged(_UserWeightUnitChanged value),
+    TResult nutritionWeightUnitChanged(_NutritionWeightUnitChanged value),
+    TResult nutritionVolumeUnitChanged(_NutritionVolumeUnitChanged value),
     TResult userSaved(_UserSavd value),
     @required TResult orElse(),
   }) {
@@ -590,12 +802,28 @@ class _$_UserGenderChanged implements _UserGenderChanged {
     @required TResult userNameChanged(String nameStr),
     @required TResult userDateOfBirthChanged(int userDateOfBirthInt),
     @required TResult userGenderChanged(bool genderBool),
+    @required
+        TResult exerciseDistanceUnitChanged(String exerciseDistanceUnitString),
+    @required
+        TResult exerciseWeightUnitChanged(String exerciseWeightUnitString),
+    @required TResult userHeightUnitChanged(String userHeightUnitString),
+    @required TResult userWeightUnitChanged(String userWeightUnitString),
+    @required
+        TResult nutritionWeightUnitChanged(String nutritionWeightUnitString),
+    @required
+        TResult nutritionVolumeUnitChanged(String nutritionVolumeUnitString),
     @required TResult userSaved(),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
     assert(userDateOfBirthChanged != null);
     assert(userGenderChanged != null);
+    assert(exerciseDistanceUnitChanged != null);
+    assert(exerciseWeightUnitChanged != null);
+    assert(userHeightUnitChanged != null);
+    assert(userWeightUnitChanged != null);
+    assert(nutritionWeightUnitChanged != null);
+    assert(nutritionVolumeUnitChanged != null);
     assert(userSaved != null);
     return userGenderChanged(genderBool);
   }
@@ -607,6 +835,12 @@ class _$_UserGenderChanged implements _UserGenderChanged {
     TResult userNameChanged(String nameStr),
     TResult userDateOfBirthChanged(int userDateOfBirthInt),
     TResult userGenderChanged(bool genderBool),
+    TResult exerciseDistanceUnitChanged(String exerciseDistanceUnitString),
+    TResult exerciseWeightUnitChanged(String exerciseWeightUnitString),
+    TResult userHeightUnitChanged(String userHeightUnitString),
+    TResult userWeightUnitChanged(String userWeightUnitString),
+    TResult nutritionWeightUnitChanged(String nutritionWeightUnitString),
+    TResult nutritionVolumeUnitChanged(String nutritionVolumeUnitString),
     TResult userSaved(),
     @required TResult orElse(),
   }) {
@@ -624,12 +858,28 @@ class _$_UserGenderChanged implements _UserGenderChanged {
     @required TResult userNameChanged(_UserNameChanged value),
     @required TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
     @required TResult userGenderChanged(_UserGenderChanged value),
+    @required
+        TResult exerciseDistanceUnitChanged(_ExerciseDistanceUnitChanged value),
+    @required
+        TResult exerciseWeightUnitChanged(_ExerciseWeightUnitChanged value),
+    @required TResult userHeightUnitChanged(_UserHeightUnitChanged value),
+    @required TResult userWeightUnitChanged(_UserWeightUnitChanged value),
+    @required
+        TResult nutritionWeightUnitChanged(_NutritionWeightUnitChanged value),
+    @required
+        TResult nutritionVolumeUnitChanged(_NutritionVolumeUnitChanged value),
     @required TResult userSaved(_UserSavd value),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
     assert(userDateOfBirthChanged != null);
     assert(userGenderChanged != null);
+    assert(exerciseDistanceUnitChanged != null);
+    assert(exerciseWeightUnitChanged != null);
+    assert(userHeightUnitChanged != null);
+    assert(userWeightUnitChanged != null);
+    assert(nutritionWeightUnitChanged != null);
+    assert(nutritionVolumeUnitChanged != null);
     assert(userSaved != null);
     return userGenderChanged(this);
   }
@@ -641,6 +891,12 @@ class _$_UserGenderChanged implements _UserGenderChanged {
     TResult userNameChanged(_UserNameChanged value),
     TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
     TResult userGenderChanged(_UserGenderChanged value),
+    TResult exerciseDistanceUnitChanged(_ExerciseDistanceUnitChanged value),
+    TResult exerciseWeightUnitChanged(_ExerciseWeightUnitChanged value),
+    TResult userHeightUnitChanged(_UserHeightUnitChanged value),
+    TResult userWeightUnitChanged(_UserWeightUnitChanged value),
+    TResult nutritionWeightUnitChanged(_NutritionWeightUnitChanged value),
+    TResult nutritionVolumeUnitChanged(_NutritionVolumeUnitChanged value),
     TResult userSaved(_UserSavd value),
     @required TResult orElse(),
   }) {
@@ -659,6 +915,1148 @@ abstract class _UserGenderChanged implements UserFormEvent {
   bool get genderBool;
   @JsonKey(ignore: true)
   _$UserGenderChangedCopyWith<_UserGenderChanged> get copyWith;
+}
+
+/// @nodoc
+abstract class _$ExerciseDistanceUnitChangedCopyWith<$Res> {
+  factory _$ExerciseDistanceUnitChangedCopyWith(
+          _ExerciseDistanceUnitChanged value,
+          $Res Function(_ExerciseDistanceUnitChanged) then) =
+      __$ExerciseDistanceUnitChangedCopyWithImpl<$Res>;
+  $Res call({String exerciseDistanceUnitString});
+}
+
+/// @nodoc
+class __$ExerciseDistanceUnitChangedCopyWithImpl<$Res>
+    extends _$UserFormEventCopyWithImpl<$Res>
+    implements _$ExerciseDistanceUnitChangedCopyWith<$Res> {
+  __$ExerciseDistanceUnitChangedCopyWithImpl(
+      _ExerciseDistanceUnitChanged _value,
+      $Res Function(_ExerciseDistanceUnitChanged) _then)
+      : super(_value, (v) => _then(v as _ExerciseDistanceUnitChanged));
+
+  @override
+  _ExerciseDistanceUnitChanged get _value =>
+      super._value as _ExerciseDistanceUnitChanged;
+
+  @override
+  $Res call({
+    Object exerciseDistanceUnitString = freezed,
+  }) {
+    return _then(_ExerciseDistanceUnitChanged(
+      exerciseDistanceUnitString: exerciseDistanceUnitString == freezed
+          ? _value.exerciseDistanceUnitString
+          : exerciseDistanceUnitString as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_ExerciseDistanceUnitChanged implements _ExerciseDistanceUnitChanged {
+  const _$_ExerciseDistanceUnitChanged(
+      {@required this.exerciseDistanceUnitString})
+      : assert(exerciseDistanceUnitString != null);
+
+  @override
+  final String exerciseDistanceUnitString;
+
+  @override
+  String toString() {
+    return 'UserFormEvent.exerciseDistanceUnitChanged(exerciseDistanceUnitString: $exerciseDistanceUnitString)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ExerciseDistanceUnitChanged &&
+            (identical(other.exerciseDistanceUnitString,
+                    exerciseDistanceUnitString) ||
+                const DeepCollectionEquality().equals(
+                    other.exerciseDistanceUnitString,
+                    exerciseDistanceUnitString)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(exerciseDistanceUnitString);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ExerciseDistanceUnitChangedCopyWith<_ExerciseDistanceUnitChanged>
+      get copyWith => __$ExerciseDistanceUnitChangedCopyWithImpl<
+          _ExerciseDistanceUnitChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<User> initialUserOption),
+    @required TResult userNameChanged(String nameStr),
+    @required TResult userDateOfBirthChanged(int userDateOfBirthInt),
+    @required TResult userGenderChanged(bool genderBool),
+    @required
+        TResult exerciseDistanceUnitChanged(String exerciseDistanceUnitString),
+    @required
+        TResult exerciseWeightUnitChanged(String exerciseWeightUnitString),
+    @required TResult userHeightUnitChanged(String userHeightUnitString),
+    @required TResult userWeightUnitChanged(String userWeightUnitString),
+    @required
+        TResult nutritionWeightUnitChanged(String nutritionWeightUnitString),
+    @required
+        TResult nutritionVolumeUnitChanged(String nutritionVolumeUnitString),
+    @required TResult userSaved(),
+  }) {
+    assert(initialized != null);
+    assert(userNameChanged != null);
+    assert(userDateOfBirthChanged != null);
+    assert(userGenderChanged != null);
+    assert(exerciseDistanceUnitChanged != null);
+    assert(exerciseWeightUnitChanged != null);
+    assert(userHeightUnitChanged != null);
+    assert(userWeightUnitChanged != null);
+    assert(nutritionWeightUnitChanged != null);
+    assert(nutritionVolumeUnitChanged != null);
+    assert(userSaved != null);
+    return exerciseDistanceUnitChanged(exerciseDistanceUnitString);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<User> initialUserOption),
+    TResult userNameChanged(String nameStr),
+    TResult userDateOfBirthChanged(int userDateOfBirthInt),
+    TResult userGenderChanged(bool genderBool),
+    TResult exerciseDistanceUnitChanged(String exerciseDistanceUnitString),
+    TResult exerciseWeightUnitChanged(String exerciseWeightUnitString),
+    TResult userHeightUnitChanged(String userHeightUnitString),
+    TResult userWeightUnitChanged(String userWeightUnitString),
+    TResult nutritionWeightUnitChanged(String nutritionWeightUnitString),
+    TResult nutritionVolumeUnitChanged(String nutritionVolumeUnitString),
+    TResult userSaved(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (exerciseDistanceUnitChanged != null) {
+      return exerciseDistanceUnitChanged(exerciseDistanceUnitString);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult userNameChanged(_UserNameChanged value),
+    @required TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
+    @required TResult userGenderChanged(_UserGenderChanged value),
+    @required
+        TResult exerciseDistanceUnitChanged(_ExerciseDistanceUnitChanged value),
+    @required
+        TResult exerciseWeightUnitChanged(_ExerciseWeightUnitChanged value),
+    @required TResult userHeightUnitChanged(_UserHeightUnitChanged value),
+    @required TResult userWeightUnitChanged(_UserWeightUnitChanged value),
+    @required
+        TResult nutritionWeightUnitChanged(_NutritionWeightUnitChanged value),
+    @required
+        TResult nutritionVolumeUnitChanged(_NutritionVolumeUnitChanged value),
+    @required TResult userSaved(_UserSavd value),
+  }) {
+    assert(initialized != null);
+    assert(userNameChanged != null);
+    assert(userDateOfBirthChanged != null);
+    assert(userGenderChanged != null);
+    assert(exerciseDistanceUnitChanged != null);
+    assert(exerciseWeightUnitChanged != null);
+    assert(userHeightUnitChanged != null);
+    assert(userWeightUnitChanged != null);
+    assert(nutritionWeightUnitChanged != null);
+    assert(nutritionVolumeUnitChanged != null);
+    assert(userSaved != null);
+    return exerciseDistanceUnitChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult userNameChanged(_UserNameChanged value),
+    TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
+    TResult userGenderChanged(_UserGenderChanged value),
+    TResult exerciseDistanceUnitChanged(_ExerciseDistanceUnitChanged value),
+    TResult exerciseWeightUnitChanged(_ExerciseWeightUnitChanged value),
+    TResult userHeightUnitChanged(_UserHeightUnitChanged value),
+    TResult userWeightUnitChanged(_UserWeightUnitChanged value),
+    TResult nutritionWeightUnitChanged(_NutritionWeightUnitChanged value),
+    TResult nutritionVolumeUnitChanged(_NutritionVolumeUnitChanged value),
+    TResult userSaved(_UserSavd value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (exerciseDistanceUnitChanged != null) {
+      return exerciseDistanceUnitChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ExerciseDistanceUnitChanged implements UserFormEvent {
+  const factory _ExerciseDistanceUnitChanged(
+          {@required String exerciseDistanceUnitString}) =
+      _$_ExerciseDistanceUnitChanged;
+
+  String get exerciseDistanceUnitString;
+  @JsonKey(ignore: true)
+  _$ExerciseDistanceUnitChangedCopyWith<_ExerciseDistanceUnitChanged>
+      get copyWith;
+}
+
+/// @nodoc
+abstract class _$ExerciseWeightUnitChangedCopyWith<$Res> {
+  factory _$ExerciseWeightUnitChangedCopyWith(_ExerciseWeightUnitChanged value,
+          $Res Function(_ExerciseWeightUnitChanged) then) =
+      __$ExerciseWeightUnitChangedCopyWithImpl<$Res>;
+  $Res call({String exerciseWeightUnitString});
+}
+
+/// @nodoc
+class __$ExerciseWeightUnitChangedCopyWithImpl<$Res>
+    extends _$UserFormEventCopyWithImpl<$Res>
+    implements _$ExerciseWeightUnitChangedCopyWith<$Res> {
+  __$ExerciseWeightUnitChangedCopyWithImpl(_ExerciseWeightUnitChanged _value,
+      $Res Function(_ExerciseWeightUnitChanged) _then)
+      : super(_value, (v) => _then(v as _ExerciseWeightUnitChanged));
+
+  @override
+  _ExerciseWeightUnitChanged get _value =>
+      super._value as _ExerciseWeightUnitChanged;
+
+  @override
+  $Res call({
+    Object exerciseWeightUnitString = freezed,
+  }) {
+    return _then(_ExerciseWeightUnitChanged(
+      exerciseWeightUnitString: exerciseWeightUnitString == freezed
+          ? _value.exerciseWeightUnitString
+          : exerciseWeightUnitString as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_ExerciseWeightUnitChanged implements _ExerciseWeightUnitChanged {
+  const _$_ExerciseWeightUnitChanged({@required this.exerciseWeightUnitString})
+      : assert(exerciseWeightUnitString != null);
+
+  @override
+  final String exerciseWeightUnitString;
+
+  @override
+  String toString() {
+    return 'UserFormEvent.exerciseWeightUnitChanged(exerciseWeightUnitString: $exerciseWeightUnitString)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ExerciseWeightUnitChanged &&
+            (identical(
+                    other.exerciseWeightUnitString, exerciseWeightUnitString) ||
+                const DeepCollectionEquality().equals(
+                    other.exerciseWeightUnitString, exerciseWeightUnitString)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(exerciseWeightUnitString);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ExerciseWeightUnitChangedCopyWith<_ExerciseWeightUnitChanged>
+      get copyWith =>
+          __$ExerciseWeightUnitChangedCopyWithImpl<_ExerciseWeightUnitChanged>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<User> initialUserOption),
+    @required TResult userNameChanged(String nameStr),
+    @required TResult userDateOfBirthChanged(int userDateOfBirthInt),
+    @required TResult userGenderChanged(bool genderBool),
+    @required
+        TResult exerciseDistanceUnitChanged(String exerciseDistanceUnitString),
+    @required
+        TResult exerciseWeightUnitChanged(String exerciseWeightUnitString),
+    @required TResult userHeightUnitChanged(String userHeightUnitString),
+    @required TResult userWeightUnitChanged(String userWeightUnitString),
+    @required
+        TResult nutritionWeightUnitChanged(String nutritionWeightUnitString),
+    @required
+        TResult nutritionVolumeUnitChanged(String nutritionVolumeUnitString),
+    @required TResult userSaved(),
+  }) {
+    assert(initialized != null);
+    assert(userNameChanged != null);
+    assert(userDateOfBirthChanged != null);
+    assert(userGenderChanged != null);
+    assert(exerciseDistanceUnitChanged != null);
+    assert(exerciseWeightUnitChanged != null);
+    assert(userHeightUnitChanged != null);
+    assert(userWeightUnitChanged != null);
+    assert(nutritionWeightUnitChanged != null);
+    assert(nutritionVolumeUnitChanged != null);
+    assert(userSaved != null);
+    return exerciseWeightUnitChanged(exerciseWeightUnitString);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<User> initialUserOption),
+    TResult userNameChanged(String nameStr),
+    TResult userDateOfBirthChanged(int userDateOfBirthInt),
+    TResult userGenderChanged(bool genderBool),
+    TResult exerciseDistanceUnitChanged(String exerciseDistanceUnitString),
+    TResult exerciseWeightUnitChanged(String exerciseWeightUnitString),
+    TResult userHeightUnitChanged(String userHeightUnitString),
+    TResult userWeightUnitChanged(String userWeightUnitString),
+    TResult nutritionWeightUnitChanged(String nutritionWeightUnitString),
+    TResult nutritionVolumeUnitChanged(String nutritionVolumeUnitString),
+    TResult userSaved(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (exerciseWeightUnitChanged != null) {
+      return exerciseWeightUnitChanged(exerciseWeightUnitString);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult userNameChanged(_UserNameChanged value),
+    @required TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
+    @required TResult userGenderChanged(_UserGenderChanged value),
+    @required
+        TResult exerciseDistanceUnitChanged(_ExerciseDistanceUnitChanged value),
+    @required
+        TResult exerciseWeightUnitChanged(_ExerciseWeightUnitChanged value),
+    @required TResult userHeightUnitChanged(_UserHeightUnitChanged value),
+    @required TResult userWeightUnitChanged(_UserWeightUnitChanged value),
+    @required
+        TResult nutritionWeightUnitChanged(_NutritionWeightUnitChanged value),
+    @required
+        TResult nutritionVolumeUnitChanged(_NutritionVolumeUnitChanged value),
+    @required TResult userSaved(_UserSavd value),
+  }) {
+    assert(initialized != null);
+    assert(userNameChanged != null);
+    assert(userDateOfBirthChanged != null);
+    assert(userGenderChanged != null);
+    assert(exerciseDistanceUnitChanged != null);
+    assert(exerciseWeightUnitChanged != null);
+    assert(userHeightUnitChanged != null);
+    assert(userWeightUnitChanged != null);
+    assert(nutritionWeightUnitChanged != null);
+    assert(nutritionVolumeUnitChanged != null);
+    assert(userSaved != null);
+    return exerciseWeightUnitChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult userNameChanged(_UserNameChanged value),
+    TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
+    TResult userGenderChanged(_UserGenderChanged value),
+    TResult exerciseDistanceUnitChanged(_ExerciseDistanceUnitChanged value),
+    TResult exerciseWeightUnitChanged(_ExerciseWeightUnitChanged value),
+    TResult userHeightUnitChanged(_UserHeightUnitChanged value),
+    TResult userWeightUnitChanged(_UserWeightUnitChanged value),
+    TResult nutritionWeightUnitChanged(_NutritionWeightUnitChanged value),
+    TResult nutritionVolumeUnitChanged(_NutritionVolumeUnitChanged value),
+    TResult userSaved(_UserSavd value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (exerciseWeightUnitChanged != null) {
+      return exerciseWeightUnitChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ExerciseWeightUnitChanged implements UserFormEvent {
+  const factory _ExerciseWeightUnitChanged(
+          {@required String exerciseWeightUnitString}) =
+      _$_ExerciseWeightUnitChanged;
+
+  String get exerciseWeightUnitString;
+  @JsonKey(ignore: true)
+  _$ExerciseWeightUnitChangedCopyWith<_ExerciseWeightUnitChanged> get copyWith;
+}
+
+/// @nodoc
+abstract class _$UserHeightUnitChangedCopyWith<$Res> {
+  factory _$UserHeightUnitChangedCopyWith(_UserHeightUnitChanged value,
+          $Res Function(_UserHeightUnitChanged) then) =
+      __$UserHeightUnitChangedCopyWithImpl<$Res>;
+  $Res call({String userHeightUnitString});
+}
+
+/// @nodoc
+class __$UserHeightUnitChangedCopyWithImpl<$Res>
+    extends _$UserFormEventCopyWithImpl<$Res>
+    implements _$UserHeightUnitChangedCopyWith<$Res> {
+  __$UserHeightUnitChangedCopyWithImpl(_UserHeightUnitChanged _value,
+      $Res Function(_UserHeightUnitChanged) _then)
+      : super(_value, (v) => _then(v as _UserHeightUnitChanged));
+
+  @override
+  _UserHeightUnitChanged get _value => super._value as _UserHeightUnitChanged;
+
+  @override
+  $Res call({
+    Object userHeightUnitString = freezed,
+  }) {
+    return _then(_UserHeightUnitChanged(
+      userHeightUnitString: userHeightUnitString == freezed
+          ? _value.userHeightUnitString
+          : userHeightUnitString as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_UserHeightUnitChanged implements _UserHeightUnitChanged {
+  const _$_UserHeightUnitChanged({@required this.userHeightUnitString})
+      : assert(userHeightUnitString != null);
+
+  @override
+  final String userHeightUnitString;
+
+  @override
+  String toString() {
+    return 'UserFormEvent.userHeightUnitChanged(userHeightUnitString: $userHeightUnitString)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _UserHeightUnitChanged &&
+            (identical(other.userHeightUnitString, userHeightUnitString) ||
+                const DeepCollectionEquality()
+                    .equals(other.userHeightUnitString, userHeightUnitString)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(userHeightUnitString);
+
+  @JsonKey(ignore: true)
+  @override
+  _$UserHeightUnitChangedCopyWith<_UserHeightUnitChanged> get copyWith =>
+      __$UserHeightUnitChangedCopyWithImpl<_UserHeightUnitChanged>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<User> initialUserOption),
+    @required TResult userNameChanged(String nameStr),
+    @required TResult userDateOfBirthChanged(int userDateOfBirthInt),
+    @required TResult userGenderChanged(bool genderBool),
+    @required
+        TResult exerciseDistanceUnitChanged(String exerciseDistanceUnitString),
+    @required
+        TResult exerciseWeightUnitChanged(String exerciseWeightUnitString),
+    @required TResult userHeightUnitChanged(String userHeightUnitString),
+    @required TResult userWeightUnitChanged(String userWeightUnitString),
+    @required
+        TResult nutritionWeightUnitChanged(String nutritionWeightUnitString),
+    @required
+        TResult nutritionVolumeUnitChanged(String nutritionVolumeUnitString),
+    @required TResult userSaved(),
+  }) {
+    assert(initialized != null);
+    assert(userNameChanged != null);
+    assert(userDateOfBirthChanged != null);
+    assert(userGenderChanged != null);
+    assert(exerciseDistanceUnitChanged != null);
+    assert(exerciseWeightUnitChanged != null);
+    assert(userHeightUnitChanged != null);
+    assert(userWeightUnitChanged != null);
+    assert(nutritionWeightUnitChanged != null);
+    assert(nutritionVolumeUnitChanged != null);
+    assert(userSaved != null);
+    return userHeightUnitChanged(userHeightUnitString);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<User> initialUserOption),
+    TResult userNameChanged(String nameStr),
+    TResult userDateOfBirthChanged(int userDateOfBirthInt),
+    TResult userGenderChanged(bool genderBool),
+    TResult exerciseDistanceUnitChanged(String exerciseDistanceUnitString),
+    TResult exerciseWeightUnitChanged(String exerciseWeightUnitString),
+    TResult userHeightUnitChanged(String userHeightUnitString),
+    TResult userWeightUnitChanged(String userWeightUnitString),
+    TResult nutritionWeightUnitChanged(String nutritionWeightUnitString),
+    TResult nutritionVolumeUnitChanged(String nutritionVolumeUnitString),
+    TResult userSaved(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (userHeightUnitChanged != null) {
+      return userHeightUnitChanged(userHeightUnitString);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult userNameChanged(_UserNameChanged value),
+    @required TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
+    @required TResult userGenderChanged(_UserGenderChanged value),
+    @required
+        TResult exerciseDistanceUnitChanged(_ExerciseDistanceUnitChanged value),
+    @required
+        TResult exerciseWeightUnitChanged(_ExerciseWeightUnitChanged value),
+    @required TResult userHeightUnitChanged(_UserHeightUnitChanged value),
+    @required TResult userWeightUnitChanged(_UserWeightUnitChanged value),
+    @required
+        TResult nutritionWeightUnitChanged(_NutritionWeightUnitChanged value),
+    @required
+        TResult nutritionVolumeUnitChanged(_NutritionVolumeUnitChanged value),
+    @required TResult userSaved(_UserSavd value),
+  }) {
+    assert(initialized != null);
+    assert(userNameChanged != null);
+    assert(userDateOfBirthChanged != null);
+    assert(userGenderChanged != null);
+    assert(exerciseDistanceUnitChanged != null);
+    assert(exerciseWeightUnitChanged != null);
+    assert(userHeightUnitChanged != null);
+    assert(userWeightUnitChanged != null);
+    assert(nutritionWeightUnitChanged != null);
+    assert(nutritionVolumeUnitChanged != null);
+    assert(userSaved != null);
+    return userHeightUnitChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult userNameChanged(_UserNameChanged value),
+    TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
+    TResult userGenderChanged(_UserGenderChanged value),
+    TResult exerciseDistanceUnitChanged(_ExerciseDistanceUnitChanged value),
+    TResult exerciseWeightUnitChanged(_ExerciseWeightUnitChanged value),
+    TResult userHeightUnitChanged(_UserHeightUnitChanged value),
+    TResult userWeightUnitChanged(_UserWeightUnitChanged value),
+    TResult nutritionWeightUnitChanged(_NutritionWeightUnitChanged value),
+    TResult nutritionVolumeUnitChanged(_NutritionVolumeUnitChanged value),
+    TResult userSaved(_UserSavd value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (userHeightUnitChanged != null) {
+      return userHeightUnitChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UserHeightUnitChanged implements UserFormEvent {
+  const factory _UserHeightUnitChanged(
+      {@required String userHeightUnitString}) = _$_UserHeightUnitChanged;
+
+  String get userHeightUnitString;
+  @JsonKey(ignore: true)
+  _$UserHeightUnitChangedCopyWith<_UserHeightUnitChanged> get copyWith;
+}
+
+/// @nodoc
+abstract class _$UserWeightUnitChangedCopyWith<$Res> {
+  factory _$UserWeightUnitChangedCopyWith(_UserWeightUnitChanged value,
+          $Res Function(_UserWeightUnitChanged) then) =
+      __$UserWeightUnitChangedCopyWithImpl<$Res>;
+  $Res call({String userWeightUnitString});
+}
+
+/// @nodoc
+class __$UserWeightUnitChangedCopyWithImpl<$Res>
+    extends _$UserFormEventCopyWithImpl<$Res>
+    implements _$UserWeightUnitChangedCopyWith<$Res> {
+  __$UserWeightUnitChangedCopyWithImpl(_UserWeightUnitChanged _value,
+      $Res Function(_UserWeightUnitChanged) _then)
+      : super(_value, (v) => _then(v as _UserWeightUnitChanged));
+
+  @override
+  _UserWeightUnitChanged get _value => super._value as _UserWeightUnitChanged;
+
+  @override
+  $Res call({
+    Object userWeightUnitString = freezed,
+  }) {
+    return _then(_UserWeightUnitChanged(
+      userWeightUnitString: userWeightUnitString == freezed
+          ? _value.userWeightUnitString
+          : userWeightUnitString as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_UserWeightUnitChanged implements _UserWeightUnitChanged {
+  const _$_UserWeightUnitChanged({@required this.userWeightUnitString})
+      : assert(userWeightUnitString != null);
+
+  @override
+  final String userWeightUnitString;
+
+  @override
+  String toString() {
+    return 'UserFormEvent.userWeightUnitChanged(userWeightUnitString: $userWeightUnitString)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _UserWeightUnitChanged &&
+            (identical(other.userWeightUnitString, userWeightUnitString) ||
+                const DeepCollectionEquality()
+                    .equals(other.userWeightUnitString, userWeightUnitString)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(userWeightUnitString);
+
+  @JsonKey(ignore: true)
+  @override
+  _$UserWeightUnitChangedCopyWith<_UserWeightUnitChanged> get copyWith =>
+      __$UserWeightUnitChangedCopyWithImpl<_UserWeightUnitChanged>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<User> initialUserOption),
+    @required TResult userNameChanged(String nameStr),
+    @required TResult userDateOfBirthChanged(int userDateOfBirthInt),
+    @required TResult userGenderChanged(bool genderBool),
+    @required
+        TResult exerciseDistanceUnitChanged(String exerciseDistanceUnitString),
+    @required
+        TResult exerciseWeightUnitChanged(String exerciseWeightUnitString),
+    @required TResult userHeightUnitChanged(String userHeightUnitString),
+    @required TResult userWeightUnitChanged(String userWeightUnitString),
+    @required
+        TResult nutritionWeightUnitChanged(String nutritionWeightUnitString),
+    @required
+        TResult nutritionVolumeUnitChanged(String nutritionVolumeUnitString),
+    @required TResult userSaved(),
+  }) {
+    assert(initialized != null);
+    assert(userNameChanged != null);
+    assert(userDateOfBirthChanged != null);
+    assert(userGenderChanged != null);
+    assert(exerciseDistanceUnitChanged != null);
+    assert(exerciseWeightUnitChanged != null);
+    assert(userHeightUnitChanged != null);
+    assert(userWeightUnitChanged != null);
+    assert(nutritionWeightUnitChanged != null);
+    assert(nutritionVolumeUnitChanged != null);
+    assert(userSaved != null);
+    return userWeightUnitChanged(userWeightUnitString);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<User> initialUserOption),
+    TResult userNameChanged(String nameStr),
+    TResult userDateOfBirthChanged(int userDateOfBirthInt),
+    TResult userGenderChanged(bool genderBool),
+    TResult exerciseDistanceUnitChanged(String exerciseDistanceUnitString),
+    TResult exerciseWeightUnitChanged(String exerciseWeightUnitString),
+    TResult userHeightUnitChanged(String userHeightUnitString),
+    TResult userWeightUnitChanged(String userWeightUnitString),
+    TResult nutritionWeightUnitChanged(String nutritionWeightUnitString),
+    TResult nutritionVolumeUnitChanged(String nutritionVolumeUnitString),
+    TResult userSaved(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (userWeightUnitChanged != null) {
+      return userWeightUnitChanged(userWeightUnitString);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult userNameChanged(_UserNameChanged value),
+    @required TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
+    @required TResult userGenderChanged(_UserGenderChanged value),
+    @required
+        TResult exerciseDistanceUnitChanged(_ExerciseDistanceUnitChanged value),
+    @required
+        TResult exerciseWeightUnitChanged(_ExerciseWeightUnitChanged value),
+    @required TResult userHeightUnitChanged(_UserHeightUnitChanged value),
+    @required TResult userWeightUnitChanged(_UserWeightUnitChanged value),
+    @required
+        TResult nutritionWeightUnitChanged(_NutritionWeightUnitChanged value),
+    @required
+        TResult nutritionVolumeUnitChanged(_NutritionVolumeUnitChanged value),
+    @required TResult userSaved(_UserSavd value),
+  }) {
+    assert(initialized != null);
+    assert(userNameChanged != null);
+    assert(userDateOfBirthChanged != null);
+    assert(userGenderChanged != null);
+    assert(exerciseDistanceUnitChanged != null);
+    assert(exerciseWeightUnitChanged != null);
+    assert(userHeightUnitChanged != null);
+    assert(userWeightUnitChanged != null);
+    assert(nutritionWeightUnitChanged != null);
+    assert(nutritionVolumeUnitChanged != null);
+    assert(userSaved != null);
+    return userWeightUnitChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult userNameChanged(_UserNameChanged value),
+    TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
+    TResult userGenderChanged(_UserGenderChanged value),
+    TResult exerciseDistanceUnitChanged(_ExerciseDistanceUnitChanged value),
+    TResult exerciseWeightUnitChanged(_ExerciseWeightUnitChanged value),
+    TResult userHeightUnitChanged(_UserHeightUnitChanged value),
+    TResult userWeightUnitChanged(_UserWeightUnitChanged value),
+    TResult nutritionWeightUnitChanged(_NutritionWeightUnitChanged value),
+    TResult nutritionVolumeUnitChanged(_NutritionVolumeUnitChanged value),
+    TResult userSaved(_UserSavd value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (userWeightUnitChanged != null) {
+      return userWeightUnitChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UserWeightUnitChanged implements UserFormEvent {
+  const factory _UserWeightUnitChanged(
+      {@required String userWeightUnitString}) = _$_UserWeightUnitChanged;
+
+  String get userWeightUnitString;
+  @JsonKey(ignore: true)
+  _$UserWeightUnitChangedCopyWith<_UserWeightUnitChanged> get copyWith;
+}
+
+/// @nodoc
+abstract class _$NutritionWeightUnitChangedCopyWith<$Res> {
+  factory _$NutritionWeightUnitChangedCopyWith(
+          _NutritionWeightUnitChanged value,
+          $Res Function(_NutritionWeightUnitChanged) then) =
+      __$NutritionWeightUnitChangedCopyWithImpl<$Res>;
+  $Res call({String nutritionWeightUnitString});
+}
+
+/// @nodoc
+class __$NutritionWeightUnitChangedCopyWithImpl<$Res>
+    extends _$UserFormEventCopyWithImpl<$Res>
+    implements _$NutritionWeightUnitChangedCopyWith<$Res> {
+  __$NutritionWeightUnitChangedCopyWithImpl(_NutritionWeightUnitChanged _value,
+      $Res Function(_NutritionWeightUnitChanged) _then)
+      : super(_value, (v) => _then(v as _NutritionWeightUnitChanged));
+
+  @override
+  _NutritionWeightUnitChanged get _value =>
+      super._value as _NutritionWeightUnitChanged;
+
+  @override
+  $Res call({
+    Object nutritionWeightUnitString = freezed,
+  }) {
+    return _then(_NutritionWeightUnitChanged(
+      nutritionWeightUnitString: nutritionWeightUnitString == freezed
+          ? _value.nutritionWeightUnitString
+          : nutritionWeightUnitString as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_NutritionWeightUnitChanged implements _NutritionWeightUnitChanged {
+  const _$_NutritionWeightUnitChanged(
+      {@required this.nutritionWeightUnitString})
+      : assert(nutritionWeightUnitString != null);
+
+  @override
+  final String nutritionWeightUnitString;
+
+  @override
+  String toString() {
+    return 'UserFormEvent.nutritionWeightUnitChanged(nutritionWeightUnitString: $nutritionWeightUnitString)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _NutritionWeightUnitChanged &&
+            (identical(other.nutritionWeightUnitString,
+                    nutritionWeightUnitString) ||
+                const DeepCollectionEquality().equals(
+                    other.nutritionWeightUnitString,
+                    nutritionWeightUnitString)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(nutritionWeightUnitString);
+
+  @JsonKey(ignore: true)
+  @override
+  _$NutritionWeightUnitChangedCopyWith<_NutritionWeightUnitChanged>
+      get copyWith => __$NutritionWeightUnitChangedCopyWithImpl<
+          _NutritionWeightUnitChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<User> initialUserOption),
+    @required TResult userNameChanged(String nameStr),
+    @required TResult userDateOfBirthChanged(int userDateOfBirthInt),
+    @required TResult userGenderChanged(bool genderBool),
+    @required
+        TResult exerciseDistanceUnitChanged(String exerciseDistanceUnitString),
+    @required
+        TResult exerciseWeightUnitChanged(String exerciseWeightUnitString),
+    @required TResult userHeightUnitChanged(String userHeightUnitString),
+    @required TResult userWeightUnitChanged(String userWeightUnitString),
+    @required
+        TResult nutritionWeightUnitChanged(String nutritionWeightUnitString),
+    @required
+        TResult nutritionVolumeUnitChanged(String nutritionVolumeUnitString),
+    @required TResult userSaved(),
+  }) {
+    assert(initialized != null);
+    assert(userNameChanged != null);
+    assert(userDateOfBirthChanged != null);
+    assert(userGenderChanged != null);
+    assert(exerciseDistanceUnitChanged != null);
+    assert(exerciseWeightUnitChanged != null);
+    assert(userHeightUnitChanged != null);
+    assert(userWeightUnitChanged != null);
+    assert(nutritionWeightUnitChanged != null);
+    assert(nutritionVolumeUnitChanged != null);
+    assert(userSaved != null);
+    return nutritionWeightUnitChanged(nutritionWeightUnitString);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<User> initialUserOption),
+    TResult userNameChanged(String nameStr),
+    TResult userDateOfBirthChanged(int userDateOfBirthInt),
+    TResult userGenderChanged(bool genderBool),
+    TResult exerciseDistanceUnitChanged(String exerciseDistanceUnitString),
+    TResult exerciseWeightUnitChanged(String exerciseWeightUnitString),
+    TResult userHeightUnitChanged(String userHeightUnitString),
+    TResult userWeightUnitChanged(String userWeightUnitString),
+    TResult nutritionWeightUnitChanged(String nutritionWeightUnitString),
+    TResult nutritionVolumeUnitChanged(String nutritionVolumeUnitString),
+    TResult userSaved(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (nutritionWeightUnitChanged != null) {
+      return nutritionWeightUnitChanged(nutritionWeightUnitString);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult userNameChanged(_UserNameChanged value),
+    @required TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
+    @required TResult userGenderChanged(_UserGenderChanged value),
+    @required
+        TResult exerciseDistanceUnitChanged(_ExerciseDistanceUnitChanged value),
+    @required
+        TResult exerciseWeightUnitChanged(_ExerciseWeightUnitChanged value),
+    @required TResult userHeightUnitChanged(_UserHeightUnitChanged value),
+    @required TResult userWeightUnitChanged(_UserWeightUnitChanged value),
+    @required
+        TResult nutritionWeightUnitChanged(_NutritionWeightUnitChanged value),
+    @required
+        TResult nutritionVolumeUnitChanged(_NutritionVolumeUnitChanged value),
+    @required TResult userSaved(_UserSavd value),
+  }) {
+    assert(initialized != null);
+    assert(userNameChanged != null);
+    assert(userDateOfBirthChanged != null);
+    assert(userGenderChanged != null);
+    assert(exerciseDistanceUnitChanged != null);
+    assert(exerciseWeightUnitChanged != null);
+    assert(userHeightUnitChanged != null);
+    assert(userWeightUnitChanged != null);
+    assert(nutritionWeightUnitChanged != null);
+    assert(nutritionVolumeUnitChanged != null);
+    assert(userSaved != null);
+    return nutritionWeightUnitChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult userNameChanged(_UserNameChanged value),
+    TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
+    TResult userGenderChanged(_UserGenderChanged value),
+    TResult exerciseDistanceUnitChanged(_ExerciseDistanceUnitChanged value),
+    TResult exerciseWeightUnitChanged(_ExerciseWeightUnitChanged value),
+    TResult userHeightUnitChanged(_UserHeightUnitChanged value),
+    TResult userWeightUnitChanged(_UserWeightUnitChanged value),
+    TResult nutritionWeightUnitChanged(_NutritionWeightUnitChanged value),
+    TResult nutritionVolumeUnitChanged(_NutritionVolumeUnitChanged value),
+    TResult userSaved(_UserSavd value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (nutritionWeightUnitChanged != null) {
+      return nutritionWeightUnitChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NutritionWeightUnitChanged implements UserFormEvent {
+  const factory _NutritionWeightUnitChanged(
+          {@required String nutritionWeightUnitString}) =
+      _$_NutritionWeightUnitChanged;
+
+  String get nutritionWeightUnitString;
+  @JsonKey(ignore: true)
+  _$NutritionWeightUnitChangedCopyWith<_NutritionWeightUnitChanged>
+      get copyWith;
+}
+
+/// @nodoc
+abstract class _$NutritionVolumeUnitChangedCopyWith<$Res> {
+  factory _$NutritionVolumeUnitChangedCopyWith(
+          _NutritionVolumeUnitChanged value,
+          $Res Function(_NutritionVolumeUnitChanged) then) =
+      __$NutritionVolumeUnitChangedCopyWithImpl<$Res>;
+  $Res call({String nutritionVolumeUnitString});
+}
+
+/// @nodoc
+class __$NutritionVolumeUnitChangedCopyWithImpl<$Res>
+    extends _$UserFormEventCopyWithImpl<$Res>
+    implements _$NutritionVolumeUnitChangedCopyWith<$Res> {
+  __$NutritionVolumeUnitChangedCopyWithImpl(_NutritionVolumeUnitChanged _value,
+      $Res Function(_NutritionVolumeUnitChanged) _then)
+      : super(_value, (v) => _then(v as _NutritionVolumeUnitChanged));
+
+  @override
+  _NutritionVolumeUnitChanged get _value =>
+      super._value as _NutritionVolumeUnitChanged;
+
+  @override
+  $Res call({
+    Object nutritionVolumeUnitString = freezed,
+  }) {
+    return _then(_NutritionVolumeUnitChanged(
+      nutritionVolumeUnitString: nutritionVolumeUnitString == freezed
+          ? _value.nutritionVolumeUnitString
+          : nutritionVolumeUnitString as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_NutritionVolumeUnitChanged implements _NutritionVolumeUnitChanged {
+  const _$_NutritionVolumeUnitChanged(
+      {@required this.nutritionVolumeUnitString})
+      : assert(nutritionVolumeUnitString != null);
+
+  @override
+  final String nutritionVolumeUnitString;
+
+  @override
+  String toString() {
+    return 'UserFormEvent.nutritionVolumeUnitChanged(nutritionVolumeUnitString: $nutritionVolumeUnitString)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _NutritionVolumeUnitChanged &&
+            (identical(other.nutritionVolumeUnitString,
+                    nutritionVolumeUnitString) ||
+                const DeepCollectionEquality().equals(
+                    other.nutritionVolumeUnitString,
+                    nutritionVolumeUnitString)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(nutritionVolumeUnitString);
+
+  @JsonKey(ignore: true)
+  @override
+  _$NutritionVolumeUnitChangedCopyWith<_NutritionVolumeUnitChanged>
+      get copyWith => __$NutritionVolumeUnitChangedCopyWithImpl<
+          _NutritionVolumeUnitChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<User> initialUserOption),
+    @required TResult userNameChanged(String nameStr),
+    @required TResult userDateOfBirthChanged(int userDateOfBirthInt),
+    @required TResult userGenderChanged(bool genderBool),
+    @required
+        TResult exerciseDistanceUnitChanged(String exerciseDistanceUnitString),
+    @required
+        TResult exerciseWeightUnitChanged(String exerciseWeightUnitString),
+    @required TResult userHeightUnitChanged(String userHeightUnitString),
+    @required TResult userWeightUnitChanged(String userWeightUnitString),
+    @required
+        TResult nutritionWeightUnitChanged(String nutritionWeightUnitString),
+    @required
+        TResult nutritionVolumeUnitChanged(String nutritionVolumeUnitString),
+    @required TResult userSaved(),
+  }) {
+    assert(initialized != null);
+    assert(userNameChanged != null);
+    assert(userDateOfBirthChanged != null);
+    assert(userGenderChanged != null);
+    assert(exerciseDistanceUnitChanged != null);
+    assert(exerciseWeightUnitChanged != null);
+    assert(userHeightUnitChanged != null);
+    assert(userWeightUnitChanged != null);
+    assert(nutritionWeightUnitChanged != null);
+    assert(nutritionVolumeUnitChanged != null);
+    assert(userSaved != null);
+    return nutritionVolumeUnitChanged(nutritionVolumeUnitString);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<User> initialUserOption),
+    TResult userNameChanged(String nameStr),
+    TResult userDateOfBirthChanged(int userDateOfBirthInt),
+    TResult userGenderChanged(bool genderBool),
+    TResult exerciseDistanceUnitChanged(String exerciseDistanceUnitString),
+    TResult exerciseWeightUnitChanged(String exerciseWeightUnitString),
+    TResult userHeightUnitChanged(String userHeightUnitString),
+    TResult userWeightUnitChanged(String userWeightUnitString),
+    TResult nutritionWeightUnitChanged(String nutritionWeightUnitString),
+    TResult nutritionVolumeUnitChanged(String nutritionVolumeUnitString),
+    TResult userSaved(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (nutritionVolumeUnitChanged != null) {
+      return nutritionVolumeUnitChanged(nutritionVolumeUnitString);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult userNameChanged(_UserNameChanged value),
+    @required TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
+    @required TResult userGenderChanged(_UserGenderChanged value),
+    @required
+        TResult exerciseDistanceUnitChanged(_ExerciseDistanceUnitChanged value),
+    @required
+        TResult exerciseWeightUnitChanged(_ExerciseWeightUnitChanged value),
+    @required TResult userHeightUnitChanged(_UserHeightUnitChanged value),
+    @required TResult userWeightUnitChanged(_UserWeightUnitChanged value),
+    @required
+        TResult nutritionWeightUnitChanged(_NutritionWeightUnitChanged value),
+    @required
+        TResult nutritionVolumeUnitChanged(_NutritionVolumeUnitChanged value),
+    @required TResult userSaved(_UserSavd value),
+  }) {
+    assert(initialized != null);
+    assert(userNameChanged != null);
+    assert(userDateOfBirthChanged != null);
+    assert(userGenderChanged != null);
+    assert(exerciseDistanceUnitChanged != null);
+    assert(exerciseWeightUnitChanged != null);
+    assert(userHeightUnitChanged != null);
+    assert(userWeightUnitChanged != null);
+    assert(nutritionWeightUnitChanged != null);
+    assert(nutritionVolumeUnitChanged != null);
+    assert(userSaved != null);
+    return nutritionVolumeUnitChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult userNameChanged(_UserNameChanged value),
+    TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
+    TResult userGenderChanged(_UserGenderChanged value),
+    TResult exerciseDistanceUnitChanged(_ExerciseDistanceUnitChanged value),
+    TResult exerciseWeightUnitChanged(_ExerciseWeightUnitChanged value),
+    TResult userHeightUnitChanged(_UserHeightUnitChanged value),
+    TResult userWeightUnitChanged(_UserWeightUnitChanged value),
+    TResult nutritionWeightUnitChanged(_NutritionWeightUnitChanged value),
+    TResult nutritionVolumeUnitChanged(_NutritionVolumeUnitChanged value),
+    TResult userSaved(_UserSavd value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (nutritionVolumeUnitChanged != null) {
+      return nutritionVolumeUnitChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NutritionVolumeUnitChanged implements UserFormEvent {
+  const factory _NutritionVolumeUnitChanged(
+          {@required String nutritionVolumeUnitString}) =
+      _$_NutritionVolumeUnitChanged;
+
+  String get nutritionVolumeUnitString;
+  @JsonKey(ignore: true)
+  _$NutritionVolumeUnitChangedCopyWith<_NutritionVolumeUnitChanged>
+      get copyWith;
 }
 
 /// @nodoc
@@ -701,12 +2099,28 @@ class _$_UserSavd implements _UserSavd {
     @required TResult userNameChanged(String nameStr),
     @required TResult userDateOfBirthChanged(int userDateOfBirthInt),
     @required TResult userGenderChanged(bool genderBool),
+    @required
+        TResult exerciseDistanceUnitChanged(String exerciseDistanceUnitString),
+    @required
+        TResult exerciseWeightUnitChanged(String exerciseWeightUnitString),
+    @required TResult userHeightUnitChanged(String userHeightUnitString),
+    @required TResult userWeightUnitChanged(String userWeightUnitString),
+    @required
+        TResult nutritionWeightUnitChanged(String nutritionWeightUnitString),
+    @required
+        TResult nutritionVolumeUnitChanged(String nutritionVolumeUnitString),
     @required TResult userSaved(),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
     assert(userDateOfBirthChanged != null);
     assert(userGenderChanged != null);
+    assert(exerciseDistanceUnitChanged != null);
+    assert(exerciseWeightUnitChanged != null);
+    assert(userHeightUnitChanged != null);
+    assert(userWeightUnitChanged != null);
+    assert(nutritionWeightUnitChanged != null);
+    assert(nutritionVolumeUnitChanged != null);
     assert(userSaved != null);
     return userSaved();
   }
@@ -718,6 +2132,12 @@ class _$_UserSavd implements _UserSavd {
     TResult userNameChanged(String nameStr),
     TResult userDateOfBirthChanged(int userDateOfBirthInt),
     TResult userGenderChanged(bool genderBool),
+    TResult exerciseDistanceUnitChanged(String exerciseDistanceUnitString),
+    TResult exerciseWeightUnitChanged(String exerciseWeightUnitString),
+    TResult userHeightUnitChanged(String userHeightUnitString),
+    TResult userWeightUnitChanged(String userWeightUnitString),
+    TResult nutritionWeightUnitChanged(String nutritionWeightUnitString),
+    TResult nutritionVolumeUnitChanged(String nutritionVolumeUnitString),
     TResult userSaved(),
     @required TResult orElse(),
   }) {
@@ -735,12 +2155,28 @@ class _$_UserSavd implements _UserSavd {
     @required TResult userNameChanged(_UserNameChanged value),
     @required TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
     @required TResult userGenderChanged(_UserGenderChanged value),
+    @required
+        TResult exerciseDistanceUnitChanged(_ExerciseDistanceUnitChanged value),
+    @required
+        TResult exerciseWeightUnitChanged(_ExerciseWeightUnitChanged value),
+    @required TResult userHeightUnitChanged(_UserHeightUnitChanged value),
+    @required TResult userWeightUnitChanged(_UserWeightUnitChanged value),
+    @required
+        TResult nutritionWeightUnitChanged(_NutritionWeightUnitChanged value),
+    @required
+        TResult nutritionVolumeUnitChanged(_NutritionVolumeUnitChanged value),
     @required TResult userSaved(_UserSavd value),
   }) {
     assert(initialized != null);
     assert(userNameChanged != null);
     assert(userDateOfBirthChanged != null);
     assert(userGenderChanged != null);
+    assert(exerciseDistanceUnitChanged != null);
+    assert(exerciseWeightUnitChanged != null);
+    assert(userHeightUnitChanged != null);
+    assert(userWeightUnitChanged != null);
+    assert(nutritionWeightUnitChanged != null);
+    assert(nutritionVolumeUnitChanged != null);
     assert(userSaved != null);
     return userSaved(this);
   }
@@ -752,6 +2188,12 @@ class _$_UserSavd implements _UserSavd {
     TResult userNameChanged(_UserNameChanged value),
     TResult userDateOfBirthChanged(_UserDateOfBirthChanged value),
     TResult userGenderChanged(_UserGenderChanged value),
+    TResult exerciseDistanceUnitChanged(_ExerciseDistanceUnitChanged value),
+    TResult exerciseWeightUnitChanged(_ExerciseWeightUnitChanged value),
+    TResult userHeightUnitChanged(_UserHeightUnitChanged value),
+    TResult userWeightUnitChanged(_UserWeightUnitChanged value),
+    TResult nutritionWeightUnitChanged(_NutritionWeightUnitChanged value),
+    TResult nutritionVolumeUnitChanged(_NutritionVolumeUnitChanged value),
     TResult userSaved(_UserSavd value),
     @required TResult orElse(),
   }) {
