@@ -5,7 +5,6 @@ import 'package:reminder_app/application/body_measures/body_measures_watcher/bod
 import 'package:reminder_app/application/user/user_watcher/user_watcher_bloc.dart';
 import 'package:reminder_app/domain/body_measures/body_measures.dart';
 import 'package:reminder_app/presentation/core/misc/unit_converter.dart';
-
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_time_converter.dart';
 import 'package:reminder_app/presentation/routes/router.gr.dart';
 

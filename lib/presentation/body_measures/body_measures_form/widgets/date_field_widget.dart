@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:provider/provider.dart';
 import 'package:reminder_app/application/body_measures/body_measures_form/body_measures_form_bloc.dart';
+import 'package:reminder_app/presentation/body_measures/body_measures_form/misc/methods.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_presentation_classes.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_time_converter.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/build_context_x.dart';
@@ -85,37 +86,37 @@ class DateText extends HookWidget {
             textEditingControllerDate.text = dateTimeConverter(
                 state.bodyMeasures.bodyMeasuresDate.getOrCrash());
           },
-          child: TextFormField(
-            onTap: () => _selectDate(context, date),
-            onChanged: (_) {
-              context.formDate = context.formDate
-                  .copyWith(date: int.parse(textEditingControllerDate.text));
-            },
-            decoration: const InputDecoration(
-              prefixIcon: Icon(
+          child: SizedBox(width: 230,
+            child: TextFormField(
+              onTap: () => _selectDate(context, date),
+              onChanged: (_) {
+                context.formDate = context.formDate
+                    .copyWith(date: int.parse(textEditingControllerDate.text));
+              },
+              decoration:inputDecoration(prefixIcon: Icon(
                 Icons.date_range_sharp,
-                color: Colors.black,
-              ),
-            ),
-            validator: (_) {
+                color: Colors.indigo[200],
+              ),),
+              validator: (_) {
 
-              return context
-                  .read<BodyMeasuresFormBloc>()
-                  .state
-                  .bodyMeasures
-                  .bodyMeasuresDate
-                  .value
-                  .fold(
-                      (f) => f.maybeMap(
-                          orElse: () => 'error',
-                          invalidDate: (_) => 'Invalid date',
-                          exceedingLength: (f) => 'Exceeding length ${f.max}'),
-                      (r) => null);
-            },
-            textAlign: TextAlign.center,
-            controller: textEditingControllerDate,
-            readOnly: true,
-            style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                return context
+                    .read<BodyMeasuresFormBloc>()
+                    .state
+                    .bodyMeasures
+                    .bodyMeasuresDate
+                    .value
+                    .fold(
+                        (f) => f.maybeMap(
+                            orElse: () => 'error',
+                            invalidDate: (_) => 'Invalid date',
+                            exceedingLength: (f) => 'Exceeding length ${f.max}'),
+                        (r) => null);
+              },
+              textAlign: TextAlign.center,
+              controller: textEditingControllerDate,
+              readOnly: true,
+              style: const TextStyle(color:Colors.indigoAccent,fontSize: 25, fontWeight: FontWeight.bold),
+            ),
           ),
         ),
         const SizedBox(
