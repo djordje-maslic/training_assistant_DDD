@@ -7,9 +7,9 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:provider/provider.dart';
 import 'package:reminder_app/application/nutrition/nutrition_form/nutrition_form_bloc.dart';
+import 'package:reminder_app/application/user/user_watcher/user_watcher_bloc.dart';
 import 'package:reminder_app/domain/nutrition/value_objects.dart';
 import 'package:reminder_app/presentation/nutrition/misc/build_context_nutrition.dart';
-import 'package:reminder_app/presentation/exercise/exercise_form/misc/duration_picker_providers.dart';
 import 'package:reminder_app/presentation/nutrition/misc/nutrients_presentation_classes.dart';
 import 'package:reminder_app/presentation/nutrition/nutrition_form/widgets/nutrients_list/nutrient_name_field.dart';
 import 'package:reminder_app/presentation/nutrition/nutrition_form/widgets/nutrients_list/nutrient_pieces_field.dart';
@@ -149,10 +149,35 @@ class NutrientsTile extends HookWidget {
                                 SizedBox(
                                   width: 150,
                                   height: 70,
-                                  child: NutrientWeightField(
-                                    index: index,
-                                    nutrient: nutrientsList,
-                                  ),
+                                  child: context
+                                      .watch<UserWatcherBloc>()
+                                      .state
+                                      .map(
+                                        initial: (_) => NutrientWeightField(
+                                            index: index,
+                                            nutrient: nutrientsList),
+                                        loadInProgress: (_) =>
+                                            NutrientWeightField(
+                                                index: index,
+                                                nutrient: nutrientsList),
+                                        loadSuccess: (state) {
+                                          if (state.user.nutritionWeightUnit
+                                                  .getOrCrash() ==
+                                              'g') {
+                                            return NutrientWeightField(
+                                              index: index,
+                                              nutrient: nutrientsList,
+                                            );
+                                          } else {
+                                            return NutrientWeightFieldLb(
+                                                index: index,
+                                                nutrient: nutrientsList);
+                                          }
+                                        },
+                                        loadFailure: (_) => NutrientWeightField(
+                                            index: index,
+                                            nutrient: nutrientsList),
+                                      ),
                                 ),
                               ],
                             ),
@@ -165,10 +190,38 @@ class NutrientsTile extends HookWidget {
                                 SizedBox(
                                   width: 110,
                                   height: 70,
-                                  child: NutrientVolumeField(
-                                    index: index,
-                                    nutrient: nutrientsList,
-                                  ),
+                                  child: context
+                                      .watch<UserWatcherBloc>()
+                                      .state
+                                      .map(
+                                          initial: (_) => NutrientVolumeField(
+                                                index: index,
+                                                nutrient: nutrientsList,
+                                              ),
+                                          loadInProgress: (_) =>
+                                              NutrientVolumeField(
+                                                index: index,
+                                                nutrient: nutrientsList,
+                                              ),
+                                          loadSuccess: (state) {
+                                            if (state.user.nutritionVolumeUnit
+                                                    .getOrCrash() ==
+                                                'ml') {
+                                              return NutrientVolumeField(
+                                                index: index,
+                                                nutrient: nutrientsList,
+                                              );
+                                            } else {
+                                              return NutrientVolumeFieldFlOz(
+                                                  index: index,
+                                                  nutrient: nutrientsList);
+                                            }
+                                          },
+                                          loadFailure: (_) =>
+                                              NutrientVolumeField(
+                                                index: index,
+                                                nutrient: nutrientsList,
+                                              )),
                                 ),
                               ],
                             ),

@@ -8,7 +8,6 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:provider/provider.dart';
 import 'package:reminder_app/application/user/user_form_bloc/user_form_bloc.dart';
 import 'package:reminder_app/application/user/user_watcher/user_watcher_bloc.dart';
-import 'package:reminder_app/domain/auth/i_auth_facade.dart';
 import 'package:reminder_app/domain/auth/user.dart';
 import 'package:reminder_app/injectable.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_presentation_classes.dart';
@@ -462,14 +461,14 @@ class UserFormPageScaffold extends StatelessWidget {
                             title: 'Nutrition volume unit',
                             isSelected: [
                               switcherNutritionVolumeUnit == 'ml',
-                              switcherNutritionVolumeUnit == 'oz'
+                              switcherNutritionVolumeUnit == 'fl oz'
                             ],
                             onPressed: (int index) {
                               String units = 'ml';
                               if (index == 0) {
                                 units = 'ml';
                               } else if (index == 1) {
-                                units = 'oz';
+                                units = 'fl oz';
                               } else {
                                 units = 'ml';
                               }
@@ -489,7 +488,7 @@ class UserFormPageScaffold extends StatelessWidget {
                               Padding(
                                 padding: EdgeInsets.all(8.0),
                                 child: Text(
-                                  'lb',
+                                  'fl oz',
                                   style: TextStyle(fontSize: 30),
                                 ),
                               ),

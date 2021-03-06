@@ -32,8 +32,6 @@ class UserRepository implements IUserRepository {
   @override
   Stream<Either<UserFailure, user.User>> watchUser() async* {
     final userDocument = await _firebaseFirestore.userDocument();
-    final signInUser = await getIt<IAuthFacade>().getSignInUser();
-    final userNew = signInUser.getOrElse(() => throw NotAuthenticatedError());
 
     yield* userDocument
         .snapshots()

@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:provider/provider.dart';
 import 'package:reminder_app/application/user/user_form_bloc/user_form_bloc.dart';
-import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_presentation_classes.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_time_converter.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/build_context_x.dart';
 
@@ -14,19 +13,15 @@ class UserDateOfBirthWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Consumer<FormDate>(builder: (context, formDate, child) {
-          return DateText(
-            formDate: formDate,
-          );
-        }));
+    return const Padding(
+      padding: EdgeInsets.all(16.0),
+      child: DateText(),
+    );
   }
 }
 
 Future<void> _selectDate(
   BuildContext context,
-  DateTime selectedDate,
 ) async {
   final DateTime picked = await showDatePicker(
       context: context,
@@ -62,14 +57,10 @@ Future<void> _selectDate(
 }
 
 class DateText extends HookWidget {
-  const DateText({Key key, @required this.formDate}) : super(key: key);
-  final FormDate formDate;
+  const DateText({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final DateTime date = context.formDate.date == null
-        ? DateTime.now()
-        : DateTime.fromMillisecondsSinceEpoch(context.formDate.date);
     final textEditingControllerDate = useTextEditingController(
         text: dateTimeConverter(context.formDate.date));
     return Column(
@@ -80,7 +71,7 @@ class DateText extends HookWidget {
                 dateTimeConverter(state.user.userDateOfBirth.getOrCrash());
           },
           child: TextFormField(
-            onTap: () => _selectDate(context, date),
+            onTap: () => _selectDate(context),
             onChanged: (_) {
               context.formDate = context.formDate
                   .copyWith(date: int.parse(textEditingControllerDate.text));
