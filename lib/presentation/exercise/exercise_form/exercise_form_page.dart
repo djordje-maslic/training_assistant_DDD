@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
@@ -37,15 +36,18 @@ class ExerciseFormPage extends StatelessWidget {
           listener: (context, state) {
             state.saveFailureOrSuccessOption.fold(() {}, (either) {
               either.fold((failure) {
-                FlushbarHelper.createError(
-                  message: failure.map(
-                    unexpected: (_) =>
-                        'Unexpected error occurred , please contact support.',
-                    insufficientPermission: (_) => 'Insufficient permission ❌',
-                    unableToUpdate: (_) =>
-                        "Couldn't update the exercise. Was it deleted from another device?",
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: failure.map(
+                      unexpected: (_) => const Text(
+                          'Unexpected error occurred , please contact support.'),
+                      insufficientPermission: (_) =>
+                          const Text('Insufficient permission ❌'),
+                      unableToUpdate: (_) => const Text(
+                          "Couldn't update the exercise. Was it deleted from another device?"),
+                    ),
                   ),
-                ).show(context);
+                );
               }, (_) {
                 ExtendedNavigator.of(context).popUntil((route) =>
                     route.settings.name == Routes.exerciseOverviewPage);
@@ -121,7 +123,8 @@ class ExerciseFormPageScaffold extends StatelessWidget {
           buildWhen: (p, c) => p.isEditing != c.isEditing,
           builder: (context, state) => Row(
             children: [
-              const Text('T'),const Icon(Icons.architecture),
+              const Text('T'),
+              const Icon(Icons.architecture),
               Text(state.isEditing ? 'Edit exercise' : 'Create exercise'),
             ],
           ),

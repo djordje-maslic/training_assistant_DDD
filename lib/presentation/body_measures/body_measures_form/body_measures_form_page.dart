@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -81,16 +80,18 @@ class BodyMeasuresFormPage extends HookWidget {
             listener: (context, state) {
               state.saveFailureOrSuccessOption.fold(() {}, (either) {
                 either.fold((failure) {
-                  FlushbarHelper.createError(
-                    message: failure.map(
-                      unexpected: (_) =>
-                          'Unexpected error occurred , please contact support.',
-                      insufficientPermission: (_) =>
-                          'Insufficient permission ❌',
-                      unableToUpdate: (_) =>
-                          "Couldn't update. Was it deleted from another device?",
+                  ScaffoldMessenger(
+                    child: SnackBar(
+                      content: failure.map(
+                        unexpected: (_) => const Text(
+                            'Unexpected error occurred , please contact support.'),
+                        insufficientPermission: (_) =>
+                            const Text('Insufficient permission ❌'),
+                        unableToUpdate: (_) => const Text(
+                            "Couldn't update. Was it deleted from another device?"),
+                      ),
                     ),
-                  ).show(context);
+                  );
                 }, (_) {
                   ExtendedNavigator.of(context).popUntil((route) =>
                       route.settings.name == Routes.userOverviewPage);
@@ -150,8 +151,11 @@ class BodyMeasuresFormPage extends HookWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               if (bodyMeasures != null)
-                                RaisedButton(
-                                  color: Colors.red,
+                                ElevatedButton(
+                                  style: ButtonStyle(
+                                      backgroundColor:
+                                          MaterialStateProperty.all(
+                                              Colors.red)),
                                   onPressed: () {
                                     context.read<BodyMeasuresActorBloc>().add(
                                         BodyMeasuresActorEvent.deleted(
@@ -163,8 +167,11 @@ class BodyMeasuresFormPage extends HookWidget {
                               const SizedBox(
                                 width: 50,
                               ),
-                              RaisedButton(
-                                color: Colors.amber,
+                              ElevatedButton(
+                                style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all(Colors.amber),
+                                ),
                                 onPressed: () async {
                                   final double doubleHeightTextController =
                                       double.tryParse(
@@ -386,4 +393,3 @@ class TextFormFieldHeightCm extends StatelessWidget {
     );
   }
 }
-

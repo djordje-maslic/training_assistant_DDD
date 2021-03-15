@@ -1,4 +1,3 @@
-import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,10 +25,12 @@ class NutritionListWidget extends StatelessWidget {
           p.nutrition.nutrientsList.isFull != c.nutrition.nutrientsList.isFull,
       listener: (context, state) {
         if (state.nutrition.nutrientsList.isFull) {
-          FlushbarHelper.createError(
-            message: 'You can only add ${NutrientsList.maxLength} nutrients!',
-            duration: const Duration(seconds: 5),
-          ).show(context);
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text(
+                  'You can only add ${NutrientsList.maxLength} nutrients!'),
+            ),
+          );
         }
       },
       child: Consumer<FormNutrientsList>(

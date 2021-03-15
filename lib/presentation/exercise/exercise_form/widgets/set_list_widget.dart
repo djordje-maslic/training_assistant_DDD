@@ -1,4 +1,3 @@
-import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,10 +27,11 @@ class SetListWidget extends StatelessWidget {
           p.exercise.setsList.isFull != c.exercise.setsList.isFull,
       listener: (context, state) {
         if (state.exercise.setsList.isFull) {
-          FlushbarHelper.createError(
-            message: 'You can only add ${SetsList.maxLength} sets!',
-            duration: const Duration(seconds: 5),
-          ).show(context);
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('You can only add ${SetsList.maxLength} sets!'),
+            ),
+          );
         }
       },
       child: Consumer2<FormSets, HeightDurationPickerProvider>(
@@ -282,7 +282,7 @@ class DurationPickerWidget extends HookWidget {
             children: [
               Column(
                 children: [
-                  RaisedButton(
+                  ElevatedButton(
                     onPressed: () {
                       final int sumDurationMilliseconds = (int.tryParse(
                                   hoursFormFieldController.text) *

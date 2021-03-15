@@ -64,11 +64,11 @@ class NutritionCard extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
             actions: [
-              FlatButton(
+              TextButton(
                 onPressed: () => Navigator.pop(context),
                 child: const Text('CANCEL'),
               ),
-              FlatButton(
+              TextButton(
                 onPressed: () {
                   nutritionActorBloc
                       .add(NutritionActorEvent.deleted(nutrition));
@@ -158,9 +158,9 @@ class NutritionListDisplay extends StatelessWidget {
                             loadSuccess: (state) {
                               return state.user.nutritionWeightUnit.getOrCrash() ==
                                       'g'
-                                  ? nutrient.nutrientWeight
+                                  ? double.tryParse(nutrient.nutrientWeight
                                       .getOrCrash()
-                                      .toString()
+                                      .toString()).toStringAsFixed(2)
                                   : (double.tryParse(((nutrient.nutrientWeight
                                                       .getOrCrash() ??
                                                   0) /

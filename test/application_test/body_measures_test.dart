@@ -1,6 +1,7 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:kt_dart/collection.dart';
+import 'package:reminder_app/application/body_measures/body_measures_actor/body_measures_actor_bloc.dart';
 import 'package:reminder_app/application/body_measures/body_measures_form/body_measures_form_bloc.dart';
 import 'package:reminder_app/application/body_measures/body_measures_watcher/body_measures_watcher_bloc.dart';
 import 'package:reminder_app/domain/body_measures/body_measures.dart';
@@ -32,7 +33,7 @@ void main() {
   group('body measures bloc test', () {
     test(
       'initial state',
-      () {
+          () {
         bodyMeasuresFormBloc
             .add(const BodyMeasuresFormEvent.bodyMeasuresWeightChanged(200));
         expect(
@@ -47,16 +48,15 @@ void main() {
     );
 
 
-
     test(
       'milliseconds converter test',
-      () {
+          () {
         expect(millisecondsConverter(0), '00:00:00');
       },
     );
     test(
       'date time converter',
-      () {
+          () {
         expect(dateTimeConverter(0), '1.JAN 1970');
       },
     );
@@ -84,7 +84,7 @@ void main() {
         );
       },
       expect: [
-         BodyMeasuresWatcherState.loadSuccess( [
+        BodyMeasuresWatcherState.loadSuccess([
           BodyMeasures(
             id: UniqueId.withUniqueString('123'),
             userId: UniqueId.withUniqueString('123'),
@@ -103,14 +103,34 @@ void main() {
     },
     act: (bloc) {
       bloc.add(
-      const  BodyMeasuresWatcherEvent.watchAllStarted()
+          const BodyMeasuresWatcherEvent.watchAllStarted()
       );
     },
     expect: [
-     const BodyMeasuresWatcherState.loadInProgress(),
+      const BodyMeasuresWatcherState.loadInProgress(),
     ],
   );
 
+  final BodyMeasures bodyMeasures = BodyMeasures(
+    id: UniqueId.withUniqueString('1234567'),
+    userId: UniqueId.withUniqueString('1234567'),
+    bodyMeasuresDate: MeasuresDate(1234567),
+    bodyMeasuresWeight: UserWeight(80),
+    bodyMeasuresHeight: UserHeight(180),
+  );
+
+  blocTest('body measures actor test',
+      build: ()=> BodyMeasuresActorBloc(mockBodyMeasuresRepository)
+    ,
+      act: (bloc) {
+        bloc.add(BodyMeasuresActorEvent.deleted(bodyMeasures));
+      },
+      expect: [
+
+        const BodyMeasuresActorState.actionInProgress(),
+        
+      ]
+  );
 
   tearDown(() {
     bodyMeasuresFormBloc.close();

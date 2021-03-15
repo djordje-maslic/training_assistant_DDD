@@ -1,26 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:reminder_app/domain/body_measures/body_measures.dart';
-import 'package:reminder_app/domain/core/value_objects.dart';
+import 'package:mockito/mockito.dart';
+import 'package:reminder_app/application/user/user_watcher/user_watcher_bloc.dart';
+import 'package:reminder_app/domain/auth/i_user_repository.dart';
 import 'package:reminder_app/presentation/body_measures/body_measures_form/body_measures_form_page.dart';
-import 'package:reminder_app/presentation/core/app_widget.dart';
+
+class MocIUserRepository extends Mock implements IUserRepository {}
 
 void main() {
   testWidgets('test weight form field and overview',
       (WidgetTester tester) async {
+    final UserWatcherBloc bloc = UserWatcherBloc(MocIUserRepository());
     final weightFormField =
         find.byKey(const ValueKey('weightBodyMeasuresFormField'));
     final weightOverviewField =
         find.byKey(const ValueKey('weightBodyMeasuresOverviewField'));
 
     await tester.pumpWidget(MaterialApp(
-      home: Card(child: TextFormFieldBWeight(weightTextController: TextEditingController())),
+      home: BlocProvider<UserWatcherBloc>(
+        create: (context) => bloc,
+        child: Card(
+          child: TextFormFieldBWeight(
+            weightTextController: TextEditingController(),
+          ),
+        ),
+      ),
     ));
 
     await tester.enterText(weightFormField, '200');
 
-   await tester.pump();
+    await tester.pump();
 
-   expect('200', findsOneWidget);
+    expect(find.text('200'), findsOneWidget);
   });
 }

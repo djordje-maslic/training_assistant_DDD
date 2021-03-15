@@ -24,7 +24,8 @@ class UserDataTable extends StatelessWidget {
 
             return ListView(
               children: [
-                SingleChildScrollView(scrollDirection: Axis.horizontal,
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
                   child: DataTable(
                     columnSpacing: 20.0,
                     dataRowHeight: 40,
@@ -65,8 +66,10 @@ class UserDataTable extends StatelessWidget {
                               style: const TextStyle(
                                 fontSize: 20,
                               ),
-                            ),showEditIcon: true,onTap: ()=> ExtendedNavigator.of(context)
-                              .pushUserFormPage(initialUser: user),
+                            ),
+                            showEditIcon: true,
+                            onTap: () => ExtendedNavigator.of(context)
+                                .pushUserFormPage(initialUser: user),
                           ),
                           DataCell(
                             Text(
@@ -101,9 +104,13 @@ class UserDataTable extends StatelessWidget {
                   children: [
                     SizedBox(
                       width: 120,
-                      child: RaisedButton(color: Colors.indigo[100],elevation: 10,
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.indigo[100]),
+                          elevation: MaterialStateProperty.all(10),
+                        ),
                         onPressed: () {
-
                           context
                               .read<AuthBloc>()
                               .add(const AuthEvent.signOut());
@@ -118,7 +125,9 @@ class UserDataTable extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(width: 200,)
+                    const SizedBox(
+                      width: 200,
+                    )
                   ],
                 ),
               ],
@@ -129,7 +138,11 @@ class UserDataTable extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: RaisedButton(color: Colors.indigo[100],
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all(Colors.indigo[100]),
+                    ),
                     onPressed: () {
                       ExtendedNavigator.of(context)
                           .pushUserFormPage(initialUser: null);
@@ -147,7 +160,6 @@ class UserDataTable extends StatelessWidget {
                   dataRowHeight: 60,
                   columns: const [
                     DataColumn(
-
                       label: Text(
                         'User name',
                         style: TextStyle(
@@ -209,11 +221,11 @@ class UserDataTable extends StatelessWidget {
                   children: [
                     SizedBox(
                       width: 120,
-                      child: RaisedButton(
+                      child: ElevatedButton(
                         onPressed: () {
-                          context
-                              .read<AuthBloc>()
-                              .add(const AuthEvent.signOut());
+                          context.read<AuthBloc>().add(
+                                const AuthEvent.signOut(),
+                              );
                         },
                         child: Row(
                           children: const [
@@ -223,7 +235,9 @@ class UserDataTable extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(width: 200,)
+                    const SizedBox(
+                      width: 200,
+                    )
                   ],
                 ),
               ],

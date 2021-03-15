@@ -24,7 +24,7 @@ class SetDurationWidget extends StatelessWidget {
       children: [
         const Text('Set duration:'),
         SizedBox(
-          width: 220,
+          width: 200,
           height: 70,
           child: Card(
 

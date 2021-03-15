@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reminder_app/application/auth/auth_bloc.dart';
@@ -15,17 +14,19 @@ class SignInForm extends StatelessWidget {
         state.authFailureUnitOption.fold(
           () {},
           (either) => either.fold(
-            (f) => FlushbarHelper.createError(
-              message: f.map(
-                  canceledByUser: (_) => 'Canceled',
-                  serverError: (_) => 'Server error',
-                  emailAlreadyInUse: (_) => 'Email already in use',
+            (f) => ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: f.map(
+                  canceledByUser: (_) => const Text('Canceled'),
+                  serverError: (_) => const Text('Server error'),
+                  emailAlreadyInUse: (_) => const Text('Email already in use'),
                   invalidEmailAndPasswordCombination: (_) =>
-                      'Invalid Email and Password combination'),
-            ).show(context),
+                      const Text('⚠Invalid Email and Password combination'),
+                ),
+              ),
+            ),
             (_) {
               ExtendedNavigator.of(context).push(Routes.splashPage);
-
               context
                   .read<AuthBloc>()
                   .add(const AuthEvent.userCheckRequested());
@@ -56,7 +57,7 @@ class SignInForm extends StatelessWidget {
                   height: 8,
                 ),
                 TextFormField(
-                  key:const Key('sign in email text form field'),
+                  key: const Key('sign in email text form field'),
                   autocorrect: false,
                   decoration: const InputDecoration(
                     labelText: 'Email',
@@ -108,7 +109,7 @@ class SignInForm extends StatelessWidget {
                 Row(
                   children: [
                     Expanded(
-                      child: FlatButton(
+                      child: TextButton(
                         onPressed: () {
                           context.read<SignInFormBloc>().add(
                               const SignInFormEvent
@@ -118,7 +119,7 @@ class SignInForm extends StatelessWidget {
                       ),
                     ),
                     Expanded(
-                      child: FlatButton(
+                      child: TextButton(
                         onPressed: () {
                           context.read<SignInFormBloc>().add(
                               const SignInFormEvent

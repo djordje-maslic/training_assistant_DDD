@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reminder_app/application/auth/auth_bloc.dart';
@@ -39,16 +38,17 @@ class ExerciseOverviewPage extends StatelessWidget {
               listener: (context, state) {
             state.maybeMap(
                 deleteFailure: (state) {
-                  FlushbarHelper.createError(
-                    message: state.exerciseFailure.map(
-                      unexpected: (_) =>
-                          'Unexpected error occurred while deleting, please contact support.',
-                      insufficientPermission: (_) =>
-                          'Insufficient permissions ❌',
-                      unableToUpdate: (_) => 'Impossible error',
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: state.exerciseFailure.map(
+                        unexpected: (_) => const Text(
+                            'Unexpected error occurred while deleting, please contact support.'),
+                        insufficientPermission: (_) =>
+                            const Text('Insufficient permissions ❌'),
+                        unableToUpdate: (_) => const Text('Impossible error'),
+                      ),
                     ),
-                    duration: const Duration(seconds: 5),
-                  ).show(context);
+                  );
                 },
                 orElse: () {});
           })

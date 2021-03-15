@@ -25,7 +25,7 @@ class AppWidget extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        builder: ExtendedNavigator.builder<app_router.Router>(
+        builder: ExtendedNavigator<app_router.Router>(
           router: app_router.Router(),
         ),
         debugShowCheckedModeBanner: false,

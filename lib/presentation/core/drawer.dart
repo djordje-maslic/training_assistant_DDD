@@ -16,7 +16,7 @@ class DrawerCore extends StatelessWidget {
               children: [
                 context.watch<AuthBloc>().state.map(
                       initial: (_) => const Text(''),
-                      authenticated: (authUser) => FlatButton(
+                      authenticated: (authUser) => TextButton(
                         onPressed: () {
                           context
                               .read<UserWatcherBloc>()
@@ -35,7 +35,7 @@ class DrawerCore extends StatelessWidget {
                               authUser.user.emailAddress.getOrCrash(),
                             ),
                             const SizedBox(
-                              height: 10,
+                              height: 8,
                             ),
                             const Text(
                               'View Profile',
@@ -51,7 +51,7 @@ class DrawerCore extends StatelessWidget {
                             size: 80,
                             color: Colors.amber,
                           ),
-                          RaisedButton(
+                          TextButton(
                             onPressed: () {
                               ExtendedNavigator.of(context).pushSignIn();
                             },
@@ -65,8 +65,10 @@ class DrawerCore extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: RaisedButton(
-              color: Colors.grey,
+            child: ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.grey),
+              ),
               onPressed: () {
                 ExtendedNavigator.of(context).popAndPush(Routes.splashPage);
               },
@@ -77,8 +79,10 @@ class DrawerCore extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: RaisedButton(
-              color: Colors.amber,
+            child: ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.amber),
+              ),
               onPressed: () {
                 context
                     .read<UserWatcherBloc>()
@@ -98,8 +102,10 @@ class DrawerCore extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: RaisedButton(
-              color: Colors.cyan,
+            child: ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.cyan),
+              ),
               onPressed: () {
                 context
                     .read<UserWatcherBloc>()

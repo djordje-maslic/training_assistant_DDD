@@ -16,7 +16,7 @@ class NutrientWeightField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      initialValue: context.formNutrientsList[index].nutrientWeight.toString(),
+      initialValue: context.formNutrientsList[index].nutrientWeight.toStringAsFixed(2),
       validator: (_) {
         return context
             .read<NutritionFormBloc>()

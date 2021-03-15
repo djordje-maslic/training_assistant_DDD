@@ -7,30 +7,39 @@ import 'package:reminder_app/application/auth/signIn/sign_in_form_bloc.dart';
 import 'package:reminder_app/domain/auth/i_auth_facade.dart';
 import 'package:reminder_app/domain/auth/user.dart';
 import 'package:reminder_app/domain/auth/value_objects.dart';
-import 'package:reminder_app/domain/core/failures.dart';
+import 'package:reminder_app/domain/core/value_objects.dart';
 
 class MocIAuthFacade extends Mock implements IAuthFacade {}
+
 class MocUser extends Mock implements User {}
-
-
 
 void main() {
   group(
     "sign in bloc test",
-    () {
+        () {
       SignInFormBloc signInFormBloc;
       AuthBloc authBloc;
       MocIAuthFacade mocIAuthFacade;
-      User user;
-     Option<User> getUser;
-     IAuthFacade iAuthFacade;
+      final User user = User(
+          id: UniqueId.withUniqueString('1234567'),
+          emailAddress: EmailAddress('djordje@djordje.com'),
+          userName: UserName('djordje'),
+          userDateOfBirth: UserDateOfBirth(1234567),
+          userGender: UserGender(input: true),
+          exerciseDistanceUnit: ExerciseDistanceUnit('km'),
+          exerciseWeightUnit: ExerciseWeightUnit('kg'),
+          userHeightUnit: UserHeightUnit('cm'),
+          userWeightUnit: UserWeightUnit('kg'),
+          nutritionWeightUnit: NutritionWeightUnit('g'),
+          nutritionVolumeUnit: NutritionVolumeUnit('l'));
+      Option<User> getUser;
+      IAuthFacade iAuthFacade;
       setUp(
-        ()async {
+            () async {
           mocIAuthFacade = MocIAuthFacade();
           signInFormBloc = SignInFormBloc(mocIAuthFacade);
-           authBloc= AuthBloc(mocIAuthFacade);
-          getUser =await  iAuthFacade?.getSignInUser();
-
+          authBloc = AuthBloc(mocIAuthFacade);
+          getUser = await iAuthFacade?.getSignInUser();
         },
       );
 
@@ -76,7 +85,7 @@ void main() {
         expect: [
           SignInFormState(
             emailAddress: EmailAddress(''),
-            password:Password('4567'),
+            password: Password('4567'),
             isSubmitting: false,
             showErrorMessages: false,
             authFailureUnitOption: none(),
@@ -134,27 +143,36 @@ void main() {
           return authBloc;
         },
         act: (bloc) async {
-          await bloc
-              .add(const AuthEvent.signOut());
+          await bloc.add(const AuthEvent.signOut());
         },
-        expect: [
-           const AuthState.unauthenticated()
-        ],
+        expect: [const AuthState.unauthenticated()],
       );
 
       blocTest(
         "auth user check requested bloc test",
-        build: (){
-
-
+        build: () {
+          when(mocIAuthFacade.getSignInUser())
+              .thenAnswer((_) async => optionOf(user));
 
           return authBloc;
         },
         act: (bloc) async {
-          await bloc
-              .add(const AuthEvent.userCheckRequested());
+          await bloc.add(const AuthEvent.userCheckRequested());
         },
         expect: [
+          AuthState.authenticated(
+              user: User(
+                  id: UniqueId.withUniqueString('1234567'),
+                  emailAddress: EmailAddress('djordje@djordje.com'),
+                  userName: UserName('djordje'),
+                  userDateOfBirth: UserDateOfBirth(1234567),
+                  userGender: UserGender(input: true),
+                  exerciseDistanceUnit: ExerciseDistanceUnit('km'),
+                  exerciseWeightUnit: ExerciseWeightUnit('kg'),
+                  userHeightUnit: UserHeightUnit('cm'),
+                  userWeightUnit: UserWeightUnit('kg'),
+                  nutritionWeightUnit: NutritionWeightUnit('g'),
+                  nutritionVolumeUnit: NutritionVolumeUnit('l')))
         ],
       );
 

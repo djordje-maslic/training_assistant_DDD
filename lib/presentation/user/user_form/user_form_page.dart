@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,17 +37,19 @@ class UserFormPage extends HookWidget {
             (either) {
               either.fold(
                 (failure) {
-                  FlushbarHelper.createError(
-                    message: failure.map(
-                      noUserProfile: (_) => 'No user profile',
-                      unexpected: (_) =>
-                          'Unexpected error occurred , please contact support.',
-                      insufficientPermission: (_) =>
-                          'Insufficient permission ❌',
-                      unableToUpdate: (_) =>
-                          "Couldn't update the exercise. Was it deleted from another device?",
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: failure.map(
+                        noUserProfile: (_) => const Text('No user profile'),
+                        unexpected: (_) => const Text(
+                            'Unexpected error occurred , please contact support.'),
+                        insufficientPermission: (_) =>
+                            const Text('Insufficient permission ❌'),
+                        unableToUpdate: (_) => const Text(
+                            "Couldn't update the exercise. Was it deleted from another device?"),
+                      ),
                     ),
-                  ).show(context);
+                  );
                 },
                 (_) {
                   ExtendedNavigator.of(context).popUntil((route) =>
@@ -129,15 +130,20 @@ class UserFormPageScaffold extends StatelessWidget {
         state.saveFailureOrSuccessOption.fold(
             () => () {},
             (either) => either.fold(
-                    (f) => FlushbarHelper.createError(
-                          message: f.map(
-                              unexpected: (_) =>
-                                  'Something unexpected happened please contact support',
-                              noUserProfile: (_) => 'No user profile',
+                    (f) => ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: f.map(
+                              unexpected: (_) => const Text(
+                                  'Something unexpected happened please contact support'),
+                              noUserProfile: (_) =>
+                                  const Text('No user profile'),
                               insufficientPermission: (_) =>
-                                  'Insufficient permission',
-                              unableToUpdate: (_) => 'Unable to update'),
-                        ).show(context), (r) {
+                                  const Text('Insufficient permission'),
+                              unableToUpdate: (_) =>
+                                  const Text('Unable to update'),
+                            ),
+                          ),
+                        ), (r) {
                   ExtendedNavigator.of(context)
                       .popAndPush(Routes.userOverviewPage);
                 }));
