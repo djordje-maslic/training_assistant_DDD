@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/set_presentation_classes.dart';
 
@@ -27,7 +26,7 @@ class SetDurationWidget extends StatelessWidget {
           width: 200,
           height: 70,
           child: Card(
-
+color: Colors.amber[300],
             child: Center(
               child: Text(
 
@@ -35,7 +34,7 @@ class SetDurationWidget extends StatelessWidget {
                     ?'0${hoursFormFieldController.text}' : hoursFormFieldController.text }:${minFormFieldController.text.length == 1
                     ?'0${minFormFieldController.text}' : minFormFieldController.text }:${secFormFieldController.text.length == 1
                     ?'0${secFormFieldController.text}' : secFormFieldController.text }',
-                style: const TextStyle(fontSize: 30),
+                style: const TextStyle(fontSize: 30, color: Colors.indigoAccent),
               ),
             ),
           ),

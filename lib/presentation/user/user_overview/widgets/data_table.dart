@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:reminder_app/application/auth/auth_bloc.dart';
 import 'package:reminder_app/application/body_measures/body_measures_watcher/body_measures_watcher_bloc.dart';
@@ -7,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reminder_app/injectable.dart';
 import 'package:reminder_app/presentation/body_measures/body_measures_overview/widgets/body_measures_data_table_widget.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_time_converter.dart';
-import 'package:reminder_app/presentation/routes/router.gr.dart';
 
 class UserDataTable extends StatelessWidget {
   const UserDataTable({Key key}) : super(key: key);
@@ -40,7 +38,6 @@ class UserDataTable extends StatelessWidget {
                         ),
                       ),
                       DataColumn(
-                        tooltip: 'Number of set',
                         label: Text(
                           'Date of birth',
                           style: TextStyle(
@@ -68,8 +65,10 @@ class UserDataTable extends StatelessWidget {
                               ),
                             ),
                             showEditIcon: true,
-                            onTap: () => ExtendedNavigator.of(context)
-                                .pushUserFormPage(initialUser: user),
+                            onTap: () => Navigator.of(context).pushNamed(
+                              '/user-form-page',
+                              arguments: user,
+                            ),
                           ),
                           DataCell(
                             Text(
@@ -114,8 +113,7 @@ class UserDataTable extends StatelessWidget {
                           context
                               .read<AuthBloc>()
                               .add(const AuthEvent.signOut());
-                          ExtendedNavigator.of(context)
-                              .popAndPush(Routes.splashPage);
+                          Navigator.of(context).popAndPushNamed('/');
                         },
                         child: Row(
                           children: const [
@@ -144,8 +142,10 @@ class UserDataTable extends StatelessWidget {
                           MaterialStateProperty.all(Colors.indigo[100]),
                     ),
                     onPressed: () {
-                      ExtendedNavigator.of(context)
-                          .pushUserFormPage(initialUser: null);
+                      Navigator.of(context).pushNamed(
+                        '/user-form-page',
+                        arguments: null,
+                      );
                     },
                     child: Row(
                       children: const [

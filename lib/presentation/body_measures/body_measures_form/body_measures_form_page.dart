@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,7 +11,6 @@ import 'package:reminder_app/injectable.dart';
 import 'package:reminder_app/presentation/body_measures/body_measures_form/misc/methods.dart';
 import 'package:reminder_app/presentation/body_measures/body_measures_form/widgets/date_field_widget.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_presentation_classes.dart';
-import 'package:reminder_app/presentation/routes/router.gr.dart';
 
 class BodyMeasuresFormPage extends HookWidget {
   final BodyMeasures bodyMeasures;
@@ -93,8 +91,7 @@ class BodyMeasuresFormPage extends HookWidget {
                     ),
                   );
                 }, (_) {
-                  ExtendedNavigator.of(context).popUntil((route) =>
-                      route.settings.name == Routes.userOverviewPage);
+                  Navigator.of(context).pop();
                 });
               });
             },
@@ -160,7 +157,7 @@ class BodyMeasuresFormPage extends HookWidget {
                                     context.read<BodyMeasuresActorBloc>().add(
                                         BodyMeasuresActorEvent.deleted(
                                             bodyMeasures));
-                                    ExtendedNavigator.of(context).pop();
+                                    Navigator.of(context).pop();
                                   },
                                   child: const Text('Delete'),
                                 ),
@@ -372,6 +369,7 @@ class TextFormFieldHeightCm extends StatelessWidget {
         width: 230,
         child: TextFormField(
           style: TextStyle(fontSize: 20, color: Colors.indigoAccent[700]),
+          key: const Key('heightBodyMeasuresFormField'),
           keyboardType: TextInputType.number,
           controller: heightTextController,
           decoration: inputDecoration(labelText: 'Height', suffixText: 'cm'),

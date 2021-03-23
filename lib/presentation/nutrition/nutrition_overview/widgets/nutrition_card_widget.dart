@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/kt.dart';
@@ -7,7 +6,6 @@ import 'package:reminder_app/application/user/user_watcher/user_watcher_bloc.dar
 import 'package:reminder_app/domain/nutrition/nutrition.dart';
 import 'package:reminder_app/domain/nutrition/value_objects.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_time_converter.dart';
-import 'package:reminder_app/presentation/routes/router.gr.dart';
 
 class NutritionCard extends StatelessWidget {
   final Nutrition nutrition;
@@ -19,11 +17,17 @@ class NutritionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextStyle textStyleHedCard =
+        TextStyle(fontSize: 20, color: Colors.indigoAccent[100]);
+
     return Card(
+      color: Colors.amber[100],
       child: InkWell(
         onTap: () {
-          ExtendedNavigator.of(context)
-              .pushNutritionFormPage(editedNutrition: nutrition);
+          Navigator.of(context).pushNamed(
+            '/nutrition-form-page',
+            arguments: nutrition,
+          );
         },
         onLongPress: () {
           final nutritionActorBloc = context.read<NutritionActorBloc>();
@@ -35,9 +39,12 @@ class NutritionCard extends StatelessWidget {
             children: [
               Text(
                 nutrition.nutritionName.getOrCrash(),
-                style: const TextStyle(fontSize: 18),
+                style: textStyleHedCard,
               ),
-              Text(dateTimeConverter(nutrition.nutritionDateTime.getOrCrash())),
+              Text(
+                dateTimeConverter(nutrition.nutritionDateTime.getOrCrash()),
+                style: textStyleHedCard,
+              ),
               if (nutrition.nutrientsList.length > 0) ...[
                 const SizedBox(
                   height: 4,
@@ -90,17 +97,35 @@ class NutritionListDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextStyle textStyleDataColumn =
+        TextStyle(fontSize: 15, color: Colors.indigoAccent[100]);
+
     return DataTable(
       columnSpacing: 15.0,
       columns: [
-        const DataColumn(
-            tooltip: 'Number of nutrients', label: Text('nutrients')),
-        const DataColumn(label: Text('Name')),
-        const DataColumn(label: Text('Pieces')),
+        DataColumn(
+            tooltip: 'Number of nutrients',
+            label: Text(
+              'nutrients',
+              style: textStyleDataColumn,
+            )),
+        DataColumn(
+            label: Text(
+          'Name',
+          style: textStyleDataColumn,
+        )),
+        DataColumn(
+            label: Text(
+          'Pieces',
+          style: textStyleDataColumn,
+        )),
         DataColumn(
             label: Column(
           children: [
-            const Text('Weight'),
+            Text(
+              'Weight',
+              style: textStyleDataColumn,
+            ),
             Text(
               context.watch<UserWatcherBloc>().state.map(
                     initial: (_) => '',
@@ -110,13 +135,17 @@ class NutritionListDisplay extends StatelessWidget {
                     },
                     loadFailure: (_) => 'g',
                   ),
+              style: textStyleDataColumn,
             ),
           ],
         )),
         DataColumn(
             label: Column(
           children: [
-            const Text('Volume'),
+            Text(
+              'Volume',
+              style: textStyleDataColumn,
+            ),
             Text(
               context.watch<UserWatcherBloc>().state.map(
                     initial: (_) => '',
@@ -126,6 +155,7 @@ class NutritionListDisplay extends StatelessWidget {
                     },
                     loadFailure: (_) => 'ml',
                   ),
+              style: textStyleDataColumn,
             ),
           ],
         )),
@@ -137,17 +167,19 @@ class NutritionListDisplay extends StatelessWidget {
               (nutrient) => DataRow(
                 cells: [
                   DataCell(Text(
-                      '${nutrientsList.getOrCrash().indexOf(nutrient) + 1}')),
+                    '${nutrientsList.getOrCrash().indexOf(nutrient) + 1}',
+                    style: const TextStyle(fontSize: 20),
+                  )),
                   DataCell(
                     Text(
                       '${nutrient.nutrientName.getOrCrash()}',
-                      style: const TextStyle(color: Colors.amber),
+                      style: const TextStyle(color: Colors.amber, fontSize: 20),
                     ),
                   ),
                   DataCell(
                     Text(
                       '${nutrient.nutrientPieces.getOrCrash()}',
-                      style: const TextStyle(color: Colors.red),
+                      style: const TextStyle(color: Colors.red, fontSize: 20),
                     ),
                   ),
                   DataCell(
@@ -156,11 +188,13 @@ class NutritionListDisplay extends StatelessWidget {
                             initial: (_) => '',
                             loadInProgress: (_) => '',
                             loadSuccess: (state) {
-                              return state.user.nutritionWeightUnit.getOrCrash() ==
+                              return state.user.nutritionWeightUnit
+                                          .getOrCrash() ==
                                       'g'
                                   ? double.tryParse(nutrient.nutrientWeight
-                                      .getOrCrash()
-                                      .toString()).toStringAsFixed(2)
+                                          .getOrCrash()
+                                          .toString())
+                                      .toStringAsFixed(2)
                                   : (double.tryParse(((nutrient.nutrientWeight
                                                       .getOrCrash() ??
                                                   0) /
@@ -174,7 +208,7 @@ class NutritionListDisplay extends StatelessWidget {
                                     .toString())
                                 .toStringAsFixed(2),
                           ),
-                      style: const TextStyle(color: Colors.black),
+                      style: const TextStyle(color: Colors.black, fontSize: 20),
                     ),
                   ),
                   DataCell(
@@ -183,10 +217,12 @@ class NutritionListDisplay extends StatelessWidget {
                             initial: (_) => '',
                             loadInProgress: (_) => '',
                             loadSuccess: (state) {
-                              return state.user.nutritionVolumeUnit.getOrCrash() ==
+                              return state.user.nutritionVolumeUnit
+                                          .getOrCrash() ==
                                       'ml'
                                   ? double.tryParse(nutrient.nutrientVolume
-                                      .getOrCrash().toString())
+                                          .getOrCrash()
+                                          .toString())
                                       .toStringAsFixed(2)
                                   : (double.tryParse(((nutrient.nutrientVolume
                                                       .getOrCrash() ??
@@ -201,7 +237,8 @@ class NutritionListDisplay extends StatelessWidget {
                                     .toString())
                                 .toStringAsFixed(2),
                           ),
-                      style: const TextStyle(color: Colors.indigo),
+                      style:
+                          const TextStyle(color: Colors.indigo, fontSize: 20),
                     ),
                   ),
                 ],

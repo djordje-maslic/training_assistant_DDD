@@ -22,6 +22,7 @@ class WeightsFieldWidget extends StatelessWidget {
             state.user.exerciseWeightUnit.getOrCrash() == 'kg' ? 1.0 : 0.45359237,
         loadFailure: (_) => 1.0);
     return TextFormField(
+      style: const TextStyle(fontSize: 20, color: Colors.indigoAccent),
       initialValue: (context.formSets[index].weights / weightUnit).toStringAsFixed(2),
       validator: (_) {
         return context

@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +9,6 @@ import 'package:reminder_app/application/user/user_watcher/user_watcher_bloc.dar
 import 'package:reminder_app/domain/auth/user.dart';
 import 'package:reminder_app/injectable.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_presentation_classes.dart';
-import 'package:reminder_app/presentation/routes/router.gr.dart';
 import 'package:reminder_app/presentation/user/user_form/widgets/date_picker.dart';
 import 'package:reminder_app/presentation/user/user_form/widgets/user_form_toggle_button.dart';
 
@@ -52,8 +50,7 @@ class UserFormPage extends HookWidget {
                   );
                 },
                 (_) {
-                  ExtendedNavigator.of(context).popUntil((route) =>
-                      route.settings.name == Routes.userOverviewPage);
+                  Navigator.of(context).pop();
                 },
               );
             },
@@ -144,8 +141,8 @@ class UserFormPageScaffold extends StatelessWidget {
                             ),
                           ),
                         ), (r) {
-                  ExtendedNavigator.of(context)
-                      .popAndPush(Routes.userOverviewPage);
+                  Navigator.of(context)
+                      .popAndPushNamed('/user-overview-page');
                 }));
       },
       child: Scaffold(

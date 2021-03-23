@@ -66,7 +66,7 @@ class NutrientsTile extends HookWidget {
       index,
       (_) => NutrientItemPrimitive.empty(),
     );
-
+  const TextStyle textStyle= TextStyle(fontSize: 20,color: Colors.indigoAccent);
     return Slidable(
       actionPane: const SlidableDrawerActionPane(),
       actionExtentRatio: 0.15,
@@ -89,6 +89,7 @@ class NutrientsTile extends HookWidget {
         padding: const EdgeInsets.all(18.0),
         child: Container(
           decoration: BoxDecoration(
+            color: Colors.amber[200],
             border: Border.all(),
             borderRadius: BorderRadius.circular(8),
           ),
@@ -113,7 +114,7 @@ class NutrientsTile extends HookWidget {
                           children: [
                             Column(
                               children: [
-                                const Text('Name:'),
+                                const Text('Name:',style: textStyle,),
                                 SizedBox(
                                   width: 150,
                                   height: 70,
@@ -129,7 +130,7 @@ class NutrientsTile extends HookWidget {
                             ),
                             Column(
                               children: [
-                                const Text('Pieces:'),
+                                const Text('Pieces:',style: textStyle,),
                                 SizedBox(
                                   width: 110,
                                   height: 70,
@@ -146,7 +147,7 @@ class NutrientsTile extends HookWidget {
                           children: [
                             Column(
                               children: [
-                                const Text('weight'),
+                                const Text('Weight:',style: textStyle,),
                                 SizedBox(
                                   width: 150,
                                   height: 70,
@@ -187,7 +188,7 @@ class NutrientsTile extends HookWidget {
                             ),
                             Column(
                               children: [
-                                const Text('volume:'),
+                                const Text('Volume:',style: textStyle,),
                                 SizedBox(
                                   width: 110,
                                   height: 70,

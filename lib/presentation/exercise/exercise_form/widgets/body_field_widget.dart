@@ -12,15 +12,19 @@ class BodyField extends HookWidget {
     final textEditingController = useTextEditingController();
 
     return BlocListener<ExerciseFormBloc, ExerciseFormState>(
-      listenWhen: (p,c)=> p.isEditing != c.isEditing,
+      listenWhen: (p, c) => p.isEditing != c.isEditing,
       listener: (context, state) {
         textEditingController.text = state.exercise.name.getOrCrash();
-        },
+      },
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: TextFormField(
+          style: const TextStyle(fontSize: 20, color: Colors.indigoAccent),
           controller: textEditingController,
-          decoration: const InputDecoration(labelText: 'Exercise name'),
+          decoration: const InputDecoration(
+            labelText: 'Exercise name',
+            labelStyle: TextStyle(color: Colors.indigoAccent),
+          ),
           maxLength: ExerciseName.maxLength,
           onChanged: (value) => context.read<ExerciseFormBloc>().add(
                 ExerciseFormEvent.exerciseNameChanged(value),

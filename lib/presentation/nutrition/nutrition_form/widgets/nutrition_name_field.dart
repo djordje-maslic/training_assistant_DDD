@@ -19,8 +19,12 @@ class NutritionNameField extends HookWidget {
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: TextFormField(
+          style: const TextStyle(fontSize: 20, color: Colors.indigoAccent),
           controller: textEditingController,
-          decoration: const InputDecoration(labelText: 'Nutrition name'),
+          decoration: const InputDecoration(
+            labelText: 'Nutrition name',
+            labelStyle: TextStyle(color: Colors.indigoAccent),
+          ),
           maxLength: NutritionName.maxLength,
           onChanged: (value) => context.read<NutritionFormBloc>().add(
                 NutritionFormEvent.nutritionNameChanged(value),

@@ -38,10 +38,12 @@ class UserWatcherBloc extends Bloc<UserWatcherEvent, UserWatcherState> {
       },
       readUser: (e) async* {
         yield const UserWatcherState.loadInProgress();
-        await _iUserRepository.read()?.then((failureOrUser) => add(
+        await _iUserRepository?.read()?.then((failureOrUser) => add(
             UserWatcherEvent.userReceived(failureOrUser.fold(
                 () => left(const UserFailure.unexpected()),
-                (user) => right(user)))));
+                (user) => right(user)))),onError: (e){
+        return e;
+        });
       },
       userReceived: (e) async* {
         yield e.failureOrUser.fold(

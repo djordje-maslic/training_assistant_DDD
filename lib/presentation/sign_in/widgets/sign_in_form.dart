@@ -1,10 +1,7 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reminder_app/application/auth/auth_bloc.dart';
 import 'package:reminder_app/application/auth/signIn/sign_in_form_bloc.dart';
-import 'package:reminder_app/presentation/routes/router.gr.dart';
-import 'package:shimmer/shimmer.dart';
 
 class SignInForm extends StatelessWidget {
   @override
@@ -26,7 +23,7 @@ class SignInForm extends StatelessWidget {
               ),
             ),
             (_) {
-              ExtendedNavigator.of(context).push(Routes.splashPage);
+              Navigator.of(context).pushNamed('/');
               context
                   .read<AuthBloc>()
                   .add(const AuthEvent.userCheckRequested());
@@ -43,15 +40,13 @@ class SignInForm extends StatelessWidget {
                 : AutovalidateMode.disabled,
             child: ListView(
               children: [
-                Shimmer.fromColors(
-                  period: const Duration(milliseconds: 4000),
-                  baseColor: Colors.amber,
-                  highlightColor: Colors.yellowAccent,
-                  child: const Text(
-                    'TA🤸‍♂',
-                    style: TextStyle(fontSize: 130, color: Color(0xffaaa9ad)),
-                    textAlign: TextAlign.center,
+                const Text(
+                  'TA🤸‍',
+                  style: TextStyle(
+                    fontSize: 130,
+                    color: Colors.amberAccent,
                   ),
+                  textAlign: TextAlign.center,
                 ),
                 const SizedBox(
                   height: 8,
@@ -133,32 +128,22 @@ class SignInForm extends StatelessWidget {
                 const SizedBox(
                   height: 8,
                 ),
-                Stack(
-                  children: [
-                    Shimmer.fromColors(
-                        period: const Duration(milliseconds: 4000),
-                        baseColor: Colors.amber,
-                        highlightColor: Colors.yellowAccent,
-                        child: Container(
-                          height: 50,
-                          color: Colors.black,
-                        )),
-                    GestureDetector(
-                      onTap: () {
-                        context.read<SignInFormBloc>().add(
-                              const SignInFormEvent.signInWithGooglePressed(),
-                            );
-                      },
-                      child: const Padding(
-                        padding: EdgeInsets.only(left: 110, top: 14),
-                        child: Text(
-                          'Sign In With Google',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    )
-                  ],
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all(Colors.amberAccent),
+                  ),
+                  onPressed: () {
+                    context.read<SignInFormBloc>().add(
+                          const SignInFormEvent.signInWithGooglePressed(),
+                        );
+                  },
+                  child:const  Text(
+                      'Sign In With Google',
+                      style: TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold),
+
+                  ),
                 ),
                 const SizedBox(
                   height: 8,

@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/kt.dart';
@@ -9,7 +8,6 @@ import 'package:reminder_app/domain/exercise/sets.dart';
 import 'package:reminder_app/domain/exercise/value_objects.dart';
 import 'package:reminder_app/presentation/core/misc/unit_converter.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_time_converter.dart';
-import 'package:reminder_app/presentation/routes/router.gr.dart';
 
 class ExerciseCard extends StatelessWidget {
   final Exercise exercise;
@@ -21,11 +19,15 @@ class ExerciseCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextStyle textStyleHedCard =
+        TextStyle(fontSize: 20, color: Colors.indigoAccent[100]);
+
     return Card(
+      color: Colors.amber[100],
       child: InkWell(
         onTap: () {
-          ExtendedNavigator.of(context)
-              .pushExerciseFormPage(editedExercise: exercise);
+          Navigator.of(context).pushNamed('/exercise-form-page',
+              arguments: exercise);
         },
         onLongPress: () {
           final exerciseActorBloc = context.read<ExerciseActorBloc>();
@@ -37,9 +39,12 @@ class ExerciseCard extends StatelessWidget {
             children: [
               Text(
                 exercise.name.getOrCrash(),
-                style: const TextStyle(fontSize: 18),
+                style: textStyleHedCard,
               ),
-              Text(dateTimeConverter(exercise.date.getOrCrash())),
+              Text(
+                dateTimeConverter(exercise.date.getOrCrash()),
+                style: textStyleHedCard,
+              ),
               if (exercise.setsList.length > 0) ...[
                 const SizedBox(
                   height: 4,
@@ -90,22 +95,51 @@ class SetDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DataTable(columnSpacing: 10.0, columns: [
-      const DataColumn(tooltip: 'Number of set', label: Text('Set')),
-      const DataColumn(label: Text('Reps')),
-      const DataColumn(label: Text('BadReps')),
+    final TextStyle textStyleDataColumn =
+        TextStyle(fontSize: 15, color: Colors.indigoAccent[100]);
+
+    return DataTable(columnSpacing: 8.0, columns: [
+      DataColumn(
+        tooltip: 'Number of set',
+        label: Text('Set', style: textStyleDataColumn),
+      ),
+      DataColumn(
+        label: Text(
+          'Reps',
+          style: textStyleDataColumn,
+        ),
+      ),
+      DataColumn(
+          label: Column(
+        children: [
+          Text(
+            'Bad',
+            style: textStyleDataColumn,
+          ),
+          Text(
+            'Reps',
+            style: textStyleDataColumn,
+          ),
+        ],
+      )),
       DataColumn(
           label: Expanded(
         child: Column(
           children: [
-           const Text('Weight'),
-            Text(context.watch<UserWatcherBloc>().state.map(
-              initial: (_) => '',
-              loadInProgress: (_) => '',
-              loadSuccess: (state) =>
-                  state.user.exerciseWeightUnit.getOrCrash(),
-              loadFailure: (_) => 'kg',
-            )),
+            Text(
+              'Weight',
+              style: textStyleDataColumn,
+            ),
+            Text(
+              context.watch<UserWatcherBloc>().state.map(
+                    initial: (_) => '',
+                    loadInProgress: (_) => '',
+                    loadSuccess: (state) =>
+                        state.user.exerciseWeightUnit.getOrCrash(),
+                    loadFailure: (_) => 'kg',
+                  ),
+              style: textStyleDataColumn,
+            ),
           ],
         ),
       )),
@@ -113,21 +147,34 @@ class SetDisplay extends StatelessWidget {
           label: Expanded(
         child: Column(
           children: [
-           const Text('Distance'),
-            Text(context.watch<UserWatcherBloc>().state.map(
-              initial: (_) => '',
-              loadInProgress: (_) => '',
-              loadSuccess: (state) =>
-                  state.user.exerciseDistanceUnit.getOrCrash(),
-              loadFailure: (_) => 'km',
-            ))
+            Text(
+              'Distance',
+              style: textStyleDataColumn,
+            ),
+            Text(
+              context.watch<UserWatcherBloc>().state.map(
+                    initial: (_) => '',
+                    loadInProgress: (_) => '',
+                    loadSuccess: (state) =>
+                        state.user.exerciseDistanceUnit.getOrCrash(),
+                    loadFailure: (_) => 'km',
+                  ),
+              style: textStyleDataColumn,
+            )
           ],
         ),
       )),
-       DataColumn(label: Column(
-        children:const[
-          Text('Duration'),
-          Text('h:min:sec')
+      DataColumn(
+          label: Column(
+        children: [
+          Text(
+            'Duration',
+            style: textStyleDataColumn,
+          ),
+          Text(
+            'h:min:sec',
+            style: textStyleDataColumn,
+          )
         ],
       )),
     ], rows: [
@@ -135,35 +182,41 @@ class SetDisplay extends StatelessWidget {
           .getOrCrash()
           .map((set) => DataRow(
                 cells: [
-                  DataCell(Text('${setList.getOrCrash().indexOf(set) + 1}')),
+                  DataCell(Text(
+                    '${setList.getOrCrash().indexOf(set) + 1}',
+                    style: const TextStyle(fontSize: 20),
+                  )),
                   DataCell(
                     Text(
                       '${set.number.getOrCrash()}',
-                      style: const TextStyle(color: Colors.amber),
+                      style: TextStyle(color: Colors.amber[900], fontSize: 20),
                     ),
                   ),
                   DataCell(
                     Text(
                       '${set.badReps.getOrCrash()}',
-                      style: const TextStyle(color: Colors.red),
+                      style: const TextStyle(color: Colors.red, fontSize: 20),
                     ),
                   ),
                   DataCell(
                     Text(
                       unitExerciseWeightConverter(
-                        weight: set.weights.getOrCrash(),
-                        bloc: context.watch<UserWatcherBloc>(),
-                      )?.toStringAsFixed(2) ?? '',
-                      style: const TextStyle(color: Colors.black),
+                            weight: set.weights.getOrCrash(),
+                            bloc: context.watch<UserWatcherBloc>(),
+                          )?.toStringAsFixed(2) ??
+                          '',
+                      style: const TextStyle(color: Colors.black, fontSize: 20),
                     ),
                   ),
                   DataCell(
                     Text(
                       unitExerciseDistanceConverter(
-                        distance: set.distance.getOrCrash(),
-                        bloc: context.watch<UserWatcherBloc>(),
-                      )?.toStringAsFixed(2) ?? '',
-                      style: const TextStyle(color: Colors.indigo),
+                            distance: set.distance.getOrCrash(),
+                            bloc: context.watch<UserWatcherBloc>(),
+                          )?.toStringAsFixed(2) ??
+                          '',
+                      style:
+                          const TextStyle(color: Colors.indigo, fontSize: 20),
                     ),
                   ),
                   DataCell(
@@ -171,7 +224,8 @@ class SetDisplay extends StatelessWidget {
                       SetDuration(int.tryParse(
                               set.setDuration.getOrCrash().toString()))
                           .clockDisplay,
-                      style: const TextStyle(color: Colors.deepPurple),
+                      style: const TextStyle(
+                          color: Colors.deepPurple, fontSize: 20),
                     ),
                   ),
                 ],

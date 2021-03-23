@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dartz/dartz.dart';
 import 'package:reminder_app/domain/auth/i_auth_facade.dart';
+import 'package:reminder_app/domain/auth/user.dart';
 import 'package:reminder_app/domain/core/error.dart';
 import 'package:reminder_app/injectable.dart';
 
@@ -55,7 +57,7 @@ extension FirestoreUQ on FirebaseFirestore {
 extension FirestoreU on FirebaseFirestore {
   Future<DocumentReference> userDocument() async {
     final userOption = await getIt<IAuthFacade>().getSignInUser();
-    final user = userOption.getOrElse(() => throw NotAuthenticatedError());
+    final user = userOption.getOrElse(() => User.empty());
     return FirebaseFirestore.instance
         .collection('user')
         .doc(user.id.getOrCrash());

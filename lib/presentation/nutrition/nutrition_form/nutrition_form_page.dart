@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,7 +11,6 @@ import 'package:reminder_app/presentation/nutrition/nutrition_form/widgets/nutri
 import 'package:reminder_app/presentation/nutrition/nutrition_form/widgets/nutrition_date_time_field.dart';
 import 'package:reminder_app/presentation/nutrition/nutrition_form/widgets/nutrition_list_widget.dart';
 import 'package:reminder_app/presentation/nutrition/nutrition_form/widgets/nutrition_name_field.dart';
-import 'package:reminder_app/presentation/routes/router.gr.dart';
 
 class NutritionFormPage extends StatelessWidget {
   final Nutrition editedNutrition;
@@ -52,8 +50,7 @@ class NutritionFormPage extends StatelessWidget {
                   );
                 },
                 (_) {
-                  ExtendedNavigator.of(context).popUntil((route) =>
-                      route.settings.name == Routes.nutritionOverviewPage);
+                  Navigator.of(context).pop();
                 },
               );
             },
@@ -124,6 +121,7 @@ class NutritionFormPageScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.amber[100],
       appBar: AppBar(
         title: BlocBuilder<NutritionFormBloc, NutritionFormState>(
           buildWhen: (p, c) => p.isEditing != c.isEditing,

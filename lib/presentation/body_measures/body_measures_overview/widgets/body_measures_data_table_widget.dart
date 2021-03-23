@@ -1,12 +1,12 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reminder_app/application/body_measures/body_measures_watcher/body_measures_watcher_bloc.dart';
 import 'package:reminder_app/application/user/user_watcher/user_watcher_bloc.dart';
 import 'package:reminder_app/domain/body_measures/body_measures.dart';
+import 'package:reminder_app/presentation/body_measures/body_measures_overview/widgets/body_measures_overview_chart.dart';
 import 'package:reminder_app/presentation/core/misc/unit_converter.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_time_converter.dart';
-import 'package:reminder_app/presentation/routes/router.gr.dart';
+import 'package:reminder_app/presentation/router/app_router.dart';
 
 class BodyMeasuresDataTableWidget extends StatelessWidget {
   const BodyMeasuresDataTableWidget({Key key}) : super(key: key);
@@ -56,11 +56,14 @@ class BodyMeasuresDataTableWidget extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      ExtendedNavigator.of(context).pushBodyMeasuresFormPage(
-                          bodyMeasures: null,
-                          lastBodyMeasuresForHintText: bodyMeasuresList.isEmpty
-                              ? BodyMeasures.empty()
-                              : bodyMeasuresList[0]);
+                      Navigator.of(context).pushNamed(
+                        '/body-measures-form-page',
+                        arguments: ScreenBodyMeasuresArguments(
+                            lastBodyMeasuresForHintText:
+                                bodyMeasuresList.isEmpty
+                                    ? BodyMeasures.empty()
+                                    : bodyMeasuresList[0]),
+                      );
                     },
                     child: Row(
                       children: const [
@@ -137,10 +140,12 @@ class BodyMeasuresDataTableWidget extends StatelessWidget {
                                 ),
                               ),
                               showEditIcon: true, onTap: () {
-                            ExtendedNavigator.of(context)
-                                .pushBodyMeasuresFormPage(
-                                    bodyMeasures: bodyMeasure,
-                                    lastBodyMeasuresForHintText: null);
+                            Navigator.of(context).pushNamed(
+                              '/body-measures-form-page',
+                              arguments: ScreenBodyMeasuresArguments(
+                                bodyMeasures: bodyMeasure,
+                              ),
+                            );
                           }),
                           DataCell(
                             Text(
@@ -186,6 +191,9 @@ class BodyMeasuresDataTableWidget extends StatelessWidget {
                       );
                     }).toList(),
                   ),
+                ),
+                BodyMeasuresOverviewChart(
+                  bodyMeasuresList: bodyMeasuresList,
                 ),
               ],
             );

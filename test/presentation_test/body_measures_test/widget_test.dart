@@ -14,6 +14,8 @@ void main() {
     final UserWatcherBloc bloc = UserWatcherBloc(MocIUserRepository());
     final weightFormField =
         find.byKey(const ValueKey('weightBodyMeasuresFormField'));
+    final heightFormField =
+        find.byKey(const ValueKey('heightBodyMeasuresFormField'));
     final weightOverviewField =
         find.byKey(const ValueKey('weightBodyMeasuresOverviewField'));
 
@@ -33,5 +35,28 @@ void main() {
     await tester.pump();
 
     expect(find.text('200'), findsOneWidget);
+  });
+
+  testWidgets('test height form field', (WidgetTester tester) async {
+    final UserWatcherBloc bloc = UserWatcherBloc(MocIUserRepository());
+
+    final heightFormField = find.widgetWithText(TextFormField,'Height');
+
+    await tester.pumpWidget(MaterialApp(
+      home: BlocProvider<UserWatcherBloc>(
+        create: (context) => bloc,
+        child: Card(
+          child: TextFormFieldHeightCm(
+            heightTextController: TextEditingController(),
+          ),
+        ),
+      ),
+    ));
+
+    await tester.enterText(heightFormField, '100');
+
+    await tester.pump();
+
+    expect(find.text('100'), findsOneWidget);
   });
 }

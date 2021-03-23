@@ -20,6 +20,7 @@ class DistanceFieldWidget extends StatelessWidget {
         loadSuccess: (state) => state.user.exerciseDistanceUnit.getOrCrash() == 'km' ? 1.0 : 1.609334 ,
         loadFailure:(_)=> 1.0);
     return TextFormField(
+      style: const TextStyle(fontSize: 20, color: Colors.indigoAccent),
       initialValue: ( context.formSets[index].distance/distanceUnit
               )
           .toStringAsFixed(2),

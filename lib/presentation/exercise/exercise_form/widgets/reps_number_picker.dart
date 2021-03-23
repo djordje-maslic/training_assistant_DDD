@@ -16,7 +16,10 @@ class RepsNumberPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.amber[300],
       child: NumberPicker.integer(
+          selectedTextStyle:
+              const TextStyle(color: Colors.indigoAccent, fontSize: 20),
           scrollDirection: Axis.horizontal,
           listViewWidth: 70,
           initialValue: context.formSets[index].number,

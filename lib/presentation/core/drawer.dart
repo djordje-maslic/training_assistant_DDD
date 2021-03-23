@@ -1,9 +1,7 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reminder_app/application/auth/auth_bloc.dart';
 import 'package:reminder_app/application/user/user_watcher/user_watcher_bloc.dart';
-import 'package:reminder_app/presentation/routes/router.gr.dart';
 
 class DrawerCore extends StatelessWidget {
   @override
@@ -21,8 +19,8 @@ class DrawerCore extends StatelessWidget {
                           context
                               .read<UserWatcherBloc>()
                               .add(const UserWatcherEvent.watchUser());
-                          ExtendedNavigator.of(context)
-                              .popAndPush(Routes.userOverviewPage);
+                          Navigator.of(context)
+                              .popAndPushNamed('/user-overview-page');
                         },
                         child: Column(
                           children: [
@@ -53,7 +51,7 @@ class DrawerCore extends StatelessWidget {
                           ),
                           TextButton(
                             onPressed: () {
-                              ExtendedNavigator.of(context).pushSignIn();
+                                Navigator.of(context).pushNamed('/sign-in');
                             },
                             child: const Text('Sign in/ Register'),
                           ),
@@ -70,7 +68,7 @@ class DrawerCore extends StatelessWidget {
                 backgroundColor: MaterialStateProperty.all(Colors.grey),
               ),
               onPressed: () {
-                ExtendedNavigator.of(context).popAndPush(Routes.splashPage);
+                Navigator.of(context).popAndPushNamed('/');
               },
               child: Row(
                 children: const [Icon(Icons.home), Text('Home')],
@@ -89,10 +87,10 @@ class DrawerCore extends StatelessWidget {
                     .add(const UserWatcherEvent.watchUser());
                 context.read<AuthBloc>().state.map(
                       initial: (_) {},
-                      authenticated: (_) => ExtendedNavigator.of(context)
-                          .popAndPush(Routes.exerciseOverviewPage),
+                      authenticated: (_) => Navigator.of(context)
+                          .popAndPushNamed('/exercise-overview-page'),
                       unauthenticated: (_) =>
-                          ExtendedNavigator.of(context).pushSignIn(),
+                          Navigator.of(context).pushNamed('/sign-in'),
                     );
               },
               child: Row(
@@ -112,10 +110,10 @@ class DrawerCore extends StatelessWidget {
                     .add(const UserWatcherEvent.watchUser());
                 context.read<AuthBloc>().state.map(
                       initial: (_) {},
-                      authenticated: (_) => ExtendedNavigator.of(context)
-                          .popAndPush(Routes.nutritionOverviewPage),
+                      authenticated: (_) => Navigator.of(context)
+                          .popAndPushNamed('/nutrition-overview-page'),
                       unauthenticated: (_) =>
-                          ExtendedNavigator.of(context).pushSignIn(),
+                          Navigator.of(context).pushNamed('/sign-in'),
                     );
               },
               child: Row(

@@ -14,7 +14,7 @@ class CriticalFailureDisplay extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           const Text(
-            '😱',
+            '⚠',
             style: TextStyle(fontSize: 100),
           ),
           Text(

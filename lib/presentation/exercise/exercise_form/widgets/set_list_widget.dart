@@ -114,6 +114,7 @@ class SetTile extends HookWidget {
         padding: const EdgeInsets.all(18.0),
         child: Container(
           decoration: BoxDecoration(
+            color: Colors.amber[200],
             border: Border.all(),
             borderRadius: BorderRadius.circular(8),
           ),

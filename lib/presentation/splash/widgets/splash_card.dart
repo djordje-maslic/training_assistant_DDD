@@ -18,7 +18,8 @@ class SplashCard extends StatelessWidget {
     return Padding(
       padding:
           const EdgeInsets.only(left: 8.0, right: 8.0, top: 20.0, bottom: 8.0),
-      child: Card(color: Colors.amber[500],
+      child: Card(
+        color: Colors.amber[500],
         child: Column(
           children: [
             if (exercise.setsList.length > 0)
@@ -28,76 +29,99 @@ class SplashCard extends StatelessWidget {
                   list: exercise.setsList,
                 ),
               ),
-            Card(color: Colors.amber[500],elevation: 10,
+            Card(
+              color: Colors.amber[500],
+              elevation: 10,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(children: [
                   Row(children: [
-                    Card( color: Colors.indigo[100],elevation: 10,
+                    Card(
+                      color: Colors.indigo[100],
+                      elevation: 10,
                       shape: const StadiumBorder(),
-                      child:  Padding(
+                      child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Center(
                             child: Text(
-                          exercise.userName.getOrCrash().substring(0,2).toUpperCase(),
-                          style:TextStyle(fontSize: 20,color: Colors.indigo[900]),
+                          exercise.userName
+                              .getOrCrash()
+                              .substring(0, 2)
+                              .toUpperCase(),
+                          style: TextStyle(
+                              fontSize: 20, color: Colors.indigo[900]),
                         )),
                       ),
                     ),
                     const SizedBox(
                       width: 10,
                     ),
-                    Card(color: Colors.transparent,elevation: 10,
+                    Card(
+                      color: Colors.transparent,
+                      elevation: 10,
                       child: Text(
                         exercise.name.getOrCrash(),
-                        style:  TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold,color: Colors.indigo[900]),
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.indigo[900]),
                       ),
                     ),
                     const SizedBox(
                       width: 10,
                     ),
-                    if (exercise.setsList.length > 0) ...[
-                      Column(
-                        children: [
-                          Row(
-                            children: [
-                              Text(
-                                'Total Reps:',
-                                style: TextStyle(color: Colors.indigo[300],
-                                    fontSize: 15, fontWeight: FontWeight.bold),
-                              ),  Text(
-                                repetitionsCombiner(exercise.setsList),
-                                style:const TextStyle(color: Colors.white,
-                                    fontSize: 15, fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                'Max Reps in Set:',
-                                style: TextStyle(color: Colors.indigo[300],
-                                    fontSize: 15, fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                repetitionsMax(exercise.setsList),
-                                style: const TextStyle(color: Colors.white,
-                                    fontSize: 15, fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                        ],
-                      )
-                    ],
                   ]),
                   Text(
-                    exerciseTimeFromNow(exercise), style:const TextStyle(color: Colors.white,
-                      fontSize: 20, fontWeight: FontWeight.bold),
+                    exerciseTimeFromNow(exercise),
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
                   ),
                   if (exercise.setsList.length > 0) ...[
                     const SizedBox(
                       height: 4,
+                    ),
+                    Column(
+
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Total Reps:',
+                              style: TextStyle(
+                                  color: Colors.indigo[300],
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              repetitionsCombiner(exercise.setsList),
+                              style: const TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Max Reps in Set:',
+                              style: TextStyle(
+                                  color: Colors.indigo[300],
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              repetitionsMax(exercise.setsList),
+                              style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                     Wrap(
                       children: [
@@ -129,4 +153,3 @@ List<int> setsListToIntLis(SetsList list) {
       .asList();
   return result;
 }
-

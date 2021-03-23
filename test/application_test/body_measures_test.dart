@@ -5,11 +5,10 @@ import 'package:reminder_app/application/body_measures/body_measures_actor/body_
 import 'package:reminder_app/application/body_measures/body_measures_form/body_measures_form_bloc.dart';
 import 'package:reminder_app/application/body_measures/body_measures_watcher/body_measures_watcher_bloc.dart';
 import 'package:reminder_app/domain/body_measures/body_measures.dart';
+import 'package:reminder_app/domain/body_measures/body_measures_failures.dart';
 import 'package:reminder_app/domain/body_measures/i_body_measures_repository.dart';
 import 'package:reminder_app/domain/body_measures/value_objects.dart';
 import 'package:reminder_app/domain/core/value_objects.dart';
-import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_time_converter.dart';
-import 'package:reminder_app/presentation/exercise/exercise_form/misc/milliseconds_converter.dart';
 import 'package:test/test.dart';
 import 'package:mockito/mockito.dart';
 
@@ -33,7 +32,7 @@ void main() {
   group('body measures bloc test', () {
     test(
       'initial state',
-          () {
+      () {
         bodyMeasuresFormBloc
             .add(const BodyMeasuresFormEvent.bodyMeasuresWeightChanged(200));
         expect(
@@ -44,20 +43,6 @@ void main() {
             bodyMeasuresFormBloc.state.bodyMeasures.bodyMeasuresWeight
                 .getOrCrash(),
             0);
-      },
-    );
-
-
-    test(
-      'milliseconds converter test',
-          () {
-        expect(millisecondsConverter(0), '00:00:00');
-      },
-    );
-    test(
-      'date time converter',
-          () {
-        expect(dateTimeConverter(0), '1.JAN 1970');
       },
     );
 
@@ -84,15 +69,17 @@ void main() {
         );
       },
       expect: [
-        BodyMeasuresWatcherState.loadSuccess([
-          BodyMeasures(
-            id: UniqueId.withUniqueString('123'),
-            userId: UniqueId.withUniqueString('123'),
-            bodyMeasuresDate: MeasuresDate(123),
-            bodyMeasuresWeight: UserWeight(100),
-            bodyMeasuresHeight: UserHeight(100),
-          ),
-        ].toImmutableList(),),
+        BodyMeasuresWatcherState.loadSuccess(
+          [
+            BodyMeasures(
+              id: UniqueId.withUniqueString('123'),
+              userId: UniqueId.withUniqueString('123'),
+              bodyMeasuresDate: MeasuresDate(123),
+              bodyMeasuresWeight: UserWeight(100),
+              bodyMeasuresHeight: UserHeight(100),
+            ),
+          ].toImmutableList(),
+        ),
       ],
     );
   });
@@ -102,9 +89,7 @@ void main() {
       return BodyMeasuresWatcherBloc(mockBodyMeasuresRepository);
     },
     act: (bloc) {
-      bloc.add(
-          const BodyMeasuresWatcherEvent.watchAllStarted()
-      );
+      bloc.add(const BodyMeasuresWatcherEvent.watchAllStarted());
     },
     expect: [
       const BodyMeasuresWatcherState.loadInProgress(),
@@ -119,18 +104,102 @@ void main() {
     bodyMeasuresHeight: UserHeight(180),
   );
 
-  blocTest('body measures actor test',
-      build: ()=> BodyMeasuresActorBloc(mockBodyMeasuresRepository)
-    ,
+  blocTest('body measures actor test delete body measures',
+      build: () => BodyMeasuresActorBloc(mockBodyMeasuresRepository),
       act: (bloc) {
         bloc.add(BodyMeasuresActorEvent.deleted(bodyMeasures));
       },
       expect: [
-
         const BodyMeasuresActorState.actionInProgress(),
-        
-      ]
-  );
+      ]);
+
+  blocTest('body measures actor delete failure test', build: () {
+    when(mockBodyMeasuresRepository.delete(any))
+        .thenAnswer((_) async => left(const BodyMeasuresFailure.unexpected()));
+
+    return BodyMeasuresActorBloc(mockBodyMeasuresRepository);
+  }, act: (bloc) {
+    bloc.add(BodyMeasuresActorEvent.deleted(BodyMeasures.empty()));
+  }, expect: [
+    const BodyMeasuresActorState.actionInProgress(),
+    const BodyMeasuresActorState.deleteFailure(
+        BodyMeasuresFailure.unexpected()),
+  ]);
+
+  blocTest('body measures actor test delete success', build: () {
+    when(mockBodyMeasuresRepository.delete(any))
+        .thenAnswer((_) async => right(unit));
+
+    return BodyMeasuresActorBloc(mockBodyMeasuresRepository);
+  }, act: (bloc) {
+    bloc.add(BodyMeasuresActorEvent.deleted(BodyMeasures.empty()));
+  }, expect: [
+    const BodyMeasuresActorState.actionInProgress(),
+    const BodyMeasuresActorState.deleteSuccess(),
+  ]);
+
+  blocTest('body measures form bloc test input', build: () {
+    when(mockBodyMeasuresRepository.update(bodyMeasures))
+        .thenAnswer((_) async => right(unit));
+
+    return BodyMeasuresFormBloc(mockBodyMeasuresRepository);
+  }, act: (bloc) {
+    bloc.add( BodyMeasuresFormEvent.initialized(optionOf(bodyMeasures)));
+    bloc.add(const BodyMeasuresFormEvent.bodyMeasuresHeightChanged(100));
+    bloc.add(const BodyMeasuresFormEvent.bodyMeasuresDateChanged(12345678));
+    bloc.add(const BodyMeasuresFormEvent.bodyMeasuresWeightChanged(90));
+    bloc.add(const BodyMeasuresFormEvent.bodyMeasuresSaved());
+  }, expect: [
+    BodyMeasuresFormState(
+        bodyMeasures: BodyMeasures(
+          id: UniqueId.withUniqueString('1234567'),
+          userId: UniqueId.withUniqueString('1234567'),
+          bodyMeasuresDate: MeasuresDate(1234567),
+          bodyMeasuresWeight: UserWeight(80),
+          bodyMeasuresHeight: UserHeight(180),
+        ),
+        showErrorMessages: false,
+        isEditing: true,
+        isSaving: false,
+        saveFailureOrSuccessOption: none()),
+    BodyMeasuresFormState(
+        bodyMeasures: BodyMeasures(
+          id: UniqueId.withUniqueString('1234567'),
+          userId: UniqueId.withUniqueString('1234567'),
+          bodyMeasuresDate: MeasuresDate(1234567),
+          bodyMeasuresWeight: UserWeight(80),
+          bodyMeasuresHeight: UserHeight(100),
+        ),
+        showErrorMessages: false,
+        isEditing: true,
+        isSaving: false,
+        saveFailureOrSuccessOption: none()),
+    BodyMeasuresFormState(
+        bodyMeasures: BodyMeasures(
+          id: UniqueId.withUniqueString('1234567'),
+          userId: UniqueId.withUniqueString('1234567'),
+          bodyMeasuresDate: MeasuresDate(12345678),
+          bodyMeasuresWeight: UserWeight(80),
+          bodyMeasuresHeight: UserHeight(100),
+        ),
+        showErrorMessages: false,
+        isEditing: true,
+        isSaving: false,
+        saveFailureOrSuccessOption: none()),
+    BodyMeasuresFormState(
+        bodyMeasures: BodyMeasures(
+          id: UniqueId.withUniqueString('1234567'),
+          userId: UniqueId.withUniqueString('1234567'),
+          bodyMeasuresDate: MeasuresDate(12345678),
+          bodyMeasuresWeight: UserWeight(90),
+          bodyMeasuresHeight: UserHeight(100),
+        ),
+        showErrorMessages: false,
+        isEditing: true,
+        isSaving: false,
+        saveFailureOrSuccessOption: none()),
+
+  ]);
 
   tearDown(() {
     bodyMeasuresFormBloc.close();

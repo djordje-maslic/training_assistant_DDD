@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,16 +21,28 @@ class SplashBody extends StatelessWidget {
             child: CircularProgressIndicator(),
           ),
           loadSuccess: (state) {
-            return ListView.builder(
-              itemBuilder: (context, index) {
-                final exercise = state.exercise[index];
-                if (exercise.failureOption.isSome()) {
-                  return ErrorExerciseCard(exercise: exercise);
-                } else {
-                  return SplashCard(exercise: exercise);
-                }
-              },
-              itemCount: state.exercise.size,
+            return Row(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    itemBuilder: (context, index) {
+                      final exercise = state.exercise[index];
+                      if (exercise.failureOption.isSome()) {
+                        return ErrorExerciseCard(exercise: exercise);
+                      } else {
+                        return SplashCard(exercise: exercise);
+                      }
+                    },
+                    itemCount: state.exercise.size,
+                  ),
+                ),
+                if (MediaQuery.of(context).size.width > 700) ...[
+                  Container(
+                    color: Colors.indigoAccent,
+                    width: MediaQuery.of(context).size.width / 2,
+                  )
+                ]
+              ],
             );
           },
           loadFailure: (state) {

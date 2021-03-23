@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,10 +9,10 @@ import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_prese
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/duration_picker_providers.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/misc/set_presentation_classes.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/widgets/add_set_tile_widget.dart';
+import 'package:reminder_app/presentation/exercise/exercise_form/widgets/animation_runner.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/widgets/body_field_widget.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/widgets/date_field_widget.dart';
 import 'package:reminder_app/presentation/exercise/exercise_form/widgets/set_list_widget.dart';
-import 'package:reminder_app/presentation/routes/router.gr.dart';
 
 class ExerciseFormPage extends StatelessWidget {
   final Exercise editedExercise;
@@ -49,8 +48,7 @@ class ExerciseFormPage extends StatelessWidget {
                   ),
                 );
               }, (_) {
-                ExtendedNavigator.of(context).popUntil((route) =>
-                    route.settings.name == Routes.exerciseOverviewPage);
+                Navigator.of(context).pop();
               });
             });
           },
@@ -118,13 +116,12 @@ class ExerciseFormPageScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.amber[400],
       appBar: AppBar(
         title: BlocBuilder<ExerciseFormBloc, ExerciseFormState>(
           buildWhen: (p, c) => p.isEditing != c.isEditing,
           builder: (context, state) => Row(
             children: [
-              const Text('T'),
-              const Icon(Icons.architecture),
               Text(state.isEditing ? 'Edit exercise' : 'Create exercise'),
             ],
           ),
@@ -161,11 +158,12 @@ class ExerciseFormPageScaffold extends StatelessWidget {
                   : AutovalidateMode.disabled,
               child: SingleChildScrollView(
                 child: Column(
-                  children: const [
-                    BodyField(),
-                    DateFieldWidget(),
-                    SetListWidget(),
-                    AddSetTile(),
+                  children: [
+                    AnimationRunner(),
+                    const BodyField(),
+                    const DateFieldWidget(),
+                    const SetListWidget(),
+                    const AddSetTile(),
                   ],
                 ),
               ),

@@ -1,6 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:reminder_app/presentation/core/misc/time_converter.dart';
 import 'package:reminder_app/presentation/core/misc/unit_converter.dart';
+import 'package:reminder_app/presentation/exercise/exercise_form/misc/date_time_converter.dart';
+import 'package:reminder_app/presentation/exercise/exercise_form/misc/milliseconds_converter.dart';
 
 void main() {
 
@@ -23,6 +25,19 @@ void main() {
       'time of date from date time test',
           () {
         expect(timeOfDayFromDateTime(1614668723666), '08:05');
+      },
+    );
+
+    test(
+      'milliseconds converter test',
+          () {
+        expect(millisecondsConverter(0), '00:00:00');
+      },
+    );
+    test(
+      'date time converter',
+          () {
+        expect(dateTimeConverter(0), '1.JAN 1970');
       },
     );
 

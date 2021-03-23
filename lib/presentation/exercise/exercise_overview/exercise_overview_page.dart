@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reminder_app/application/auth/auth_bloc.dart';
@@ -8,7 +7,6 @@ import 'package:reminder_app/injectable.dart';
 import 'package:reminder_app/presentation/core/drawer.dart';
 import 'package:reminder_app/presentation/core/logo_painter.dart';
 import 'package:reminder_app/presentation/exercise/exercise_overview/widgets/exercise_overview_body_widget.dart';
-import 'package:reminder_app/presentation/routes/router.gr.dart';
 
 class ExerciseOverviewPage extends StatelessWidget {
   @override
@@ -28,7 +26,7 @@ class ExerciseOverviewPage extends StatelessWidget {
             listener: (context, state) {
               state.maybeMap(
                 unauthenticated: (_) {
-                  ExtendedNavigator.of(context).replace(Routes.splashPage);
+                  Navigator.of(context).pushReplacementNamed('/');
                 },
                 orElse: () {},
               );
@@ -97,8 +95,8 @@ class ExerciseOverviewPage extends StatelessWidget {
                 ),
                 floatingActionButton: FloatingActionButton(
                   onPressed: () {
-                    ExtendedNavigator.of(context)
-                        .pushExerciseFormPage(editedExercise: null);
+                    Navigator.of(context)
+                        .pushNamed('/exercise-form-page', arguments: null);
                   },
                   child: const Icon(Icons.add),
                 ),
